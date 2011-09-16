@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>The ViewLoader component can be used to load new Smart GWT-based user interfaces
+        into a running application.</description>
+    <!-- PROPERTIES -->
+    <properties-preferred names="viewURL"/>
+    <properties-normal names=""/>
+    <properties-advanced names="border httpMethod iconSpacing"/>
+</component>

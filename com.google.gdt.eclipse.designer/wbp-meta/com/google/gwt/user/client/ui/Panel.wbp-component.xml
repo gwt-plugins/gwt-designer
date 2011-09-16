@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.PanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.PanelInfo"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="onChildOut.removeSize">never</parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">model.borders.empty</parameter>
+	</parameters>
+</component>

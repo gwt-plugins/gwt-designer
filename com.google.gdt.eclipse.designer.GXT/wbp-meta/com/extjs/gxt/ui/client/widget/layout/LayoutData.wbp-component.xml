@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.LayoutDataInfo"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="visible">false</parameter>
+		<parameter name="layoutData.exclude-properties">Class</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,8 @@
+import com.smartgwt.client.widgets.Dialog;
+
+method
+	public %TypeName% () {
+		setTitle("New dialog");
+		resizeTo(350, 200);
+	}
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.TabInfo"/>
+    <description>Tabs are specified as objects, not class instances.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.tab.Tab("newTab")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setPane" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+        </method>
+        <method name="setContextMenu">
+            <parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+        </method>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <exclude package="com.smartgwt.client.widgets.tab"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-preferred names="title"/>
+    <properties-advanced names="closeIcon* paneID"/>
+    <properties-hidden names=""/>
+    <properties-noDefaultValue names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+        <!-- simple container 1 -->
+        <parameter name="simpleContainer.1">true</parameter>
+        <parameter name="simpleContainer.1.component">com.smartgwt.client.widgets.menu.Menu</parameter>
+        <parameter name="simpleContainer.1.association">%parent%.setContextMenu(%child%)</parameter>
+        <!-- simple container 2 -->
+        <parameter name="simpleContainer.2">true</parameter>
+        <parameter name="simpleContainer.2.component">com.smartgwt.client.widgets.Canvas</parameter>
+        <parameter name="simpleContainer.2.association">%parent%.setPane(%child%)</parameter>
+    </parameters>
+</component>

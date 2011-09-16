@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A widget that serves as an "internal" hyperlink. That is, it is a link to another state of
+		the running application. It should behave exactly like Hyperlink, save that it lays out as an inline
+		element, not block.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.InlineHyperlink("New InlineHyperlink", false, "newHistoryToken")]]></source>
+		<x-attribute name="text" value="New InlineHyperlink"/>
+		<x-attribute name="targetHistoryToken" value="newHistoryToken"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="boolean"/>
+			<parameter type="java.lang.String" property="setTargetHistoryToken(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setTargetHistoryToken(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.Hyperlink"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Button"/>
+		<morphTarget class="com.google.gwt.user.client.ui.CheckBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox"/>
+	</morphTargets>
+</component>

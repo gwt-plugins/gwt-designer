@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- PROPERTIES -->
+	<property id="setVerticalAlignment(com.google.gwt.user.client.ui.HasVerticalAlignment.VerticalAlignmentConstant)">
+		<editor id="staticField">
+			<parameter name="class">com.google.gwt.user.client.ui.HasVerticalAlignment</parameter>
+			<parameter name="fields">ALIGN_TOP ALIGN_MIDDLE ALIGN_BOTTOM</parameter>
+		</editor>
+	</property>
+</component>

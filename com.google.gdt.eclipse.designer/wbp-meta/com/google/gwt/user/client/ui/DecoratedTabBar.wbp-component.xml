@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A decorated horizontal bar of folder-style tabs.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.DecoratedTabBar()]]></source>
+		<invocation signature="addTab(java.lang.String)"><![CDATA["Three"]]></invocation>
+		<invocation signature="addTab(java.lang.String)"><![CDATA["Two"]]></invocation>
+		<invocation signature="addTab(java.lang.String)"><![CDATA["One"]]></invocation>
+	</creation>
+</component>

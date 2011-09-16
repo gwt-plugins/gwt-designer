@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc label="Wizards" link_to="../org.eclipse.wb.doc.user/toc_wizards.xml#wizards"> 
+	<topic href="html/wizards/gwt/index.html" label="GWT"> 
+		<topic href="html/wizards/gwt/entrypoint.html" label="Java EntryPoint"/>
+		<topic href="html/wizards/gwt/composite.html" label="Java Composite"/>
+		<topic href="html/wizards/gwt/dialogbox.html" label="Java DialogBox"/>
+		<topic href="html/wizards/gwt/popuppanel.html" label="Java PopupPanel"/>
+		<topic href="html/wizards/gwt/uibinder_composite.html" label="UiBinder Composite"/>
+		<topic href="html/wizards/gwt/uibinder_dialogbox.html" label="UiBinder DialogBox"/>
+		<topic href="html/wizards/gwt/uibinder_popuppanel.html" label="UiBinder PopupPanel"/>
+		<topic href="html/wizards/gwt/module.html" label="Module"/>
+		<topic href="html/wizards/gwt/library.html" label="Library"/>
+	</topic> 
+</toc>

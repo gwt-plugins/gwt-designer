@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>EdgedCanvas acts as a decorative, image-based frame around another single Canvas.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.EdgedCanvas()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-normal names=""/>
+	<properties-advanced names="addEdgeStyleSuffix"/>
+	<properties-advanced names="edgeColor edgeStyleName"/>
+	<properties-advanced names="edgeBottom edgeLeft edgeRight edgeTop"/>
+	<properties-advanced names="edgeOffsetBottom edgeOffsetLeft edgeOffsetRight edgeOffsetTop"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer.1">true</parameter>
+		<parameter name="simpleContainer.1.component">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="simpleContainer.1.association">%parent%.addChild(%child%)</parameter>
+	</parameters>
+</component>

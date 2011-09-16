@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.DeckPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.DeckPanelInfo"/>
+	<description>A panel that displays all of its child widgets in a 'deck', where only one can be visible at
+		a time.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="showWidget" order="last">
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.StackPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TabPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.FlowPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.HorizontalPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.VerticalPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty DeckPanel"));
+				object.showWidget(0);
+			}
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

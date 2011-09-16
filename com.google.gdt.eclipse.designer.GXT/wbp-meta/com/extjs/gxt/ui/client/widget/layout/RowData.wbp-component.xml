@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.RowDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.RowData(com.extjs.gxt.ui.client.Style.DEFAULT, com.extjs.gxt.ui.client.Style.DEFAULT, new com.extjs.gxt.ui.client.util.Margins())]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="double" property="setWidth(double)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+			<parameter type="double" property="setHeight(double)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+		</constructor>
+		<constructor>
+			<parameter type="double" property="setWidth(double)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+			<parameter type="double" property="setHeight(double)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+			<parameter type="com.extjs.gxt.ui.client.util.Margins"
+				property="setMargins(com.extjs.gxt.ui.client.util.Margins)"
+				defaultSource="new com.extjs.gxt.ui.client.util.Margins()"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>(double,double)") {
+				return
+					args[0] == com.extjs.gxt.ui.client.Style.DEFAULT &&
+					args[1] == com.extjs.gxt.ui.client.Style.DEFAULT;
+			}
+			return false;
+		]]></parameter>
+	</parameters>
+</component>

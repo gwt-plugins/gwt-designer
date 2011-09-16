@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><TITLE>Preferences - Google > Web Toolkit > Designer > Event Handlers</TITLE><LINK rel=stylesheet type=text/css href="../../../book.css"><META name=GENERATOR content="MSHTML 8.00.7600.16700"></HEAD><BODY><H1>Preferences - Google &gt; Web Toolkit &gt; Designer&nbsp;&gt; Event Handlers</H1>
+<TABLE   cellSpacing=0 cellPadding=0 width=800 >
+	<TBODY><TR   >
+		<TD   ><IMG border=0 hspace=0 alt="" src="images/preferences_gpe_event_handlers.png" width=514 height=394><P>This page is used to control various 
+		<B>Google &gt; Web Toolkit &gt; Designer &gt; Event Handlers</B> options.</P>
+      <H2>Event code generation</H2>
+      <P>This preference determines how event handlers are generated. The first
+      option, <B>Create anonymous class</B>, generates an anonymous adapter
+      class located inline with the widget definition. For example:
+      <DL>
+        <DT>
+		<SPAN style="BACKGROUND-COLOR: #ffffff; FONT-FAMILY: Courier New; BACKGROUND-POSITION: 0% 50%; FONT-SIZE: 8pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</SPAN>
+		<SPAN style="BACKGROUND-COLOR: white; BACKGROUND-ATTACHMENT: scroll; BACKGROUND-REPEAT: repeat; FONT-FAMILY: Courier New; BACKGROUND-POSITION: 0% 50%; COLOR: black; FONT-SIZE: 8pt; mso-highlight: white">Button button = <B>new</B> Button(shell, SWT.NONE);<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.addSelectionListener(new SelectionAdapter() {<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void widgetSelected(SelectionEvent e)
+          {<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		}<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</SPAN>
+      </DT></DL>
+      <P>The second option, <B>Create inner class</B>, generates an adapter
+      class as an inner class. Options are provided to add the inner class at 
+		the beginning or end of the class as well as specify the pattern used to 
+		name the inner class:<FONT size=1>
+      <DL>
+        <DL>
+          <DT><SPAN style="mso-tab-count: 1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></FONT>
+			<SPAN style="BACKGROUND-COLOR: white; BACKGROUND-ATTACHMENT: scroll; BACKGROUND-REPEAT: repeat; FONT-FAMILY: Courier New; BACKGROUND-POSITION: 0% 50%; COLOR: black; FONT-SIZE: 8pt; mso-highlight: white">
+			<B>private</B> <B>class</B> ButtonSelectionListener <B>extends</B>
+          SelectionAdapter {<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<B>public</B> <B>void</B>
+          widgetSelected(SelectionEvent e) {<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			}<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Button button = <B>new</B> Button(shell, SWT.NONE);<BR>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.addSelectionListener(<B>new</B>
+          ButtonSelectionListener());</SPAN>
+      </DT></DL>
+      </DL>
+    <P>The pattern can include the template variables (names enclosed between 
+	"${" and "}") shown below. Capitalizing the name of any variable will cause 
+	the value of the variable to be capitalized before it is inserted into the 
+	resulting text.<UL>
+		<LI><B>component_name</B> - the name of the component to which the 
+		handler is being attached
+		<LI><B>component_class_name</B> - the name of the class of the component 
+		to which the handler is being attached 
+		<LI><B>listener_name</B> - the name of the event being handled
+		<LI><B>listener_className</B> - the name of the event listener
+		</LI></UL>
+		<P>The third option, <B>Implement listener interface in parent class</B>,
+      adds the the listener interface to the parent class and adds the
+      appropriate methods to the class definition. For example:<FONT size=1>
+      <DL>
+        <P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </FONT>
+		<SPAN style="BACKGROUND-COLOR: white; BACKGROUND-ATTACHMENT: scroll; BACKGROUND-REPEAT: repeat; FONT-FAMILY: Courier New; BACKGROUND-POSITION: 0% 50%; COLOR: black; FONT-SIZE: 8pt; mso-highlight: white">
+		<B>public</B> <B>class</B> MyClass <B>implements</B> SelectionListener {<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Button button = <B>new</B> Button(shell, SWT.NONE);<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.addSelectionListener(<B>this</B>);<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>public</B> <B>void</B> widgetSelected(SelectionEvent e)
+        {<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>public</B> <B>void</B>
+        widgetDefaultSelected(SelectionEvent e) {<BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</SPAN></P>
+      </DL>
+      <H2>Create stub event handler methods named</H2>
+      <P>This preference determines whether the text field below it is
+enabled.<SPAN style="mso-spacerun: yes">&iuml;&iquest;&frac12; </SPAN>Now whenever an event
+handler is added, a method stub is created with the name given in the text
+field.<SPAN style="mso-spacerun: yes">&iuml;&iquest;&frac12; </SPAN>A line of code is also added to
+the event handler which calls the newly created method.<SPANSTYLE="MSO-SPACERUN: yes?><UL></UL>
+      <H2>Delete stub event handler methods on component delete</H2>
+      <P>This preference determines whether handler methods associated with a 
+		component are deleted when the component is deleted.<H2>Declare 
+		parameters in event handlers as 'final'</H2>
+      <P>This preference determines whether 'final' is added to the parameters 
+		in event handlers.<H2>Show icon decorator for components with events</H2>
+      <P>This preference controls whether components with event handlers are shown with 
+		an icon decorator.<P>
+	<IMG border=0 src="images/event_icon_decorator.png" width=248 height=181></P></TD>
+	</TR>
+</TBODY></TABLE>
+
+</BODY></HTML>

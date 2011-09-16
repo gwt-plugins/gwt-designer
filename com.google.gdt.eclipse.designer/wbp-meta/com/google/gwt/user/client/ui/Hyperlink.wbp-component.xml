@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A widget that serves as an "internal" hyperlink. That is, it is a link to another state of
+		the running application. When clicked, it will create a new history frame using History#newItem, but
+		without reloading the page.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.Hyperlink("New hyperlink", false, "newHistoryToken")]]></source>
+		<x-attribute name="text" value="New Hyperlink"/>
+		<x-attribute name="targetHistoryToken" value="newHistoryToken"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="boolean"/>
+			<parameter type="java.lang.String" property="setTargetHistoryToken(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setTargetHistoryToken(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.Button"/>
+		<morphTarget class="com.google.gwt.user.client.ui.CheckBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="double-click.listener">click/onClick</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-Hyperlink { }
+		]]></parameter>
+	</parameters>
+</component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.HBoxLayoutInfo"/>
+	<description>Lays out it's children in a horizontal row. Because this layout positions it's children
+		absolutely, the container will have no height. A height must be specified directly or by a parent
+		layout.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.HBoxLayout()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="HBoxLayoutAlignment pack"/>
+	<properties-advanced names="scrollOffset"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.HBoxLayoutData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%()</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+	</parameters>
+</component>

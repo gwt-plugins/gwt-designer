@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.FormLayoutInfo"/>
+    <description>This is a layout specifically designed for creating forms. Usually you don't need
+        to create instances of this layout directly. It will usually be preferrable to use a
+        FormPanel (which automatically uses FormLayout as its layout class) since it also provides
+        built-in functionality for loading, validating and submitting the form.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.FormLayout()]]></source>
+    </creation>
+    <!-- PROPERTIES -->
+    <property id="setHideLabels(boolean)">
+        <defaultValue value="false"/>
+    </property>
+    <property id="setItemCls(java.lang.String)">
+        <editor id="gwt.style"/>
+        <defaultValue value="'x-form-item'"/>
+    </property>
+    <property id="setLabelAlign(com.gwtext.client.core.Position)">
+        <editor id="staticField">
+            <parameter name="class">com.gwtext.client.core.Position</parameter>
+            <parameter name="fields">LEFT RIGHT CENTER TOP BOTTOM AUTO</parameter>
+        </editor>
+        <defaultValue value="com.gwtext.client.core.Position.LEFT"/>
+    </property>
+    <property id="setLabelPad(int)">
+        <defaultValue value="5"/>
+    </property>
+    <property id="setLabelWidth(int)">
+        <defaultValue value="100"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- layout -->
+        <parameter name="layout-data.has">true</parameter>
+        <parameter name="layout-data.class">com.gwtext.client.widgets.layout.AnchorLayoutData</parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">false</parameter>
+        <parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+    </parameters>
+</component>

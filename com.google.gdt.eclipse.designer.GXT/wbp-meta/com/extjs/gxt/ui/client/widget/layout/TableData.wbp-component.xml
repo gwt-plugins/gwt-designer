@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.table.TableDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.TableData()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.Style$HorizontalAlignment"
+				property="setHorizontalAlign(com.extjs.gxt.ui.client.Style.HorizontalAlignment)"/>
+			<parameter type="com.extjs.gxt.ui.client.Style$VerticalAlignment"
+				property="setVerticalAlign(com.extjs.gxt.ui.client.Style.VerticalAlignment)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setWidth(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setHeight(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-advanced names=""/>
+	<property id="setStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setStyleName(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<!-- default -->
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>()") {
+				return true;
+			}
+			if (signature == "<init>(com.extjs.gxt.ui.client.Style.HorizontalAlignment,com.extjs.gxt.ui.client.Style.VerticalAlignment)") {
+				return args[0] == null && args[1] == null;
+			}
+			if (signature == "<init>(java.lang.String,java.lang.String)") {
+				return args[0] == null && args[1] == null;
+			}
+			return false;
+		]]></parameter>
+	</parameters>
+</component>

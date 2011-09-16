@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.TileLayoutInfo"/>
+	<description>Lays out a series of components, calls "tiles", in a grid with multiple tiles per row.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.tile.TileLayout()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- children -->
+		<method name="addTile">
+			<parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="orientation"/>
+	<properties-normal names=""/>
+	<properties-advanced names="animateTileChange autoWrapLines dragDataAction"/>
+	<properties-advanced names="paddingAsLayoutMargin"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.smartgwt.client.widgets.Canvas</parameter>
+		<parameter name="flowContainer.association">%parent%.addTile(%child%)</parameter>
+	</parameters>
+</component>

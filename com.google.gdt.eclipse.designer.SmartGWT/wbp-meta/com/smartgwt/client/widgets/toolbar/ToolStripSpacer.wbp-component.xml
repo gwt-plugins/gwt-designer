@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripCanvasInfo"/>
+    <description>A spacer element used to add extra blank space after the previous ToolStrip
+        element.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.toolbar.ToolStripSpacer(30)]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="int" property="setSpace(int)"/>
+        </constructor>
+    </constructors>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+    </parameters>
+</component>

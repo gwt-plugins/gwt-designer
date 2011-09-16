@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.CenterLayoutInfo"/>
+	<description>Layout that centers a single widget within its container.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.CenterLayout()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">false</parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+	</parameters>
+</component>

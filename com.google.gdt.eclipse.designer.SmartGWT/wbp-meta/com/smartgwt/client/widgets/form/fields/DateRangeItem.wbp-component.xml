@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.DateRangeItemInfo"/>
+    <description>Allows a user to select an absolute or relative range of dates via two
+        RelativeDateItem's.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.DateRangeItem("newDateRangeItem_%index%", "New DateRangeItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="fieldName fromTitle toTitle"/>
+    <properties-noDefaultValue names=""/>
+    <property id="setAllowRelativeDates(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

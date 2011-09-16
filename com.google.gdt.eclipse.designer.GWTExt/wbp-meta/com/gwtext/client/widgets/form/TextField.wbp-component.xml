@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Basic text field.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.TextField("New text field", "text_field", 100)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)" defaultSource="100"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)" defaultSource="100"/>
+			<parameter type="java.lang.String" property="setValue(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="fieldText setWidth(int)"/>
+	<properties-advanced names="emptyText maskRe maxLength"/>
+	<properties-advanced names="regex regexText vtypeText"/>
+	<properties-hidden names=""/>
+	<property id="setAllowBlank(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setBlankText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'This field is required'"/>
+	</property>
+	<property id="setDisableKeyFilter(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setEmptyClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-form-empty-field'"/>
+	</property>
+	<property id="setGrow(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setGrowMax(int)">
+		<category value="advanced"/>
+		<defaultValue value="800"/>
+	</property>
+	<property id="setGrowMin(int)">
+		<category value="advanced"/>
+		<defaultValue value="30"/>
+	</property>
+	<property id="setMaxLengthText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The maximum length for this field is {maxLength}'"/>
+	</property>
+	<property id="setMinLength(int)">
+		<category value="advanced"/>
+		<defaultValue value="0"/>
+	</property>
+	<property id="setMinLengthText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The minimum length for this field is {minLength}'"/>
+	</property>
+	<property id="setPassword(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setSelectOnFocus(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.form.TextField"/>
+		<morphTarget class="com.gwtext.client.widgets.form.ComboBox"/>
+		<morphTarget class="com.gwtext.client.widgets.form.TimeField"/>
+		<morphTarget class="com.gwtext.client.widgets.form.DateField"/>
+		<morphTarget class="com.gwtext.client.widgets.form.NumberField"/>
+		<morphTarget class="com.gwtext.client.widgets.form.TextArea"/>
+		<morphTarget class="com.gwtext.client.widgets.form.HtmlEditor"/>
+	</morphTargets>
+</component>

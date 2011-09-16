@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A draggable splitter on the side of a widget.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.SplitBar(com.extjs.gxt.ui.client.Style.LayoutRegion.EAST, %parent%)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.Style$LayoutRegion"
+				defaultSource="com.extjs.gxt.ui.client.Style.LayoutRegion.EAST"/>
+			<parameter type="com.extjs.gxt.ui.client.widget.BoxComponent" parent="true"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="autoSize barWidth handleWidth"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.SplitBar"><![CDATA[
+			SplitBarEvent Resize DragStart DragEnd
+			]]></parameter>
+	</parameters>
+</component>

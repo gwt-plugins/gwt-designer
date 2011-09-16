@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ViewportInfo"/>
+	<description>A LayoutContainer that fills the browser window and monitors window resizing. Viewports are
+		best used for applications that will fill the browser without window scrolling. Children of the
+		viewport can allow scrolling.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.Viewport()]]></source>
+	</creation>
+</component>

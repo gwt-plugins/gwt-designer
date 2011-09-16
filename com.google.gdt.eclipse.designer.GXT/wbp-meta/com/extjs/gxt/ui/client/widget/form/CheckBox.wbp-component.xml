@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Single checkbox field. Unlike other fields, checkbox fires change events when the radios
+		state is changed, not on blur.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.CheckBox()]]></source>
+		<invocation signature="setHideLabel(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setBoxLabel(java.lang.String)"><![CDATA["New CheckBox"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="boxLabel value"/>
+	<properties-advanced names="fieldLabel valueAttribute"/>
+	<property-tag name="fieldLabel" tag="isText" value="false"/>
+	<property-tag name="boxLabel" tag="isText" value="true"/>
+</component>

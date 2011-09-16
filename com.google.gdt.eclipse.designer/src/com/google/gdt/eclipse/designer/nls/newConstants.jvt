@@ -1,0 +1,6 @@
+package %PACKAGE_NAME%;
+
+import com.google.gwt.i18n.client.Constants;
+
+public interface %CLASS_NAME% extends Constants {
+}

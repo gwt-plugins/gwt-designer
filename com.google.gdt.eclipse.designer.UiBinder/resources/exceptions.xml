@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exceptions>
+	<exception id="4501" title="This Java file should be opened using normal Java editor."
+		warning="true">You are attempting to open <code>{0}</code> using the WindowBuilder Editor.
+		However, this class is just the companion of the corresponding <code>ui.xml</code> file,
+		which you should open instead. You can navigate between the corresponding ui.xml and Java
+		files using the shortcut <b>Shift+F12</b> by default.</exception>
+	<exception id="4502" title="Wrong GWT version." warning="true">You are attempting to use
+		UiBinder, however your GWT version is old and does not support the GWT Designer hooks
+		required to provide WYSIWYG editing. You need at least GWT 2.1 for visual editing.<p>So,
+			install latest GWT and restart Eclipse to clear cached state.</p></exception>
+	<exception id="4503" title="No companion Java type" warning="true">You are attempting to use
+		UiBinder for <code>{0}</code>, however your companion Java type (<code>UiBinder</code> inner
+		type subclass) does not exist. Please use the wizard to create a new <code>ui.xml</code>
+		template and companion Java type.</exception>
+	<exception id="4505" title="UiBinder template should be in client package." warning="true">You
+		are attempting to use UiBinder for <code>{0}</code>, however it is not in Java package.</exception>
+	<exception id="4506" title="GWT Designer supports only Widget based UiBinder templates."
+		warning="true">You are attempting to use UiBinder for <code>{0}</code>, however it renders
+		into <code>{1}</code>, instead of expected
+		<code>com.google.gwt.user.client.ui.Widget</code>.</exception>
+	<exception id="4507" title="Wrong GWT version for @UiField(provided=true) or @UiFactory."
+		warning="true">You are attempting to use <code>@UiField(provided=true)</code> or
+			<code>@UiFactory</code>, however only GWT <b>2.1.1</b> or newer provides required design
+		time hooks to use these features in GWT Designer.</exception>
+	<exception id="4508" title="Unable to create @UiField(provided=true).">You are attempting to use
+			<code>@UiField(provided=true)</code> for <code>({0}) {1}</code>, however GWT Designer
+		was not able to create instance of requested object. This can be caused by one of the
+		following reasons: <ul>
+			<li>Type is interface and you've not provided *.wbp-component.xml description with
+					<b>UiBinder.createInstance</b> script.</li>
+			<li>GWT Designer attempted to use shortest constructor of type (such as default
+				constructor), but it caused exception.</li>
+		</ul></exception>
+	<exception id="4509" title="Unable to create @UiFactory.">You are attempting to use
+			<code>@UiFactory</code> for <code>({0}) {1}</code>, however GWT Designer was not able to
+		create instance of requested object. This can be caused by one of the following reasons: <ul>
+			<li>Type is interface and you've not provided *.wbp-component.xml description with
+					<b>UiBinder.createInstance</b> script.</li>
+			<li>GWT Designer attempted to use shortest constructor of type (such as default
+				constructor), but it caused exception.</li>
+		</ul></exception>
+	<exception id="4510" title="UiBinder template should be in client package." warning="true">You
+		are attempting to use UiBinder for <code>{0}</code>, however it is not in GWT client
+		package.</exception>
+</exceptions>

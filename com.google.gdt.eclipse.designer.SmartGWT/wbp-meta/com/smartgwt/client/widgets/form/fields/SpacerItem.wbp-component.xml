@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A SpacerItem takes up a single cell in the FormLayout, of arbitrary size.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.SpacerItem()]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names=""/>
+</component>

@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>Enhanced Compilation</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link href="../../../book.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+    <h1>Enhanced Compilation</h1>
+	<div align="left">
+		<table border="0" cellpadding="5" cellspacing="0" id="table1" width="800">
+			<tr>
+				<td valign="top">
+				GWT Designer adds a compilation helper that checks compilation 
+				units during build (full or incremental) for GWT-specific 
+				problems. The compilation helper checks all types referenced in 
+				the class to make sure that each type exists directly in the 
+				current GWT module or in any of the modules that are directly or 
+				indirectly included in current one (via <b>&lt;inherits&gt;</b> tags 
+				in the <b>gwt.xml</b> file). If a type does not exist, GWT 
+				Designer adds an error marker like the following:<blockquote>
+					<p><font face="Times New Roman">
+					<img border="0" src="images/error.gif" width="20" height="20" align="middle">
+					</font><b>com.google.gwt.xml.client.XMLParser can not be 
+					found in source packages. Check the inheritance chain from 
+					your module; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; it may not be inheriting a required module or a 
+					module may not be adding its source path entries properly</b></p>
+				</blockquote>
+				<p>Note that only referenced types are checked; not referenced 
+				methods.<br>
+&nbsp;</td>
+				</tr>
+			<tr>
+				<td valign="top" width="1150">
+				Compiler checks for types emulated by GWT. Referenced types 
+				(like <b>java.util.LinkedList</b>) that are not emulated are 
+				flagged with an error.<p>
+			<font face="Times New Roman">
+			<img border="0" src="images/gwt-compiler-check.png" width="467" height="349"><br>
+&nbsp;</font></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1150">
+				Compiler checks for referenced types that are not properly 
+				inherited via the <b>gwt.xml</b> file.<p>For example:</p>
+				<ul>
+					<li>Referencing the GWT <b>Document</b> or <b>XMLParser</b> 
+					classes will trigger an error<br>
+&nbsp;</li>
+					<li>Adding an <b>&lt;inherits&gt;</b> tag referencing the <b>
+					com.google.gwt.xml.XML</b> package to the <b>gwt.xml</b> 
+					file will recompile the project and remove the error</li>
+				</ul>
+				<font face="Times New Roman">
+			<img border="0" src="images/gwt-compiler-check-inherits1.png" width="877" height="427"></font><p><font face="Times New Roman">
+			<img border="0" src="images/gwt-compiler-check-inherits2.png" width="877" height="427"><br>
+&nbsp;</font></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1150">
+				A QuickFix is available for adding &lt;inherits name=&quot;module.name&quot;/&gt;<p>
+			<font face="Times New Roman">
+	<img border="0" src="images/gwt-compiler-quickfix.png" width="596" height="283"><br>
+&nbsp;</font></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1150">
+				Compiler adds a warning for <b>
+				<a href="../../wizards/gwt/composite.html">Composites</a> </b> 
+				without a default constructor.<p>Custom widgets and Composites 
+				must have a default constructor in order to be used within GWT 
+				Designer.<p>
+			<img src="images/gwt-missing-default-constructor.png" alt=""><font face="Times New Roman"><br>
+&nbsp;</font></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1150">
+				<a name="isDeignTime()"></a><a name="isDesignTime"></a>Code that is inappropriate for 
+				design time may be hidden with <b>isDesignTime()</b> checks.<ul>
+					<li>Hide code that only works at runtime such as references 
+					to <b>RemoteService</b> instances<br>
+&nbsp;</li>
+					<li>Hide code that should not be reflected in the design 
+					view (i.e., a call to <b>setVisible(false)</b>)<br>
+&nbsp;</li>
+					<li>Hide code that is expensive to execute at design time 
+					(e.g., database calls)</li>
+				</ul>
+			<p>Remote Services are <b>runtime-only</b> 
+				components and care must be taken when trying to use them at 
+				design time in a <b>
+				<a href="../../wizards/gwt/composite.html">Composite</a></b> 
+				class. <b>GWT.create(MyService.class)</b> needs to create an 
+				instance of the class that should invoke the <b>RemoteService</b> 
+				implementation on the application server. During design time the 
+				application server isn't running so this doesn't work. That 
+				means that code like the following will fail, if you try to use 
+				the custom <b>
+				<a href="../../wizards/gwt/composite.html">Composite</a></b> 
+				within another window at design time:<dl>
+					<dd><font face="Courier">public class MyComposite extends 
+					Composite {<br>
+&nbsp;&nbsp;&nbsp; public MyComposite() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final AbsolutePanel absolutePanel = 
+					new AbsolutePanel();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initWidget(absolutePanel);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Button button = new Button();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; absolutePanel.add(button, 30, 34);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.setText(&quot;New Button&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>MyServiceAsync service = MyService.Util.getInstance(); //this line will fail<br>
+					</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // do 
+					something with MyService<br>
+&nbsp;&nbsp;&nbsp; }<br>
+					}</font></dd>
+				</dl>
+				<p>At design time, you will see an exception like the following:<dl>
+					<dd>java.lang.NoSuchMethodException: 
+					com.mycompany.module.client.MyService.&lt;init&gt;()<br>
+&nbsp;&nbsp;&nbsp; at java.lang.Class.getConstructor0(Class.java:2678)<br>
+&nbsp;&nbsp;&nbsp; at java.lang.Class.getDeclaredConstructor(Class.java:1953)<br>
+&nbsp;&nbsp;&nbsp; at com.google.gwt.core.client.GWT.create(Unknown Source)</dd>
+				</dl>
+				<p>The fix is to wrapper the <b>RemoteService</b> instantiation 
+				reference in an <b>isDesignTime()</b> check like this:<dl>
+					<dd><font face="Courier">public class MyComposite extends 
+					Composite {<br>
+&nbsp;&nbsp;&nbsp; public MyComposite() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final AbsolutePanel absolutePanel = 
+					new AbsolutePanel();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initWidget(absolutePanel);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Button button = new Button();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; absolutePanel.add(button, 30, 34);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.setText(&quot;New Button&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if (!isDesignTime()) { // or !Beans.isDesignTime() 
+					in GWT 2.4 or higher</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>MyServiceAsync 
+					service = MyService.Util.getInstance();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // do 
+					something with MyService<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</b><br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp; <b>&nbsp;// Implement the following method exactly as-is<br>
+&nbsp;&nbsp;&nbsp; private static final boolean isDesignTime() {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Beans.isDesignTime(); // GWT 2.4 and above<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // return false // GWT 2.2 and 
+					earlier<br>
+&nbsp;&nbsp;&nbsp; }</b><br>
+					}</font></dd>
+				</dl>
+				<p>Make sure to also implement the <b>isDesignTime()</b> method 
+				exactly as shown. Return <strong>false</strong> for GWT 2.2 or 
+				earlier or <strong>Beans.isDesignTime()</strong> for GWT 2.4 and 
+				above. At design time, GWT Designer will then replace 
+				the &quot;<b>return false;</b>&quot; with &quot;<b>return true;</b>&quot; during 
+				class loading (it will compile normally and be ignored at 
+				runtime). &nbsp;</td>
+			</tr>
+			</table>
+	</div>
+	      </body>
+</html>

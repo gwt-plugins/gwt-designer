@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'CarbonWeb' target in the 'CarbonWeb' project.
+//
+
+#include <Cocoa/Cocoa.h>
+#include <WebKit/WebKit.h>
+

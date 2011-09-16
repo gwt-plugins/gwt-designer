@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A custom component that supports an icon, text, and tool area.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.Header()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="addTool">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="iconStyle text"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">auto</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.Component</parameter>
+		<parameter name="flowContainer.association">%parent%.addTool(%child%)</parameter>
+	</parameters>
+</component>

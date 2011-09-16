@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>SuggestBox is a text box or text area which displays a pre-configured set of selections that
+		match the user's input.</description>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-SuggestBox { the suggest box itself }
+			.gwt-SuggestBoxPopup { the suggestion popup }
+			.gwt-SuggestBoxPopup .item { an unselected suggestion }
+			.gwt-SuggestBoxPopup .item-selected { a selected suggestion }
+		]]></parameter>
+	</parameters>
+</component>

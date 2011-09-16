@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.menu.MenuInfo"/>
+<description>A menu component - container for MenuItem-s.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.menu.Menu()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- children -->
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.menu.*;
+			if (object.getItemCount() == 0) {
+				item = new MenuItem("Empty Menu");
+				object.add(item);
+				ReflectionUtils.invokeMethod(object, "layout()", {});
+			}
+			]]></parameter>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			// only special "simple container" may accept Menu, we don't want to move "context" Menu
+			false
+			]]></parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.menu.Menu"><![CDATA[
+			MenuEvent BeforeShow Show BeforeHide Hide BeforeAdd Add BeforeRemove Remove
+		]]></parameter>
+	</parameters>
+</component>

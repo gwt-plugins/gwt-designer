@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A rich text editor that allows complex styling and formatting.</description>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.PasswordTextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextArea"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Hyperlink"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="GWT.requiresMessagesLoop">true</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-RichTextArea { }
+		]]></parameter>
+	</parameters>
+</component>

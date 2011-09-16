@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>FormItem for adding a Button to a form.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.ButtonItem("newButtonItem_%index%", "New ButtonItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-normal names="icon"/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names=""/>
+    <property id="setBaseStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

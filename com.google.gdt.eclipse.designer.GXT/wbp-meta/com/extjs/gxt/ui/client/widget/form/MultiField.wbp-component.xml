@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.form.MultiFieldInfo"/>
+	<description>A field that displays multiple fields in a single row or column.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.MultiField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New MultiField"]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.form.Field" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="orientation"/>
+	<properties-normal names="borders"/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">!object.borders</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">isHorizontal()</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.form.Field</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

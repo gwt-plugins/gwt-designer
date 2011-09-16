@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.PaddedPanelInfo"/>
+	<description>Helper class that wraps a Panel with shell panel adding the specified padding. Useful when
+		laying out panels using ColumnLayouts or the other layouts which place the panels right beside each
+		other without spacing.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.PaddedPanel(null, 10, 10, 10, 10)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.gwtext.client.widgets.Panel" child="true"/>
+			<parameter type="int" property="setPaddings(int)"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.gwtext.client.widgets.Panel" child="true"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<property id="setBaseCls(java.lang.String)">
+		<defaultValue value="'x-plain'"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<noInherit/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+	</parameters>
+</component>

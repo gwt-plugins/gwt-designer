@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.menu.MenuItemInfo"/>
+    <description>Menu items are specified are object literals, not class instances.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.menu.MenuItem("New MenuItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setKeyTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setSubmenu" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="title"/>
+    <properties-normal names=""/>
+    <properties-advanced names="includeInSummary is* linkText singleCellValue"/>
+    <properties-hidden names="isSeparator"/>
+    <properties-noDefaultValue names=""/>
+    <property id="set_baseStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <property id="setCustomStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+        <!-- simple container -->
+        <parameter name="simpleContainer">true</parameter>
+        <parameter name="simpleContainer.component">com.smartgwt.client.widgets.menu.Menu</parameter>
+        <parameter name="simpleContainer.association">%parent%.setSubmenu(%child%)</parameter>
+    </parameters>
+</component>

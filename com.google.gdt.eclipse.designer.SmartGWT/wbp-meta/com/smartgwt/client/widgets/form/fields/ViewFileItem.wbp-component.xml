@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Item for displaying the contents of "imageFile" fields in DynamicForms.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.ViewFileItem("newViewFileItem_%index%", "New ViewFileItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="showFileInline"/>
+    <properties-advanced names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

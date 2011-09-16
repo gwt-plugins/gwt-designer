@@ -1,0 +1,284 @@
+<html>
+
+<head>
+<title>GWT RemoteService Wizard</title>
+<link href="../../../book.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>GWT RemoteService Wizard</h1>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tr>
+    <td>
+      <img src="images/wizard_gwt_remoteservice0.png" align="left" hspace="20" vspace="20">New GWT RemoteServices can be
+              created using the <b>GWT RemoteServices</b> wizard. The wizard can be
+              selected from the drop down wizard menu or from the
+              Eclipse <b>New</b> wizard.
+              <p>To use the wizard, select the client package
+              to contain the RemoteService. Then enter the service name and hit the <b>Finish</b>
+              button.<ul>
+					<li>Service class must be created in module client package</li>
+					<li>Select the client package when invoking this wizard</li>
+					<li>Care must be taken when referencing a RemoteService at
+					<a href="#DesignTime">design time</a></li>
+					<li>RemoteServices can be used to easily create
+					<a href="#Example">simple RPC applications</a></li>
+				</ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <br>
+		<img src="images/wizard_gwt_remoteservice1.png" align="top">&nbsp; 
+		<img src="images/wizard_gwt_remoteservice2.png"></td>
+  </tr>
+  <tr>
+    <td>
+    <p><br>
+	Async part automatically created by GWT 
+				Project nature and builder.</p>
+		<p>
+			<img border="0" src="images/gwt-new-remote-service3.png" width="722" height="347"></p>
+		<p>GWT nature and 
+				builder automatically created during GWT Project creation.</p>
+		<p>
+			<img border="0" src="images/gwt-project-nature-and-builder.png" width="694" height="347"></p>
+		<p>Adding a method to the remote 
+				service interface class will automatically add the appropriate 
+				method to the matching *Async and *Impl classes.</p>
+			<img border="0" src="images/gwt-remote-service.png" width="607" height="251"><p>
+			<img border="0" src="images/gwt-remote-service-async.png" width="607" height="98"></p>
+			<p>
+			<img border="0" src="images/gwt-remote-service-impl.png" width="607" height="124"><p>
+		<a href="../../../designer.help/html/gwt/refactoring.html">Renaming</a> or moving a remote service class renames the *Async 
+				and *Impl classes and servlet entry in the in module XML file.</p>
+			<img border="0" src="images/gwt-rename-service-before.png" width="827" height="438" align="top"><p>
+			<img border="0" src="images/gwt-rename-service-after.png" width="827" height="438" align="top"><p>
+				<b><a name="Example"></a>Simple RPC Example</b></p>
+		<p>The following is a simple example of 
+				RPC communication using Remote Services.</p>
+				<p>
+			<img border="0" src="images/gwt-simplerpc-design.png"></p>
+		<p>
+			&nbsp;<img border="0" src="images/gwt-simplerpc-hosted.png" align="top" width="334" height="230"></p>
+				<p><b>Person </b>is the simple domain class used in the example. 
+				Note that it must be marked as serializable via the <b>IsSerializable</b> 
+				interface.</p>
+				<dl>
+					<dd><font face="Courier">package 
+					com.mycompany.project.client;<br>
+					<b>import com.google.gwt.user.client.rpc.IsSerializable;</b><br>
+					public class Person <b>implements IsSerializable</b> {<br>
+&nbsp;&nbsp;&nbsp; private String m_firstName;<br>
+&nbsp;&nbsp;&nbsp; private String m_lastName;<br>
+&nbsp;&nbsp;&nbsp; public Person() {<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; public Person(String firstName, String lastName) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_firstName = firstName;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_lastName = lastName;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; public String getFirstName() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return m_firstName;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; public String getLastName() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return m_lastName;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; public void setFirstName(String firstName) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_firstName = firstName;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; public void setLastName(String lastName) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_lastName = lastName;<br>
+&nbsp;&nbsp;&nbsp; }<br>
+					}</font></dd>
+				</dl>
+				<p><b>PersonsService</b> is a RemoteService interface that 
+				defines a single method, <b>getPersons()</b>, that returns a 
+				list of <b>Person</b> objects from the server based on filter 
+				pattern that is passed in.</p>
+				<dl>
+					<dd><font face="Courier">package 
+					com.mycompany.project.client;<br>
+					import java.util.List;<br>
+					import com.google.gwt.core.client.GWT;<br>
+					import com.google.gwt.user.client.rpc.RemoteService;<br>
+					import com.google.gwt.user.client.rpc.ServiceDefTarget;<br>
+					public interface PersonsService extends RemoteService {<br>
+&nbsp;&nbsp;&nbsp; /**<br>
+&nbsp;&nbsp;&nbsp; * @param pattern the pettern to search<br>
+&nbsp;&nbsp;&nbsp; * @return the {@link List} of {@link Person} that have given 
+					pattern in its first/last names.<br>
+&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp; <b>List getPersons(String pattern);</b><br>
+&nbsp;&nbsp;&nbsp; /**<br>
+&nbsp;&nbsp;&nbsp; * Utility class for simplifying access to the instance of 
+					async service.<br>
+&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp; public static class Util {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static PersonsServiceAsync 
+					instance;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public static PersonsServiceAsync 
+					getInstance(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (instance 
+					== null) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					instance = (PersonsServiceAsync) 
+					GWT.create(PersonsService.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					ServiceDefTarget target = (ServiceDefTarget) instance;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					target.setServiceEntryPoint(GWT.getModuleBaseURL() + &quot;/PersonsService&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 
+					instance;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; }<br>
+					}</font></dd>
+				</dl>
+				<p><b>PersonsServiceAsync</b> is an auto-generated class that 
+				facilitates communication with the server.</p>
+				<dl>
+					<dd><font face="Courier">package 
+					com.mycompany.project.client;<br>
+					import java.util.List;<br>
+					import com.google.gwt.user.client.rpc.AsyncCallback;<br>
+					public interface PersonsServiceAsync {<br>
+&nbsp;&nbsp;&nbsp; /**<br>
+&nbsp;&nbsp;&nbsp; * @param pattern the pettern to search<br>
+&nbsp;&nbsp;&nbsp; * @return the {@link List} of {@link Person} that have given 
+					pattern in its first/last names.<br>
+&nbsp;&nbsp;&nbsp; */<br>
+&nbsp;&nbsp;&nbsp; void getPersons(String pattern, AsyncCallback callback);<br>
+					}</font></dd>
+				</dl>
+				<p><b>PersonsServiceImpl</b> is the server side class that 
+				implements the actual logic of returning the list of customers 
+				based on the passed in pattern</p>
+				<dl>
+					<dd><font face="Courier">package 
+					com.mycompany.project.server;<br>import java.util.ArrayList;<br>import java.util.List;<br>import com.google.gwt.user.server.rpc.RemoteServiceServlet;<br>import com.mycompany.project.client.Person;<br>import com.mycompany.project.client.PersonsService;<br>public class PersonsServiceImpl extends RemoteServiceServlet 
+					implements PersonsService {<br>&nbsp;&nbsp;&nbsp; <b>private static final Person[] allPersons = new Person[]{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Person(&quot;Konstantin&quot;, &quot;Scheglov&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Person(&quot;Eric&quot;, &quot;Clayberg&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Person(&quot;Dan&quot;, &quot;Rubel&quot;),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Person(&quot;Alexander&quot;, &quot;Mitin&quot;)};<br>&nbsp;&nbsp;&nbsp; public List getPersons(String pattern) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; List persons = new ArrayList();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (int i = 0; i &lt; allPersons.length; 
+					i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Person person 
+					= allPersons[i];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (person.getFirstName().indexOf(pattern) 
+					!= -1 </b></font></dd>
+					<dd><b><font face="Courier">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</font></b><font face="Courier"><b>|| person.getLastName().indexOf(pattern) != -1) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					persons.add(person);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return persons;<br>&nbsp;&nbsp;&nbsp; }</b><br>}</font></dd>
+				</dl>
+				<p><b>SimpleRPC</b> is the GWT GUI class that implements the 
+				user interface. The user can enter a filter and click the <b>
+				Show Persons</b> button to retrieve a list of <b>Person</b> 
+				objects from the server.</p>
+				<dl>
+					<dd><font face="Courier">package 
+					com.mycompany.project.client;<br>import java.util.Iterator;<br>import java.util.List;<br>import com.google.gwt.core.client.EntryPoint;<br>import com.google.gwt.user.client.rpc.AsyncCallback;<br>import com.google.gwt.user.client.ui.*;<br>
+					<br>/**<br>* Entry point classes define &lt;code&gt;onModuleLoad()&lt;/code&gt;.<br>*/<br>public class SimpleRPC implements EntryPoint {<br>&nbsp;&nbsp;&nbsp; private TextBox m_txtFilter;<br>&nbsp;&nbsp;&nbsp; private Grid m_grid;<br>&nbsp;&nbsp;&nbsp; private Button clickMeButton;<br>&nbsp;&nbsp;&nbsp; public void onModuleLoad() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RootPanel rootPanel = RootPanel.get();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Label 
+					filterLabel = new Label(&quot;Filter:&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					rootPanel.add(filterLabel, 10, 10);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_txtFilter = 
+					new TextBox();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					rootPanel.add(m_txtFilter, 84, 16);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clickMeButton = new Button();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rootPanel.add(clickMeButton, 261, 
+					12);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clickMeButton.setText(&quot;Show 
+					Persons&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; clickMeButton.addClickListener(new 
+					ClickListener() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void 
+					onClick(Widget sender) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<b>fillPersons();</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m_grid = new 
+					Grid();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					rootPanel.add(m_grid, 19, 70);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.setBorderWidth(1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.resize(1, 2);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					final Label firstNameLabel = new Label(&quot;First name&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.setWidget(0, 0, firstNameLabel);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					firstNameLabel.setStyleName(&quot;simple-personHeader&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					final Label lastNameLabel = new Label(&quot;Last name&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.setWidget(0, 1, lastNameLabel);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					lastNameLabel.setStyleName(&quot;simple-personHeader&quot;);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; 
+					<b>private void fillPersons() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					PersonsService.Util.getInstance().getPersons(m_txtFilter.getText(), 
+					<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new AsyncCallback() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void 
+					onSuccess(Object result) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					List persons = (List) result;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.resize(1 + persons.size(), 2);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					int row = 1;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					for (Iterator I = persons.iterator(); I.hasNext();row++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					Person person = (Person) I.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.setWidget(row, 0, new Label(person.getFirstName()));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					m_grid.setWidget(row, 1, new Label(person.getLastName()));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void 
+					onFailure(Throwable caught) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br>&nbsp;&nbsp;&nbsp; }</b><br>}</font></dd>
+				</dl>
+				<h3><a name="DesignTime"></a>Note on using Remote 
+				Services at design time:</h3>
+				<p>Remote Services are <b>runtime-only</b> 
+				components and care must be taken when trying to use them at 
+				design time in a <b><a href="composite.html">Composite</a></b> 
+				class. <b>GWT.create(MyService.class)</b> needs to create an 
+				instance of the class that should invoke the <b>RemoteService</b> 
+				implementation on the application server. During design time the 
+				application server isn't running so this doesn't work. That 
+				means that code like the following will fail, if you try to use 
+				the custom <b><a href="composite.html">Composite</a></b> 
+				within another window at design time:<dl>
+					<dd><font face="Courier">public class MyComposite extends 
+					Composite {<br>
+&nbsp;&nbsp;&nbsp; public MyComposite() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final AbsolutePanel absolutePanel = 
+					new AbsolutePanel();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initWidget(absolutePanel);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Button button = new Button();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; absolutePanel.add(button, 30, 34);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.setText(&quot;New Button&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>MyServiceAsync service = MyService.Util.getInstance(); // this line will fail<br>
+					</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // do 
+					something with MyService<br>
+&nbsp;&nbsp;&nbsp; }<br>
+					}</font></dd>
+				</dl>
+				<p>At design time, you will see an exception like the following:<dl>
+					<dd>java.lang.NoSuchMethodException: 
+					com.mycompany.module.client.MyService.&lt;init&gt;()<br>
+&nbsp;&nbsp;&nbsp; at java.lang.Class.getConstructor0(Class.java:2678)<br>
+&nbsp;&nbsp;&nbsp; at java.lang.Class.getDeclaredConstructor(Class.java:1953)<br>
+&nbsp;&nbsp;&nbsp; at com.google.gwt.core.client.GWT.create(Unknown Source)</dd>
+				</dl>
+				<p>The fix is to wrapper the <b>RemoteService</b> instantiation 
+				reference in an <b>
+				isDesignTime()</b> check like this:<dl>
+					<dd><font face="Courier">public class MyComposite extends 
+					Composite {<br>
+&nbsp;&nbsp;&nbsp; public MyComposite() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final AbsolutePanel absolutePanel = 
+					new AbsolutePanel();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; initWidget(absolutePanel);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; final Button button = new Button();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; absolutePanel.add(button, 30, 34);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; button.setText(&quot;New Button&quot;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>if (!isDesignTime()) { // or !Beans.isDesignTime() 
+					in GWT 2.4 or higher</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>MyServiceAsync 
+					service = MyService.Util.getInstance();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // do 
+					something with MyService<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</b><br>
+&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp; <b>&nbsp;// Implement the following method exactly as-is<br>
+&nbsp;&nbsp;&nbsp; private static final boolean isDesignTime() {<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return Beans.isDesignTime(); // GWT 2.4 and above<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // return false // GWT 2.2 and 
+					earlier<br>
+&nbsp;&nbsp;&nbsp; }</b><br>
+					}</font></dd>
+				</dl>
+				<p>Make sure to also implement the <b>isDesignTime()</b> method 
+				exactly as shown. Return <strong>false</strong> for GWT 2.2 or 
+				earlier or <strong>Beans.isDesignTime()</strong> for GWT 2.4 and 
+				above. At design time, GWT Designer will then replace 
+				the &quot;<b>return false;</b>&quot; with &quot;<b>return true;</b>&quot; 
+				during class loading (it will compile normally and be ignored at 
+				runtime). 
+    </td>
+  </tr>
+</table>
+</body>
+</html>

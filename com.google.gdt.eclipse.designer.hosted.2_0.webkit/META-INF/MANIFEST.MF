@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.google.gdt.eclipse.designer.hosted.2_0.webkit;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.google.gdt.eclipse.designer.hosted.2_0
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Import-Package: com.google.gdt.eclipse.designer.hosted
+Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.google.gdt.eclipse.designer.webkit.WebKitActivator

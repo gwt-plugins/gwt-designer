@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.TabPanelInfo"/>
+	<description>Container for TabItem-s.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.TabPanel()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.TabItem" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="plain tabPosition"/>
+	<properties-advanced names="animScroll autoSelect bodyBorder borderStyle closeContextMenu"/>
+	<properties-advanced names="deferredRender scrollDuration scrollIncrement"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">!object.bodyBorder</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.*;
+			if (object.getItemCount() == 0) {
+				item = new TabItem("Empty TabPanel");
+				item.addText("Drop new TabItem from the palette.");
+				object.add(item);
+			}
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.TabItem</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.TabPanel"><![CDATA[
+			TabPanelEvent BeforeSelect Select BeforeAdd BeforeRemove Add Remove
+		]]></parameter>
+	</parameters>
+</component>

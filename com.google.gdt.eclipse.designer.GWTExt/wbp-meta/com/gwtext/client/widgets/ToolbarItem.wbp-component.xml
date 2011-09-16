@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>The base class that other classes should extend in order to get some basic common toolbar
+		item functionality.</description>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.ToolbarFill"/>
+		<morphTarget class="com.gwtext.client.widgets.ToolbarSeparator"/>
+		<morphTarget class="com.gwtext.client.widgets.ToolbarSpacer"/>
+		<morphTarget class="com.gwtext.client.widgets.ToolbarTextItem"/>
+	</morphTargets>
+</component>

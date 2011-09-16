@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Implements same API as Button, but may have different rendering depending on the
+		current skin.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.IButton("New IButton")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="title"/>
+	<properties-normal names=""/>
+	<properties-advanced names=""/>
+	<property-tag name="title" tag="isText" value="true"/>
+</component>

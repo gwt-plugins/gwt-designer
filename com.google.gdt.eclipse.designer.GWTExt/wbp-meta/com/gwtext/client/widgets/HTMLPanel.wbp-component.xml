@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.HTMLPanelInfo"/>
+	<description>Convenience Panel subclass for HTML-only Components.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.HTMLPanel("New HTML", 0)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setHtml(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setHtml(java.lang.String)"/>
+			<parameter type="int" property="setPaddings(int)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setHtml(java.lang.String)"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="html setPaddings(int)"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+	</parameters>
+</component>

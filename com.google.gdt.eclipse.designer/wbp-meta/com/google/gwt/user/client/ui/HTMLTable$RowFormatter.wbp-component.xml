@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- METHODS -->
+	<methods>
+		<method name="setStyleName">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setStylePrimaryName">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setVerticalAlign">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="com.google.gwt.user.client.ui.HasVerticalAlignment$VerticalAlignmentConstant"/>
+		</method>
+		<method name="setVisible">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="boolean"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name='visible'>false</parameter>
+	</parameters>
+</component>

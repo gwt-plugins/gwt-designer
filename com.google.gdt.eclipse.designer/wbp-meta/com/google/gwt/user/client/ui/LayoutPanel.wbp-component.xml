@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.LayoutPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.LayoutPanelInfo"/>
+	<description>A panel that lays its children out using constraint attributes specified as CSS
+		length attributes: left, right, width, top, bottom, height. <p/><b>Note:</b> this widget
+		will <em>only</em> work in standards mode.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.LayoutPanel()]]></source>
+		<x-attribute name="width" value="250px"/>
+		<x-attribute name="height" value="150px"/>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- horizontal -->
+		<method name="setWidgetHorizontalPosition">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="com.google.gwt.layout.client.Layout$Alignment"/>
+		</method>
+		<method name="setWidgetLeftRight">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+		<method name="setWidgetLeftWidth">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+		<method name="setWidgetRightWidth">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+		<!-- vertical -->
+		<method name="setWidgetVerticalPosition">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="com.google.gwt.layout.client.Layout$Alignment"/>
+		</method>
+		<method name="setWidgetTopBottom">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+		<method name="setWidgetTopHeight">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+		<method name="setWidgetBottomHeight">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%)</parameter>
+		<parameter name="flowContainer.tree.x-association">inter {parentNS}layer</parameter>
+		<!-- refresh -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			RootLayoutPanel.get().add(widget);
+		]]></parameter>
+	</parameters>
+</component>

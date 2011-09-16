@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.AnchorDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.AnchorData(null)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setAnchorSpec(java.lang.String)" defaultSource="null"
+			/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setAnchorSpec(java.lang.String)" defaultSource="null"/>
+			<parameter type="com.extjs.gxt.ui.client.util.Margins"
+				property="setMargins(com.extjs.gxt.ui.client.util.Margins)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<!-- default -->
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>()") {
+				return true;
+			}
+			if (signature == "<init>(java.lang.String)") {
+				return args[0] == null;
+			}
+			return false;
+		]]></parameter>
+		<!-- properties -->
+		<parameter
+			name="modelMethodProperty
+				getter=getAnchorWidth setter=setAnchorWidth
+				type=java.lang.String title=anchorWidth category=preferred"/>
+		<parameter
+			name="modelMethodProperty 
+				getter=getAnchorHeight setter=setAnchorHeight
+				type=java.lang.String title=anchorHeight category=preferred"/>
+		<!--  -->
+	</parameters>
+</component>

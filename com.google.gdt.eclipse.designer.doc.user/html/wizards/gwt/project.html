@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<title>GWT Java Project Wizard</title>
+<link href="../../../book.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>GWT Java Project Wizard</h1>
+
+<table border="0" cellpadding="0" cellspacing="0" width="1060">
+  <tr>
+    <td valign="top">
+      <br>
+      <img src="images/wizard_gwt_project0.png" hspace="0" align="top"></td>
+    <td width="10">
+      &nbsp;</td>
+    <td valign="top">
+      In order to use GWT components,
+              you need to make sure that all of the appropriate GWT
+              jar files are on your classpath. The <b>GWT Java Project</b>
+              wizard creates a standard Java project which has all of the needed
+              libraries added.
+              The wizard can be
+              selected from the drop down wizard menu or from the
+              Eclipse <b>New</b> or <b>New Project</b> wizards.
+              <p>To use the wizard, enter the project name and specify where the 
+				project should be located. Optionally create a <b>GWT Module</b> during 
+				initial project creation.<ul>
+		<li>A GWT Module may be created using the GWT Module wizard</li>
+		<li>A module descriptor file will be created</li>
+		<li>Client, public and server packages will be created</li>
+		<li>Optionally create an EntryPoint file and public 
+					resources</li>
+		<li>Optionally configure the project to use a third-party toolkit like
+		<b><a href="../../features/gwt/gwt-ext.html">GWT-Ext</a></b> or <b>
+		<a href="../../features/gwt/gxt.html">Ext GWT (GXT)</a></b>.</li>
+		</ul>
+	</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <p><br>
+		<img src="images/wizard_gwt_project1.png" align="top">&nbsp; 
+		<img src="images/wizard_gwt_project2.png">&nbsp; 
+		<img src="images/wizard_gwt_project3.png"></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      <p><br>
+		The wizard creates a Java project and generates content for the <b>.classpath</b> 
+	file like the following.</p>
+		<blockquote>
+			<font SIZE="2" COLOR="#008080">
+			<p><font face="Courier">&lt;?</font></font><font face="Courier"><font SIZE="2" COLOR="#3f7f7f">xml
+			</font><font SIZE="2" COLOR="#7f007f">version</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;1.0&quot;
+			</font><font SIZE="2" COLOR="#7f007f">encoding</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;UTF-8&quot;</font></font><font face="Courier" SIZE="2" COLOR="#008080">?&gt;<br>
+			&lt;</font><font SIZE="2" COLOR="#3f7f7f" face="Courier">classpath</font><font face="Courier" SIZE="2" COLOR="#008080">&gt;<br>
+			</font><font face="Courier"><font SIZE="2" COLOR="#008080">&nbsp;&nbsp;&nbsp; 
+			&lt;</font><font SIZE="2" COLOR="#3f7f7f">classpathentry </font>
+			<font SIZE="2" COLOR="#7f007f">kind</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;src&quot;
+			</font><font SIZE="2" COLOR="#7f007f">path</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;src&quot;</font></font><font face="Courier" SIZE="2" COLOR="#008080">/&gt;<br>
+&nbsp;&nbsp;&nbsp; </font><font face="Courier"><font SIZE="2" COLOR="#008080">&lt;</font><font SIZE="2" COLOR="#3f7f7f">classpathentry
+			</font><font SIZE="2" COLOR="#7f007f">kind</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;con&quot;
+			</font><font SIZE="2" COLOR="#7f007f">path</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;org.eclipse.jdt.launching.JRE_CONTAINER&quot;</font></font><font face="Courier" SIZE="2" COLOR="#008080">/&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;classpathentry </font>
+			<font size="2" color="#7f007f" face="Courier">kind</font><font SIZE="2" face="Courier">=</font><font size="2" color="#2a00ff" face="Courier">&quot;var&quot;</font><font face="Courier" SIZE="2" COLOR="#008080"> </font><font face="Courier"><font SIZE="2" COLOR="#7f007f">path</font><font SIZE="2">=</font></font><font size="2" color="#2a00ff" face="Courier">&quot;GWT_HOME/gwt-user.jar&quot;</font><font face="Courier" SIZE="2" COLOR="#008080">/&gt;<br>
+&nbsp;&nbsp;&nbsp; </font><font face="Courier"><font SIZE="2" COLOR="#008080">&lt;</font><font SIZE="2" COLOR="#3f7f7f">classpathentry
+			</font><font SIZE="2" COLOR="#7f007f">kind</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;output&quot;
+			</font><font SIZE="2" COLOR="#7f007f">path</font><font SIZE="2">=</font><font SIZE="2" COLOR="#2a00ff">&quot;bin&quot;</font></font><font face="Courier" SIZE="2" COLOR="#008080">/&gt;<br>
+			&lt;/</font><font SIZE="2" COLOR="#3f7f7f" face="Courier">classpath</font><font face="Courier" SIZE="2" COLOR="#008080">&gt;</font></p>
+		</blockquote>
+		<p>The wizard creates 
+				the project with all of the necessary configuration and resource 
+				files.<p> 
+		<img src="images/wizard_gwt_project4.png"></td>
+  </tr>
+</table>
+</body>
+</html>

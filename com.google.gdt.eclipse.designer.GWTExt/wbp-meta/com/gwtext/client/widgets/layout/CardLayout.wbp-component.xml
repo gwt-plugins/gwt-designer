@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.CardLayoutInfo"/>
+	<description>This layout contains multiple panels, each fit to the container, where only a single panel
+		can be visible at any given time. This layout style is most commonly used for wizards, tab
+		implementations, etc.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.layout.CardLayout(false)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="boolean" property="setDeferredRender(boolean)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<method-order>
+		<methods order="afterParentChildren com.gwtext.client.widgets.Panel">
+			<s>setActiveItem(int)</s>
+			<s>setActiveItem(java.lang.String)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<property id="setDeferredRender(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer">false</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.component">com.gwtext.client.widgets.Panel</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

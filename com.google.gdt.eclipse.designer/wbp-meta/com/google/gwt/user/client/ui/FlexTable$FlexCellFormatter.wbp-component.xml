@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- METHODS -->
+	<methods>
+		<method name="setColSpan" order="last">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="HTMLTable.cell" value="true"/>
+			</parameter>
+			<parameter type="int"/>
+		</method>
+		<method name="setRowSpan" order="last">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="HTMLTable.cell" value="true"/>
+			</parameter>
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name='visible'>false</parameter>
+	</parameters>
+</component>

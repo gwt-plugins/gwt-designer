@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Internationalization (i18n)</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link href="../../../book.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+    <h1>Internationalization (i18n)</h1>
+	<div align="left">
+		<table border="0" cellpadding="5" cellspacing="0" id="table1" width="900">
+			<tr>
+				<td valign="top" width="1150">Easily extract hard 
+				coded strings into resource files<img src="../../../com.instantiations.designer.doc.user/html/userinterface/images/choose_locale.gif" alt="" align="right"><ul>
+					<li>Click the <b>Externalize String</b> toolbar button to 
+					extract strings</li>
+					<li>Switch locales using the drop down list in the toolbar</li>
+					<li>More details docs on Designer's internationalization 
+					functions may be found in the
+					<a href="internationalization.html">general Designer docs</a></li>
+				</ul>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" width="1150">Create multiple GWT messages classes<ul>
+					<li>Creates subclasses of
+				com.google.gwt.i18n.client.Constants</li>
+					<li>Click the <b>String Source &gt; New</b> button to create a 
+					new Constants class</li>
+					<li>Specify location and name of Constants class</li>
+					<li>Specify field name to hold Constants class instance</li>
+				</ul>
+				<img border="0" src="images/gwt-nls-externalize-strings1.png" width="373" height="346"><font size="2">&nbsp;&nbsp;
+			<img border="0" src="images/gwt-nls-new-source.png" width="391" height="343"></font></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1150">Extract strings to default locale<ul>
+					<li>All widgets with unextracted text components are shown</li>
+					<li>Enable extraction for one or more widgets</li>
+					<li>Click <b>Externalize</b> to extract strings</li>
+					<li>Key names are automatically generated based on variable 
+					name and string property type</li>
+					<li>Keys and values may be edited in table</li>
+					</ul>
+					<img border="0" src="images/gwt-nls-externalize-strings1.png" width="373" height="346">&nbsp;&nbsp;
+			<img border="0" src="images/gwt-nls-externalize-strings2.png" width="373" height="346"><p> 
+					<img border="0" src="images/gwt-nls-source-constants.png" width="370" height="169" align="top"></td>
+					</tr>
+					<tr>
+						<td valign="top" width="1150">Hard coded 
+						strings in original source replaced with method sends to 
+						GWT constants file<p>
+			<img border="0" src="images/gwt-nls-source-before.png" width="432" height="526">
+			<img border="0" src="images/gwt-nls-source-after.png" width="444" height="526"></td>
+					</tr>
+					<tr>
+						<td valign="top" width="1150">Create and manage multiple locales<ul>
+							<li>Click <b>New Locale</b> button to create a new 
+							locale</li>
+							<li>Select from the list of locales know to the 
+							system or construct an arbitrary locale based on 
+							language and country</li>
+							<li>Optionally copy initial strings from another 
+							locales</li>
+						</ul>
+						<img border="0" src="images/gwt-nls-new-locale.png" width="328" height="346">&nbsp;&nbsp;
+			<img border="0" src="images/gwt-nls-externalize-strings3.png" width="373" height="346"></td>
+					</tr>
+					<tr>
+						<td valign="top" width="1150">Switch languages to see immediate changes in 
+				design view<ul>
+							<li>Select the locale from the drop down locale list</li>
+							<li>Text changes in design view are immediately 
+				reflected in active locale's .property file</li>
+						</ul>
+						<img border="0" src="images/gwt-nls-switch-languages.png" width="734" height="421"></td>
+					</tr>
+					</table>
+				</div>
+          </body>
+</html>

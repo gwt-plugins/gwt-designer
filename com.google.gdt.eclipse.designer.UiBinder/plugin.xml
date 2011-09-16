@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+
+	<!-- ======================================================== -->
+	<!-- Auto start (for property tester) -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.startup"/>
+
+
+	<!-- ======================================================== -->
+	<!-- Exceptions -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.exceptions">
+		<file path="resources/exceptions.xml"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Java Designer content type-->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.designerContentPatterns">
+		<excludePattern>createAndBindUi(</excludePattern>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Java parser validator -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.parseFactories">
+		<validator
+			class="com.google.gdt.eclipse.designer.uibinder.parser.UiBinderJavaParseValidator"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- UiBinder content type and editor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.editors">
+		<editor id="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor"
+			class="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor"
+			contributorClass="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditorContributor"
+			icon="icons/editor_ui.png" name="WindowBuilder Editor">
+			<contentTypeBinding contentTypeId="com.google.gwt.eclipse.core.uibinder.content.xml"/>
+		</editor>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.xml.pairResourceProviders">
+		<provider
+			class="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderPairResourceProvider"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Actions and commands -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.editorActions">
+		<editorContribution
+			id="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor.actions"
+			targetID="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor">
+			<action id="org.eclipse.wb.core.xml.editor.actions.SwitchAction"
+				class="org.eclipse.wb.internal.core.xml.editor.actions.SwitchAction"
+				definitionId="org.eclipse.wb.core.xml.editor.actions.SwitchAction"
+				label="%actions.switch.name" tooltip="%actions.switch.text"
+				menubarPath="navigate/open.ext2" helpContextId="switch_page"/>
+		</editorContribution>
+		<editorContribution
+			id="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor.pair.forXmlUi"
+			targetID="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor">
+			<action id="org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction"
+				class="org.eclipse.wb.internal.core.xml.editor.actions.SwitchPairEditorAction"
+				definitionId="org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction"
+				label="%actions.switchPair.name" tooltip="%actions.switchPair.text"
+				menubarPath="navigate/open.ext2" helpContextId="switch_page"/>
+		</editorContribution>
+		<editorContribution
+			id="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderEditor.pair.forGwtJava"
+			targetID="com.google.gwt.eclipse.core.editors.gwtJavaEditor">
+			<action id="org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction"
+				class="org.eclipse.wb.internal.core.xml.editor.actions.SwitchPairEditorAction"
+				definitionId="org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction"
+				label="%actions.switchPair.name" tooltip="%actions.switchPair.text"
+				menubarPath="navigate/open.ext2" helpContextId="switch_page"/>
+		</editorContribution>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Class loader -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.classLoadingContributor">
+		<contributor namespace="com.google.gdt.eclipse.designer.uibinder."/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Description driven features -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.rootProcessors">
+		<processor
+			class="com.google.gdt.eclipse.designer.uibinder.model.util.TemplateChangedRootProcessor"
+		/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.xml.rootProcessors">
+		<processor
+			class="com.google.gdt.eclipse.designer.uibinder.model.widgets.UIObjectRootProcessor"/>
+		<processor
+			class="com.google.gdt.eclipse.designer.uibinder.model.util.TemplateChangedRootProcessor"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Description driven features -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.xml.rootProcessors">
+		<processor
+			class="com.google.gdt.eclipse.designer.uibinder.model.widgets.generic.SizeManagementSupport"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Toolkit -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.toolkits">
+		<toolkit id="com.google.gdt.eclipse.designer">
+			<resourcePrefixes>
+				<resourcePrefix>NA</resourcePrefix>
+			</resourcePrefixes>
+			<palette>
+				<!-- System -->
+				<x-entry category="com.google.gdt.eclipse.designer.system" id="system.selection"
+					class="org.eclipse.wb.internal.core.xml.editor.palette.model.SelectionToolEntryInfo"/>
+				<x-entry category="com.google.gdt.eclipse.designer.system" id="system.marquee"
+					class="org.eclipse.wb.internal.core.xml.editor.palette.model.MarqueeSelectionToolEntryInfo"/>
+				<x-entry category="com.google.gdt.eclipse.designer.system"
+					id="system.chooseComponent"
+					class="org.eclipse.wb.internal.core.xml.editor.palette.model.ChooseComponentEntryInfo"
+				/>
+			</palette>
+		</toolkit>
+	</extension>
+
+	<!-- ======================================================== -->
+	<!-- Description processors -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.xml.descriptionProcessors">
+		<processor
+			class="com.google.gdt.eclipse.designer.uibinder.parser.UiBinderDescriptionProcessor"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- PropertyEditor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.xml.propertyEditors">
+		<configurableEditor id="gwt.style"
+			class="com.google.gdt.eclipse.designer.model.property.css.StylePropertyEditor"/>
+		<configurableEditor id="gwt.imageURL"
+			class="com.google.gdt.eclipse.designer.model.property.ImageUrlPropertyEditor"/>
+		<!--<configurableEditor id="gwt.alignString"
+			class="com.google.gdt.eclipse.designer.model.property.AlignString_PropertyEditor"/>
+		<configurableEditor id="gwt.dateTimeFormat"
+			class="com.google.gdt.eclipse.designer.model.property.DateTimeFormat_PropertyEditor"/>
+		<editor type="com.google.gwt.user.client.ui.Image"
+			class="com.google.gdt.eclipse.designer.model.property.Image_PropertyEditor"/>-->
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.editPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.uibinder.gef.EditPartFactory" priority="1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories for TreeViewer -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.treeEditPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.uibinder.gefTree.EditPartFactory"
+			priority="1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Rename refactoring participants -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ltk.core.refactoring.renameParticipants">
+		<renameParticipant
+			id="com.google.gdt.eclipse.designer.uibinder.refactoring.UiFieldRenameParticipant"
+			class="com.google.gdt.eclipse.designer.uibinder.refactoring.UiFieldRenameParticipant"
+			name="UiField rename participant">
+			<enablement>
+				<with variable="element">
+					<instanceof value="org.eclipse.jdt.core.IField"/>
+				</with>
+			</enablement>
+		</renameParticipant>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Error Report additional entries -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.errorReportEntriesProviders">
+		<provider
+			class="com.google.gdt.eclipse.designer.uibinder.editor.UiBinderReportEntriesProvider"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Property UI -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.propertiesPageActions">
+		<menu class="com.google.gdt.eclipse.designer.uibinder.editor.ExposePropertySupport"/>
+	</extension>
+
+</plugin>

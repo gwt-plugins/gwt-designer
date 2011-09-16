@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.TreeItemInfo"/>
+	<description>A item in a Tree. All events are bubbled to the item's parent tree.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.tree.TreeItem("New TreeItem")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<!-- children -->
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.tree.TreeItem" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text expanded"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.no">true</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.tree.TreeItem</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+		<!-- flip expanded state -->
+		<parameter name="double-click.flipBooleanProperty">expanded</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.tree.TreeItem"><![CDATA[
+			TreeEvent BeforeAdd BeforeRemove Add Remove 
+			TreeEvent BeforeExpand BeforeCollapse Expand Collapse 
+			TreeEvent CheckChange
+		]]></parameter>
+	</parameters>
+</component>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Adds a separator bar to a menu, used to divide logical groups of menu items.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.menu.Separator()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<property id="setItemCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-menu-sep'"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.no">true</parameter>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">20px</parameter>
+	</parameters>
+</component>

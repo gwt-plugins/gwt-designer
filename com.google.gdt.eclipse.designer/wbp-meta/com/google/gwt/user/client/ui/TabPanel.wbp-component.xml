@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.TabPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.TabPanelInfo"/>
+	<description>A panel that represents a tabbed set of pages, each of which contains another
+		widget. Its child widgets are shown as the user selects the various tabs associated with
+		them. The tabs can contain arbitrary HTML.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.TabPanel()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- association -->
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true" parent2="true"/>
+			<parameter type="com.google.gwt.user.client.ui.Widget" child2="true"/>
+		</method>
+	</methods>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.TabPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DecoratedTabPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.StackPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DeckPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty TabPanel"), "Empty");
+				object.selectTab(0);
+			}
+			]]></parameter>
+		<!-- size management -->
+		<parameter name="onChildAdd.setWidth">5cm</parameter>
+		<parameter name="onChildAdd.setHeight">3cm</parameter>
+		<parameter name="onChildOut.removeSize">always</parameter>
+		<!-- copy property -->
+		<parameter
+			name="copyChildPropertyTop from=Association/tabText to=TabText category=system(7)"/>
+		<!-- simple container -->
+		<parameter name="simpleContainer">false</parameter>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%, "New tab", false)</parameter>
+		<parameter name="flowContainer.tree.x-association">inter {parentNS}Tab text='New tab'</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-TabPanel { the tab panel itself }
+			.gwt-TabPanelBottom { the bottom section of the tab panel (the deck containing the widget) }
+		]]></parameter>
+	</parameters>
+</component>

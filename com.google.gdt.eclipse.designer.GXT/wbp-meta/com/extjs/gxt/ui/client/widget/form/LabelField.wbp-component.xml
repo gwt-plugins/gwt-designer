@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Displays static text.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.LabelField("New LabelField")]]></source>
+	</creation>
+	<creation id="empty">
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.LabelField()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<property-tag name="fieldLabel" tag="isText" value="false"/>
+	<property-tag name="text" tag="isText" value="true"/>
+</component>

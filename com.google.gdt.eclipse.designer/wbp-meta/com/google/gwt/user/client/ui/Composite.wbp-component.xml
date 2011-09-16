@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.CompositeInfo"/>
+	<!-- METHODS -->
+	<methods>
+		<method name="initWidget" order="afterCreation">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setWidget" order="afterCreation">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<property-tag name="visible" tag="noDefaultValue" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="noDefaultValuesForThis">true</parameter>
+		<parameter name="shouldDrawBorder">true</parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			rootPanel.add(widget);
+			
+			// GXT uses "dummy" Element while Component is not attached, and replaces it on parent during attach.
+			// But Composite uses same Element as its content, so after such replacement "element" field of
+			// Composite is not attached anymore to DOM. We fix this - get "element" from content Widget.
+			if (DOM.getParent(widget.getElement()) == null) {
+				content = ReflectionUtils.invokeMethod(widget, "getWidget()", {});
+				ReflectionUtils.setField(widget, "element", content.getElement());
+			}
+		]]></parameter>
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			// may be size is set for content Widget
+			content = model.getWidget();
+			if (content != null && content.getPropertyByTitle('Size').isModified()) {
+				return;
+			}
+			
+			// apply size to Composite
+			widget.setSize(size.width + "px", size.height + "px");
+		]]></parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">isContainerThis()</parameter>
+		<parameter name="simpleContainer.association">%parent%.initWidget(%child%)</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>An updateable progress bar component. The progress bar supports two different modes: manual
+		and automatic.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.ProgressBar()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="value"/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+</component>

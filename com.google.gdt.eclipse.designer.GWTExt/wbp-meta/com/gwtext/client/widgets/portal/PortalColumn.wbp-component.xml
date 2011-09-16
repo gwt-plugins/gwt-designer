@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A Portal column to which the Portlets are added.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="add" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.portal.Portlet" child="true"/>
+		</method>
+	</methods>
+</component>

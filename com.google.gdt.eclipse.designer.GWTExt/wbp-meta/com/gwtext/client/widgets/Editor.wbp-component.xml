@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.EditorInfo"/>
+	<description>A base editor field that handles displaying/hiding on demand and has some built-in sizing and
+		event handling logic.</description>
+	<!-- CREATION -->
+	<!--<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.Editor()]]></source>
+	</creation>-->
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.gwtext.client.widgets.form.Field"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<method-order>
+		<!-- beforeAssociation is default from super-class
+		<methods order="beforeAssociation">
+		</methods>-->
+		<methods order="afterAssociation">
+			<s>setValue(java.lang.String)</s>
+			<s>setValue(java.util.Date)</s>
+			<s>setValue(long)</s>
+			<s>setValue(double)</s>
+			<s>setValue(boolean)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names="value"/>
+	<property id="setAlignment(java.lang.String)">
+		<defaultValue value="'c-c'"/>
+	</property>
+	<property id="setCancelOnEsc(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setCompleteOnEnter(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHideEl(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setIgnoreNoChange(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setRevertInvalid(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setShadow(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setShadow(java.lang.String)">
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">sides</parameter-list>
+			<parameter-list name="strings">frame</parameter-list>
+			<parameter-list name="strings">drop</parameter-list>
+		</editor>
+		<defaultValue value="'frame'"/>
+	</property>
+	<property id="setSwallowKeys(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setUpdateEl(boolean)">
+		<defaultValue value="false"/>
+	</property>
+</component>

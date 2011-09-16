@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.FitLayoutInfo"/>
+	<description>This is a base class for layouts that contain a single item that automatically expands to
+		fill the layout's container.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.layout.FitLayout()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.component">com.google.gwt.user.client.ui.Widget</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A checkbox for manipulating 2-valued fields based on the native checkbox element.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.NativeCheckboxItem()]]></source>
+        <invocation signature="setTitle(java.lang.String)"><![CDATA["New NativeCheckboxItem"]]></invocation>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="setValue(boolean)"/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names=""/>
+</component>

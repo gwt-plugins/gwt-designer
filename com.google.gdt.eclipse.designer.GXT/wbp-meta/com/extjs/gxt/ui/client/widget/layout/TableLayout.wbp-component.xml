@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.table.TableLayoutInfo"/>
+	<description>TableLayout allows you to easily render content into an HTML table. The total number of
+		columns can be specified.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.TableLayout(1)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="int" property="setColumns(int)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<property id="setTableStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.TableData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%()</parameter>
+	</parameters>
+</component>

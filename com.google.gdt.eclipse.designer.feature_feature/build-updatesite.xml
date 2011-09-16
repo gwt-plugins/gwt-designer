@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Oct 24, 2007 8:47:46 AM                                                        
+
+     WPProUpdateSite    
+     This script will create the update site for wbpro
+                   
+     markr                                                                
+     ====================================================================== -->
+<project name="WindowTesterProUpdateSite" default="build-update-site">
+    <description>
+            This script will create the update site for WonfowTesterPro
+    </description>
+
+	<import file="../com.instantiations.eclipse.shared_build/build-macros.xml"/>
+	<import file="../com.instantiations.eclipse.shared_update/build-update-macros.xml"/>
+	
+	<property name="opt.eclipses" value="/opt/eclipses" /> 
+	<property name="opt.eclipses.loc" location="${opt.eclipses}" /> 
+    <!-- ================================= 
+          target: build-update-site              
+         ================================= -->
+    <target name="build-update-site" depends="init" description="--> This script will create the update site for wbpro">
+		<get_product_info product="Shared" />
+		<get_product_info product="DShared" />
+		<get_product_info product="D2Core" />
+		<get_product_info product="D2GWT" />
+		<get_product_info product="GWTCore" />
+		<get_product_info product="CSSEditor" />
+    	
+    	<updateInit />
+        <echoUpdateData />
+    	<mkdir dir="${updatesite.loc}"/>
+
+    	<copyUpdateInfo eclipseTarget="3.4" product="Shared" />
+    	<copyUpdateInfo eclipseTarget="3.4" product="DShared" />
+    	<copyUpdateInfo eclipseTarget="3.4" product="D2Core" />
+    	<copyUpdateInfo eclipseTarget="3.4" product="D2GWT" />
+    	<copyUpdateInfo eclipseTarget="3.4" product="GWTCore" />
+    	<copyUpdateInfo eclipseTarget="3.4" product="CSSEditor" />
+    	
+    	<copyUpdateInfo eclipseTarget="3.5" product="Shared" />
+    	<copyUpdateInfo eclipseTarget="3.5" product="DShared" />
+    	<copyUpdateInfo eclipseTarget="3.5" product="D2Core" />
+    	<copyUpdateInfo eclipseTarget="3.5" product="D2GWT" />
+    	<copyUpdateInfo eclipseTarget="3.5" product="GWTCore" />
+    	<copyUpdateInfo eclipseTarget="3.5" product="CSSEditor" />
+    	
+    	<!-- 
+    		create site.xml files
+    	-->
+    	<createSiteXml eclipseTarget="3.4">
+    		<args>
+    			<arg value="Description||GWT Designer tool" />
+    			<arg value="feature||com.instantiations.eclipse.shared,${Shared.fullVersion},D2GWT" />
+    			<arg value="feature||org.eclipse.wb.core.temp,${DShared.fullVersion},D2GWT" />
+    			<arg value="feature||org.eclipse.wb.core.feature,${D2Core.fullVersion},D2GWT" />
+    			<arg value="feature||com.google.gdt.eclipse.designer.feature,${D2GWT.fullVersion},D2GWT" />
+    			<arg value="feature||com.google.gdt.eclipse.designer.hosted.feature,${GWTCore.fullVersion},D2GWT" />
+    			<arg value="feature||org.eclipse.wb.css.feature,${CSSEditor.fullVersion},D2GWT" />
+    			<arg value="category||GWT Designer (required),D2GWT,GWT Designer feature" />
+    		</args>
+		</createSiteXml>
+    	
+    	<createSiteXml eclipseTarget="3.5">
+    		<args>
+    			<arg value="Description||GWT Designer tool" />
+    			<arg value="feature||com.instantiations.eclipse.shared,${Shared.fullVersion},D2GWT" />
+    			<arg value="feature||org.eclipse.wb.core.temp,${DShared.fullVersion},D2GWT" />
+    			<arg value="feature||org.eclipse.wb.core.feature,${D2Core.fullVersion},D2GWT" />
+    			<arg value="feature||com.google.gdt.eclipse.designer.feature,${D2GWT.fullVersion},D2GWT" />
+    			<arg value="feature||com.google.gdt.eclipse.designer.hosted.feature,${GWTCore.fullVersion},D2GWT" />
+    			<arg value="feature||org.eclipse.wb.css.feature,${CSSEditor.fullVersion},D2GWT" />
+    			<arg value="category||GWT Designer (required),D2GWT,GWT Designer feature" />
+    		</args>
+		</createSiteXml>
+    	    	
+		<!-- Create symbolic links for lower case versions of directories -->
+    	<createSymLink eclipsetarget="3.4" />
+    	
+    	<createP2Metadata updatedir="${updatesite.loc}/E-3.4" 
+    						eclipsedirname="eclipse_341" 
+    						uniqueid="D2GWT"
+    						projectname="GWT Designer" />
+    	
+    	<zipSite eclipseTarget="3.4" />
+
+		<copyWebSite eclipse.version="3.4"
+						product.title="Google Designer GWT"
+						product.description="Designer GWT is the tool for building GWT GUI's graphically" />
+
+    	<createSymLink eclipsetarget="3.5" />
+    	
+    	<createP2Metadata updatedir="${updatesite.loc}/E-3.5" 
+    						eclipsedirname="eclipse_350" 
+    						uniqueid="D2GWT"
+    						projectname="GWT Designer" />
+    	
+    	<zipSite eclipseTarget="3.5" />
+
+		<copyWebSite eclipse.version="3.5"
+						product.title="Google Designer GWT"
+						product.description="Designer GWT is the tool for building GWT GUI's graphically" />
+</target>
+	
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+    	<read_product_properties />
+    	<init_root_properties />
+    </target>
+	
+	<target name="init_plugin"></target>
+</project>

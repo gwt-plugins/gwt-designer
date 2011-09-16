@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.HBoxLayoutDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.HBoxLayoutData()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="flex"/>
+	<properties-advanced names="margins"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<!-- margins -->
+		<parameter
+			name="modelMethodProperty getter=getMarginAll setter=setMarginAll type=int title=margin-all"/>
+		<parameter
+			name="modelMethodProperty getter=getMarginTop setter=setMarginTop type=int title=margin-top"/>
+		<parameter
+			name="modelMethodProperty getter=getMarginRight setter=setMarginRight type=int title=margin-right"/>
+		<parameter
+			name="modelMethodProperty getter=getMarginBottom setter=setMarginBottom type=int title=margin-bottom"/>
+		<parameter
+		name="modelMethodProperty getter=getMarginLeft setter=setMarginLeft type=int title=margin-left"/>
+		<!-- default -->
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>()") {
+				return true;
+			}
+			if (signature == "<init>(int,int,int,int)") {
+				return args[0] == 0 && args[1] == 0 && args[2] == 0 && args[3] == 0;
+			}
+			return false;
+		]]></parameter>
+	</parameters>
+</component>

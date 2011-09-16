@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.LayoutContainerInfo"/>
+	<description>A Container that lays out its children using a Layout. Layouts are responsible for connecting
+		the child components to the container. Layouts are very flexible as they can create any internal
+		element structure, inserting its child components at any location.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.LayoutContainer()]]></source>
+		<invocation signature="setBorders(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- Layout -->
+		<method name="layout" order="last"/>
+		<method name="layout" order="last">
+			<parameter type="boolean"/>
+		</method>
+		<method name="setLayout">
+			<parameter type="com.extjs.gxt.ui.client.widget.Layout" child="true"/>
+		</method>
+		<!-- children -->
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true" parent2="true"/>
+			<parameter type="com.extjs.gxt.ui.client.widget.layout.LayoutData" child2="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-advanced names="layoutOnChange monitorWindowResize windowResizeDelay"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">true</parameter>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.*;
+			import com.extjs.gxt.ui.client.widget.layout.*;
+			import com.extjs.gxt.ui.client.Style$LayoutRegion;
+			if (object.getItemCount() == 0) {
+				if (object.getLayout() instanceof AccordionLayout) {
+					item = new ContentPanel();
+					item.setHeading("Empty AccordionLayout");
+					object.add(item);
+				} else {
+					item = new Text("Empty LayoutContainer");
+					if (object.getLayout() instanceof BorderLayout) {
+						object.add(item, new BorderLayoutData(LayoutRegion.CENTER));
+					} else {
+						object.add(item);
+					}
+				}
+				ReflectionUtils.invokeMethod(object, "layout()", {});
+			}
+			]]></parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.LayoutContainer"><![CDATA[
+			ContainerEvent AfterLayout 
+		]]></parameter>
+	</parameters>
+</component>

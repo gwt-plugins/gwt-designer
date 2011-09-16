@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ToolBarInfo"/>
+	<description>A standard tool bar.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.toolbar.ToolBar()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">30px</parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.*;
+			if (object.getItemCount() == 0) {
+				item = new Text("Empty ToolBar");
+				object.add(item);
+				ReflectionUtils.invokeMethod(object, "layout()", {});
+			}
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.Component</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.toolbar.ToolBar"><![CDATA[
+			ToolBarEvent BeforeAdd BeforeRemove Add Remove
+		]]></parameter>
+	</parameters>
+</component>

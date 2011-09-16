@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.GridInfo"/>
+	<description>This class represents the primary interface of a component based grid control. The grid
+		requires a ListStore and ColumnModel when constructed. Each model in the store will be rendered as a
+		row in the grid.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.grid.Grid(new com.extjs.gxt.ui.client.store.ListStore(), new com.extjs.gxt.ui.client.widget.grid.ColumnModel(java.util.Collections.<com.extjs.gxt.ui.client.widget.grid.ColumnConfig>emptyList()))]]></source>
+		<invocation signature="setBorders(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<methods-exclude signature="setAutoExpandColumn(java.lang.String)"/>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.grid.ColumnConfig</parameter>
+		<parameter name="flowContainer.association">%parent%.noMatter(%child%)</parameter>
+    	<!-- UiBinder -->
+    	<parameter name="UiBinder.createFieldProvided">true</parameter>
+    	<parameter name="UiBinder.createInstance"><![CDATA[
+    		import com.extjs.gxt.ui.client.widget.grid.*;
+    		grid = new Grid(new com.extjs.gxt.ui.client.store.ListStore(),
+    			new ColumnModel([
+    				new ColumnConfig("id_0", "First column", 100),
+    				new ColumnConfig("id_1", "Second column", 100),
+    				new ColumnConfig("id_2", "Third column", 100)
+    			])
+    		);
+    		return grid;
+    	]]></parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.grid.Grid"><![CDATA[
+			GridEvent ContextMenu BodyScroll ColumnResize ColumnMove SortChange ViewReady
+			GridEvent CellClick CellDoubleClick CellMouseDown
+			GridEvent RowClick RowDoubleClick RowMouseDown
+			GridEvent HeaderClick HeaderDoubleClick HeaderMouseDown HeaderContextMenu
+		]]></parameter>
+	</parameters>
+</component>

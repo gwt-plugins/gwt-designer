@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="undefined">
+<head>
+<title>StockWatcher Tutorial</title>
+<link href="../../book.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Tutorial: Creating a Stock Watcher with GWT Designer</h1>
+<p>This tutorial demonstrates how to use
+  the GUI builder, GWT Designer, to create and design a Stock Watcher
+  application based on the <a href="http://code.google.com/webtoolkit/tutorials/1.6/gettingstarted.html">GWT tutorial</a>.&nbsp;
+  To get the most out of this tutorial make sure to at least skim over the GWT Tutorial. Also, they intentionally introduced a bug that they&nbsp;later
+  fixed. We're going to skip that and just have the code already fixed in
+  this
+  tutorial.</p>
+  
+  <p><b>Requirements:</b> 
+<p>Before you can start with the tutorial, you must install a supported version of the following:<br />
+<a href="http://eclipse.org/downloads/">Eclipse</a>, Java 1.5 or higher, 
+<a href="http://code.google.com/webtoolkit/tools/download-gwtdesigner.html">GWT Designer (Full stand-alone version)</a>, and the
+<a href="http://code.google.com/webtoolkit/versions.html">GWT SDK</a> or 
+<a href="http://code.google.com/eclipse/docs/download.html">Google Plugin for Eclipse (includes GWT SDK)</a></li>
+<p><i>Note: This tutorial was created in Windows XP using <b>GWT Designer 2.3, GPE 2.3, Eclipse 3.7 & Java 1.6.</b></i></p>
+
+<p><em>Special thanks to <a href="http://giantflyingsaucer.com/blog/?p=88">Chad Lung</a> for creating this tutorial.</em></p>
+<p>Assuming everything is installed lets go ahead and begin.&nbsp;</p>
+<ol>
+<li><a href="#gwt_directory">Set the GWT SDK path</a></li>
+<li><a href="#gwt_project">Create a GWT Java Project</a></li>
+<li><a href="#design_ui">Design the UI</a></li>
+<li><a href="#testrun_app">Test Run your GWT Application</a></li>
+<li><a href="#event_handlers">Add Event Handlers</a></li>
+<li><a href="#add_logic">Add client code</a></li>
+<li><a href="#add_css">Add CSS Style</a></li>
+</ol>
+<h3><a name="gwt_directory">1. Set the path to the GWT SDK installation directory</a></h3>
+<p> If you installed the Google Plugin for Eclipse (GPE), this step is not needed (GWT Designer will just use the SDK 
+included with the GPE). Do this only if you downloaded the stand-alone GWT SDK zip file. 
+The path would be the directory you unzipped the GWT SDK to (the dir just above the /doc subdirectory). </p>
+<li>Open the GWT Preference page, select <b>Window > Preferences > WindowBuilder > GWT</b>.</li>
+<img src="images/login_pref_gwt_path.png">
+<h3><a name="gwt_project">2. Create a new GWT Java Project</a></h3>
+<p>Next, we need to create a new GWT Java project. Select <b>File &gt;
+  New > Project...</b> from the main menu. From the new project window expand <b>WindowBuilder &gt; GWT Designer &gt; Model </b> and select <b>GWT Java Project.</b></p>
+<p><img src="images/stockwatcher1.png" alt="New project wizard"></p>
+<p>Press the <b>Next</b> button. 
+<p><img src="images/stockwatcher1-1.png" alt="New project dialog"></p>
+<p>In the New Project screen enter <b>StockWatcher</b> for the project name and press the <b>Next</b> button. In the following screen&nbsp;click on the <b>Create
+  GWT Module</b> checkbox and enter <b>StockWatcher</b> for the Module name and <b>com.google.gwt.sample.stockwatcher.StockWatcher</b> for the Package name.</p>
+<img src="images/stockwatcher2.png" alt="New GWT Module settings">
+<p>Press the <b>Finish</b> button. GWT Designer automatically generates the necessary files and configures your GWT project.</p>
+<p><img src="images/stockwatcher27.png" alt="GWT Project structure"></img></p> 
+<p>You should see some
+  code that looks like the following in the <b>StockWatcher.java</b> file:</p>
+<p>We are going to get rid of the "Hello World" boilerplate code and
+  button. Click on the <b>Design</b> tab at the bottom of the source file
+  editor and GWT Designer will render a visual layout of our page. If you
+  don't see the Design tab, right click on the Java class and select <b>Open
+  With &gt; WindowBuilder Editor</b>.</p>
+<img src="images/stockwatcher3.png" alt="Source code">
+<p>When you're in Design mode, you should see the Designer's <a href="../palettes/gwt_palette.html">Palette</a> that lists all the supported Panels and Widgets and the Properties pane for editing widget properties. Let's remove the
+  button so click on the &quot;<b>Click me!</b>&quot; button and press <b>Delete</b>.</p>
+<p><img src="images/stockwatcher4.png" alt="GWT Designer default layout"></p>
+<p>Make sure to <i><b>Save</b></i> your project.</p>
+
+<h3><a name="design_ui">3. Design the UI</a></h3>
+<p>According to the GWT tutorial our end product will look like this:</p>
+<p><img src="images/stockwatcher24.png" alt="Finished StockWatcher Application"></p>
+<p>Lets start designing the UI now. The first thing we add is a vertical panel. 
+In the GWT Designer  <b>Pallette</b>, locate the &quot;<b>Vertical Panel</b>&quot;
+from the &quot;<b>Panels</b>&quot; category and click on it.
+Then simply click inside the root panel/content  area to place it.</p>
+<img src="images/stockwatcher6.png" alt="Add vertical panel">
+<p>Adjust the size by dragging the corner of the vertical panel and 
+change the vertical panel's "variable" property to "mainPanel".</p>
+<img src="images/stockwatcher7.png" alt="Vertical Panel on designer">
+<p>Inside of this Vertical Panel we need several other items. The first is the <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/FlexTable.html">FlexTable</a>.
+  So click on the FlexTable and then click inside of the vertical panel
+  to place it near the top. Change the FlexTable's variable property to
+  "stocksFlexTable". Now, click on the <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/HorizontalPanel.html">Horizontal Panel</a> and place it below the FlexTable and change it's variable name to
+  "addPanel". Inside of the Horizontal Panel we will add two items:<br>
+  1. A <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/TextBox.html">TextBox</a> with the variable name "newSymbolTextBox"<br>
+  2. A <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/Button.html">Button</a> next to the TextBox. Set the variable name to "addButton" and a text property value of "Add"<br>
+  Finally add a <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/Label.html">Label</a> below the Horizontal Panel and change it's variable name to "lastUpdatedLabel".</p>
+  <p>When all that's done, it should look something like the next screen:</p>
+  <img src="images/stockwatcher8.png">
+<p>Now before we do anything else, we need to convert these panels and
+  widgets into local fields. The easiest way to do this is to let the GWT
+  Designer do it for you. Click on the top most panel, the Vertical Panel
+  called "mainPanel" in the Designer and then click the Properties toolbar item
+  <b>Convert local to field</b>.</p>
+<p><img src="images/stockwatcher9.png" alt="Convert local to field"></p>
+<p>Now, do this for the FlexTable, Horizontal Panel, TextBox, Button
+  and the Label. You can avoid doing this in the future if you go into
+  the <a href="../preferences/gwt/preferences_code_generation.html">GWT Designer's preferences</a> settings and change the Variable generation to <b>Field</b> so that your
+  variables are always declared as class level variables. </p>
+  <p>Let's take a peek at the generated source code by clicking the <b>Source</b> tab.</p>
+  <img src="images/stockwatcher10.png" alt="Source preview">
+<p>Back to Design mode, click on the textbox and set it's <b>focus</b> property to <b>true</b>. If you don't see the focus property, 
+click on the <b>Show advanced properties</b> toolbar item on the Properties pane. Setting the "focus" property to true
+  will make it so when the page loads in a browser the focus is set to
+  the textbox right away.</p>
+<p>Lets go into the source code now by clicking on the <b>Source</b> tab.  Find the <b>stocksFlexTable</b> initialization code.
+We are going to add to this code to setup the FlexTable in order to display the stock information.  
+Add the following <b>setText()</b> to look like this:</p>
+<pre><code>stocksFlexTable = new FlexTable();
+
+//Add these lines
+stocksFlexTable.setText(0, 0, "Symbol");
+stocksFlexTable.setText(0, 1, "Price");
+stocksFlexTable.setText(0, 2, "Change");
+stocksFlexTable.setText(0, 3, "Remove");
+
+mainPanel.add(stocksFlexTable);
+</code></pre>			
+<p>Make sure to <b>Save.</b></p>	
+<h3><a name="testrun_app">4. Test Run your GWT Application</a></h3>
+<p>At this point in the GWT tutorial they run the project to have a look at everything so far. We'll do the
+  same. Right-click on the project in Eclipse and select: <b>Run-as -&gt;
+  GWT Application</b></p>
+<p><img src="images/stockwatcher11.png" alt="Running it the first time"></p>
+<p>Click <b>Launch Default Browser.</b></p>
+<p><img src="images/stockwatcher28.png" alt="Launch Browser"></p>
+
+<p>If all goes well, you should see something similar to this:</p>
+<p><img src="images/stockwatcher12.png" alt="Initial rendered UI"></p>
+<h3><a name="event_handlers">5. Add Event Handlers</a></h3>
+<p>Well that's kinda ugly so far, but we'll fix that. Right now we are
+  going to move on to the event listeners. We are going to add a listener
+  for when the button is clicked as well as when a keydown event is
+  triggered in the textbox.</p>
+<p><a href="../../html/features/event_handling.html">Adding event handlers</a> with GWT Designer is very simple. To add an onClick event,  switch to
+  design mode and then right-click on the "Add" button. Select <b>Add Event Handler</b> > <b>click</b> > <b>onClick</b>. It will
+  automatically setup the event in the code and drop us into that spot.
+<p><img src="images/stockwatcher29.png" alt="Onclick Event"></p>
+  
+  Now lets add the key event for the textbox using the properties pane. Go back to the designer and
+  click on the textbox beside the "Add" button. Go over to the properties
+  and click on the <b>Events</b> tool item.</p>
+  <img src="images/stockwatcher13.png" alt="Events tool item">
+  <p> Drill down into the <b>keyPress -&gt;
+  onKeyPress</b> event and double click there. It will add the event
+  listener for us and again drop us into the code.</p>
+<img src="images/stockwatcher14.png" alt="Keyboard Event">
+<p>According to the GWT Tutorial we need to call the "addStock()"
+  function every time the button is clicked or the Enter key is pressed 
+  in the textbox. So inside the <b>onKeyPressed() </b> and <b>onClick() events</b>, we need to add the call to a method called
+  <b>addStock()</b>. Lets modify the onKeyPress a little bit more to catch just the <b>Enter</b> key when it's 
+  pressed down. 
+  <pre><code>
+newSymbolTextBox.addKeyPressHandler(new KeyPressHandler() {
+	public void onKeyPress(KeyPressEvent event) {
+		if (event.getCharCode() == KeyCodes.KEY_ENTER){
+			addStock();
+		}
+	}
+});
+  </code></pre>
+ <pre><code>
+addButton.addClickHandler(new ClickHandler() {
+	public void onClick(ClickEvent event) {
+		addStock();
+	}
+});
+</code></pre>						
+  Notice the red squiggle below the "addStock" call. Hover your mouse
+  over that squiggle and choose: <b>Create Method 'addStock()' in type
+  'StockWatcher'</b></p>
+<img src="images/stockwatcher15.png" alt="addStock Function Call">
+<p><b>Note:</b> Depending on your Eclipse configuration, it might create the addStock method with an access modifier of protected. 
+Since, you aren't going to subclass StockWatcher, you'll have to change its access to <b>private</b>.</p>
+
+<h3><a name="add_logic">6. Add client code</a></h3>
+<p>The GWT Tutorial is now moving us onto implementing some client-side functionality.
+  Basically we want to validate what a user types into the textbox to
+  make sure its as valid as possible. For this we need to add some code
+  to the "addStock()" function. Switch to the source tab and hand-code/copy-paste the following:</p>
+<pre><code>
+private void addStock() {
+    final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
+    newSymbolTextBox.setFocus(true);
+
+    // Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
+    if (!symbol.matches("^[0-9A-Z\\.]{1,10}$")) {
+      Window.alert("'" + symbol + "' is not a valid symbol.");
+      newSymbolTextBox.selectAll();
+      return;
+    }
+
+    newSymbolTextBox.setText("");
+
+    // TODO Don't add the stock if it's already in the table.
+    // TODO Add the stock to the table.
+    // TODO Add a button to remove this stock from the table.
+    // TODO Get the stock price.
+}</code></pre>
+<p>Go ahead and run the project again as we did before. Type in some
+  invalid characters into the textbox and try the "Add" button. Now try
+  the "Enter" key in the textbox.</p>
+<img src="images/stockwatcher16.png" alt="Testing the client-side validation">
+<p>Its time to actually be able to add a stock to the list.  First, we are going to need to pull in some help from the standard <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/ArrayList.html">Java ArrayList</a>.  Also we to need to add an import at the top of the source code as well as a variable for the new ArrayList.</p>
+<pre><code>import java.util.ArrayList;</code></pre>
+<pre><code>
+public class StockWatcher implements EntryPoint {
+	private FlexTable stocksFlexTable;
+	private VerticalPanel mainPanel;
+	private TextBox newSymbolTextBox;
+	private Button addButton;
+	private Label lastUpdatedLabel;
+	private ArrayList <em><</em>String> stocks = new ArrayList<em><</em>String>(); <b>//Add this line</b>
+	</code></pre>
+
+<p>Here is the "addStock" function in full:</p>
+<pre><code>
+private void addStock() {
+	final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
+	newSymbolTextBox.setFocus(true);
+	 
+	// symbol must be between 1 and 10 chars that are numbers, letters, or dots
+	if (!symbol.matches("^[0-9a-zA-Z\\.]{1,10}$"))
+	{
+	    Window.alert("'" + symbol + "' is not a valid symbol.");
+	    newSymbolTextBox.selectAll();
+	    return;
+	}
+		 
+	newSymbolTextBox.setText("");
+		     
+	// don't add the stock if it's already in the watch list
+    if (stocks.contains(symbol))
+        return;
+
+    // add the stock to the list
+    int row = stocksFlexTable.getRowCount();
+    stocks.add(symbol);
+    stocksFlexTable.setText(row, 0, symbol);
+
+    // add button to remove this stock from the list
+    Button removeStock = new Button("x");
+    removeStock.addClickHandler(new ClickHandler() {
+    public void onClick(ClickEvent event) {					
+        int removedIndex = stocks.indexOf(symbol);
+        stocks.remove(removedIndex);
+        stocksFlexTable.removeRow(removedIndex + 1);
+    }
+    });
+    stocksFlexTable.setWidget(row, 3, removeStock);		
+}</code></pre>
+<p>Run the project again (or refresh the browser if it's still running).  Play around adding and removing some stock symbols.</p>
+<img src="images/stockwatcher17.png" alt="Adding stocks">
+<p>If we want to simulate stock prices changing throughout the day for
+  our demo we will need to add a timer class to refresh the prices. In
+  this case we will be making up our own random prices so obviously you
+  won't want to be using this for real stock trading!</p>
+<p>Lets call in the <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/Timer.html">timer class</a> from GWT:</p>
+<p>First, add an import statement...</p>
+<pre><code>import com.google.gwt.user.client.Timer;</code></pre>
+<p>Now we can add this code to the bottom of the "onModuleLoad":</p>
+<pre><code>    
+// setup timer to refresh list automatically
+Timer refreshTimer = new Timer() {
+	public void run()
+	{
+		refreshWatchList();
+	}
+};
+refreshTimer.scheduleRepeating(REFRESH_INTERVAL);
+</code></pre>
+<p>Add this code to the top of the StockWatcher class to define the REFRESH_INTERVAL:</p>
+<pre><code>private static final int REFRESH_INTERVAL = 5000;</code></pre>
+<p>You can also add the "refreshWatchList()" the same way we added the
+  "addStock()" function using the hover over tooltip and selecting the
+  bottom option of the two that will be available.</p>
+<img src="images/stockwatcher18.png" alt="Adding the refreshWatchList function">
+<p>We'll now add a "StockPrice" class. Right-click on the
+  com.google.gwt.sample.stockwatcher.client package and choose: File
+  -&gt; New -&gt; Class. Give the class the name: StockPrice. The rest of
+  the defaults should be fine. Press the "Finish" button.</p>
+<p><img src="images/stockwatcher19.png" alt="Adding the StockPrice class" ></p>
+<p>Here is the completed StockPrice class:</p>
+<pre><code>
+package com.google.gwt.sample.stockwatcher.StockWatcher.client;
+
+public class StockPrice{
+	private String symbol;
+	private double price;
+	private double change;
+
+	public StockPrice()
+	{
+	}
+
+	public StockPrice(String symbol, double price, double change)
+	{
+		this.symbol = symbol;
+		this.price = price;
+		this.change = change;
+	}
+
+	public String getSymbol()
+	{
+		return this.symbol;
+	}
+
+	public double getPrice()
+	{
+		return this.price;
+	}
+
+	public double getChange()
+	{
+		return this.change;
+	}
+
+	public double getChangePercent()
+	{
+		return 100.0 * this.change / this.price;
+	}
+
+	public void setSymbol(String symbol)
+	{
+		this.symbol = symbol;
+	}
+
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
+
+	public void setChange(double change)
+	{
+		this.change = change;
+	}
+}
+
+</code></pre>
+<p>Go back to the StockWatcher source code and add the following import:</p>
+<pre><code>
+import com.google.gwt.user.client.Random;
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.NumberFormat;
+import java.util.Date;
+</code></pre>
+
+<p>What we want to do is populate an array of StockPrice objects with
+  some values and then pass them onto a function that will update the
+  FlexTable. We can now finish off the "refreshWatchList" function with the following code:</p>
+<pre><code>
+private void refreshWatchList(){
+	final double MAX_PRICE = 100.0; // $100.00
+	final double MAX_PRICE_CHANGE = 0.02; // +/- 2%
+
+	StockPrice[] prices = new StockPrice[stocks.size()];
+	for (int i = 0; i < stocks.size(); i++)
+	{
+		double price = Random.nextDouble() * MAX_PRICE;
+		double change = price * MAX_PRICE_CHANGE
+				* (Random.nextDouble() * 2.0 - 1.0);
+
+		prices[i] = new StockPrice((String) stocks.get(i), price, change);
+	}
+
+	updateTable(prices);
+}
+</code></pre>
+<p>Go ahead and hover over the red squiggle under the "updateTable" and add the function just as we have twice before or copy and paste the code below:</p>
+<pre><code>
+private void updateTable(StockPrice[] prices){
+	for (int i = 0; i < prices.length; i++)
+	{
+		updateTable(prices[i]);
+	}
+
+	// change the last update timestamp
+	lastUpdatedLabel.setText("Last update : "
+		+ DateTimeFormat.getMediumDateTimeFormat().format(new Date()));
+}
+</code></pre>
+<p>We need to also have this method capable of taking single StockPrice objects.</p>
+<p>Here is the code:</p>
+<pre><code>
+private void updateTable(StockPrice stockPrice)	{
+	// make sure the stock is still in our watch list
+	if (!stocks.contains(stockPrice.getSymbol()))
+	{
+		return;
+	}
+
+	int row = stocks.indexOf(stockPrice.getSymbol()) + 1;
+
+	// Format the data in the Price and Change fields.
+	String priceText = NumberFormat.getFormat("#,##0.00").format(stockPrice.getPrice());
+	NumberFormat changeFormat = NumberFormat.getFormat("+#,##0.00;-#,##0.00");
+	String changeText = changeFormat.format(stockPrice.getChange());
+	String changePercentText = changeFormat.format(stockPrice.getChangePercent());
+
+	// Populate the Price and Change fields with new data.
+	stocksFlexTable.setText(row, 1, priceText);
+	stocksFlexTable.setText(row, 2, changeText + " (" + changePercentText + "%)");
+}
+</code></pre>
+<p>Lets run this again and test it out. </p>
+<img src="images/stockwatcher20.png" alt="With Price and Change"></p>
+<p>We are getting to the end, therefore its time to make this a little
+  more pleasing to the eye. Fortunately GWT Designer makes this downright
+  simple from a developers perspective.</p>
+<p>Let's now add a logo to the
+  StockWatcher application. In particular they use this one (right-click
+  and save it). Create a /images directory in your Project/war directory.</p>
+  <pre>/war/images</pre>
+<img src="images/googlecode.png" alt="Google Code">
+<p><b>Right-click</b> on the
+  /war/images package in Eclipse and choose "import" from the menu. Then in the
+  "Import" window choose: General -&gt; File System</p>
+<p>Browse to where the logo is and import it.</p>
+<p>Go into the GWT Designer and click on the <a href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/Image.html">Image</a> widget and place it above the FlexTable. Once that is in place go to the
+  Image's properties and set it's URL to the logo. Clicking the button
+  with the "..." will make it very easy to locate the image file.</p>
+<p>While we're adding new widgets, lets also add a Label widget below
+  the image and set it's text property to "Stock Watcher". The GWT
+  Tutorial actually adds this in the beginning, I purposely put it off
+  until now since I wanted to style it right away. Your UI should now
+  look like this (click on the image to make it larger):</p>
+<p><img src="images/stockwatcher21.png" alt="Looking a little better..."></p>
+<h3><a name="add_css">7. Add CSS Style</a></h3>
+<p>Let's style the "Stock Watcher" label now. GWT Designer's <a href="../features/gwt/css_support.html">CSS support</a> is straightforward. Go to the label's
+  properties and select the "styleName" property and click on the <button>css</button>
+  button on the right side. </p>
+<p><img src="images/stockwatcher30.png" alt="Stylename Property"></p>
+<p>The CSS Style Editor window opens. Click the <button> Add... </button> button and change the default style name to <b>.gwt-Label-StockWatcher</b>. Press <b>OK</b> to close the dialog.</p>
+<p><img src="images/stockwatcher22.png" alt="CSS Styling"></p>
+<p>With the .gwt-Label-StockWatcher style selected, press the <button>Edit...</button> button. Set
+  the size to "18" and the weight to "bold" and then press "Ok" to close the CSS Rule Editor. </p>
+<p><img src="images/stockwatcher23.png" alt="CSS"></p>
+<p>In the CSS Style Editor, press <button>Apply</button> to
+  apply the styleName and close the CSS Style Editor. The StyleName property should now have .gwt-Label-StockWatcher assigned.</p>
+<p><img src="images/stockwatcher31.png" alt="CSS"></p>
+  
+<p>Let's style the <b>Add...</b> button. Go to the GWT Designer if you're not
+  there already and click on the "Add" button. Go to its properties and
+  click on the <button>css</button> in the "styleName" to open up the CSS Style
+  Selection window. Click Add and change the style name to ".gwt-Button-Add" then press "Ok". Click "Edit" and style the button as you wish.
+  Here is what I did: Set Font Size to 14; Font Color to White; Background Color #2062B8.</p>
+<p>The css rules are stored in the StockWatcher.css file. You can add/edit styles in Source or Design mode.</p>
+<p><img src="images/stockwatcher25.png" alt="CSS Source Mode" </p><p><img src="images/stockwatcher26.png" alt="CSS Design Mode"</p>
+<p>You can see how simple this is to quickly style your application and
+  keep in mind we are barely scratching the surface of what is possible,
+  again, see the GWT Tutorial on styling.
+  I won't walk through all the controls and styling them, but keep in
+  mind you can style dynamically too. So for instance in the GWT Tutorial
+  they style it so that when a stock's price goes up it is a green font,
+  when it goes down it is in a red font.</p>
+<p>Following the GWT Tutorial <a href="http://code.google.com/webtoolkit/tutorials/1.6/style.html#secondary">style attributes</a>, 
+here is what it looks like:</p>
+<p><img src="images/stockwatcher24.png" alt="Finished StockWatcher Application"></p>
+<p>That concludes this tutorial. You can download the source file <a href="StockWatcher.zip">here</a>.</p>
+<p>Next, if you're interested in using RPC to populate the Stock Watcher, see the tutorial on Remote Services.</p>
+<p>Related Topics:</p>
+<ul>
+  <li><a href="../wizards/gwt/project.html">GWT Java Project Creation with GWT Designer</a></li>
+  <li><a href="../features/gwt/css_support.html">CSS Support in GWT Designer</a></li>
+  <li><a href="../wizards/gwt/remoteservice.html">Remote Service with GWT Designer</a></li>  
+  <li><a href="../features/gwt/module_deployment.html">Deployment with GWT Designer</a></li>
+</ul>
+</body>
+</html>

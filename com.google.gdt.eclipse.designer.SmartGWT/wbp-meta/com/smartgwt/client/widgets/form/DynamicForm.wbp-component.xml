@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.DynamicFormInfo"/>
+    <description>The DynamicForm manages a collection of FormItems which represent user input
+        controls.</description>
+    <!-- METHODS -->
+    <methods>
+        <methods-exclude
+            signature="setValuesManager(com.smartgwt.client.widgets.form.ValuesManager)"/>
+        <method name="setItemLayout" order="afterCreation">
+            <parameter type="com.smartgwt.client.types.FormLayoutType"/>
+        </method>
+        <method name="setFields" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.form.fields.FormItem[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+        <method name="setItems" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.form.fields.FormItem[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <exclude package="com.smartgwt.client.widgets.form"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-preferred names="itemLayout"/>
+    <properties-advanced names="auto* cancel* cell* disableValidation encoding error*"/>
+    <properties-advanced names="formSubmitFailedWarning itemHover* longText*"/>
+    <properties-advanced names="operator preventDuplicates"/>
+    <properties-advanced names="required* rejectInvalidValueOnChange right*"/>
+    <properties-advanced names="save* stopOnError synchronousValidation target title*"/>
+    <properties-advanced names="unknownErrorMessage validat*"/>
+    <properties-noDefaultValue names="titleAlign"/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <property id="setErrorItemCellStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <property id="setItemHoverStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">200px</parameter>
+        <parameter name="liveComponent.forcedSize.height">200px</parameter>
+        <!-- flow container 1 -->
+        <parameter name="flowContainer.tree.1">true</parameter>
+        <parameter name="flowContainer.tree.1.horizontal">false</parameter>
+        <parameter name="flowContainer.tree.1.component"
+            >com.smartgwt.client.widgets.form.fields.FormItem</parameter>
+        <!-- flow container 2 -->
+        <parameter name="flowContainer.tree.2">true</parameter>
+        <parameter name="flowContainer.tree.2.horizontal">false</parameter>
+        <parameter name="flowContainer.tree.2.component">com.smartgwt.client.widgets.Canvas</parameter>
+        <parameter name="flowContainer.tree.2.reference"
+            >com.smartgwt.client.widgets.form.fields.FormItem</parameter>
+    </parameters>
+</component>

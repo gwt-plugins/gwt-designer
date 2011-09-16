@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>This container contains multiple widgets, each fit to the container, where
+		 only a single widget can be visible at any given time. This style is most
+		 commonly used for wizards, tab implementations, etc.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.CardPanel()]]></source>
+	</creation>
+</component>

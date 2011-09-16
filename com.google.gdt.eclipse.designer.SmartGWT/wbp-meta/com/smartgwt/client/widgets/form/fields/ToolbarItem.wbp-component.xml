@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.ToolbarItemInfo"/>
+    <description>Set of horizontally arranged buttons.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.ToolbarItem("newToolbarItem_%index%", "New ToolbarItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setButtons" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.StatefulCanvas[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="vertical"/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names=""/>
+    <property id="setButtonBaseStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">isHorizontal()</parameter>
+        <parameter name="flowContainer.component">com.smartgwt.client.widgets.StatefulCanvas</parameter>
+    </parameters>
+</component>

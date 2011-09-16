@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.cell.CellTableInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.cell.CellTableInfo"/>
+	<description>A list view that supports paging and columns.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.cellview.client.CellTable<%rowType%>()]]></source>
+		<typeParameters>
+			<typeParameter name="rowType" type="java.lang.Object"
+				title="Row data type &lt;T&gt;"/>
+		</typeParameters>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- addColumn() -->
+		<method name="addColumn">
+			<parameter type="com.google.gwt.user.cellview.client.Column" child="true"/>
+		</method>
+		<method name="addColumn">
+			<parameter type="com.google.gwt.user.cellview.client.Column" child="true"/>
+			<parameter type="com.google.gwt.user.cellview.client.Header"/>
+		</method>
+		<method name="addColumn">
+			<parameter type="com.google.gwt.user.cellview.client.Column" child="true"/>
+			<parameter type="com.google.gwt.user.cellview.client.Header"/>
+			<parameter type="com.google.gwt.user.cellview.client.Header"/>
+		</method>
+		<method name="addColumn">
+			<parameter type="com.google.gwt.user.cellview.client.Column" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="addColumn">
+			<parameter type="com.google.gwt.user.cellview.client.Column" child="true"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-advanced names="rowCount"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">150px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- UiBinder -->
+		<parameter name="UiBinder.createFieldProvided">true</parameter>
+		<parameter name="UiBinder.createInstance"><![CDATA[
+    		import com.google.gwt.cell.client.TextCell;
+    		import com.google.gwt.user.cellview.client.*;
+    		table = ReflectionUtils.getConstructorForArguments(componentClass, args).newInstance(args);
+    		table.addColumn(new IdentityColumn(new TextCell()), new TextHeader('First'));
+    		table.addColumn(new IdentityColumn(new TextCell()), new TextHeader('Second'));
+    		table.addColumn(new IdentityColumn(new TextCell()), new TextHeader('Third'));
+    		table.setRowData(0, {'1', '2', '3', '4', '5'});
+    		table.setRowCount(5);
+    		return table;
+    	]]></parameter>
+		<!-- bounds -->
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			widget.setSize(size.width + "px", size.height + "px");
+		]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">true</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.google.gwt.user.cellview.client.Column</parameter>
+		<parameter name="flowContainer.association"
+			><![CDATA[%parent%.addColumn(%child%, "New Column")]]></parameter>
+	</parameters>
+</component>

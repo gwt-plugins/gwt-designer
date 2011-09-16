@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.FormLayoutInfo"/>
+	<description>Layout for form fields and their labels. FormLayout will only render Field
+		 subclasses. All other components will be ignored.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.FormLayout()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.widget.form.FormPanel$LabelAlign"
+				property="setLabelAlign(com.extjs.gxt.ui.client.widget.form.FormPanel.LabelAlign)"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.FormData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%()</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer.component">com.google.gwt.user.client.ui.Widget</parameter>
+	</parameters>
+</component>

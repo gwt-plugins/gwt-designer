@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Provides a convenient wrapper for TextFields that adds a clickable trigger
+		 button (looks like a combobox by default).</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.TriggerField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New TriggerField"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="triggerStyle"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.TriggerField"><![CDATA[
+			FieldEvent TriggerClick
+		]]></parameter>
+	</parameters>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.form.DualListFieldInfo"/>
+	<description>Combines two list fields and allows selections to be moved between fields either
+		using buttons or by dragging and dropping selections.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.DualListField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"
+		><![CDATA["New DualListField"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+</component>

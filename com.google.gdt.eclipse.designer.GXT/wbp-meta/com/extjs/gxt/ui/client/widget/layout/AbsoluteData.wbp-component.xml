@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.AbsoluteDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.AbsoluteData(com.extjs.gxt.ui.client.Style.DEFAULT, com.extjs.gxt.ui.client.Style.DEFAULT)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="int" property="setLeft(int)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+			<parameter type="int" property="setTop(int)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<!-- default -->
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>()") {
+				return true;
+			}
+			if (signature == "<init>(int,int)") {
+				return
+					args[0] == com.extjs.gxt.ui.client.Style.DEFAULT &&
+					args[1] == com.extjs.gxt.ui.client.Style.DEFAULT;
+			}
+			return false;
+		]]></parameter>
+	</parameters>
+</component>

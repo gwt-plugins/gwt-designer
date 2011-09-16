@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A pager for controlling a HasRows that only supports simple page
+	navigation.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.cellview.client.SimplePager()]]></source>
+		<x-attribute name="location" value="CENTER"/>
+	</creation>
+</component>

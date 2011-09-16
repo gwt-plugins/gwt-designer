@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A tool bar separator.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.toolbar.SeparatorToolItem()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			isComponentType(parent, "com.extjs.gxt.ui.client.widget.toolbar.ToolBar")
+			]]></parameter>
+	</parameters>
+</component>

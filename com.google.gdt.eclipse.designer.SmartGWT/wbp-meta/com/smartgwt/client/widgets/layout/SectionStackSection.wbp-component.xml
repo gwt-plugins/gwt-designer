@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.SectionStackSectionInfo"/>
+	<!--<description>Section descriptor used by a SectionStack to describe a section of items which are
+		shown or hidden together, and their associated header.</description>-->
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.layout.SectionStackSection("New Section")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<!-- children -->
+		<method name="addItem" order="beforeAssociation">
+			<parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+		</method>
+		<method name="setItems" order="beforeAssociation">
+			<parameter type="com.smartgwt.client.widgets.Canvas[]" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="title"/>
+	<properties-normal names=""/>
+	<properties-advanced names=""/>
+	<property-tag name="title" tag="isText" value="true"/>
+	<property id="setCanCollapse(java.lang.Boolean)">
+		<category value="preferred"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setExpanded(java.lang.Boolean)">
+		<defaultValue value="null"/>
+	</property>
+	<property id="setHidden(java.lang.Boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setResizeable(java.lang.Boolean)">
+		<defaultValue value="null"/>
+	</property>
+	<property id="setShowHeader(java.lang.Boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="NVO.disabled">true</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.smartgwt.client.widgets.Canvas</parameter>
+		<parameter name="flowContainer.association">%parent%.addItem(%child%)</parameter>
+	</parameters>
+</component>

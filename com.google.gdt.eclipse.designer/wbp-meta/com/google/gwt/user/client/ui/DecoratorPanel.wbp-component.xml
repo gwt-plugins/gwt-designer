@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A panel that contains single widget wrapped in stylized boxes, which can be used to add
+		rounded corners.</description>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidget() == null) {
+				object.setWidget(new Label("Empty decorator panel"));
+			}
+			]]></parameter>
+		<!-- bounds -->
+		<parameter name="applyTopBoundsScript"><![CDATA[
+		]]></parameter>
+		<!-- size management -->
+		<parameter name="onChildAdd.setWidth">null</parameter>
+		<parameter name="onChildAdd.setHeight">null</parameter>
+		<parameter name="onChildOut.removeSize">never</parameter>
+	</parameters>
+</component>

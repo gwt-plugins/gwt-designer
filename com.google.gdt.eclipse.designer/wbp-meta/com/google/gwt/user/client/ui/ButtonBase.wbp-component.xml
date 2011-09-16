@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.Button"/>
+		<morphTarget class="com.google.gwt.user.client.ui.RadioButton"/>
+		<morphTarget class="com.google.gwt.user.client.ui.PushButton"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ToggleButton"/>
+		<morphTarget class="com.google.gwt.user.client.ui.CheckBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Hyperlink"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="double-click.listener">click/onClick</parameter>
+	</parameters>
+</component>

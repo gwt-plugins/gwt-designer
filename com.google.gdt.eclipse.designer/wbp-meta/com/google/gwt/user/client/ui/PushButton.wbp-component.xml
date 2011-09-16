@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A normal push button with custom styling.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.PushButton("New button")]]></source>
+		<x-attribute name="text" value="New PushButton"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<!-- with images -->
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Image"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Image"/>
+			<parameter type="com.google.gwt.user.client.ui.ClickListener">
+				<tag name="events: add listener method"
+					value="addClickListener(com.google.gwt.user.client.ui.ClickListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Image"/>
+			<parameter type="com.google.gwt.user.client.ui.Image"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Image"/>
+			<parameter type="com.google.gwt.user.client.ui.Image"/>
+			<parameter type="com.google.gwt.user.client.ui.ClickListener">
+				<tag name="events: add listener method"
+					value="addClickListener(com.google.gwt.user.client.ui.ClickListener)"/>
+			</parameter>
+		</constructor>
+		<!-- with text -->
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.google.gwt.user.client.ui.ClickListener">
+				<tag name="events: add listener method"
+					value="addClickListener(com.google.gwt.user.client.ui.ClickListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="java.lang.String"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="com.google.gwt.user.client.ui.ClickListener">
+				<tag name="events: add listener method"
+					value="addClickListener(com.google.gwt.user.client.ui.ClickListener)"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-PushButton-up {}
+			.gwt-PushButton-down {}
+			.gwt-PushButton-up-hovering {}
+			.gwt-PushButton-down-hovering {}
+			.gwt-PushButton-up-disabled {}
+			.gwt-PushButton-down-disabled {}
+			
+			.gwt-PushButton-up .html-face {}
+			.gwt-PushButton-down .html-face {}
+			.gwt-PushButton-up-hovering .html-face {}
+			.gwt-PushButton-down-hovering .html-face {}
+			.gwt-PushButton-up-disabled .html-face {}
+			.gwt-PushButton-down-disabled .html-face {}
+		]]></parameter>
+	</parameters>
+</component>

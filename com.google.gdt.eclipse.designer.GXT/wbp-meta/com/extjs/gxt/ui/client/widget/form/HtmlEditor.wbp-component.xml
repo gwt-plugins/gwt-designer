@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Provides a lightweight HTML Editor component.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.HtmlEditor()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New HtmlEditor"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.HtmlEditor"><![CDATA[
+			HtmlEditorEvent BeforeSync Sync EditModeChange
+		]]></parameter>
+	</parameters>
+</component>

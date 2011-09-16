@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+	<!-- ======================================================== -->
+	<!-- Branding -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.branding">
+		<branding class="com.google.gdt.eclipse.designer.gpe.branding.GwtBrandingDescription"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GUI editor -->
+	<!-- ======================================================== -->
+	<extension point="com.google.gdt.eclipse.designer.moduleProviders">
+		<filter class="com.google.gdt.eclipse.designer.gpe.EntryPointsModuleFilter"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GUI editor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.eclipse.wb.internal.core.editor.multi.DesignerEditor"
+			contributorClass="org.eclipse.wb.internal.core.editor.multi.DesignerEditorContributor"
+			extensions="java" icon="icons/gui_editor.gif" id="org.eclipse.wb.core.guiEditor"
+			name="GWT Designer">
+			<contentTypeBinding contentTypeId="org.eclipse.wb.core.javaSourceGUI"/>
+		</editor>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Preferences -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.preferencePages">
+		<page category="com.google.gwt.eclipse.core.preferences.ui.GwtPreferencePage"
+			name="Designer"
+			class="com.google.gdt.eclipse.designer.gpe.preferences.DesignerPreferencePage"
+			id="com.google.gdt.eclipse.designer.gpe.preferences.DesignerPreferencePage">
+			<keywordReference id="com.google.gdt.eclipse.designer.gpe.kw.root"/>
+		</page>
+		<!-- Code Style -->
+		<page category="com.google.gdt.eclipse.designer.gpe.preferences.DesignerPreferencePage"
+			name="Code Style"
+			class="com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage"
+			id="com.google_com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage">
+			<keywordReference id="com.google.gdt.eclipse.designer.gpe.kw.codeGeneration"/>
+		</page>
+		<page category="com.google.gdt.eclipse.designer.gpe.preferences.DesignerPreferencePage"
+			name="Event Handlers"
+			class="com.google.gdt.eclipse.designer.preferences.event.EventsPreferencePage"
+			id="com.google_com.google.gdt.eclipse.designer.preferences.event.EventsPreferencePage">
+			<keywordReference id="com.google.gdt.eclipse.designer.gpe.kw.eventHandlers"/>
+		</page>
+		<!-- Absolute Layout -->
+		<page category="com.google.gdt.eclipse.designer.gpe.preferences.DesignerPreferencePage"
+			name="Absolute Layout"
+			class="com.google.gdt.eclipse.designer.preferences.AbsoluteLayoutPreferencePage"
+			id="com.google_com.google.gdt.eclipse.designer.preferences.AbsoluteLayoutSupportPreferencePage"
+		/>
+	</extension>
+
+	<extension point="org.eclipse.ui.keywords">
+		<keyword label="%preferenceKeywords.gwt.root"
+			id="com.google.gdt.eclipse.designer.gpe.kw.root"/>
+		<keyword label="%preferenceKeywords.gwt.codeGeneration"
+			id="com.google.gdt.eclipse.designer.gpe.kw.codeGeneration"/>
+		<keyword label="%preferenceKeywords.gwt.eventHandlers"
+			id="com.google.gdt.eclipse.designer.gpe.kw.eventHandlers"/>
+	</extension>
+
+</plugin>

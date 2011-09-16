@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>GWT Designer Panels</title>
+<link href="../../../book.css" rel="stylesheet" type="text/css">
+</head>
+
+<body><h1>GWT Panels</h1>
+<p><b>GWT Designer</b> supports the following panel types (layout managers).</p>
+<table border="0" width="600" cellspacing="0" cellpadding="5">
+	<tr>
+		<td align="center" width="20%" bgcolor="#F2F2E6" valign="top" height="200"><b>
+		<a href="absolutepanel.html">AbsolutePanel</a><p>
+	<a href="absolutepanel.html">
+	<img border="0" src="images/al_small.png"></a></b></td>
+		<td align="center" width="20%" bgcolor="#FCFCF4" valign="top" height="200"><b>
+		<a href="flextable.html">FlexTable</a><p>
+	<a href="flextable.html">
+	<img border="0" src="images/ft_small.png" width="134" height="117"></a></b><p>&nbsp;</td>
+		<td align="center" width="20%" bgcolor="#F2F2E6" valign="top" height="200"><b>
+		<a href="gridpanel.html">Grid</a><p>
+	<a href="gridpanel.html">
+	<img border="0" src="images/gl_small.png" width="148" height="133"></a></b><p>&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="center" width="20%" bgcolor="#FCFCF4" valign="top" height="200"><b>
+		<a href="flowpanel.html">FlowPanel</a><p>
+	<a href="flowpanel.html">
+	<img border="0" src="images/fl_small.png"></a></b></td>
+		<td align="center" width="20%" bgcolor="#F2F2E6" valign="top" height="200"><b>
+		<a href="dockpanel.html">Dock[Layout]Panel</a><p>
+	<a href="dockpanel.html">
+	<img border="0" src="images/dp_small.png" width="161" height="133"></a></b><p>&nbsp;</td>
+		<td align="center" width="20%" bgcolor="#FCFCF4" valign="top" height="200"><b>
+		<a href="layoutpanel.html">LayoutPanel</a><p>
+	<a href="layoutpanel.html">
+	<img border="0" src="images/lp_small.png" width="131" height="105"></a></b>&nbsp;</td>
+	</tr>
+	</table>
+
+<table border="0" width="800" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+<h2>Notes about panels with implicit layout managers </h2>
+		A program written in GWT may be deployed on multiple platforms. If 
+		you were to use standard UI design techniques, specifying absolute 
+		positions and sizes for your UI components, your UI won't be portable. 
+		What looks fine on your development system might be unusable on another 
+		platform. To solve this problem, GWT provides a system of portable 
+		panel types each with its own implicit layout manager. You use these 
+		layout managers to specify rules and 
+		constraints for the layout of your UI in a way that will be portable. 
+		<p>Layout managers can provide the following advantages: </p>
+<ul>
+  <li>
+  Correctly positioned components that are independent of fonts, screen 
+	resolutions, and platform differences. </li>
+  <li>
+  Intelligent component placement for containers that are dynamically resized at 
+	runtime. </li>
+  <li>
+  Ease of translation. If a string increases in length after translation, the 
+	associated components stay properly aligned.
+  </li>
+</ul>
+		<p>Each panel type has characteristic strengths and drawbacks. Grid-based 
+layouts and constraint-based layouts are the most useful and powerful of the 
+standard layouts, but they are also the most complicated.</p>
+
+
+		</td>
+	</tr>
+</table>
+
+
+</body></html>

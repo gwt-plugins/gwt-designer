@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exceptions>
+	<exception id="4300" title="Unsupported version of GXT" warning="true">WindowBuilder supports
+		only GXT versions {0}. But {1} found.</exception>
+	<exception id="4301" title="This LayoutContainer can not have a Layout." warning="true">You are
+		attempting to set a Layout for <code>{0}</code>. However, by its design, you should not do
+		this or the setLayout() method is implemented to do nothing. Please remove the setLayout()
+		invocation from your source. </exception>
+	<exception id="4302" title="No required GXT resources" warning="true">GXT requires not just
+		gxt.jar, but also set of resources, such as CSS files, images, etc. GWT Designer was not
+		able to find "gxt-.css" file. <ol>
+			<li>You should use "Configure for using GXT" action on your GWT module. </li>
+			<li>If you already tried to configure for GXT ensure that your project has HTML file
+				which corresponds to the GWT module which you are trying to edit. This HTML file
+				should have same name as module (don't include package name).</li>
+			<li>If you don't want to use HTML file, you can include GXT CSS file using "stylesheet"
+				element in your module file.</li>
+		</ol>
+	</exception>
+</exceptions>

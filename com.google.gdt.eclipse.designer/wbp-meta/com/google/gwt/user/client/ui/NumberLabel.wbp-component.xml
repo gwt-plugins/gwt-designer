@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.NumberLabelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.NumberLabelInfo"/>
+	<description>Extends ValueLabel for convenience when dealing with numbers and NumberFormat,
+		especially in UiBinder templates.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.NumberLabel<%type%>()]]></source>
+		<typeParameters>
+			<typeParameter name="type" type="java.lang.Number" title="Number type"/>
+		</typeParameters>
+	</creation>
+	<creation id="Integer" name="IntegerLabel">
+		<source><![CDATA[new com.google.gwt.user.client.ui.NumberLabel<Integer>()]]></source>
+		<description>NumberLabel for displaying Integer objects.</description>
+	</creation>
+	<creation id="Long" name="LongLabel">
+		<source><![CDATA[new com.google.gwt.user.client.ui.NumberLabel<Long>()]]></source>
+		<description>NumberLabel for displaying Long objects.</description>
+	</creation>
+	<creation id="Double" name="DoubleLabel">
+		<source><![CDATA[new com.google.gwt.user.client.ui.NumberLabel<Double>()]]></source>
+		<description>NumberLabel for displaying Double objects.</description>
+	</creation>
+</component>

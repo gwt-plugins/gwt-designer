@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc label="Features" link_to="../org.eclipse.wb.doc.user/toc_features.xml#features"> 
+ 	<topic href="html/features/gwt/application_compiling.html" label="Application Compiling"/>
+	<topic href="html/features/gwt/application_launching.html" label="Application Launching"/>
+	<topic href="html/features/gwt/module_deployment.html" label="Build &amp; Deployment"/>
+	<topic href="html/features/gwt/css_support.html" label="CSS Support"/>
+	<topic href="html/features/gwt/enhanced_compilation.html" label="Enhanced Compilation"/>
+	<topic href="html/features/gwt/image_bundles.html" label="Image Bundles"/>
+	<topic href="html/features/gwt/internationalization.html" label="Internationalization (i18n)"/>
+	<topic href="html/wizards/gwt/junit_testcase.html" label="JUnit Test Creation"/>
+	<topic href="html/wizards/gwt/project.html" label="Projects"/>
+	<topic href="html/features/gwt/refactoring.html" label="Refactoring"/>
+	<topic href="html/wizards/gwt/remoteservice.html" label="Remote Services"/>
+	<topic href="html/features/gwt/gwt-ext.html" label="Using GWT-Ext"/>
+	<topic href="html/features/gwt/gxt.html" label="Using Ext GWT (GXT)"/>
+	<topic href="html/features/gwt/smartgwt.html" label="Using SmartGWT"/>
+</toc>

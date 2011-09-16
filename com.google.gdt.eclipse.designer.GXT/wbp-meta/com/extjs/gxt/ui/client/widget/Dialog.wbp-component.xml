@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.DialogInfo"/>
+	<description>A <code>Window</code> with specialized support for buttons. Defaults to a dialog with an 'ok'
+		button.</description>
+	<!-- PROPERTIES -->
+	<properties-preferred names="modal"/>
+	<properties-advanced names="active autoHide blinkModal bodyBorder collapsible constrain"/>
+	<properties-advanced names="setDraggable(boolean) enabled expanded headerVisible"/>
+	<properties-advanced names="cancelText closeText noText okText yesText"/>
+	<properties-advanced names="firesEvents hideCollapseTool"/>
+	<properties-advanced names="layoutNeeded minimizable maximizable plain scrollMode titleCollapse"/>
+	<property id="setButtons(java.lang.String)">
+		<category value="preferred"/>
+		<editor id="staticField">
+			<parameter name="class">com.extjs.gxt.ui.client.widget.Dialog</parameter>
+			<parameter name="fields">OK CANCEL CLOSE OKCANCEL YESNO YES NO YESNOCANCEL</parameter>
+		</editor>
+	</property>
+</component>

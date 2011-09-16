@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Simple component for choosing color.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.ColorPalette()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="colors value"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.ColorPalette"><![CDATA[
+			ColorPaletteEvent BeforeSelect Select
+			]]></parameter>
+	</parameters>
+</component>

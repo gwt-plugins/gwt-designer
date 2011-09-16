@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.PanelInfo"/>
+	<description>A simple panel that makes its contents focusable, and adds the ability to catch mouse and
+		keyboard events. Same as standard GWT FocusPanel but subclasses from the GWTExt Panel.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.FocusPanel()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setHtml(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="int" property="setHeight(int)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-advanced names="title titleCollapse collapsible collapsed buttonAlign html"/>
+	<!-- MORPHING -->
+	<morphTargets>
+		<noInherit/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

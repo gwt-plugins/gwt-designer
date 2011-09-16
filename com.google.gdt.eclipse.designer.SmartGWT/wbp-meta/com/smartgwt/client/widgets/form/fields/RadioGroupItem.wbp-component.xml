@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.RadioGroupItemInfo"/>
+    <description>FormItem that shows a set of mutually exclusive options as a group of radio
+        buttons.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.RadioGroupItem("newRadioGroupItem_%index%", "New RadioGroupItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="setValueMap(java.lang.String[]) vertical"/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names="titleAlign"/>
+</component>

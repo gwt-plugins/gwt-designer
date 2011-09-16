@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.ColumnConfigInfo"/>
+	<description>The Grid Column configuration.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.grid.ColumnConfig("New Column", "columnIndex", 150)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setHeader(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setDataIndex(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setHeader(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setDataIndex(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setHeader(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setDataIndex(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="boolean" property="setSortable(boolean)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setHeader(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setDataIndex(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="boolean" property="setSortable(boolean)"/>
+			<parameter type="com.gwtext.client.widgets.grid.Renderer"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setHeader(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setDataIndex(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="boolean" property="setSortable(boolean)"/>
+			<parameter type="com.gwtext.client.widgets.grid.Renderer"/>
+			<parameter type="java.lang.String" property="setId(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="NVO.disabled">true</parameter>
+	</parameters>
+</component>

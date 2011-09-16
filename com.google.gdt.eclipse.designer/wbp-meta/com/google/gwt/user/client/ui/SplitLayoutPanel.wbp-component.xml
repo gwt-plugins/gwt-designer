@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.SplitLayoutPanelInfo"/>
+	<description>A panel that adds user-positioned splitters between each of its child widgets.
+			<p/><b>Note:</b> this widget will <em>only</em> work in standards mode.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.SplitLayoutPanel()]]></source>
+		<x-attribute name="width" value="150px"/>
+		<x-attribute name="height" value="100px"/>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty SplitLayoutPanel"));
+			}
+			]]></parameter>
+	</parameters>
+</component>

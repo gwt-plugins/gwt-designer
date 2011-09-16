@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.SectionStackInfo"/>
+	<description>A container that manages a list of sections of widgets, each with a header.
+		Sometimes called an "Accordion". SectionStack can be configured so that only one section is
+		visible at a time (similar to MS Outlook's left-hand Nav), or to allow multiple sections to
+		be visible and share the available space. </description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.layout.SectionStack()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- children -->
+		<method name="addSection" order="beforeAssociation">
+			<parameter type="com.smartgwt.client.widgets.layout.SectionStackSection" child="true"/>
+		</method>
+		<method name="addSection" order="beforeAssociation">
+			<parameter type="com.smartgwt.client.widgets.layout.SectionStackSection" child="true"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setSections" order="beforeAssociation">
+			<parameter type="com.smartgwt.client.widgets.layout.SectionStackSection[]" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="expanded"/>
+	<properties-normal names=""/>
+	<properties-advanced names=""/>
+	<properties-noDefaultValue names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="variable.name"/>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component"
+			>com.smartgwt.client.widgets.layout.SectionStackSection</parameter>
+		<parameter name="flowContainer.association">%parent%.addSection(%child%)</parameter>
+	</parameters>
+</component>

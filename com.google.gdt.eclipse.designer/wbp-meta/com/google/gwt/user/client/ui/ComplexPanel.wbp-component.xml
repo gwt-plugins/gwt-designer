@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.ComplexPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.ComplexPanelInfo"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="complexPanel.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

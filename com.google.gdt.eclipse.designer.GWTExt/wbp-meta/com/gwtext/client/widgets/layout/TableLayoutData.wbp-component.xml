@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.table.TableLayoutDataInfo"/>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.TableLayoutData(1)]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+        	<parameter type="int" property="setColspan(int)" defaultSource="1"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+	<property id="setColspan(int)">
+		<defaultValue value="1"/>
+	</property>
+	<property id="setRowspan(int)">
+		<defaultValue value="1"/>
+	</property>
+</component>

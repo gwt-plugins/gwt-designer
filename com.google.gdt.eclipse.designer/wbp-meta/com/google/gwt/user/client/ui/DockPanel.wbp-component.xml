@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.DockPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.DockPanelInfo"/>
+	<description>A panel that lays its child widgets out "docked" at its outer edges, and allows its last
+		widget to take up the remaining space in its center.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="com.google.gwt.user.client.ui.DockPanel$DockLayoutConstant">
+				<editor id="staticField">
+					<parameter name="class">com.google.gwt.user.client.ui.DockPanel</parameter>
+					<parameter name="fields">NORTH SOUTH WEST EAST CENTER LINE_START LINE_END</parameter>
+				</editor>
+			</parameter>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty DockPanel"), DockPanel.CENTER);
+			}
+			]]></parameter>
+		<!-- copy property -->
+		<parameter name="copyChildPropertyTop from=Association/direction to=Direction category=system(7)"/>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%, com.google.gwt.user.client.ui.DockPanel.WEST)</parameter>
+		<parameter name="flowContainer.tree.x-association">inter {parentNS}Dock direction='WEST'</parameter>
+	</parameters>
+</component>

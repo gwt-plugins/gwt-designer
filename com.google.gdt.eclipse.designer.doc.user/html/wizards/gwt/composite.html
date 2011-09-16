@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<title>GWT Composite Wizard</title>
+<link href="../../../book.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>GWT Composite Wizard</h1>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tr>
+    <td>
+	<img src="images/wizard_gwt_composite0.png" align="left" hspace="20" vspace="20">Subclasses of the GWT <b>Composite</b> class can be created using the <b>
+	GWT Composite</b> wizard. The wizard can be
+              selected from the drop down wizard menu or from the
+              Eclipse New wizard.
+              <p>To use the wizard, select the project source folder and package
+              to contain the class. Then enter the class name and hit the Finish
+              button. 
+      <p>The <b>com.google.gwt.user.client.ui.Composite</b> class is the default
+              superclass.</td>
+  </tr>
+  <tr>
+    <td><br>
+	<img src="images/wizard_gwt_composite1.png" align="top">&nbsp; 
+		<img src="images/wizard_gwt_composite2.png"></td>
+  </tr>
+  <tr>
+    <td>
+	<p>&nbsp;<br>
+	The wizard generates the following code.</dd> 
+        <font SIZE="2" COLOR="#7f0055"><b>
+		<blockquote>
+			<p><font face="Courier">import</font></b></font><font face="Courier" SIZE="2"> 
+			com.google.gwt.user.client.ui.Composite;<br>
+			</font><font SIZE="2" COLOR="#7f0055"><b>
+			<font face="Courier"><br>
+			public</font></b></font><font face="Courier"><font SIZE="2"> </font>
+			<font SIZE="2" COLOR="#7f0055"><b>class</b></font><font SIZE="2"> 
+			GwtCompositeTest </font><font SIZE="2" COLOR="#7f0055"><b>extends</b></font></font><font face="Courier" SIZE="2"> 
+			Composite {<br>
+			</font><font SIZE="2" COLOR="#7f0055" face="Courier"><b>&nbsp;&nbsp;&nbsp; public</b></font><font face="Courier" SIZE="2"> 
+			GwtCompositeTest() {<br>
+			</font><font SIZE="2" COLOR="#7f0055" face="Courier"><b>&nbsp;&nbsp;&nbsp;
+			</b></font><font SIZE="2"><font face="Courier">}<br>
+			}</font></p>
+	</blockquote>
+	</font>
+      <p>When editing GWT Composites, all of the standard GWT panels,
+      widgets and menus are available. Custom or third party
+      controls may be added via the <b>
+		<a href="../../../com.instantiations.designer.doc.user/html/userinterface/palette.html">Choose 
+		Component</a></b> command. GWT Composites hold one and only one 
+		top-level child. If you wish to include multiple children, drop one of 
+		the GWT panel types first.</p>
+	<p>Note that code that is inappropriate for 
+				design time may be hidden with
+	<a href="../../features/gwt/enhanced_compilation.html#isDesignTime"> <b>isDesignTime()</b> checks</a>.</p>
+	<p>Use the <b>Expose property...</b> command added to
+	<a href="../../../com.instantiations.designer.doc.user/html/userinterface/property_pane_context_menu.html">
+	property pane context menu</a> 
+	to expose any widget property as a public property of the class. Use the <b>Expose component...</b> 
+	command added to the popup menu in the <b>
+	<a href="../../../com.instantiations.designer.doc.user/html/userinterface/design_view.html">
+	Design View</a></b> to add an 
+	accessor for any widget.</p>
+	<p>
+	<img border="0" src="images/expose_property_menu.png" width="305" height="249" align="top">&nbsp;
+	<img border="0" src="images/expose_component_menu.png" width="237" height="332" align="top"></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

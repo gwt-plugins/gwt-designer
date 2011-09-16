@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.WindowInfo"/>
+    <!-- METHODS -->
+    <methods>
+        <method name="addItem">
+            <parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+        </method>
+        <method name="addItem">
+            <parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+        </method>
+        <method name="setAutoCenter" executable="false">
+            <parameter type="java.lang.Boolean"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="title"/>
+    <properties-advanced names="body* content* dismiss* header* hilite*"/>
+    <properties-advanced names="maximized minimize* modal* reverseOrder src status"/>
+    <property id="setBodyStyle(java.lang.String)">
+        <editor id="gwt.style"/>
+    </property>
+    <property id="setHeaderIcon(java.lang.String)">
+        <editor id="gwt.imageURL"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- flow container -->
+        <!-- override "addMember" (working incorrect) association by "addItem" -->
+        <parameter name="flowContainer.association">%parent%.addItem(%child%)</parameter>
+    </parameters>
+</component>

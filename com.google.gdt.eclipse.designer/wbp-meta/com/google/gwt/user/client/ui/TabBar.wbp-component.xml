@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A horizontal bar of folder-style tabs.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.TabBar()]]></source>
+		<invocation signature="addTab(java.lang.String)"><![CDATA["Three"]]></invocation>
+		<invocation signature="addTab(java.lang.String)"><![CDATA["Two"]]></invocation>
+		<invocation signature="addTab(java.lang.String)"><![CDATA["One"]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- items -->
+		<method name="addTab">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="addTab">
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</method>
+		<method name="addTab">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<!-- selection -->
+		<method name="selectTab" order="last">
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<add-property id="stringsAdd" title="tabs">
+		<parameter name="addMethod">addTab</parameter>
+		<parameter name="removeMethods">selectTab(int) addTab(java.lang.String)
+			addTab(java.lang.String,boolean) addTab(com.google.gwt.user.client.ui.Widget)</parameter>
+	</add-property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.TabBar"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DecoratedTabBar"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">250px</parameter>
+		<parameter name="liveComponent.forcedSize.height">0px</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-TabBar { the tab bar itself }
+			.gwt-TabBar .gwt-TabBarFirst { the left edge of the bar }
+			.gwt-TabBar .gwt-TabBarRest { the right edge of the bar }
+			.gwt-TabBar .gwt-TabBarItem { unselected tabs }
+			.gwt-TabBar .gwt-TabBarItem-selected { additional style for selected tabs }
+		]]></parameter>
+	</parameters>
+</component>

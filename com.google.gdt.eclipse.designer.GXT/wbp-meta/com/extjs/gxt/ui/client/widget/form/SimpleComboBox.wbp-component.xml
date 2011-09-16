@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A ComboBox subclass that supports any simple data types.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.SimpleComboBox()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New SimpleComboBox"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<property-tag name="cursorPos" tag="noDefaultValue" value="true"/>
+</component>

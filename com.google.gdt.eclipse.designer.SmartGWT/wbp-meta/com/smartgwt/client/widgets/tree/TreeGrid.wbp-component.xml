@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.TreeGridInfo"/>
+    <description> The Tree class, which manipulates hierarchical data sets the TreeGrid widget
+        class, which extends the ListGrid class to visually present tree data in an
+        expandable/collapsible format. </description>
+    <!-- METHODS -->
+    <methods>
+        <method name="setFields" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.tree.TreeGridField[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="treeRootValue"/>
+    <properties-advanced names="cantDrag* closedIconSuffix connectorImage"/>
+    <properties-advanced names="custom* dropIconSuffix folderIcon"/>
+    <properties-advanced names="manyItemsImage nodeIcon open*"/>
+    <properties-advanced names="parent* selectedPaths"/>
+    <properties-noDefaultValue names="viewState fieldState"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- flow container -->
+        <parameter name="flowContainer.tree">true</parameter>
+        <parameter name="flowContainer.tree.horizontal">true</parameter>
+        <parameter name="flowContainer.tree.component"
+            >com.smartgwt.client.widgets.tree.TreeGridField</parameter>
+    </parameters>
+</component>

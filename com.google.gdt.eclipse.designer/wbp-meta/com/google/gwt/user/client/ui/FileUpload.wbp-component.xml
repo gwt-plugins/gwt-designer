@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A widget that wraps the HTML &lt;input type='file'&gt; element. This widget
+		must be used with {@link com.google.gwt.user.client.ui.FormPanel} if it is to be submitted
+		to a server.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.FileUpload()]]></source>
+	</creation>
+</component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>FormItem for showing a header within a DynamicForm. Set the 'defaultValue' of this
+        item to the HTML you want to embed in the form.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.HeaderItem("newHeaderItem_%index%", "New HeaderItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="colSpan setDefaultValue(java.lang.String)"/>
+    <properties-normal names=""/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names="colSpan"/>
+</component>

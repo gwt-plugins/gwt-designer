@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Combobox time field.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.TimeField("New time field", "time_field", 100)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="maxText maxValue minText minValue"/>
+	<properties-hidden names=""/>
+	<property id="setAltFormats(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'m/d/Y|m-d-y|m-d-Y|m/d|m-d|d'"/>
+	</property>
+	<property id="setFormat(java.lang.String)">
+		<category value="preferred"/>
+		<defaultValue value="'g:i A'"/>
+	</property>
+	<property id="setIncrement(int)">
+		<defaultValue value="15"/>
+	</property>
+	<property id="setMaxText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The time in this field must be equal to or before {0}'"/>
+	</property>
+	<property id="setMinText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The time in this field must be equal to or after {0}'"/>
+	</property>
+</component>

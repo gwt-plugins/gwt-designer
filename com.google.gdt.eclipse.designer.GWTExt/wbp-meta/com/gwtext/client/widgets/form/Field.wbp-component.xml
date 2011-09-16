@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.FieldInfo"/>
+	<description>Base class for form fields that provides default event handling, sizing, value handling and
+		other functionality.</description>
+	<!-- METHODS -->
+	<method-order>
+		<methods order="afterAssociation">
+			<s>setValue(java.lang.String)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names="name value fieldLabel"/>
+	<properties-advanced names="autoCreate labelSeparator rawValue tabIndex"/>
+	<properties-advanced names="validationDelay"/>
+	<properties-hidden names="label"/>
+	<property-tag name="value" tag="noDefaultValue" value="true"/>
+	<property-tag name="rawValue" tag="noDefaultValue" value="true"/>
+	<property id="setClearCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-form-clear-left'"/>
+	</property>
+	<property id="setFieldClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-form-field'"/>
+	</property>
+	<property id="setFieldMsgTarget(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">qtip</parameter-list>
+			<parameter-list name="strings">title</parameter-list>
+			<parameter-list name="strings">under</parameter-list>
+			<parameter-list name="strings">side</parameter-list>
+		</editor>
+		<defaultValue value="'qtip'"/>
+	</property>
+	<property id="setFocusClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-form-focus'"/>
+	</property>
+	<property id="setInputType(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">text</parameter-list>
+			<parameter-list name="strings">radio</parameter-list>
+			<parameter-list name="strings">password</parameter-list>
+		</editor>
+	</property>
+	<property id="setInvalidClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-form-invalid'"/>
+	</property>
+	<property id="setInvalidText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The value in this field is invalid'"/>
+	</property>
+	<property id="setLabelStyle(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setMsgFx(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">normal</parameter-list>
+			<parameter-list name="strings">slide</parameter-list>
+			<parameter-list name="strings">slideRight</parameter-list>
+		</editor>
+		<defaultValue value="'normal'"/>
+	</property>
+	<property id="setValidateOnBlur(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setValidationEvent(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setValidationEvent(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'keyup'"/>
+	</property>
+	<property id="setValue(java.lang.String)">
+		<category value="preferred"/>
+		<getter name="getValueAsString"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<noInherit/>
+		<morphTarget class="com.gwtext.client.widgets.form.Hidden"/>
+	</morphTargets>
+</component>

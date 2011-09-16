@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <!-- METHODS -->
+    <methods>
+        <method name="setDataSource" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.data.DataSource"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="dataSource"/>
+    <properties-advanced names="addDropValues addOperation addFormulaFieldText addSummaryFieldText"/>
+    <properties-advanced names="canAddFormulaFields canAddSummaryFields editFormulaFieldText editSummaryFieldText"/>
+    <properties-advanced names="dataFetchMode dataPageSize dragTrackerStyle dragDataAction duplicateDragMessage"/>
+    <properties-advanced names="exportAll exportFields fetchOperation hiliteProperty removeOperation"/>
+    <properties-advanced names="showDetailFields showHiddenFields showComplexFields"/>
+    <properties-advanced names="titleField updateOperation useAllDataSourceFields useFlatFields"/>
+    <property-tag name="dataSource" tag="useObjectEditor" value="true"/>
+</component>

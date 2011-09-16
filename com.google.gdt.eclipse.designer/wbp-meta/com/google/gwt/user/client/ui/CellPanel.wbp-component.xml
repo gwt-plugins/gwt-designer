@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.CellPanelInfo"/>
+	<!-- METHODS -->
+	<methods>
+		<!-- cell methods -->
+		<method name="setCellWidth">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setCellHeight">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setCellHorizontalAlignment">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="com.google.gwt.user.client.ui.HasHorizontalAlignment$HorizontalAlignmentConstant"
+			/>
+		</method>
+		<method name="setCellVerticalAlignment">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="com.google.gwt.user.client.ui.HasVerticalAlignment$VerticalAlignmentConstant"/>
+		</method>
+	</methods>
+</component>

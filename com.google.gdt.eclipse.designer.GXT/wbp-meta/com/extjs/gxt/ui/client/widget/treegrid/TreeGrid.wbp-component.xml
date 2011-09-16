@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.TreeGridInfo"/>
+	<description>A hierarchical tree grid bound to a TreeStore.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.treegrid.TreeGrid(new com.extjs.gxt.ui.client.store.TreeStore(), new com.extjs.gxt.ui.client.widget.grid.ColumnModel(new java.util.ArrayList<com.extjs.gxt.ui.client.widget.grid.ColumnConfig>()))]]></source>
+		<invocation signature="setBorders(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.model.widgets.cell.ColumnInfo"/>
+    <description>A representation of a column in a table.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.String>(new com.google.gwt.cell.client.TextCell()) {
+	@Override
+	public java.lang.String getValue(%rowType% object) {
+		return (String) null;
+	}
+}]]>
+        </source>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="button" name="Button Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.String>(new com.google.gwt.cell.client.ButtonCell()) {
+	@Override
+	public java.lang.String getValue(%rowType% object) {
+		return (String) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as a button.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="checkbox" name="Checkbox Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.Boolean>(new com.google.gwt.cell.client.CheckboxCell()) {
+	@Override
+	public java.lang.Boolean getValue(%rowType% object) {
+		return (java.lang.Boolean) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as a check box.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="datepicker" name="DatePicker Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.util.Date>(new com.google.gwt.cell.client.DatePickerCell()) {
+	@Override
+	public java.util.Date getValue(%rowType% object) {
+		return (java.util.Date) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as a date picker.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="edittext" name="Edit text Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.String>(new com.google.gwt.cell.client.EditTextCell()) {
+	@Override
+	public java.lang.String getValue(%rowType% object) {
+		return (java.lang.String) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as an editable text cell.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="date" name="Date Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.util.Date>(new com.google.gwt.cell.client.DateCell()) {
+	@Override
+	public java.util.Date getValue(%rowType% object) {
+		return (java.util.Date) null;
+	}
+}]]>
+        </source>
+        <description></description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="image" name="Image Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.String>(new com.google.gwt.cell.client.ImageCell()) {
+	@Override
+	public java.lang.String getValue(%rowType% object) {
+		return (java.lang.String) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as an image.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="number" name="Number Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.Number>(new com.google.gwt.cell.client.NumberCell()) {
+	@Override
+	public java.lang.Number getValue(%rowType% object) {
+		return (java.lang.Number) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as formatted numbers.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <creation id="selection" name="Selection Column">
+        <source><![CDATA[new com.google.gwt.user.cellview.client.Column<%rowType%, java.lang.String>(new com.google.gwt.cell.client.SelectionCell(new java.util.ArrayList<java.lang.String>())) {
+	@Override
+	public java.lang.String getValue(%rowType% object) {
+		return (java.lang.String) null;
+	}
+}]]>
+        </source>
+        <description>A column in a table rendered as combo box.</description>
+        <tag name="createAnonymous" value="true"/>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="com.google.gwt.cell.client.Cell">
+                <tag name="property.no" value="true"/>
+            </parameter>
+        </constructor>
+    </constructors>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+    	<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+    </parameters>
+</component>

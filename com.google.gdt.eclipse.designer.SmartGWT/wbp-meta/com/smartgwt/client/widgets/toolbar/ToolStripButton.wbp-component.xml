@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Simple button subclass of StretchImgButton with appearance appropriate for a
+        ToolStrip button.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.toolbar.ToolStripButton("New Button")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="icon prompt title"/>
+    <properties-advanced names=""/>
+</component>

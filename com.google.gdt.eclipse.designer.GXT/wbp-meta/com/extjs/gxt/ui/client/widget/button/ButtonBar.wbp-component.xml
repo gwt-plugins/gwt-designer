@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ToolBarInfo"/>
+	<description>A horizontal row of buttons.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.button.ButtonBar()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">true</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.*;
+			if (object.getItemCount() == 0) {
+				item = new Text("Empty ButtonBar");
+				object.add(item);
+				ReflectionUtils.invokeMethod(object, "layout()", {});
+			}
+			]]></parameter>
+	</parameters>
+</component>

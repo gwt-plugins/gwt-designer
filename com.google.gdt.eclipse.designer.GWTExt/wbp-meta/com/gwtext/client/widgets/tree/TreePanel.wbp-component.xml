@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.TreePanelInfo"/>
+	<description>A Tree widget.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.tree.TreePanel()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setRootNode" order="beforeAssociation">
+			<parameter type="com.gwtext.client.data.Node" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="ddAppendOnly"/>
+	<property id="setRootVisible(boolean)">
+		<category value="preferred"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setAnimate(boolean)">
+		<!--<category value="advanced"/>-->
+		<defaultValue value="true"/>
+	</property>
+	<property id="setContainerScroll(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setDdGroup(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'TreeDD'"/>
+	</property>
+	<property id="setDdScroll(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setEnableDD(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setEnableDrag(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setEnableDrop(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHlColor(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'C3DAF9'"/>
+	</property>
+	<property id="setHlDrop(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setLines(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setSingleExpand(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setPathSeparator(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'/'"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<noInherit/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+	</parameters>
+</component>

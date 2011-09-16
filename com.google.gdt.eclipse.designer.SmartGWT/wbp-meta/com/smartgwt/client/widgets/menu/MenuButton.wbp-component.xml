@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.menu.MenuButtonInfo"/>
+    <description>Simple subclass of button associated with a menu widget (gets shown below the
+        button).</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.menu.MenuButton("New MenuButton")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setMenu" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+        </method>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <exclude package="com.smartgwt.client.widgets.menu"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-preferred names="showMenu*"/>
+    <properties-normal names="selected"/>
+    <properties-advanced names="menu*"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">true</parameter>
+        <parameter name="simpleContainer.component">com.smartgwt.client.widgets.menu.Menu</parameter>
+        <parameter name="simpleContainer.association">%parent%.setMenu(%child%)</parameter>
+    </parameters>
+</component>

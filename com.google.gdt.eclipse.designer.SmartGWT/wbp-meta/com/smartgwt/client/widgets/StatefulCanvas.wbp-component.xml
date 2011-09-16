@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.StatefulCanvasInfo"/>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="actionType autoFit baseStyle"/>
+	<properties-advanced names="align valign"/>
+	<properties-advanced names="hiliteAccessKey"/>
+	<properties-advanced names="icon iconAlign iconHeight iconOrientation iconSize iconWidth"/>
+	<properties-advanced names="overCanvasConstructor redrawOnStateChange selected"/>
+	<properties-advanced names="showDisabled showDisabledIcon showDown showDownIcon"/>
+	<properties-advanced names="showFocused showFocusedAsOver showFocusedIcon"/>
+	<properties-advanced names="showOverCanvas showRollOver showRollOverIcon showSelectedIcon"/>
+	<properties-advanced names="state titleStyle"/>
+	<property id="setDisabled(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setIconOrientation(java.lang.String)">
+		<editor id="stringList">
+			<parameter-list name="strings">left</parameter-list>
+			<parameter-list name="strings">right</parameter-list>
+		</editor>
+	</property>
+</component>

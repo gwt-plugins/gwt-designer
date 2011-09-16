@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.WidgetInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.WidgetInfo"/>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude package="com.google.gwt.user.client.ui"/>
+	</exposing-rules>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.Hidden"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- default SelectionEditPolicy -->
+		<parameter name="GEF.defaultSelectionPolicy">
+			com.google.gdt.eclipse.designer.gef.policy.UIObjectSelectionEditPolicy
+		</parameter>
+		<!-- simpleContainer defaults -->
+		<parameter name="simpleContainer.defaultComponent">com.google.gwt.user.client.ui.Widget</parameter>
+		<!-- flowContainer defaults -->
+		<parameter name="flowContainer.defaultComponent">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.defaultReference">com.google.gwt.user.client.ui.Widget</parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			rootPanel.add(widget);
+		]]></parameter>
+		<parameter name="attachTopBoundsScript"><![CDATA[
+			if (!widget.isAttached()) {
+				rootPanel.add(widget);
+			}
+		]]></parameter>
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			widget.setSize(size.width + "px", size.height + "px");
+		]]></parameter>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			import com.google.gwt.user.client.DOM;
+			import com.google.gwt.user.client.ui.*;
+			
+			html = new HTML(message);
+			DOM.setStyleAttribute(html.getElement(), 'background', 'pink');
+			return html;
+		]]></parameter>
+	</parameters>
+</component>

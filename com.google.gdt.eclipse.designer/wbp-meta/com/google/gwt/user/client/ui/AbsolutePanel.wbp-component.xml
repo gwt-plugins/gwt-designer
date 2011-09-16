@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.AbsolutePanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.AbsolutePanelInfo"/>
+	<description>An absolute panel positions all of its children absolutely, allowing them to overlap. Note
+		that this panel will not automatically resize itself to allow enough room for its absolutely
+		positioned children. It must be explicitly sized in order to make room for them.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setWidgetPosition">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%)</parameter>
+		<parameter name="flowContainer.tree.x-association">inter {parentNS}at left='0' top='0'</parameter>
+	</parameters>
+</component>

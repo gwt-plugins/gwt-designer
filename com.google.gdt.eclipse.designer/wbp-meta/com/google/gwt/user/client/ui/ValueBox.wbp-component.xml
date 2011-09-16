@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A text box able to parse its displayed value.</description>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<properties-advanced names="cursorPos setDirectionEstimator(boolean) maxLength key"/>
+</component>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.FitLayoutInfo"/>
+	<description>Layout that contains a single item that automatically expands to fill the layout's container.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.FitLayout()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.FitData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%(0)</parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+	</parameters>
+</component>

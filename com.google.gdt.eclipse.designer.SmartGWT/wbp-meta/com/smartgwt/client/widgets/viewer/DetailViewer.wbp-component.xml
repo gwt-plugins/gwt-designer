@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.DetailViewerInfo"/>
+    <description>Displays one or more records "horizontally" with one property per line.</description>
+    <!-- METHODS -->
+    <methods>
+        <method name="setFields" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.viewer.DetailViewerField[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="block* border cellStyle empty* fieldIdProperty"/>
+    <properties-advanced names="headerStyle label* loading* print*"/>
+    <properties-advanced names="separatorStyle"/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- flow container -->
+        <parameter name="flowContainer.tree">true</parameter>
+        <parameter name="flowContainer.tree.horizontal">false</parameter>
+        <parameter name="flowContainer.tree.component"
+            >com.smartgwt.client.widgets.viewer.DetailViewerField</parameter>
+    </parameters>
+</component>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.menu.MenuItemInfo"/>
+	<description>Instances of this class represent a selectable user interface object that represents an item
+		in a menu.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.menu.MenuItem("New MenuItem")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.extjs.gxt.ui.client.event.SelectionListener">
+				<tag name="events: add listener method"
+					value="addSelectionListener(com.extjs.gxt.ui.client.event.SelectionListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.google.gwt.user.client.ui.AbstractImagePrototype"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.google.gwt.user.client.ui.AbstractImagePrototype"/>
+			<parameter type="com.extjs.gxt.ui.client.event.SelectionListener">
+				<tag name="events: add listener method"
+					value="addSelectionListener(com.extjs.gxt.ui.client.event.SelectionListener)"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setSubMenu">
+			<parameter type="com.extjs.gxt.ui.client.widget.menu.Menu" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container: MenuItem.setSubMenu -->
+		<parameter name="simpleContainer.2">true</parameter>
+		<parameter name="simpleContainer.2.component">com.extjs.gxt.ui.client.widget.menu.Menu</parameter>
+		<parameter name="simpleContainer.2.association">%parent%.setSubMenu(%child%)</parameter>
+	</parameters>
+</component>

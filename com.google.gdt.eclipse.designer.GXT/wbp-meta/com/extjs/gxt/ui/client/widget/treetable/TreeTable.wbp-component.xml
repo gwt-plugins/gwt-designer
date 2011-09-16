@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A hierarchical tree widget with support for additional columns. The tree contains a hierarchy
+		of TreeTableItems that the user can open, close, and select.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.treetable.TreeTable(new com.extjs.gxt.ui.client.widget.treetable.TreeTableColumnModel(java.util.Collections.<com.extjs.gxt.ui.client.widget.treetable.TreeTableColumn>emptyList()))]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.treetable.TreeTable"><![CDATA[
+			TreeTableEvent CellClick CellDoubleClick RowClick RowDoubleClick
+		]]></parameter>
+	</parameters>
+</component>

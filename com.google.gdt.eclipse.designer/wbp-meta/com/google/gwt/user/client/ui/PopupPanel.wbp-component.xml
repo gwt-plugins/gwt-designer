@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.PopupPanelInfo"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidget() == null) {
+				object.setWidget(new Label("Empty PopupPanel"));
+			}
+			]]></parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			widget.setPopupPosition(10, 10);
+			widget.show();
+		]]></parameter>
+		<parameter name="applyTopBoundsScript"><![CDATA[
+		]]></parameter>
+		<parameter name="setTopBoundsScript"><![CDATA[
+			content = model.getWidget();
+			if (content != null) {
+				panelSize = model.bounds.size;
+				contentSize = content.bounds.size;
+				newContentWidth = size.width - (panelSize.width - contentSize.width);
+	  			newContentHeight = size.height - (panelSize.height - contentSize.height);
+				model.widget.sizeSupport.setSize(newContentWidth + "px", newContentHeight + "px");
+			}
+		]]></parameter>
+	</parameters>
+</component>

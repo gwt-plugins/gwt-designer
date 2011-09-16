@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <!-- ======================================================== -->
+   <!-- Parser -->
+   <!-- ======================================================== -->
+   <extension point="org.eclipse.wb.core.databinding.databindingFactories">
+      <factory class="com.google.gdt.eclipse.designer.gxt.databinding.DatabindingFactory"/>
+   </extension>
+
+
+   <!-- ======================================================== -->
+   <!-- DesignPage -->
+   <!-- ======================================================== -->
+   <extension point="org.eclipse.wb.core.designPageFactories">
+      <factory class="com.google.gdt.eclipse.designer.gxt.databinding.DesignPageFactory"/>
+   </extension>
+
+
+   <!-- ======================================================== -->
+   <!-- Wizards -->
+   <!-- ======================================================== -->
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.ExtGWT"
+         class="com.google.gdt.eclipse.designer.gxt.databinding.wizards.autobindings.AutomaticDatabindingWizard"
+         id="com.google.gdt.eclipse.designer.gxt.databinding.wizards.autobindings.AutomaticDatabindingWizard"
+         icon="icons/newjprj_wiz.gif" 
+         name="GXT Automatic Databinding">
+         <description> Create an GXT container with automatic generated GXT bindings </description>
+      </wizard>
+   </extension>
+</plugin>

@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<factory>
+    <method name="createIfSupported">
+        <description>Return a new Canvas if supported,  and null otherwise.</description>
+    </method>
+</factory>

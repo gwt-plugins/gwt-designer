@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.AccordionLayoutInfo"/>
+	<description>This is a layout that contains multiple ContentPanel-s in an expandable accordion style such
+		that only one panel can be open at any given time.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.AccordionLayout()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer">false</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.extjs.gxt.ui.client.widget.ContentPanel</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

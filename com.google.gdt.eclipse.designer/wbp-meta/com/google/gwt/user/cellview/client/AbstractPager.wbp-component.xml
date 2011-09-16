@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>An abstract pager that exposes many methods useful for paging.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="setDisplay" order="beforeAssociation">
+			<parameter type="com.google.gwt.view.client.HasRows"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="display"/>
+	<property-tag name="display" tag="useObjectEditor" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="simpleContainer">false</parameter>
+	</parameters>
+</component>

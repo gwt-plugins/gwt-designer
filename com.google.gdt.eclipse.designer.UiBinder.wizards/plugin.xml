@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+  <!-- ======================================================== -->
+  <!-- Wizards -->
+  <!-- ======================================================== -->
+  <extension point="org.eclipse.ui.newWizards">
+    <!-- ======================================================== -->
+    <!-- Wizards: UI -->
+    <!-- ======================================================== -->
+    <category id="com.google.gdt.eclipse.designer.UiBinder" name="GWT UiBinder"
+      parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+    <wizard
+      category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.UiBinder"
+      id="com.google.gdt.eclipse.designer.uibinder.wizards.CompositeWizard"
+      class="com.google.gdt.eclipse.designer.uibinder.wizards.CompositeWizard"
+      icon="icons/wizards/Composite/wizard.png" name="Composite">
+      <description>Create an GWT UiBinder Composite</description>
+    </wizard>
+    <wizard
+      category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.UiBinder"
+      id="com.google.gdt.eclipse.designer.uibinder.wizards.DialogBoxWizard"
+      class="com.google.gdt.eclipse.designer.uibinder.wizards.DialogBoxWizard"
+      icon="icons/wizards/DialogBox/wizard.png" name="DialogBox">
+      <description>Create an GWT UiBinder DialogBox</description>
+    </wizard>
+    <wizard
+      category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.UiBinder"
+      id="com.google.gdt.eclipse.designer.uibinder.wizards.PopupPanelWizard"
+      class="com.google.gdt.eclipse.designer.uibinder.wizards.PopupPanelWizard"
+      icon="icons/wizards/PopupPanel/wizard.png" name="PopupPanel">
+      <description>Create an GWT UiBinder PopupPanel</description>
+    </wizard>
+  </extension>
+
+</plugin>

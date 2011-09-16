@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Simple color palette class for choosing colors.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.ColorPalette()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="select">
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<method-order>
+		<methods order="afterAssociation">
+			<s>setValue(java.lang.String)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names="colors value"/>
+	<property id="setItemCls(java.lang.String)">
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-color-palette'"/>
+	</property>
+</component>

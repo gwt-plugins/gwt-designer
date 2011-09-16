@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Extension of ListView for checking some items.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.CheckBoxListView()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="checkBoxSelector"/>
+</component>

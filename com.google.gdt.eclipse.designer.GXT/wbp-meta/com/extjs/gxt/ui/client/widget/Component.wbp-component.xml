@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ComponentInfo"/>
+	<!-- METHODS -->
+	<methods>
+		<method name="setContextMenu">
+			<parameter type="com.extjs.gxt.ui.client.widget.menu.Menu" child="true"/>
+		</method>
+		<method name="setZIndex" order="afterAssociation">
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude package="com.extjs.gxt.ui.client.widget"/>
+		<exclude package="com.extjs.gxt.ui.client.widget.form"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-advanced names="ZIndex id itemId"/>
+	<properties-advanced names="ariaLabelledBy autoShow hideParent styleName stateId stateful"/>
+	<properties-advanced names="hideMode setToolTip(java.lang.String)"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="NVO.disabled">true</parameter>
+		<parameter name="binaryExecutionFlow.dontVisit.package com.extjs.gxt.ui.client.widget"><![CDATA[
+			onRender(com.google.gwt.user.client.Element,int)
+		]]></parameter>
+		<parameter name="GWT.AbsolutePanel: force setWidgetPosition">true</parameter>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			ph = new com.extjs.gxt.ui.client.widget.Text(message);
+			ph.setStyleAttribute('background', 'pink');
+			ph.setWidth('200px');
+			return ph;
+		]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">!object.borders</parameter>
+		<!-- simple container: Component.setContextMenu -->
+		<parameter name="simpleContainer.2">true</parameter>
+		<parameter name="simpleContainer.2.component">com.extjs.gxt.ui.client.widget.menu.Menu</parameter>
+		<parameter name="simpleContainer.2.association">%parent%.setContextMenu(%child%)</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.Component"><![CDATA[
+			ComponentEvent Enable Disable BeforeHide BeforeShow Hide Show Attach Detach 
+			ComponentEvent BeforeRender Render BrowserEvent 
+			ComponentEvent BeforeStateRestore StateRestore BeforeStateSave StateSave
+		]]></parameter>
+	</parameters>
+</component>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.ButtonInfo"/>
+	<description>Simple Button class.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.Button("New Button")]]></source>
+	</creation>
+	<creation id="arrayObject.forPanel">
+		<source><![CDATA[new com.gwtext.client.widgets.Button(
+			 		"New Button for Toolbar",
+					new ButtonListenerAdapter() {
+						public void onClick(Button button, EventObject e) {
+						}
+					})]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.menu.Menu" child="true"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.event.ButtonListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.event.ButtonListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.event.ButtonListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.event.ButtonListener)"/>
+			</parameter>
+			<parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<methods-exclude signature="setHidden(boolean)"/>
+		<method name="setMenu">
+			<parameter type="com.gwtext.client.widgets.menu.Menu" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<properties-advanced names="click repeat tabIndex tooltipType"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<property id="setClickEvent(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'click'"/>
+	</property>
+	<property id="setFormBind(boolean)">
+		<category value="advanced"/>
+		<getter name="getBindToForm"/>
+	</property>
+	<property id="setIcon(java.lang.String)">
+		<category value="preferred"/>
+		<editor id="gwt.imageURL"/>
+	</property>
+	<property id="setIconCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setHandleMouseEvents(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setHidden(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setMenuAlign(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'tl-bl?'"/>
+	</property>
+	<property id="setTooltipType(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setType(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">submit</parameter-list>
+			<parameter-list name="strings">reset</parameter-list>
+			<parameter-list name="strings">button</parameter-list>
+		</editor>
+		<defaultValue value="'button'"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.Button"/>
+		<morphTarget class="com.gwtext.client.widgets.SplitButton"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.component">com.gwtext.client.widgets.menu.Menu</parameter>
+		<parameter name="simpleContainer.association">%parent%.setMenu(%child%)</parameter>
+	</parameters>
+</component>

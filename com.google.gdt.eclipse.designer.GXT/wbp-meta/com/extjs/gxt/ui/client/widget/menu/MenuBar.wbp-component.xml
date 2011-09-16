@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.menu.MenuBarInfo"/>
+	<description>A horizontal menu bar.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.menu.MenuBar()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.menu.MenuBarItem" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.menu.*;
+			if (object.getItemCount() == 0) {
+				item = new MenuBarItem("Empty MenuBar", new Menu());
+				object.add(item);
+				ReflectionUtils.invokeMethod(object, "layout()", {});
+			}
+			]]></parameter>
+	</parameters>
+</component>

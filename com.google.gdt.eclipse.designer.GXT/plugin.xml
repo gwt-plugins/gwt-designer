@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+
+	<!-- ======================================================== -->
+	<!-- Auto start (for property tester) -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.startup"/>
+
+
+	<!-- ======================================================== -->
+	<!-- Designer content type-->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.designerContentPatterns">
+		<includePattern>com.extjs.gxt.ui.client.widget.</includePattern>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Exceptions -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.exceptions">
+		<file path="resources/exceptions.xml"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Parser -->
+	<!-- ======================================================== -->
+	<extension point="com.google.gdt.eclipse.designer.classLoaderValidators">
+		<validator class="com.google.gdt.eclipse.designer.gxt.parser.ClassLoaderValidator"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- PropertyEditor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.propertyEditors">
+		<editor type="com.extjs.gxt.ui.client.util.Margins"
+			class="com.google.gdt.eclipse.designer.gxt.model.property.MarginsPropertyEditor"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.standardToolkitPackages">
+		<package prefix="com.extjs.gxt."/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Expression evaluators -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.invocationEvaluatorInterceptors">
+		<interceptor
+			class="com.google.gdt.eclipse.designer.gxt.model.GxtInvocationEvaluatorInterceptor"
+			priority="1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- ExpressionConverter -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.propertyConverters">
+		<converter type="com.extjs.gxt.ui.client.util.Margins"
+			class="com.google.gdt.eclipse.designer.gxt.model.property.MarginsConverter"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Toolkit -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.toolkits">
+		<toolkit id="com.google.gdt.eclipse.designer">
+			<resourcePrefixes>
+				<resourcePrefix>com.extjs.gxt.</resourcePrefix>
+			</resourcePrefixes>
+			<palette condition="!(isdef isUiBinder)">
+				<category id="com.google.gdt.eclipse.designer.GXT.panel" name="GXT panels"
+					optional="true">
+					<component class="com.extjs.gxt.ui.client.widget.LayoutContainer"/>
+					<component class="com.extjs.gxt.ui.client.widget.ContentPanel"/>
+					<component class="com.extjs.gxt.ui.client.widget.HorizontalPanel"/>
+					<component class="com.extjs.gxt.ui.client.widget.VerticalPanel"/>
+					<component class="com.extjs.gxt.ui.client.widget.custom.Portal"/>
+					<component class="com.extjs.gxt.ui.client.widget.custom.Portlet"/>
+					<component class="com.extjs.gxt.ui.client.widget.TabPanel"/>
+					<component class="com.extjs.gxt.ui.client.widget.TabItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.CardPanel"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.ButtonGroup"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GXT.layout" name="GXT layouts"
+					optional="true">
+					<component class="com.extjs.gxt.ui.client.widget.layout.RowLayout"
+						creationId="horizontal"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.RowLayout"
+						creationId="vertical"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.FillLayout"
+						creationId="horizontal"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.FillLayout"
+						creationId="vertical"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.ColumnLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.FlowLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.FitLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.CardLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.HBoxLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.VBoxLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.AccordionLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.CenterLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.BorderLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.AnchorLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.AbsoluteLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.FormLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.TableLayout"/>
+					<component class="com.extjs.gxt.ui.client.widget.layout.TableRowLayout"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GXT" name="GXT widgets"
+					optional="true">
+					<!-- Simple -->
+					<component class="com.extjs.gxt.ui.client.widget.button.Button"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.SplitButton"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.ToggleButton"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.IconButton"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.ToolButton"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.ButtonBar"/>
+					<component class="com.extjs.gxt.ui.client.widget.Text"/>
+					<component class="com.extjs.gxt.ui.client.widget.HtmlContainer"/>
+					<component class="com.extjs.gxt.ui.client.widget.table.Table"/>
+					<component class="com.extjs.gxt.ui.client.widget.tree.Tree"/>
+					<component class="com.extjs.gxt.ui.client.widget.tree.TreeItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.treetable.TreeTable"/>
+					<component class="com.extjs.gxt.ui.client.widget.DatePicker"/>
+					<!-- Other -->
+					<component class="com.extjs.gxt.ui.client.widget.grid.Grid"/>
+					<component class="com.extjs.gxt.ui.client.widget.grid.ColumnConfig"/>
+					<component class="com.extjs.gxt.ui.client.widget.grid.EditorGrid"/>
+					<component class="com.extjs.gxt.ui.client.widget.treegrid.TreeGrid"/>
+					<component class="com.extjs.gxt.ui.client.widget.treegrid.EditorTreeGrid"/>
+					<component class="com.extjs.gxt.ui.client.widget.Html"/>
+					<component class="com.extjs.gxt.ui.client.widget.ListView"/>
+					<component class="com.extjs.gxt.ui.client.widget.CheckBoxListView"/>
+					<component class="com.extjs.gxt.ui.client.widget.ProgressBar"/>
+					<component class="com.extjs.gxt.ui.client.widget.Slider"/>
+					<component class="com.extjs.gxt.ui.client.widget.SplitBar"/>
+					<component class="com.extjs.gxt.ui.client.widget.Status"/>
+					<component class="com.extjs.gxt.ui.client.widget.treepanel.TreePanel"/>
+					<component class="com.extjs.gxt.charts.client.Chart"/>
+					<!-- non BoxComponent-s -->
+					<component class="com.extjs.gxt.ui.client.widget.ColorPalette"/>
+					<component class="com.extjs.gxt.ui.client.widget.Header"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GXT.form" name="GXT forms"
+					optional="true">
+					<component class="com.extjs.gxt.ui.client.widget.form.FormPanel"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.FieldSet"/>
+					<!-- Fields -->
+					<component class="com.extjs.gxt.ui.client.widget.form.CheckBox"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.Radio"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.HiddenField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.LabelField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.TextField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.TextArea"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.NumberField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.SimpleComboBox"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.ComboBox"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.ListField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.SliderField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.DateField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.TimeField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.CheckBoxGroup"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.RadioGroup"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.HtmlEditor"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.MultiField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.DualListField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.FileUploadField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.TriggerField"/>
+					<component class="com.extjs.gxt.ui.client.widget.form.TwinTriggerField"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GXT.menu" name="GXT menu"
+					optional="true">
+					<component class="com.extjs.gxt.ui.client.widget.menu.MenuBar"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.MenuBarItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.Menu"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.MenuItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.CheckMenuItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.SeparatorMenuItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.ColorMenu"/>
+					<component class="com.extjs.gxt.ui.client.widget.menu.DateMenu"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GXT.toolbar" name="GXT toolbar"
+					optional="true">
+					<component class="com.extjs.gxt.ui.client.widget.toolbar.ToolBar"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.Button"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.SplitButton"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.ToggleButton"/>
+					<component class="com.extjs.gxt.ui.client.widget.button.ButtonBar"/>
+					<component class="com.extjs.gxt.ui.client.widget.toolbar.LabelToolItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.toolbar.FillToolItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.toolbar.SeparatorToolItem"/>
+					<component class="com.extjs.gxt.ui.client.widget.toolbar.PagingToolBar"/>
+				</category>
+			</palette>
+		</toolkit>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.paletteComponentExists">
+		<component package="com.extjs.gxt.ui.client.widget."
+			witness="com.extjs.gxt.ui.client.widget.Component"/>
+	</extension>
+
+
+
+	<!-- ======================================================== -->
+	<!-- Layout managers -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.layoutManagers">
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="rowLayout.horizontal"
+			name="RowLayout, horizontal" class="com.extjs.gxt.ui.client.widget.layout.RowLayout"
+			creationId="horizontal"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="rowLayout.vertical"
+			name="RowLayout, vertical" class="com.extjs.gxt.ui.client.widget.layout.RowLayout"
+			creationId="vertical"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="fillLayout.horizontal"
+			name="FillLayout, horizontal" class="com.extjs.gxt.ui.client.widget.layout.FillLayout"
+			creationId="horizontal"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="fillLayout.vertical"
+			name="FillLayout, vertical" class="com.extjs.gxt.ui.client.widget.layout.FillLayout"
+			creationId="vertical"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="columnLayout"
+			name="ColumnLayout" class="com.extjs.gxt.ui.client.widget.layout.ColumnLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="flowLayout" name="FlowLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.FlowLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="fitLayout" name="FitLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.FitLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="cardLayout" name="CardLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.CardLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="HBoxLayout" name="HBoxLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.HBoxLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="VBoxLayout" name="VBoxLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.VBoxLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="accordionLayout"
+			name="AccordionLayout" class="com.extjs.gxt.ui.client.widget.layout.AccordionLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="centerLayout"
+			name="CenterLayout" class="com.extjs.gxt.ui.client.widget.layout.CenterLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="borderLayout"
+			name="BorderLayout" class="com.extjs.gxt.ui.client.widget.layout.BorderLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="anchorLayout"
+			name="AnchorLayout" class="com.extjs.gxt.ui.client.widget.layout.AnchorLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="absoluteLayout"
+			name="AbsoluteLayout" class="com.extjs.gxt.ui.client.widget.layout.AbsoluteLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="formLayout" name="FormLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.FormLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="tableLayout" name="TableLayout"
+			class="com.extjs.gxt.ui.client.widget.layout.TableLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GXT" id="tableRowLayout"
+			name="TableRowLayout" class="com.extjs.gxt.ui.client.widget.layout.TableRowLayout"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.editPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.gxt.gef.EditPartFactory" priority="1"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.editPolicyFactories">
+		<factory class="com.google.gdt.eclipse.designer.gxt.gef.LayoutEditPolicyFactory"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.editPartConfigurators">
+		<configurator
+			class="com.google.gdt.eclipse.designer.gxt.gef.LayoutSelectionEditPolicyEditPartConfigurator"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories for TreeViewer -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.treeEditPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.gxt.gefTree.EditPartFactory" priority="1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Wizards -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.newWizards">
+		<!-- ======================================================== -->
+		<!-- Wizards: UI -->
+		<!-- ======================================================== -->
+		<category id="com.google.gdt.eclipse.designer.GXT" name="GXT (Ext GWT)"
+			parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.GXT"
+			id="com.google.gdt.eclipse.designer.gxt.wizards.CompositeWizard"
+			class="com.google.gdt.eclipse.designer.gxt.wizards.CompositeWizard"
+			icon="icons/wizards/Composite/wizard.png" name="GXT Composite">
+			<description>Create an Ext GWT (GXT) Composite</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.GXT"
+			id="com.google.gdt.eclipse.designer.gxt.wizards.LayoutContainerWizard"
+			class="com.google.gdt.eclipse.designer.gxt.wizards.LayoutContainerWizard"
+			icon="icons/wizards/LayoutContainer/wizard.png" name="GXT LayoutContainer">
+			<description>Create an Ext GWT (GXT) LayoutContainer</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.GXT"
+			id="com.google.gdt.eclipse.designer.gxt.wizards.WindowWizard"
+			class="com.google.gdt.eclipse.designer.gxt.wizards.WindowWizard"
+			icon="icons/wizards/Window/wizard.png" name="GXT Window">
+			<description>Create an Ext GWT (GXT) Window</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.GXT"
+			id="com.google.gdt.eclipse.designer.gxt.wizards.DialogWizard"
+			class="com.google.gdt.eclipse.designer.gxt.wizards.DialogWizard"
+			icon="icons/wizards/Dialog/wizard.png" name="GXT Dialog">
+			<description>Create an Ext GWT (GXT) Dialog</description>
+		</wizard>
+	</extension>
+
+	<extension point="com.google.gdt.eclipse.designer.moduleConfigurators">
+		<configurator name="Ext GWT (GXT)"
+			class="com.google.gdt.eclipse.designer.gxt.actions.ConfigureExtGwtAction"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Property tester -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester id="com.google.gdt.eclipse.designer.gxt.actions.GXTPropertyTester"
+			class="com.google.gdt.eclipse.designer.gxt.actions.GxtPropertyTester"
+			namespace="com.google.gdt.eclipse.designer.gxt" properties="isConfigured"
+			type="org.eclipse.core.runtime.IAdaptable"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Popup menu -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designer.GXT.objectContribution.configure"
+			objectClass="org.eclipse.core.resources.IResource">
+			<enablement>
+				<and>
+					<test property="com.google.gdt.eclipse.designer.isGwtModuleElement"/>
+					<not>
+						<test property="com.google.gdt.eclipse.designer.gxt.isConfigured"/>
+					</not>
+				</and>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.gxt.actions.ConfigureExtGwtAction"
+				label="Configure for using Ext GWT (GXT)"
+				class="com.google.gdt.eclipse.designer.gxt.actions.ConfigureExtGwtAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/configureFor"/>
+		</objectContribution>
+		<!-- Wizards -->
+		<objectContribution adaptable="false"
+			id="com.google.gdt.eclipse.designer.GXT.objectContribution.gui"
+			objectClass="org.eclipse.jdt.core.IJavaElement">
+			<enablement>
+				<and>
+					<test property="com.google.gdt.eclipse.designer.isResource"/>
+					<test property="com.google.gdt.eclipse.designer.isClientPackage"/>
+					<test property="com.google.gdt.eclipse.designer.gxt.isConfigured"/>
+				</and>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.gxt.wizards.DialogAction"
+				label="GXT Dialog" class="com.google.gdt.eclipse.designer.gxt.wizards.DialogAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/GXT"/>
+			<action id="com.google.gdt.eclipse.designer.gxt.wizards.WindowAction"
+				label="GXT Window" class="com.google.gdt.eclipse.designer.gxt.wizards.WindowAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/GXT"/>
+			<action id="com.google.gdt.eclipse.designer.gxt.wizards.LayoutContainerAction"
+				label="GXT LayoutContainer"
+				class="com.google.gdt.eclipse.designer.gxt.wizards.LayoutContainerAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/GXT"/>
+			<action id="com.google.gdt.eclipse.designer.gxt.wizards.CompositeAction"
+				label="GXT Composite"
+				class="com.google.gdt.eclipse.designer.gxt.wizards.CompositeAction" enablesFor="1"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GXT"/>
+		</objectContribution>
+	</extension>
+
+	<!-- ======================================================== -->
+	<!-- Root processor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.rootProcessors">
+		<processor
+			class="com.google.gdt.eclipse.designer.gxt.model.widgets.GxtCleanupRootProcessor"/>
+		<processor
+			class="com.google.gdt.eclipse.designer.gxt.model.widgets.UntypedEventsRootProcessor"/>
+	</extension>
+
+</plugin>

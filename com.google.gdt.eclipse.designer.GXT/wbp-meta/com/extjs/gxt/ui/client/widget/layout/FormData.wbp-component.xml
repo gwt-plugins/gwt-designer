@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.FormDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.FormData(null)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setAnchorSpec(java.lang.String)" defaultSource="null"/>
+		</constructor>
+		<constructor>
+			<parameter type="int" property="setWidth(int)" defaultSource="null"/>
+			<parameter type="int" property="setHeight(int)" defaultSource="null"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<!-- default -->
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>()") {
+				return true;
+			}
+			if (signature == "<init>(int,int)") {
+				return args[0] == 0 && args[1] == 1;
+			}
+			if (signature == "<init>(java.lang.String)") {
+				return args[0] == null;
+			}
+			return false;
+		]]></parameter>
+	</parameters>
+</component>

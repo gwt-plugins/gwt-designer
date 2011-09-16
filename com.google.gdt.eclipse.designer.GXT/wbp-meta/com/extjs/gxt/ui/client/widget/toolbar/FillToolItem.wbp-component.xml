@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.FillToolItemInfo"/>
+	<description>Fills the toolbar width, pushing any newly added items to the right.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.toolbar.FillToolItem()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			isComponentType(parent, "com.extjs.gxt.ui.client.widget.toolbar.ToolBar")
+			]]></parameter>
+	</parameters>
+</component>

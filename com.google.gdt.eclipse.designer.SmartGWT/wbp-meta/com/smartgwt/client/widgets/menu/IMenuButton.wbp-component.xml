@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Simple Menu Button subclass of IMenuButton with an appearance appropriate for a
+        ToolStrip menu button.</description>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setMenu" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+        </method>
+    </methods>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">true</parameter>
+        <parameter name="simpleContainer.component">com.smartgwt.client.widgets.menu.Menu</parameter>
+        <parameter name="simpleContainer.association">%parent%.setMenu(%child%)</parameter>
+    </parameters>
+</component>

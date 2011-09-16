@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Multiline text field. Can be used as a direct replacement for traditional textarea fields,
+		plus adds support for auto-sizing.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.TextArea("New text area", "text_area")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<property id="setGrowMax(int)">
+		<category value="advanced"/>
+		<defaultValue value="1000"/>
+	</property>
+	<property id="setGrowMin(int)">
+		<category value="advanced"/>
+		<defaultValue value="60"/>
+	</property>
+	<property id="setPreventScrollbars(boolean)">
+		<defaultValue value="false"/>
+	</property>
+</component>

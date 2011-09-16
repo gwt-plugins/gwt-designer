@@ -1,0 +1,10 @@
+import com.google.gwt.core.client.EntryPoint;
+import com.smartgwt.client.widgets.Canvas;
+
+method
+	public void onModuleLoad() {
+		Canvas canvas = new Canvas();
+		
+		canvas.draw();
+	}
+

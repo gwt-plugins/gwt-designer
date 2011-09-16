@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Provides a date input field with {@link com.gwtext.client.widgets.DatePicker} dropdown and
+		automatic date validation.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.DateField("New date field", "date_field", 100)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setFormat(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="disabledDates disabledDatesText disabledDaysText"/>
+	<properties-advanced names="setMaxValue(java.lang.String) setMinValue(java.lang.String)"/>
+	<properties-hidden names=""/>
+	<property id="setAltFormats(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue
+			value="'m/d/Y|n/j/Y|n/j/y|m/j/y|n/d/y|m/j/Y|n/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d'"/>
+	</property>
+	<property id="setFormat(java.lang.String)">
+		<category value="preferred"/>
+		<defaultValue value="'m/d/Y'"/>
+	</property>
+	<property id="setMaxText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The date in this field must be before {maxValue}'"/>
+	</property>
+	<property id="setMinText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The date in this field must be after {minValue}'"/>
+	</property>
+</component>

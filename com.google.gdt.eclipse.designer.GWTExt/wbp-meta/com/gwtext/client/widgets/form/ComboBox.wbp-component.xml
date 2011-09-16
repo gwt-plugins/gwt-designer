@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A combobox control with support for autocomplete, remote-loading, paging and many other
+		features.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.ComboBox("New combobox", "combo_box", 100)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<methods-exclude signature="setEditable(boolean)"/>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="allQuery displayField hiddenName listAlign"/>
+	<properties-advanced names="minHeight"/>
+	<properties-advanced names="queryDelay setTpl(java.lang.String)"/>
+	<properties-advanced names="selectOnFocus valueField valueNotFoundText"/>
+	<properties-hidden names=""/>
+	<property id="setEditable(boolean)">
+		<!-- hidden because setEditable(boolean) throws JavaScriptError -->
+		<category value="hidden"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setForceSelection(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHandleHeight(int)">
+		<category value="advanced"/>
+		<defaultValue value="8"/>
+	</property>
+	<property id="setHideTrigger(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setItemSelector(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setLazyRender(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setLinked(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setListClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setListAlign(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'tl-bl'"/>
+	</property>
+	<property id="setLoadingText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'Loading...'"/>
+	</property>
+	<property id="setMaxHeight(int)">
+		<category value="advanced"/>
+		<defaultValue value="300"/>
+	</property>
+	<property id="setMinChars(int)">
+		<category value="advanced"/>
+		<defaultValue value="4"/>
+	</property>
+	<property id="setMinListWidth(int)">
+		<category value="advanced"/>
+		<defaultValue value="70"/>
+	</property>
+	<property id="setMode(com.gwtext.client.widgets.form.ComboBox.Mode)">
+		<category value="advanced"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.widgets.form.ComboBox</parameter>
+			<parameter name="fields">REMOTE LOCAL</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.widgets.form.ComboBox.REMOTE"/>
+	</property>
+	<property id="setPageSize(int)">
+		<category value="advanced"/>
+		<defaultValue value="0"/>
+	</property>
+	<property id="setQueryParam(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'query'"/>
+	</property>
+	<property id="setResizable(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setSelectedClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-combo-selected'"/>
+	</property>
+	<property id="setShadow(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setShadow(com.gwtext.client.widgets.Shadow.Type)">
+		<category value="advanced"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.widgets.Shadow</parameter>
+			<parameter name="fields">SIDES FRAME DROP</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.widgets.Shadow.SIDES"/>
+	</property>
+	<property id="setTriggerClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setTriggerAction(com.gwtext.client.widgets.form.ComboBox.Trigger)">
+		<category value="advanced"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.widgets.form.ComboBox</parameter>
+			<parameter name="fields">ALL QUERY</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.widgets.form.ComboBox.QUERY"/>
+	</property>
+	<property id="setTypeAhead(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setTypeAheadDelay(int)">
+		<category value="advanced"/>
+		<defaultValue value="250"/>
+	</property>
+</component>

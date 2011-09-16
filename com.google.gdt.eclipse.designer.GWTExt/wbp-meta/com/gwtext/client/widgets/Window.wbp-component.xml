@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.WindowInfo"/>
+	<description>A specialized panel intended for use as an application window.</description>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="int" property="setHeight(int)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="boolean" property="setModal(boolean)"/>
+			<parameter type="boolean" property="setResizable(boolean)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="int" property="setHeight(int)"/>
+			<parameter type="boolean" property="setModal(boolean)"/>
+			<parameter type="boolean" property="setResizable(boolean)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<method-order>
+		<default order="afterCreation"/>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<property id="setActive(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setBaseCls(java.lang.String)">
+		<defaultValue value="'x-window'"/>
+	</property>
+	<property id="setClosable(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setCloseAction(com.gwtext.client.widgets.Window.CloseAction)">
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.widgets.Window</parameter>
+			<parameter name="fields">CLOSE HIDE</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.widgets.Window.CLOSE"/>
+	</property>
+	<property id="setDraggable(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setExpandOnShow(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setMinimizable(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setMinHeight(int)">
+		<defaultValue value="100"/>
+	</property>
+	<property id="setMinWidth(int)">
+		<defaultValue value="200"/>
+	</property>
+	<property id="setResizable(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setResizeHandles(java.lang.String)">
+		<editor id="expressionList">
+			<parameter name="functions">def valueIs(s1,s2) { return s1.equalsIgnoreCase(s2); };</parameter>
+			<parameter-list name="expressions">"n"</parameter-list>
+			<parameter-list name="expressions">"s"</parameter-list>
+			<parameter-list name="expressions">"e"</parameter-list>
+			<parameter-list name="expressions">"w"</parameter-list>
+			<parameter-list name="expressions">"nw"</parameter-list>
+			<parameter-list name="expressions">"sw"</parameter-list>
+			<parameter-list name="expressions">"se"</parameter-list>
+			<parameter-list name="expressions">"ne"</parameter-list>
+			<parameter-list name="expressions">"all"</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("n")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("s")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("e")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("w")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("nw")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("sw")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("se")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("ne")</parameter-list>
+			<parameter-list name="conditions">value.equalsIgnoreCase("all")</parameter-list>
+			<parameter-list name="titles">NORTH</parameter-list>
+			<parameter-list name="titles">SOUTH</parameter-list>
+			<parameter-list name="titles">EAST</parameter-list>
+			<parameter-list name="titles">WEST</parameter-list>
+			<parameter-list name="titles">NORTH_WEST</parameter-list>
+			<parameter-list name="titles">SOUTH_WEST</parameter-list>
+			<parameter-list name="titles">SOUTH_EAST</parameter-list>
+			<parameter-list name="titles">NORTH_EAST</parameter-list>
+			<parameter-list name="titles">ALL</parameter-list>
+		</editor>
+		<defaultValue value="'all'"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="objectReadyValidator">true</parameter>
+		<!-- bounds -->
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			if (model.getArbitraryValue('wbp-Window-noSize') != 'true') {
+				widget.setSize("100px", "100px");
+				widget.show();
+				widget.setSize(size.width + "px", size.height + "px");
+			} else {
+				widget.show();
+			}
+		]]></parameter>
+		<!-- direct edit -->
+		<parameter name="directEdit.property">title</parameter>
+		<parameter name="directEdit.location.insets">5 5 0 0</parameter>
+		<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+		<parameter name="directEdit.location.verticalAlignment">top</parameter>
+	</parameters>
+</component>

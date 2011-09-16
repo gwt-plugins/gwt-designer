@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.FieldInfo"/>
+	<!-- PROPERTIES -->
+	<properties-preferred names="fieldLabel name"/>
+	<properties-advanced names="borders emptyText inEditor tabIndex"/>
+	<properties-advanced names="hideLabel labelSeparator labelStyle"/>
+	<properties-advanced names="originalValue rawValue value fireChangeEventOnSetValue"/>
+	<properties-advanced names="messageTarget autoValidate validateOnBlur validationDelay"/>
+	<property-tag name="fieldLabel" tag="isText" value="true"/>
+	<property id="setMessageTarget(java.lang.String)">
+		<editor id="stringList">
+			<parameter-list name="strings">tooltip</parameter-list>
+			<parameter-list name="strings">title</parameter-list>
+			<parameter-list name="strings">side</parameter-list>
+			<parameter-list name="strings">none</parameter-list>
+		</editor>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.Field"><![CDATA[
+			FieldEvent Focus Blur Change Invalid Valid KeyPress SpecialKey
+		]]></parameter>
+	</parameters>
+</component>

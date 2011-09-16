@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.menu.ItemInfo"/>
+	<!-- PROPERTIES -->
+	<properties-advanced names="activeStyle hideOnClick"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			isComponentType(parent, "com.extjs.gxt.ui.client.widget.menu.Menu")
+			]]></parameter>
+		<!-- simple container: Component.setContextMenu -->
+		<parameter name="simpleContainer.2">false</parameter>
+	</parameters>
+</component>

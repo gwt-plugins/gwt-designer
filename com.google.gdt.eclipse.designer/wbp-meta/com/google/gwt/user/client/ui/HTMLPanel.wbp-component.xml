@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.HTMLPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.HTMLPanelInfo"/>
+	<description>A panel that contains HTML, and which can attach child widgets to identified
+		 elements within that HTML.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.HTMLPanel("New HTML")]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="addAndReplaceElement">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.StackPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.DOM;
+			if (DOM.getChildCount(object.getElement()) == 0) {
+				span = DOM.createSpan();
+				DOM.setInnerText(span, "Empty HTMLPanel");
+				DOM.appendChild(object.getElement(), span);
+			}
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

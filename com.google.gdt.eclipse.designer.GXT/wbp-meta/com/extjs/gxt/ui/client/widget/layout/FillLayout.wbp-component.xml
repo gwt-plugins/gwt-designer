@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.FillLayoutInfo"/>
+	<description>Layout that positions the container's children in a single horizontal or vertical row,
+		forcing them to be the same size.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.FillLayout(com.extjs.gxt.ui.client.Style.Orientation.HORIZONTAL)]]></source>
+	</creation>
+	<creation id="horizontal" name="FillLayout, horizontal">
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.FillLayout(com.extjs.gxt.ui.client.Style.Orientation.HORIZONTAL)]]></source>
+		<description>Layout that positions the container's children in a single horizontal row, forcing them
+			to be the same size.</description>
+	</creation>
+	<creation id="vertical" name="FillLayout, vertical">
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.FillLayout(com.extjs.gxt.ui.client.Style.Orientation.VERTICAL)]]></source>
+		<description>Layout that positions the container's children in a single vertical row, forcing them to
+			be the same size.</description>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.Style$Orientation"
+				property="setOrientation(com.extjs.gxt.ui.client.Style.Orientation)"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.FillData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%(0)</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">isHorizontal()</parameter>
+	</parameters>
+</component>

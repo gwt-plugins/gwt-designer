@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.TabLayoutPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.TabLayoutPanelInfo"/>
+	<description>A panel that represents a tabbed set of pages, each of which contains another widget. Its
+		child widgets are shown as the user selects the various tabs associated with them. <p/><b>Note:</b>
+		this widget will <em>only</em> work in standards mode.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.TabLayoutPanel(1.5, com.google.gwt.dom.client.Style.Unit.EM)]]></source>
+		<x-attribute name="barHeight" value="2"/>
+		<x-attribute name="barUnit" value="EM"/>
+		<x-attribute name="width" value="250px"/>
+		<x-attribute name="height" value="150px"/>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true" parent2="true"/>
+			<parameter type="com.google.gwt.user.client.ui.Widget" child2="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">200px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				message = new HTML("Empty TabLayoutPanel.");
+				object.add(message, "Title", false);
+				object.selectTab(message);
+			}
+			]]></parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			RootLayoutPanel.get().add(widget);
+		]]></parameter>
+		<!-- properties -->
+		<parameter name="copyChildPropertyTop from=Association/text to=TabText category=system(7)"/>
+		<!-- simpleContainer -->
+		<parameter name="simpleContainer">false</parameter>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%, "New Widget", false)</parameter>
+		<parameter name="flowContainer.tree.x-association">inter {parentNS}tab</parameter>
+	</parameters>
+</component>

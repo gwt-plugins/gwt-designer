@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.SelectItemInfo"/>
+    <description>FormItem that allows picking between several mutually exclusive options via a
+        select list.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.SelectItem("newSelectItem_%index%", "New SelectItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="defaultToFirstOption"/>
+    <properties-advanced names="addUnknownValues autoFetchData sort*"/>
+    <properties-noDefaultValue names="values pickListHeight"/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="true"/>
+    </property>
+    <property id="setControlStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+</component>

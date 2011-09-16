@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Simple widget that displays a single image.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.Img("desktop.png")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setSrc(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setSrc(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="int" property="setHeight(int)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="imageType src"/>
+	<properties-normal names=""/>
+	<properties-advanced names="name radioGroup showTitle title valign"/>
+</component>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.PortalInfo"/>
+	<description>Portal is container of Portlets.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.custom.Portal(2)]]></source>
+		<invocation signature="setColumnWidth(int,double)"><![CDATA[1, 0.3]]></invocation>
+		<invocation signature="setColumnWidth(int,double)"><![CDATA[0, 0.7]]></invocation>
+		<!--<invocation signature="setCollapsible(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setHeading(java.lang.String)"><![CDATA["New ContentPanel"]]></invocation>-->
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="setColumnWidth">
+			<parameter type="int"/>
+			<parameter type="double"/>
+		</method>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.custom.Portlet" child="true"/>
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.custom.Portal"><![CDATA[
+			PortalEvent ValidateDrop Drop
+		]]></parameter>
+	</parameters>
+</component>

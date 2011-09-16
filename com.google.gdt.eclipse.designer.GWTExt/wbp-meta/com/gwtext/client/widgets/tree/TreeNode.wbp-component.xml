@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.TreeNodeInfo"/>
+	<description>TreeNode is data class for TreePanel.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.tree.TreeNode("New TreeNode", "")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setIconCls(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<properties-advanced names="hrefTarget id leaf"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<property id="setAllowDrag(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setAllowDrop(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setChecked(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setCls(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setHref(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'#'"/>
+	</property>
+	<property id="setIcon(java.lang.String)">
+		<category value="preferred"/>
+		<editor id="gwt.imageURL"/>
+	</property>
+	<property id="setIconCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setSingleClickExpand(boolean)">
+		<defaultValue value="false"/>
+	</property>
+</component>

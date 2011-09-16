@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Represents a hidden field in an HTML form.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.Hidden("Hidden name")]]></source>
+		<x-attribute name="name" value="Hidden name"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setValue(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.Button"/>
+		<morphTarget class="com.google.gwt.user.client.ui.CheckBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Hyperlink"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.SimplePanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.AbsolutePanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.FlowPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Grid"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">20px</parameter>
+		<parameter name="liveComponent.forcedSize.height">20px</parameter>
+	</parameters>
+</component>

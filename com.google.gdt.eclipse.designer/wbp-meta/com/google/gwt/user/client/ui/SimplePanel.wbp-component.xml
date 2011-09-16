@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.SimplePanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.SimplePanelInfo"/>
+	<description>A panel that contains only one widget.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="setWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+	</methods>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.SimplePanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DecoratorPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.FocusPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.FormPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.PopupPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DecoratedPopupPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ScrollPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidget() == null) {
+				object.setWidget(new Label("Empty simple panel"));
+			}
+			]]></parameter>
+		<!-- size management -->
+		<parameter name="onChildAdd.setWidth">100%</parameter>
+		<parameter name="onChildAdd.setHeight">100%</parameter>
+		<parameter name="onChildOut.removeSize">always</parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.association">%parent%.setWidget(%child%)</parameter>
+	</parameters>
+</component>

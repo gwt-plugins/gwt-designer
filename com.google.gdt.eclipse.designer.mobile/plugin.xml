@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension-point id="devices" name="GWT mobile devices" schema="schema/devices.exsd"/>
+
+	<!-- ======================================================== -->
+	<!-- Exceptions -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.exceptions">
+		<file path="resources/exceptions.xml"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Parsing -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.rootProcessors">
+		<processor class="com.google.gdt.eclipse.designer.mobile.device.DeviceSelectionSupport"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.xml.rootProcessors">
+		<processor class="com.google.gdt.eclipse.designer.mobile.device.DeviceSelectionSupport"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- EditPart configurator -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.editPartConfigurators">
+		<configurator class="com.google.gdt.eclipse.designer.mobile.gef.MobileEditPartConfigurator"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Devices -->
+	<!-- ======================================================== -->
+	<extension point="com.google.gdt.eclipse.designer.mobile.devices">
+		<!-- Google -->
+		<category id="google" name="Google">
+			<device id="Google.Nexus One" name="Nexus One"
+				image="icons/device/Google/Nexus One.png">
+				<display x="54" y="130" width="480" height="800"/>
+			</device>
+			<device id="Google.Nexus S" name="Nexus S"
+				image="icons/device/Google/Nexus S.png">
+				<display x="45" y="160" width="480" height="800"/>
+			</device>
+		</category>
+		<!-- Generic -->
+		<category id="generic" name="Generic">
+			<device id="generic.qvga" name="QVGA"
+				image="icons/device/generic/qvga-portrait.png">
+				<display x="20" y="20" width="240" height="320"/>
+			</device>
+			<device id="generic.vga" name="VGA"
+				image="icons/device/generic/vga-portrait.png">
+				<display x="20" y="20" width="480" height="640"/>
+			</device>
+		</category>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Preferences -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.preferencePages">
+		<page category="com.google.gdt.eclipse.designer.gpe.preferences.DesignerPreferencePage"
+			class="com.google.gdt.eclipse.designer.mobile.preferences.device.DevicesPreferencePage"
+			id="com.google.gdt.eclipse.designer.mobile.preferences.device.DevicesPreferencePage"
+			name="Mobile Devices"/>
+	</extension>
+
+</plugin>

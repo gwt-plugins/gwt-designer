@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Provides a date input field with a DatePicker dropdown and automatic date validation.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.DateField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New DateField"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="allowBlank formatValue password regex"/>
+	<properties-advanced names="hideTrigger maxLength minLength triggerStyle"/>
+</component>

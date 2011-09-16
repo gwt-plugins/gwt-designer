@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Single radio field. Same as CheckBox, but provided as a convenience for automatically setting
+		the input type. Radio grouping is handled automatically by the browser if you give each radio in a
+		group the same name.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.Radio()]]></source>
+		<invocation signature="setHideLabel(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setBoxLabel(java.lang.String)"><![CDATA["New Radio"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+</component>

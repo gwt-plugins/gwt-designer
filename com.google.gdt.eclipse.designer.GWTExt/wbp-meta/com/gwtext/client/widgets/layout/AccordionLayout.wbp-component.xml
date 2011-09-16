@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.AccordionLayoutInfo"/>
+	<description>This is a layout that contains multiple panels in an expandable accordion style such that
+		only one panel can be open at any given time. Each panel has built-in support for expanding and
+		collapsing. Note that child Panels added to a Panel with an AccordionLayout must have a title.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.layout.AccordionLayout(false)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="boolean" property="setAnimate(boolean)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<!--<property id="setExtraCls(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>-->
+	<property id="setActiveOnTop(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setAnimate(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setAutoWidth(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setCollapseFirst(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setFill(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setHideCollapseTool(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setSequence(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setTitleCollapse(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer">false</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.gwtext.client.widgets.Panel</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

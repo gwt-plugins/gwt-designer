@@ -1,0 +1,9 @@
+# Makefile for creating WBP library for Windows 64-bit
+
+
+JAVA_HOME = C:/jdk1.6.0_21_x64
+OUTPUT_DIR = ../../../os/win32/x86_64
+
+ARCH_DEFS = __x86_64__
+
+include "Makefile.common"

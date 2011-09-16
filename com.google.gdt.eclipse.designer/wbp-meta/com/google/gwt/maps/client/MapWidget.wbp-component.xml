@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			import com.google.gwt.user.client.DOM;
+			import com.google.gwt.user.client.ui.*;
+			
+			html = new HTML("<div><table width=100% height=100%><tr>" + 
+				"<td align=center valign=middle>Google Map" + 
+				"</td></tr></table></div>");
+			DOM.setStyleAttribute(html.getElement(), 'background', '#E8FFE8');
+			return html;
+		]]></parameter>
+	</parameters>
+</component>

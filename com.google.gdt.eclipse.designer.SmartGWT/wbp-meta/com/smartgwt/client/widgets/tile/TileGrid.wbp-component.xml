@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.TileGridInfo"/>
+    <description>A TileGrid is a DataBoundComponent that displays a list of objects as a set of
+        "tiles", where each tile represents one object, and the tiles are laid out in a grid with
+        multiple tiles per row. Each tile displays one or more properties of the object it
+        represents.</description>
+    <!-- METHODS -->
+    <methods>
+        <method name="setFields" order="beforeAssociation" executable="false">
+            <parameter type="com.smartgwt.client.widgets.viewer.DetailViewerField[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <exclude package="com.smartgwt.client.widgets.tile"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="border fieldState tileValue*"/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- flow container -->
+        <parameter name="flowContainer">false</parameter>
+        <parameter name="flowContainer.tree">true</parameter>
+        <parameter name="flowContainer.tree.horizontal">false</parameter>
+        <parameter name="flowContainer.tree.component"
+            >com.smartgwt.client.widgets.viewer.DetailViewerField</parameter>
+    </parameters>
+</component>

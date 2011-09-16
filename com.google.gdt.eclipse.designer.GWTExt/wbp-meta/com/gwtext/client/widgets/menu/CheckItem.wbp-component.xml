@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.CheckItemInfo"/>
+	<description>Adds a menu item that contains a checkbox by default, but can also be part of a radio group.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.menu.CheckItem("New check item", false)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="boolean" property="setChecked(boolean)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="group checked"/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<property id="setGroupClass(java.lang.String)">
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-menu-group-item'"/>
+	</property>
+</component>

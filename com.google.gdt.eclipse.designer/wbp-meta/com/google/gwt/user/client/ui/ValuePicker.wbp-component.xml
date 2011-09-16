@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.ValuePickerInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.cell.ValuePickerInfo"/>
+	<description>Allows the user to pick a single value from a list.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.ValuePicker(new com.google.gwt.user.cellview.client.CellList(new com.google.gwt.cell.client.TextCell()))]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.google.gwt.user.cellview.client.CellList" child="true"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="simpleContainer">false</parameter>
+		<!-- UiBinder -->
+		<parameter name="UiBinder.createFieldProvided">true</parameter>
+		<parameter name="UiBinder.createInstance"><![CDATA[
+    		import com.google.gwt.user.client.ui.ValuePicker;
+    		import com.google.gwt.text.shared.testing.PassthroughRenderer;
+    		picker = new ValuePicker(PassthroughRenderer.instance());
+    		picker.setAcceptableValues(['1. Item', '2. Long item', '3. Even longer item', '4. Item', '5. Long item']);
+    		return picker;
+    	]]></parameter>
+	</parameters>
+</component>

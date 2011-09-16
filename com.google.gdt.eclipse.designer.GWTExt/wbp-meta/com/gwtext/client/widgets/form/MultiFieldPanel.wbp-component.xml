@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.MultiFieldPanelInfo"/>
+	<description>This is a helper class that allows you to add multiple fields / widgets to a single row in a
+		Form.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.MultiFieldPanel()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- Field -->
+		<method name="addToRow" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.form.Field" child="true"/>
+			<parameter type="int"/>
+		</method>
+		<method name="addToRow" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.form.Field" child="true" parent2="true"/>
+			<parameter type="com.gwtext.client.widgets.layout.ColumnLayoutData" child2="true"/>
+		</method>
+		<!-- Widget -->
+		<method name="addToRow" order="beforeAssociation">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="int"/>
+		</method>
+		<method name="addToRow" order="beforeAssociation">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true" parent2="true"/>
+			<parameter type="com.gwtext.client.widgets.layout.ColumnLayoutData" child2="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.association">%parent%.addToRow(%child%, 100)</parameter>
+		<!-- "width" property for children -->
+		<parameter
+			name="modelMethodChildProperty getter=getWidth setter=setWidth title=Width category=system(7) type=java.lang.String child=com.google.gdt.eclipse.designer.model.widgets.WidgetInfo"
+		/>
+	</parameters>
+</component>

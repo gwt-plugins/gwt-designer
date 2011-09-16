@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.ComboBoxItemInfo"/>
+    <description>The Combobox is a text input field which can show a list of options via a drop-down
+        PickList. The set of options will be filtered based on the current value in the text field,
+        so only options that match what has been typed so far will be displayed.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.ComboBoxItem("newComboBoxItem_%index%", "New ComboBoxItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="autoFetchData sortField*"/>
+    <properties-noDefaultValue names=""/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="false"/>
+    </property>
+</component>

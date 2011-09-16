@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><TITLE>Preferences - Google > Web Toolkit > Designer > Code Style</TITLE><LINK rel=stylesheet type=text/css href="../../../book.css"><META name=GENERATOR content="MSHTML 8.00.7600.16700"></HEAD><BODY><H1>Preferences - Google &gt; Web Toolkit &gt; Designer&nbsp;&gt; Code Style</H1>
+<TABLE   cellSpacing=0 cellPadding=5 width=800 >
+	<TBODY><TR   >
+		<TD  colSpan=2  ><IMG border=0 hspace=0 alt="" src="images/preferences_gpe_code_style.png" width=672 height=508><H2>Use the existing creation style when it can be deduced</H2>
+      <P>This preference determines whether <B>GWT Designer</B> attempts to use the 
+		existing code creation style already in a file to generate code.<SPAN style="mso-spacerun: yes">&nbsp; 
+		<B>GWT</B></SPAN><B> Designer</B> checks a file when it is opened in the editor to see if one 
+		style or the other is used.<SPANSTYLE="MSO-SPACERUN: yes?>&nbsp; </SPAN>If no style is detected (no controls 
+		have been created yet) or if more than one style is detected, the 
+		<B>GWT Designer</B> will generate code as specified in the other 
+		settings.
+      <H2>
+		<IMG hspace=10 vspace=10 align=right src="images/code_generation_method_name.png">Method name for new statements</H2>
+      <P>This preference determines in which method components will be created by default 
+		(in the event that a suitable method has not already be 
+		defined for the current class). If the method does not exist, it will be 
+		created and a call to it added to the constructor for the class. Various 
+		default choices are provided to match the code generation patterns of 
+		other GUI builders.<H2>Default code generation settings</H2>
+      <P><B>GWT Designer</B> supports a wide variety of code generation styles 
+		and can emulate most other Java GUI builders including NetBeans, 
+		JBuilder, the Eclipse Visual Editor, etc. Choose a <B>
+		<A href="preferences_code_generation.html#Variable">Variable 
+		Generation</A></B> style (<B><A href="preferences_code_generation.html#Local">Local</A></B>, <B>
+		<A href="preferences_code_generation.html#Field">Field</A></B>, <B><A href="preferences_code_generation.html#InitializedField">Initialized Field</A></B> or <B>
+		<A href="preferences_code_generation.html#Lazy">Lazy</A></B>) and a <B><A href="preferences_code_generation.html#Statement">Statement Generation</A></B> style (<B><A href="preferences_code_generation.html#Flat">Flat</A></B> or <B>
+		<A href="preferences_code_generation.html#Block">Block</A></B>). Many of the styles have additional options that can be set. 
+		Once any combination of settings is selected, you can see a preview of 
+		that code generation style in the <B>Preview</B> pane.<H2>
+		<A name=Variable>Variable</A> 
+		generation</H2>
+      <P><B>GWT Designer</B> supports several <B>Variable Generation</B> 
+		styles including <B><A href="preferences_code_generation.html#Local">Local</A></B>, <B><A href="preferences_code_generation.html#Field">Field</A></B>, <B>
+		<A href="preferences_code_generation.html#InitializedField">Initialized Field</A></B> or <B>
+		<A href="preferences_code_generation.html#Lazy">Lazy</A></B>.</P></TD>
+	</TR>
+	<TR   >
+		<TD  width="100%" colSpan=2 align=left  >
+		<H3><A name=Local>Local</A> Variable Mode</H3>
+		<P>
+		<IMG hspace=0 src="images/code_generation_local.png"><P>
+		In the <B>Local</B> variable generation style, each component is 
+		assigned to a unique local variable and initialized at the point of 
+		declaration. An option is provided to declare each variable as <B>final</B>. 
+		Note that component types marked as <B>As Field</B> on the <B>
+		<A href="preferences_variables.html#TypeSpecific">Variables &gt; Type 
+		Specific</A></B> preference page will always be assigned to fields.</P></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>Local 
+				Variables / Flat Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_local_source.png"></TD>
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>Final Local 
+				Variables / Flat Mode<BR>
+				</B>
+				<IMG hspace=0 align=top src="images/code_generation_local_source_final.png"></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>Local 
+				Variables / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_local_source_block.png"></TD>
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>Final Local 
+				Variables / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_local_source_final_block.png" width=323 height=192></TD>
+	</TR>
+	<TR   >
+		<TD  width="100%" colSpan=2 align=left  >
+		<H3><A name=Field>Field</A> Mode</H3>
+		<P>
+		<IMG hspace=0 src="images/code_generation_field.png"><P>
+		In the <B>Field</B> generation style, each component is 
+		assigned to a unique field and initialized at the point where it is 
+		first used. An option is provided to prefix each field reference with <B>
+		this</B>.</P></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>Fields / Flat Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_field_source.png" width=317 height=171></TD>
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>This 
+		Fields / Flat Mode<BR>
+				</B>
+				<IMG hspace=0 align=top src="images/code_generation_field_source_this.png" width=339 height=171></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>Fields / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_field_source_block.png" width=329 height=222></TD>
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>This 
+		Fields / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_field_source_this_block.png" width=349 height=221></TD>
+	</TR>
+	<TR   >
+		<TD  width="100%" colSpan=2 align=left  >
+		<H3><A name=InitializedField>Initialized Field</A> Mode</H3>
+		<P>
+		<IMG hspace=0 src="images/code_generation_int_field.png" width=298 height=98><P>
+		In the <B>Initialized Field</B> generation style, each component is 
+		assigned to a unique field and initialized at the point at the point of 
+		declaration. An option is provided to prefix each field reference with
+		<B>this</B>.</P></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>
+		Initialized Fields / Flat Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_int_field_source.png" width=316 height=143></TD>
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>
+		Initialized This Fields / Flat Mode<BR>
+				</B>
+				<IMG hspace=0 align=top src="images/code_generation_int_field_source_this.png" width=341 height=143></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>
+		Initialized Fields / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_int_field_source_block.png" width=353 height=193></TD>
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>
+		Initialized This Fields / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_int_field_source_this_block.png" width=352 height=193></TD>
+	</TR>
+	<TR   >
+		<TD  width="100%" colSpan=2 align=left  >
+		<H3><A name=Lazy>Lazy</A> Mode</H3>
+		<P>
+		<IMG hspace=0 src="images/code_generation_lazy.png" width=298 height=158><P>
+		In the <B>Lazy</B> generation style, each component is created in its 
+		own unique <B>getXXX()</B> method. An option is provided to set the 
+		visibility modifier to <B>private</B>, <B>package private</B>, <B>
+		protected</B> or <B>public</B>.</P></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>Lazy 
+		Private Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_lazy_source.png" width=346 height=307></TD>
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>Lazy 
+		Public Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_lazy_source_public.png" width=337 height=298></TD>
+	</TR>
+	<TR   >
+		<TD  vAlign=top width="100%" colSpan=2 align=left  ><H2>
+		<A name=Statement>Statement</A> 
+		generation</H2>
+      <P><B>GWT Designer</B> supports <B>flat</B> mode and <B>block</B> mode 
+		generation modes.</P></TD>
+	</TR>
+	<TR   >
+		<TD  vAlign=top width="50%" align=left  >
+		<H3><A name=Flat>Flat</A> Mode</H3>
+		<P>
+		<IMG hspace=0 src="images/code_generation_flat.png" width=298 height=147></P>
+		<P>In <B>flat</B> mode, each component is created in the same scope at 
+		the same indentation level. An option is provided to prefix the creation 
+		of each component with either a blank line or a comment.</P></TD>
+		<TD  vAlign=top width="50%" align=left  >
+		<H3><A name=Block>Block</A> Mode</H3>
+		<P>
+		<IMG hspace=0 src="images/code_generation_block.png" width=298 height=147></P>
+		<P>In <B>block</B> mode, each component is created in its own scoped 
+		code block. Child components are created in nested blocks.</P></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>Local 
+				Variables / Flat Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_local_source.png"></TD>
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>Local 
+				Variables / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_local_source_block.png"></TD>
+	</TR>
+	<TR   >
+		<TD  bgColor=#fcfcf4 vAlign=top width="50%" align=center  ><B>Fields / Flat Mode<BR>
+				</B>
+		<IMG hspace=0 align=top src="images/code_generation_field_source.png" width=317 height=171></TD>
+		<TD  bgColor=#f2f2e6 vAlign=top width="50%" align=center  ><B>Fields / Block Mode<BR>
+				</B>
+				<IMG hspace=0 src="images/code_generation_field_source_block.png" width=329 height=222></TD>
+	</TR>
+	</TBODY></TABLE>
+
+</BODY></HTML>

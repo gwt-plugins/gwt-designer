@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.UIObjectInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.UIObjectInfo"/>
+	<!-- METHODS -->
+	<methods>
+		<methods-exclude signature="setVisible(boolean)"/>
+		<method name="setPixelSize" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setSize" order="afterAssociation">
+			<parameter type="java.lang.String"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<!-- order for setWidth/setHeight -->
+		<method name="setWidth" order="afterAssociation">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setHeight" order="after setWidth(java.lang.String)">
+			<parameter type="java.lang.String"/>
+		</method>
+		<!-- style -->
+		<method name="addStyleName">
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-advanced names="stylePrimaryName title visible"/>
+	<properties-hidden names="setWidth(java.lang.String) setHeight(java.lang.String)"/>
+	<property id="setStyleName(java.lang.String)">
+		<editor id="gwt.style"/>
+		<tag name="x-rawValue" value="true"/>
+	</property>
+	<property id="setStylePrimaryName(java.lang.String)">
+		<editor id="gwt.style"/>
+		<tag name="x-rawValue" value="true"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="NVO.disabled">true</parameter>
+		<parameter name="binaryExecutionFlow.dontVisit.package com.google.gwt.user.client.ui"><![CDATA[
+			onLoad() createWidget()
+		]]></parameter>
+		<!-- setSize(int,int) tweaks -->
+		<parameter name="setSize.excludeMargin">true</parameter>
+		<parameter name="setSize.excludeBorder">true</parameter>
+		<parameter name="setSize.excludePadding">true</parameter>
+	</parameters>
+</component>

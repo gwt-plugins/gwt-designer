@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Subclass of PickTreeItem which shows an IMenuButton rather than a simple MenuButton
+        as it's main button.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.IPickTreeItem("newIPickTreeItem_%index%", "New IPickTreeItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names=""/>
+</component>

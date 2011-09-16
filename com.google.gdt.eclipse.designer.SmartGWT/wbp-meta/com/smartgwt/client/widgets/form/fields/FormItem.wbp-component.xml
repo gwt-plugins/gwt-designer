@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.FormItemInfo"/>
+    <description/>
+    <!-- METHODS -->
+    <methods>
+        <methods-exclude
+            signature="setValidators(com.smartgwt.client.widgets.form.validator.Validator[])"/>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <exclude package="com.smartgwt.client.widgets.form"/>
+        <exclude package="com.smartgwt.client.widgets.form.fields"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-preferred names="name title"/>
+    <properties-advanced names="accessKey"/>
+    <properties-advanced names="cell* colSpan* criteriaField dataPath dateFormatter"/>
+    <properties-advanced names="defaultIconSrc defaultValue* displayField empty*"/>
+    <properties-advanced names="error* fetchMissingValues filterLocally globalTabIndex"/>
+    <properties-advanced names="hintStyle hover* icon* image*"/>
+    <properties-advanced names="locateItemBy multipleValueSeparator"/>
+    <properties-advanced names="operator optionOperationId picker* print* prompt"/>
+    <properties-advanced names="redrawOnChange rejectInvalidValueOnChange requiredMessage rowSpan*"/>
+    <properties-advanced names="suppressValueIcon showError* showFocused* showIcons showOtherIcons"/>
+    <properties-advanced names="showPickerIcon showValueIconOnly stopOnError"/>
+    <properties-advanced names="synchronousValidation timeFormatter"/>
+    <properties-advanced names="titleAlign titleOrientation titleStyle titleVAlign"/>
+    <properties-advanced names="validate* value* wrapTitle"/>
+    <properties-hidden names="type"/>
+    <properties-noDefaultValue names="iconPrompt width height"/>
+    <property id="setTextBoxStyle(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+        <parameter name="objectReadyValidator"><![CDATA[
+                Boolean created = ReflectionUtils.invokeMethod2(object,"isCreated");
+                if (created) return object.isDrawn();
+                else return false;
+            ]]></parameter>
+    </parameters>
+</component>

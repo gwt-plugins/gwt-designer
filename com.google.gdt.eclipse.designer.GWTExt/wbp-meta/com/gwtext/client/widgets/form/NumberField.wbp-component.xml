@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Numeric text field that provides automatic keystroke filtering and numeric
+		validation.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.NumberField("New number field", "number_field", 100)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)" defaultSource="100"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)" defaultSource="100"/>
+			<parameter type="float" property="setValue(java.lang.Number)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<method-order>
+		<methods order="afterAssociation">
+			<s>setValue(java.lang.Number)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names="decimalPrecision"/>
+	<properties-advanced names="setValue(java.lang.String)"/>
+	<properties-advanced names="minText nanText"/>
+	<properties-hidden names=""/>
+	<property id="setAllowDecimals(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setAllowNegative(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setDecimalPrecision(int)">
+		<defaultValue value="2"/>
+	</property>
+	<property id="setDecimalSeparator(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'.'"/>
+	</property>
+	<property id="setMaxText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The maximum value for this field is {maxValue}'"/>
+	</property>
+	<property id="setMinText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'The minimum value for this field is {minValue}'"/>
+	</property>
+	<property id="setRemoveTrailingZeros(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+</component>

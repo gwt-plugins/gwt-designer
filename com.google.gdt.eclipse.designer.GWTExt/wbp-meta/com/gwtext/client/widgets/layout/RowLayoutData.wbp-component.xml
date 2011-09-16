@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.RowLayoutDataInfo"/>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.RowLayoutData(50)]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="int" property="setHeight(int)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setHeight(java.lang.String)"/>
+        </constructor>
+    </constructors>
+</component>

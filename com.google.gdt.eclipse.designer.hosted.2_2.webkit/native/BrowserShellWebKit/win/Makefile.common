@@ -1,0 +1,97 @@
+# Common Makefile for creating WBP library for Windows
+
+WEBKIT_DIR = C:/cygwin/home/mitin_aa/WebKit/WebKitBuild
+WEBKIT_LIBRARIES_DIR = C:/cygwin/home/mitin_aa/WebKit/WebKitLibraries/win
+
+GWT_LIB = wbp-gwt-webkit.dll
+BS_LIB = wbp-gwt-webkit-bs.dll
+
+WINDOWS_LIBS = Comctl32.lib User32.lib ole32.lib oleaut32.lib Shlwapi.lib Gdi32.lib
+WEBKIT_LIBS = JavaScriptCore.lib WebKitGUID.lib WebKit.lib
+
+CORE_DIR = ../core
+
+CC = cl
+CXX = cl
+AS = ml
+LD = link
+AR = lib
+RC = rc
+MT = mt
+CFLAGS  = -nologo -MD -W3 -O2 -Oy- -Zi \
+	-I. \
+	-I$(CORE_DIR) \
+	-I$(WEBKIT_DIR)/include \
+	-I$(WEBKIT_LIBRARIES_DIR)/include \
+	-I$(JAVA_HOME)/include \
+	-I$(JAVA_HOME)/include/win32 \
+	-D_WBP_WIN32 \
+	-D$(ARCH_DEFS) \
+	-D_UNICODE \
+	-DUNICODE \
+	-D_CRT_SECURE_NO_WARNINGS \
+	-FI$(WEBKIT_LIBRARIES_DIR)/include/targetsxs.h
+
+LDFLAGS = -nologo -incremental:no -opt:ref -dll -LIBPATH:$(WEBKIT_DIR)/lib
+	
+GWT_OBJECTS = utils.obj java-dispatch.obj gwt-webkit.obj trace.obj
+BS_OBJECTS = webuidelegate.obj webframeloaddelegate.obj webwindow.obj bs-webkit.obj utils.obj
+
+all: make_bs make_gwt
+
+#
+# GWT lib
+#
+make_gwt:$(GWT_LIB)
+
+$(GWT_LIB): $(GWT_OBJECTS)
+	$(LD) $(LDFLAGS) -out:$(GWT_LIB) $(GWT_OBJECTS) $(WEBKIT_LIBS)
+	$(MT) -nologo -manifest $(GWT_LIB).manifest -outputresource:$(GWT_LIB);2
+
+#
+# BS lib
+#
+make_bs:$(BS_LIB)
+
+$(BS_LIB): $(BS_OBJECTS)
+	$(LD) $(LDFLAGS) -out:$(BS_LIB) $(BS_OBJECTS) $(WEBKIT_LIBS) $(WINDOWS_LIBS)
+	$(MT) -nologo -manifest $(BS_LIB).manifest -outputresource:$(BS_LIB);2
+
+##
+# Objs.
+##
+utils.obj : $(CORE_DIR)/utils.c
+	$(CC) $(CFLAGS) -c $(CORE_DIR)/utils.c
+
+java-dispatch.obj : $(CORE_DIR)/java-dispatch.cpp
+	$(CXX) $(CFLAGS) /EHsc -c $(CORE_DIR)/java-dispatch.cpp
+
+gwt-webkit.obj : $(CORE_DIR)/gwt-webkit.cpp
+	$(CXX) $(CFLAGS) /EHsc -c $(CORE_DIR)/gwt-webkit.cpp
+
+trace.obj : $(CORE_DIR)/trace.cpp
+	$(CXX) $(CFLAGS) /EHsc -c $(CORE_DIR)/trace.cpp
+
+bs-webkit.obj : bs-webkit.cpp
+	$(CXX) $(CFLAGS) /EHsc -c bs-webkit.cpp
+
+webwindow.obj : webwindow.cpp
+	$(CXX) $(CFLAGS) /EHsc -c webwindow.cpp
+
+webframeloaddelegate.obj : webframeloaddelegate.cpp
+	$(CXX) $(CFLAGS) /EHsc -c webframeloaddelegate.cpp
+
+webuidelegate.obj : webuidelegate.cpp
+	$(CXX) $(CFLAGS) /EHsc -c webuidelegate.cpp
+
+#
+# Install
+#
+install: all
+	mkdir -p $(OUTPUT_DIR)
+	cp *.dll $(OUTPUT_DIR)
+#
+# Clean
+#
+clean:
+	rm -f *.obj *.dll *.lib *.manifest

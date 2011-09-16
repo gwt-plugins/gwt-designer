@@ -1,0 +1,8 @@
+import com.smartgwt.client.widgets.Window;
+
+method
+	public %TypeName% () {
+		setTitle("New window");
+		resizeTo(350, 200);
+	}
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- METHODS -->
+	<methods>
+		<method name="setStyleName">
+			<parameter type="int">
+				<tag name="HTMLTable.column" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setStylePrimaryName">
+			<parameter type="int">
+				<tag name="HTMLTable.column" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setWidth">
+			<parameter type="int">
+				<tag name="HTMLTable.column" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name='visible'>false</parameter>
+	</parameters>
+</component>

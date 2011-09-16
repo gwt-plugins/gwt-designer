@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="remove">
+			<parameter type="com.google.gwt.user.client.ui.Widget"/>
+		</method>
+		<method name="clear"/>
+	</methods>
+</component>

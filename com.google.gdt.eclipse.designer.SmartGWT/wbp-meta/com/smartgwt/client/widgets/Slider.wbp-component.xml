@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>The Slider class implements a GUI slider widget allowing the user to select a numeric value
+		from within a range by dragging a visual indicicator up and down a track.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.Slider()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="minValue maxValue value vertical"/>
+	<properties-normal names=""/>
+	<properties-advanced names="animateThumb animateThumbInit animateThumbTime border"/>
+	<properties-advanced names="setHeight(int)"/>
+	<properties-advanced names="labelHeight labelSpacing labelWidth numValues"/>
+	<properties-advanced names="round* thumbSrc thumbThickWidth thumbThinWidth"/>
+	<properties-advanced names="trackCapSize trackImageSize trackSrc trackImageType trackWidth"/>
+	<properties-advanced names="setWidth(int)"/>
+</component>

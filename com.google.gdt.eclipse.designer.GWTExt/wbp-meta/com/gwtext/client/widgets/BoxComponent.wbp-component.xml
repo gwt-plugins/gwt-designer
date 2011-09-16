@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.BoxComponentInfo"/>
+	<description>Base class for any visual GWT-Ext {@link Component} that uses a box container.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="setPosition" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setPagePosition" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setSize" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setSize" order="afterAssociation">
+			<parameter type="java.lang.String"/>
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-advanced names="autoHeight autoWidth"/>
+	<method-property title="position" method="setPosition(int,int)"/>
+	<method-property title="pagePosition" method="setPagePosition(int,int)"/>
+	<property id="setPosition(int,int)">
+		<category value="advanced"/>
+	</property>
+	<property id="setPagePosition(int,int)">
+		<category value="advanced"/>
+	</property>
+</component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.data.DataSourceFieldInfo"/>
+    <description>Metadata about a DataSourceField, including its type and validators.</description>
+    <!-- PROPERTIES -->
+    <properties-preferred names="name title"/>
+    <properties-advanced names=""/>
+    <properties-hidden names="type"/>
+    <properties-noDefaultValue names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+    </parameters>
+</component>

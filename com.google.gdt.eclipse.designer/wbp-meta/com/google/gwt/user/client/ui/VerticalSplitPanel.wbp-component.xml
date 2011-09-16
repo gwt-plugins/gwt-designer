@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.VerticalSplitPanelInfo"/>
+	<description>A panel that arranges two widgets in a single vertical column and allows the user to
+		interactively change the proportion of the height dedicated to each of the two widgets. Widgets
+		contained within a VerticalSplitPanel will be automatically decorated with scrollbars when necessary.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="setTopWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setBottomWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-VerticalSplitPanel { the panel itself }
+			.gwt-VerticalSplitPanel vsplitter { the splitter }
+		]]></parameter>
+	</parameters>
+</component>

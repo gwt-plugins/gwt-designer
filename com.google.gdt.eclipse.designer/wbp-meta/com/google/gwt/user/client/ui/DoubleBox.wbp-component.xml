@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A ValueBox that uses "DoubleParser" and "DoubleRenderer".</description>
+    <!-- PROPERTIES -->
+	<properties-advanced names=""/>
+</component>

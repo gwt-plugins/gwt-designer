@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A widget that contains arbitrary text, <i>not</i> interpreted as HTML. This widget uses a
+		&lt;span&gt; element, causing it to be displayed with inline layout.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.InlineLabel("New InlineLabel")]]></source>
+		<x-attribute name="text" value="New InlineLabel"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+	</constructors>
+</component>

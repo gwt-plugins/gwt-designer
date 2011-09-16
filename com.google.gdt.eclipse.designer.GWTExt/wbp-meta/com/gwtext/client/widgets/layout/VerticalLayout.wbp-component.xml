@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.LayoutInfo"/>
+    <description>Vertical layout that allows you to add components vertically with the specified
+        spacing betwen them.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.VerticalLayout(5)]]></source>
+    </creation>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="layout.exclude-properties">Class Constructor</parameter>
+        <!-- layout -->
+        <parameter name="layout-data.has">false</parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">object.columns > 1</parameter>
+        <parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+        <!-- copy -->
+        <parameter name="copyPropertyTop from=Constructor/spacing to=spacing(int)"/>
+    </parameters>
+</component>

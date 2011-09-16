@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.TabPanelInfo"/>
+	<description>A lightweight tab container.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.TabPanel()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-advanced names="setActiveTab(int) setActiveTab(java.lang.String)"/>
+	<properties-advanced names="buttonAlign collapsed collapsible frame html paddings title titleCollapse"/>
+	<property-tag name="resizeTabs" tag="noDefaultValue" value="true"/>
+	<property-tag name="minTabWidth" tag="noDefaultValue" value="true"/>
+	<property id="setAnimScroll(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setDeferredRender(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setMinTabWidth(int)">
+		<defaultValue value="30"/>
+	</property>
+	<property id="setResizeTabs(boolean)">
+		<defaultValue value="false"/>
+		<getter name="isResizeTabs"/>
+	</property>
+	<property id="setResizeTabsRendered(boolean)">
+		<category value="hidden"/>
+	</property>
+	<property id="setScrollDuration(int)">
+		<!--<defaultValue value=".35"/>-->
+	</property>
+	<property id="setScrollIncrement(int)">
+		<defaultValue value="100"/>
+	</property>
+	<property id="setScrollRepeatInterval(int)">
+		<defaultValue value="400"/>
+	</property>
+	<property id="setTabMargin(int)">
+		<defaultValue value="2"/>
+	</property>
+	<property id="setTabPosition(com.gwtext.client.core.Position)">
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.core.Position</parameter>
+			<parameter name="fields">TOP BOTTOM</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.core.Position.TOP"/>
+	</property>
+	<property id="setTabWidth(int)">
+		<defaultValue value="120"/>
+	</property>
+	<property id="setWheelIncrement(int)">
+		<defaultValue value="20"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.component">com.gwtext.client.widgets.Panel</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

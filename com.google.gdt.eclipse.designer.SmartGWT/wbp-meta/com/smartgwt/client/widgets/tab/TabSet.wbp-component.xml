@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.TabSetInfo"/>
+    <description>The TabSet class allows components on several panes to share the same space. The
+        tabs at the top can be selected by the user to show each pane.</description>
+    <!-- METHODS -->
+    <methods>
+        <method name="addTab" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.tab.Tab" child="true"/>
+        </method>
+        <method name="addTab" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.tab.Tab" child="true"/>
+            <parameter type="int"/>
+        </method>
+        <method name="setTabs" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.tab.Tab[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+        <method name="setSelectedTab" executable="false">
+            <parameter type="int"/>
+        </method>
+        <method name="selectTab" executable="false">
+            <parameter type="int"/>
+        </method>
+        <method name="selectTab" executable="false">
+            <parameter type="java.lang.String"/>
+        </method>
+        <method name="selectTab" executable="false">
+            <parameter type="com.smartgwt.client.widgets.tab.Tab"/>
+        </method>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <exclude package="com.smartgwt.client.widgets.tab"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-preferred names="tabBarPosition"/>
+    <properties-advanced names="closeTab* paneContainer* pickerButton* "/>
+    <properties-advanced names="scroller* symmetric*"/>
+    <properties-hidden names=""/>
+    <properties-noDefaultValue names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- flow container 1 -->
+        <parameter name="flowContainer.tree.1">true</parameter>
+        <parameter name="flowContainer.tree.1.horizontal">true</parameter>
+        <parameter name="flowContainer.tree.1.component">com.smartgwt.client.widgets.tab.Tab</parameter>
+        <parameter name="flowContainer.tree.1.association">%parent%.addTab(%child%)</parameter>
+        <!-- flow container 2 -->
+        <parameter name="flowContainer.tree.2">true</parameter>
+        <parameter name="flowContainer.tree.2.horizontal">true</parameter>
+        <parameter name="flowContainer.tree.2.component"
+        >com.smartgwt.client.widgets.Canvas</parameter>
+    </parameters>
+</component>

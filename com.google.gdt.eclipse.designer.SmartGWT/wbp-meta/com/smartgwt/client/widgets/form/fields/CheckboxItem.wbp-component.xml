@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Checkbox form item, implemented with customizable checkbox images.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.CheckboxItem("newCheckboxItem_%index%", "New CheckboxItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="setValue(boolean)"/>
+    <properties-advanced names="checkedImage partialSelectedImage uncheckedImage unsetImage"/>
+    <properties-noDefaultValue names=""/>
+    <property id="setShowUnsetImage(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+</component>

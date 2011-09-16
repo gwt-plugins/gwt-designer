@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <!-- PROPERTIES -->
+    <properties-preferred names="vertical"/>
+    <properties-normal names=""/>
+    <properties-advanced names="layout*"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">200px</parameter>
+        <parameter name="liveComponent.forcedSize.height">25px</parameter>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

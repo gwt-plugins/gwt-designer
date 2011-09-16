@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A panel that stacks its children vertically, displaying only one at a time, with a header for
+		each child which the user can click to display. It wraps each item in a 2x3 grid (six box), which
+		allows users to add rounded corners.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.DecoratedStackPanel()]]></source>
+	</creation>
+</component>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A FormItem that displays an uneditable value.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.StaticTextItem("newStaticTextItem_%index%", "New StaticTextItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="setValue(java.lang.String)"/>
+    <properties-advanced names=""/>
+    <properties-hidden names="tabIndex"/>
+    <properties-noDefaultValue names=""/>
+</component>

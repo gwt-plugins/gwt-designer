@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exceptions>
+	<exception id="4000" title="Can't find GWT module">GWT Designer can't find GWT module
+		<code>{0}</code> in project. Possible reasons: <ol>
+			<li>There really are no module with this ID. For example, it was just mistyped or
+				accidentally broken.</li>
+			<li>Jar files or project that contains the required module is not included into the
+				classpath of the current GWT project.</li>
+		</ol>
+	</exception>
+	<exception id="4001" title="Panel should not be used as superclass.">GWT Designer is designed to
+		edit any standard GWT GUI type like EntryPoints, Composites, PopupPanels and DialogBoxes. It
+		is not designed to directly edit widget classes (this is intentional). GWT best practices
+		dictate that custom composites of existing panels and widgets should be created as
+		subclasses of Composite. GWT panel types should *not* be subclassed unless you are actually
+		creating a true custom panel type. Change your class to a Composite that contains a
+			<code>{0}</code> and GWT Designer should be able to edit it.</exception>
+	<exception id="4002" title="GWT Mail sample problem." warning="true">This Mail example has a bug
+		and is poorly designed from an OO point of view to begin with. It throws an NPE at design
+		time (it's not very carefully written), so you need to fix the following
+		NullPointerException: <pre>{0}</pre>
+		<p>The MailList class sends a get() call to the Mail class to access its singleton without
+			testing that it is non null or ensuring that the singleton is actually created. The
+			get() method itself returns the singleton field without ensuring that it is populated.
+			The example relies on runtime-specific behavior to populate the singleton instance (the
+			call to the Mail.onLoadModule() method). When editing the Mail class at design time,
+			there is no instance of the Mail class created. The Mail class is parsed; it is not
+			instantiated. Any code that tries to actually access the instance of the class being
+			edited will not work because there is no such instance.</p>
+		<p>If you comment out the line Mail.get().displayItem(item); in the MailList class (or add
+			an null check for Mail.get() prior to that line), the Mail class should open just fine.</p>
+		<p>From a purely OO point of view, the Mail example is poorly designed. The classes are
+			tightly coupled (when they don't need to be) and the MailList class unnecessarily breaks
+			encapsulation by talking directly back to the Mail class via its singleton.</p>
+	</exception>
+	<exception id="4003" title="Can not paste ImageBundle reference.">GWT Designer sees that you
+		copied widget that uses {0}, but can not find it during paste.</exception>
+	<exception id="4004" title="Method Panel.add(Widget) can not be used." warning="true">You can
+		not use <b>{0}</b> because generic <code>Panel.add(Widget)</code> throws exception. Use
+		add/setWidget()/etc method specific for your panel.</exception>
+	<exception id="4005" title="No UiBinder support yet." warning="true">The GWT 2.0 UiBinder is not
+		supported yet. Please use the standard GWT Java API instead.</exception>
+	<exception id="4006" title="Invalid web.xml file.">GWT Designer tried to parse <b>{0}</b> file,
+		but can not because it is invalid.</exception>
+	<exception id="4007" title="Exception in CompiledClass.">See <a
+			href="http://code.google.com/p/google-web-toolkit/issues/detail?id=4552">GWT issue
+		4552</a>. It looks like GWT itself is complaining about some class in your project. Please
+		check your project's .gwt-log file for any reported errors. Resfreshing and rebuilding your
+		project may also help.</exception>
+	<exception id="4008" title="No GWT module found." warning="true">GWT widgets can be used only in
+		client package of GWT module.</exception>
+	<exception id="4009" title="GWT 2.2 binary incompatibility." warning="true">GWT 2.2 introduced
+		binary incompatibility with existing pre-compiled generators. Contact your library provider
+		and ask for GWT 2.2 compatible version. See .gwt-log for details.</exception>
+	<exception id="4010" title="Invalid gwt.xml file." warning="true">File <b>{0}</b> is invalid and
+		can not be parsed. Please fix it manually.</exception>
+	<exception id="4011" title="No inherited module name" warning="true">GWT Designer found
+			<code>inherits</code> element without <code>name</code> attribute in module
+		<code>{0}</code>. Fix this problem before using GWT Designer.</exception>
+	<exception id="4012" title="Graphical editing is not provided for Widget." warning="true">
+		<pre>
+			Please use the Source page to make any changes.
+			You can use then GWT Designer to compose form using this and other widgets graphically.
+		</pre>
+	</exception>
+
+	<!-- hosted mode exceptions -->
+	<exception id="4102" title="Error loading module(s).">GWT Designer can't load a module either
+		because there is not enough heap space available for Eclipse, or some other module or
+		internal error has occurred. Please increase the heap size and/or check your
+		$project_dir/.gwt/.gwt-log for any GWT-specific errors.</exception>
+	<exception id="4103" title="GWT initialization timeout.">GWT was not initialized within the
+		given time. This can be caused by a large number of classes to load (especially when using
+		third-party GWT frameworks) or can be a problem outside of the GWT Designer such as a
+		JavaScript engine problem or a local communications error. Please try the following as a
+		workaround/check: <ol>
+			<li>Increase the wait time at 'Preferences &gt; WindowBuilder &gt; GWT &gt;
+				Hosted mode initialize timeout' to 120 sec or even higher.</li>
+			<li>Disable any antivirus, firewall software, and web-development browser plug-ins and
+				then reboot. Try to disable proxy usage as well.</li>
+			<li>Try to access any web site which makes heavy use of JavaScript (ex., gmail.com) with
+				the default OS browser (IE for Windows, Safari for Mac OS X, Firefox for
+			Linux).</li>
+		</ol>
+	</exception>
+	<exception id="4104" title="No GWT support found for this system." warning="true">The product
+		can't find support for the OS, OS architecture or windowing system you're using. Please
+		check the prerequisites and if your system matches it, try to re-install product.</exception>
+	<exception id="4105" title="No GWT support found for this GWT SDK version." warning="true">The
+		product can't find support for GWT SDK {0} you're using. This may be caused by:<ul>
+			<li>Wrong prerequisite Eclipse SDK version, ex. GWT 2.0+ support requires Eclipse 3.4.</li>
+			<li>Corrupt installation of the product or GWT SDK.</li>
+			<li>This GWT SDK version is not supported yet.</li>
+		</ul> Requirements: <table border="1" cellspacing="0" cellpadding="5"
+			style="border-collapse:collapse;font-size:10pt;font-family:Verdana,Helvetica">
+			<tr>
+				<td align="center">GWT SDK</td>
+				<td align="center">Eclipse version</td>
+				<td align="center">OS version/JVM arch</td>
+			</tr>
+			<tr>
+				<td>1.4.x</td>
+				<td>3.3 and above</td>
+				<td>Windows/32-bit, Linux GTK/32 or 64-bit, MacOSX Carbon/32-bit</td>
+			</tr>
+			<tr>
+				<td>1.5.x, 1.6.x, 1.7.x</td>
+				<td>3.3 and above</td>
+				<td>Windows/32-bit, Linux GTK/32 or 64-bit, MacOSX Carbon/32-bit, MacOSX Cocoa/32 or
+					64-bit</td>
+			</tr>
+			<tr>
+				<td>2.0.x</td>
+				<td>3.4 and above</td>
+				<td>Windows/32-bit, Windows/64-bit (using WebKit), Linux GTK/32 or 64-bit, MacOSX
+					Carbon/32-bit, MacOSX Cocoa/32 or 64-bit</td>
+			</tr>
+		</table>
+	</exception>
+	<exception id="4106" title="No any GWT SDK support found." warning="true">Please try to
+		re-install the product.</exception>
+	<exception id="4107" title="Unable to load native library.">GWT Designer cannot load the native
+		library '{0}' used for rendering the GWT UI. This may be caused by corrupted installation or
+		unsupported OS.<br/> Please try to re-install the product.</exception>
+	<exception id="4108" title="Error loading module(s)."><p>GWT Designer can't load a module
+			because of error in gwt.xml module description, incorrect resource which requires
+			processing with GWT generator or by some other configuration error.</p>
+		<p>Please check your <b>$project_dir/.gwt/.gwt-log</b> for GWT-specific errors (not GWT
+			Designer errors).</p> This log has the following error messages:<br/><br/>
+		<pre><code>{0}</code></pre><br/><br/>
+	</exception>
+	<exception id="4109" title="No gwt-dev.jar found.">GWT Designer was unable to find
+			<b>gwt-dev.jar</b> relative to <b>gwt-user.jar</b>. Please check that GWT is installed
+		correctly and that gwt-dev.jar is in the same directory as gwt-user.jar or in the correct
+		Maven directory if using Maven. </exception>
+	<!-- Linux only -->
+	<exception id="4110" title="Unsupported Mozilla-based Browser." warning="true">GWT Designer
+		can't use the browser engine installed in the system. Please install compatible version of
+		the xulrunner and (if needed) use the property
+		'-Dorg.eclipse.swt.browser.XULRunnerPath=/path/to/xulrunner' when starting Eclipse/GWT
+		Designer. <p>xulrunner (GRE) requirements: <table border="1" cellspacing="0" cellpadding="5"
+				style="border-collapse:collapse;font-size:10pt;font-family:Verdana,Helvetica">
+				<tr>
+					<td align="center">GWT SDK</td>
+					<td align="center">xulrunner version</td>
+				</tr>
+				<tr>
+					<td>1.4.x, 1.5.x, 1.6.x, 1.7.x</td>
+					<td>1.8.x, 1.9.0.x, 1.9.1.x</td>
+				</tr>
+				<tr>
+					<td>2.0.x</td>
+					<td>1.9.1.x, 1.9.2.x</td>
+				</tr>
+				<tr>
+					<td>2.1.x</td>
+					<td>1.9.1.x, 1.9.2.x</td>
+				</tr>
+			</table></p>
+	</exception>
+	<exception id="4111" title="Can't create SWT Browser." warning="true"
+		alt="GWT Designer uses the SWT Browser widget to render the GWT UI. SWT Browser requires a compatible xulrunner version installed: it should be 1.9.1.x or 1.9.2.x version and meet the current environment architecture. See http://www.eclipse.org/swt/faq.php#whatisbrowser and related topics for more information."
+		> GWT Designer uses the SWT Browser widget to render the GWT UI. SWT Browser requires: <ul>
+			<li>a xulrunner installed in the system (see the table below for supported xulrunner
+				version, please don't use custom-built or beta versions);</li>
+			<li>xulrunner arch meets the arch of the environment used (ex., 32-bit xulrunner won't
+				work with 64-bit Eclipse/JVM and vice versa);</li>
+		</ul> See http://www.eclipse.org/swt/faq.php#whatisbrowser and related topics for more
+		information. <p>xulrunner (GRE) requirements: <table border="1" cellspacing="0"
+				cellpadding="5"
+				style="border-collapse:collapse;font-size:10pt;font-family:Verdana,Helvetica">
+				<tr>
+					<td align="center">GWT SDK</td>
+					<td align="center">xulrunner version</td>
+				</tr>
+				<tr>
+					<td>1.4.x, 1.5.x, 1.6.x, 1.7.x</td>
+					<td>1.8.x, 1.9.0.x, 1.9.1.x</td>
+				</tr>
+				<tr>
+					<td>2.0.x</td>
+					<td>1.9.1.x, 1.9.2.x</td>
+				</tr>
+				<tr>
+					<td>2.1.x</td>
+					<td>1.9.1.x, 1.9.2.x</td>
+				</tr>
+			</table></p>
+	</exception>
+	<exception id="4112" title="Can't initialize hosted mode.">GWT Designer can't successfully
+		initialize the underlying browser. Please do: <ol>
+			<li>Make sure that no third-party software blocks JavaScript.</li>
+			<li>(Re)install xulrunner and use the property
+				'-Dorg.eclipse.swt.browser.XULRunnerPath=/path/to/xulrunner' when starting
+				Eclipse/GWT Designer.</li>
+		</ol>
+	</exception>
+	<exception id="4113" title="Can't initialize.">GWT Designer can't load the hosted mode support
+		libraries. Please try to reinstall GWT Designer using a clean Eclipse environment. Also,
+		please try (re)installing xulrunner and use the property
+		'-Dorg.eclipse.swt.browser.XULRunnerPath=/path/to/xulrunner' when starting Eclipse/GWT
+		Designer.</exception>
+
+	<!-- WebKit/OSX only -->
+	<exception id="4120" title="Can't initialize Browser">GWT Designer uses a web-browser to render
+		the GWT UI using the WebKit framework. During initialization, the WebKit engine returned:
+		{0}: {1}.</exception>
+	<exception id="4121" title="Unknown error while initializing hosted mode.">An unknown error
+		happened while initializing hosted mode.</exception>
+	<exception id="4122" title="Can't initialize hosted mode.">GWT Designer can't successfully
+		initialize the underlying browser. Make sure that no third-party software blocks JavaScript
+		in WebKit.</exception>
+
+	<!-- Windows only -->
+	<exception id="4130" title="Unsupported architecture." warning="true">64-bit Windows is not
+		supported for this version of GWT. Please use 32-bit Eclipse and a 32-bit Java
+	VM.</exception>
+</exceptions>

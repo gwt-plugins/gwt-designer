@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.StackPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.StackPanelInfo"/>
+	<description>A panel that stacks its children vertically, displaying only one at a time, with a header for
+		each child which the user can click to display.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.StackPanel()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- association -->
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</method>
+		<!-- stack text -->
+		<method name="setStackText">
+			<parameter type="int"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setStackText">
+			<parameter type="int"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</method>
+	</methods>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.StackPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DecoratedStackPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DeckPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TabPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.HorizontalPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.VerticalPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty StackPanel"));
+			}
+			]]></parameter>
+		<!-- association -->
+		<parameter name="complexPanel.association">%parent%.add(%child%, "New widget", false)</parameter>
+		<!-- size management -->
+		<parameter name="onChildAdd.setWidth">100%</parameter>
+		<parameter name="onChildAdd.setHeight">100%</parameter>
+		<parameter name="onChildOut.removeSize">always</parameter>
+		<!-- copy property -->
+		<parameter name="copyChildPropertyTop from=Association/stackText to=StackText category=system(7)"/>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.add(%child%, "New widget", false)</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-StackPanel { the panel itself }
+			.gwt-StackPanel .gwt-StackPanelItem { unselected items }
+			.gwt-StackPanel .gwt-StackPanelItem-selected { selected items }
+		]]></parameter>
+	</parameters>
+</component>

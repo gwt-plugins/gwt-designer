@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.ComponentInfo"/>
+	<description>Base class for all GWT-Ext components.</description>
+	<!-- METHODS -->
+	<method-order>
+		<default order="beforeAssociation"/>
+		<method signature="setHeight(java.lang.String)" order="after setWidth(java.lang.String)"/>
+		<methods order="afterAssociation">
+			<!-- inherited from super-class -->
+			<s>setWidth(java.lang.String)</s>
+			<s>setSize(java.lang.String,java.lang.String)</s>
+			<s>setTitle(java.lang.String)</s>
+			<!-- overrided -->
+			<!-- excluded <s>setVisible(boolean)</s>-->
+		</methods>
+	</method-order>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude package="com.gwtext.client.widgets"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-advanced names="el id renderToID stateId autoEl style stateEvents"/>
+	<properties-advanced names="autoShow hideParent"/>
+	<properties-hidden names="styleName stylePrimaryName"/>
+	<property-tag name="styleName" tag="noDefaultValue" value="true"/>
+	<property-tag name="stylePrimaryName" tag="noDefaultValue" value="true"/>
+	<property-tag name="title" tag="noDefaultValue" value="true"/>
+	<property id="setCls(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setCtCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setDisabledClass(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-item-disabled'"/>
+	</property>
+	<property id="setHideMode(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">visibility</parameter-list>
+			<parameter-list name="strings">offsets</parameter-list>
+			<parameter-list name="strings">display</parameter-list>
+		</editor>
+		<defaultValue value="'display'"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="objectReadyValidator_">object.isRendered()</parameter>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			import com.google.gwt.user.client.DOM;
+			
+			label = new com.gwtext.client.widgets.form.Label(message);
+			DOM.setStyleAttribute(label.getElement(), 'background', 'pink');
+			label.setWidth('200px');
+			return label;
+		]]></parameter>
+	</parameters>
+</component>

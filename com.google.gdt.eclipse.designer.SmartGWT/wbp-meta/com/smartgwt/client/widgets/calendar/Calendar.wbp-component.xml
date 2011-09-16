@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.CalendarInfo"/>
+    <description>The Calendar component provides several different ways for a user to view and edit
+        a set of events.</description>
+    <!-- METHODS -->
+    <methods>
+        <method name="setEventEditorFields" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.form.fields.FormItem[]" child="true">
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+        <method name="setEventDialogFields" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.form.fields.FormItem[]" child="true">
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="currentViewName firstDayOfWeek"/>
+    <properties-normal names=""/>
+    <properties-advanced names="addEventButtonHoverText"/>
+    <properties-advanced names="autoFetchTextMatchStyle baseStyle border"/>
+    <properties-advanced names="canCreateEvents canEditEvents canDeleteEvents canEditField"/>
+    <properties-advanced names="cancelButtonTitle datePickerHoverText"/>
+    <properties-advanced names="dayBodyBaseStyle dayHeaderBaseStyle dayViewTitle"/>
+    <properties-advanced names="descriptionField detailsButtonTitle"/>
+    <properties-advanced names="eventNameFieldTitle eventTypeField endDateField"/>
+    <properties-advanced names="eventOverlap eventOverlapIdenticalStartTimes eventOverlapPercent"/>
+    <properties-advanced names="eventSnapGap eventTypeField eventWindowStyle eventWindowStyleField"/>
+    <properties-advanced names="leadingDateField monthViewTitle nameField"/>
+    <properties-advanced names="nextButtonHoverText previousButtonHoverText"/>
+    <properties-advanced names="otherDayBlankStyle otherDayBodyBaseStyle otherDayHeaderBaseStyle"/>
+    <properties-advanced names="saveButtonTitle selectedCellStyle startDateField"/>
+    <properties-advanced names="timelineViewTitle trailingDateField"/>
+    <properties-advanced names="weekEventBorderOverlap weekViewTitle"/>
+    <properties-advanced names="workdayBaseStyle"/>
+    <properties-noDefaultValue names="defaultHeight defaultWidth invalidDateMessage titleField"/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <property id="setSelectedCellStyle(java.lang.String)">
+        <editor id="gwt.style"/>
+    </property>
+    <property id="setShowAddEventButton(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <property id="setShowDatePickerButton(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <property id="setShowDayView(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <property id="setShowMonthView(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <property id="setShowWeekView(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">300px</parameter>
+        <parameter name="liveComponent.forcedSize.height">200px</parameter>
+    </parameters>
+</component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.AnchorLayoutInfo"/>
+    <description>This is a layout that enables anchoring of contained elements relative to the container's dimensions.  If
+        the container is resized, all anchored items are automatically rerendered according to their anchor rules.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.AnchorLayout()]]></source>
+    </creation>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- layout -->
+        <parameter name="layout-data.has">true</parameter>
+        <parameter name="layout-data.class">com.gwtext.client.widgets.layout.AnchorLayoutData</parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">false</parameter>
+        <parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+    </parameters>
+</component>

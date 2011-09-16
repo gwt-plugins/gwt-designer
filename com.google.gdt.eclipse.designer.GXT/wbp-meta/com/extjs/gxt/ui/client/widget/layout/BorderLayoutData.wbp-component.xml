@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.BorderLayoutDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.BorderLayoutData(com.extjs.gxt.ui.client.Style.LayoutRegion.WEST)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.Style$LayoutRegion"
+				property="setRegion(com.extjs.gxt.ui.client.Style.LayoutRegion)"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.Style$LayoutRegion"
+				property="setRegion(com.extjs.gxt.ui.client.Style.LayoutRegion)"/>
+			<parameter type="float" property="setSize(float)" defaultSource="200.0f"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.extjs.gxt.ui.client.Style$LayoutRegion"
+				property="setRegion(com.extjs.gxt.ui.client.Style.LayoutRegion)"/>
+			<parameter type="float" property="setSize(float)" defaultSource="200.0f"/>
+			<parameter type="int" property="setMinSize(int)"/>
+			<parameter type="int" property="setMaxSize(int)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="region size minSize maxSize split"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="_layoutData.exclude-properties">Class Constructor</parameter>
+	</parameters>
+</component>

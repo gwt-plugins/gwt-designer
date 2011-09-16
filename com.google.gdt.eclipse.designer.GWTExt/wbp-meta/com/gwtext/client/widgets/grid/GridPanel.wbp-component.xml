@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.GridPanelInfo"/>
+	<description>A Grid widget.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.grid.GridPanel()]]></source>
+		<!-- http://www.gwt-ext.com/forum/viewtopic.php?f=8&t=658 -->
+		<invocation signature="setSize(java.lang.String,java.lang.String)"
+			><![CDATA["300px", "200px"]]></invocation>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.gwtext.client.data.Store"
+				property="setStore(com.gwtext.client.data.Store)"/>
+			<parameter type="com.gwtext.client.widgets.grid.ColumnModel"
+				property="setColumnModel(com.gwtext.client.widgets.grid.ColumnModel)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setId(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="int" property="setHeight(int)"/>
+			<parameter type="com.gwtext.client.data.Store"
+				property="setStore(com.gwtext.client.data.Store)"/>
+			<parameter type="com.gwtext.client.widgets.grid.ColumnModel"
+				property="setColumnModel(com.gwtext.client.widgets.grid.ColumnModel)"/>
+		</constructor>
+	</constructors>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude method="getColumnModel"/>
+		<exclude method="getStore"/>
+		<exclude method="getSelectionModel"/>
+		<exclude method="getView"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="autoExpandColumn loadMask"/>
+	<property-tag name="dragDropText" tag="noDefaultValue" value="true"/>
+	<property id="setAutoExpandMax(int)">
+		<category value="advanced"/>
+		<defaultValue value="1000"/>
+	</property>
+	<property id="setAutoExpandMin(int)">
+		<category value="advanced"/>
+		<defaultValue value="50"/>
+	</property>
+	<property id="setDdGroup(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'GridDD'"/>
+	</property>
+	<property id="setDisableSelection(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setEnableColumnHide(boolean)">
+		<category value="preferred"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableColumnMove(boolean)">
+		<category value="preferred"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableColumnResize(boolean)">
+		<category value="preferred"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableDragDrop(boolean)">
+		<category value="preferred"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setEnableHdMenu(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHideColumnHeader(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setLoadMask(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setMaxRowsToMeasure(int)">
+		<category value="advanced"/>
+		<defaultValue value="0"/>
+	</property>
+	<property id="setMinColumnWidth(int)">
+		<category value="advanced"/>
+		<defaultValue value="25"/>
+	</property>
+	<property id="setMonitorWindowResize(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setStripeRows(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setTrackMouseOver(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<noInherit/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">320px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.gwtext.client.widgets.grid.ColumnConfig</parameter>
+	</parameters>
+</component>

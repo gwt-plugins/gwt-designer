@@ -1,0 +1,71 @@
+- Bounds for table fields.
+
+- [V] Bounds for SectionStackSection.
+- Indents for SectionStackSection.
+
+- [v] Sort properties to pref, adv, & hid.
+- Property editors:
+	<property id="setExtraStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setUrl(java.lang.String)">
+		<editor id="gwt.imageURL"/>
+	</property>
+
+
+- [V] Failed drop RichTextEditor on Canvas.
+
+- [V] Wizard for Window & Dialog.
+
+- [V] Write com.instantiations.designer.SmartGWT.model.widgets.AbstractTable_Test.test_MOVE()
+
+- Wrong decoration (at runtime too) for TileGrid, Calendar, DataChooser... on RootPanel. 
+
+- [V] Неясное поведение TreeGrid_Test при отсутствии "exclude package="com.smartgwt.client.widgets.grid"" в ListGrid.wbp.
+- [V] Неясное поведение SectionStack_Test при запуске в съюте и отдельно.
+- [V] Неясное поведение DynamicForm_Test & FormItem_Test при запуске в съюте и отдельно.
+- [V] Неясное поведение ToolStrip_Test при запуске в съюте и отдельно.
+
+- Проверить наличие описаний по всем методам добавления childrens.
+- Проверить наличие описаний по всем конструкторам.
+
+- Проверить метод-ордер по пропертям.
+
+- Menu edit only in GEF Tree.
+
+- [V] Команды добавления Canvas на DynamicForm.
+- Команды добавления Widget на DynamicForm.
+- [V] Wrong bounds for buttons on ToolbarItem.
+- [V] FilterBuilder.
+
+- Support EllipsisObjectInfo in ArrayObjectInfo.command_MOVE(JavaInfo, JavaInfo) и наоборот (впринцыпе вроде работает и так).
+
+- [V] com.smartgwt.client.data.DataSource support.
+
+- [V] No image for Canvases on CanvasItem (forms).
+
+- [V] method(param...) (vs method(param[])) process only first item.
+
+- Create subfolder for Calendar.setEventEditorFields(FormItem...)...
+
+- [V] Wizard for EntryPoint with Canvas, Calendar... 
+
+- Create tag in MethodDescription for generate flow/simple containers folder in gefTree.
+
+- [V] Correct bounds for Tab.
+- [V] SimpleContainer for droping Canvases on TabSet (via Tab).
+
+- [V] Create void factories to ToolStrip.
+- [V] Correct bounds for FormItem on ToolStrip. 
+- [V] ToolStripButton has source error (fixed in 2.2).
+- [V] ToolStrip margins/spacing error on RootPanel (on Canvas is Ok).
+- [v] Correct bounds for spaser & fill.  
+
+- [V] No decoration Images.
+
+- [V] TileLayout JS fail on scrolls.
+
+- [V] LiveImage (hide all Canvases on get life-image).
+- [V] Dialog bad image on parse.
+
+- Coverage!

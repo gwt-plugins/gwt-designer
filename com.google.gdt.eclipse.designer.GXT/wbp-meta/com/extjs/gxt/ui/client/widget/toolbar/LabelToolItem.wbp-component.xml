@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Item for displaying some static text.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.toolbar.LabelToolItem("New LabelToolItem")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setLabel(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="label"/>
+	<property-tag name="label" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			isComponentType(parent, "com.extjs.gxt.ui.client.widget.toolbar.ToolBar")
+			]]></parameter>
+	</parameters>
+</component>

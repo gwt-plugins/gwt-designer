@@ -1,0 +1,7 @@
+import com.google.gwt.user.client.ui.PopupPanel;
+
+method
+	public %TypeName% () {
+		super (true);
+	}
+

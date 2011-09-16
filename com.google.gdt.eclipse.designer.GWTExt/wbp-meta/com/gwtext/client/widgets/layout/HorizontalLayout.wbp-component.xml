@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.LayoutInfo"/>
+    <description>Horizontal layout which allows you to lay out components horizontally in a row with
+        the specified spacing between components.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.HorizontalLayout(5)]]></source>
+    </creation>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="layout.exclude-properties">Class Constructor</parameter>
+        <!-- layout -->
+        <parameter name="layout-data.has">false</parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">true</parameter>
+        <parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+        <!-- copy -->
+        <parameter name="copyPropertyTop from=Constructor/spacing to=spacing(int)"/>
+    </parameters>
+</component>

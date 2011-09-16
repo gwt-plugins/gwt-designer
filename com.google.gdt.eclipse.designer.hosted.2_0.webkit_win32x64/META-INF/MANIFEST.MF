@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %fragmentName
+Bundle-SymbolicName: com.google.gdt.eclipse.designer.hosted.2_0.webkit_win32x64;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Vendor: %providerName
+Fragment-Host: com.google.gdt.eclipse.designer.hosted.2_0.webkit
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Localization: fragment
+Bundle-ActivationPolicy: lazy
+Eclipse-PlatformFilter: (& (osgi.ws=win32) (osgi.os=win32) (osgi.arch=x86_64))

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>FormItem that allows picking a value from a hierarchical data model.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.PickTreeItem("newPickTreeItem_%index%", "New PickTreeItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setDataSource">
+            <parameter type="com.smartgwt.client.data.DataSource"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-normal names="displayField valueField"/>
+    <properties-advanced names="loadDataOnDemand"/>
+    <property-tag name="dataSource" tag="useObjectEditor" value="true"/>
+</component>

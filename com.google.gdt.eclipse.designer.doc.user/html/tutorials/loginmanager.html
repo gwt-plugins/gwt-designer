@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Tutorial: Creating a Login Manager Application with GWT Designer</title>
+<link href="../../book.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<h1>Tutorial: Creating a Login Manager Application with GWT Designer</h1>
+<p>This tutorial walks you through the process of creating a simple
+GWT application and deploying your module using GWT Designer. 
+</p>
+<em>Special thanks to&nbsp;<b>Ronny Bubke</b> for submitting the original tutorial.</em>
+<p><b>Requirements:</b> 
+<p>Before you can start with the tutorial, you must install a supported version of the following:<br />
+<a href="http://eclipse.org/downloads/">Eclipse</a>, Java 1.5 or higher, 
+<a href="http://code.google.com/webtoolkit/tools/download-gwtdesigner.html">GWT Designer (Full stand-alone version)</a>, and the
+<a href="http://code.google.com/webtoolkit/versions.html">GWT SDK</a> or 
+<a href="http://code.google.com/eclipse/docs/download.html">Google Plugin for Eclipse (includes GWT SDK)</a></li>
+</ul>
+</p>
+<p><i>Note: This tutorial was created in Windows XP using <b>GWT Designer 2.3, GPE 2.3, Eclipse 3.7 & Java 1.6.</b></i></p>
+<p>Basic steps:</p>
+<ol>
+	<li><a href="#gwt_directory">Set the GWT installation directory</a></li>
+	<li><a href="#gwt_project">Create a GWT Java Project and the LoginManager module</a></li>
+	<li><a href="#create_login">Create the Login Composite</a></li>
+	<li><a href="#create_css">Create and apply CSS styles</a></li>
+	<li><a href="#event_handlers">Add Event Handlers</a></li>
+	<li><a href="#add_composite">Add the Login composite to the LoginManager module</a></li>
+	<li><a href="#run_hostedmode">Run Application in Hosted Mode</a></li>
+	<li><a href="#build_deploy">Build and Deploy</a></li>
+</ol>
+<h3><a name="gwt_directory">1. Set the path to the GWT SDK
+installation directory.</a></h3>
+<p> If you installed the Google Plugin for Eclipse (GPE), this step is not needed (GWT Designer will just use the SDK 
+included with the GPE). Do this only if you downloaded the stand-alone GWT SDK zip file. 
+The path would be the directory you unzipped the GWT SDK to (the dir just above the /doc subdirectory). </p>
+<li>Open the GWT Preference page, select <b>Window > Preferences > WindowBuilder > GWT</b>.</li>
+<p><img src="images/login_pref_gwt_path.png" alt="Set GWT Path"></p>
+<h3><a name="gwt_project">2. Create a GWT Java Project and the
+LoginManager module.</a></h3>
+<li>Select <b>File&nbsp;&gt; New&nbsp;&gt; Project </b>from the
+Eclipse top level menu to open the new project wizard dialog.&nbsp;</li>
+<li>Expand <b> WindowBuilder&nbsp;&gt; GWT&nbsp;Designer  &gt; Model</b> and
+select <b>GWT Java Project </b> from the list of wizards.</li>
+<li>Click <b>Next</b> to continue.</li>
+<p><img src="images/login_newproject_wizard.png" alt="Select GWT Java Project"></p>
+<li>Enter <b>LoginManager</b> as the Project name and click <b>Next.</b></li>
+<p><img src="images/login_enter_project_name.png" alt="Enter Project information"></p>
+<li>Check the option to&nbsp; <b>Create a GWT Module.</b></li>
+<li>Enter <b>LoginManager</b> as the Module name.</li>
+<li>Modify the package name to <b> com.gwt.tutorial.LoginManager</b></li>
+<li>Click <b> Finish.</b></li>
+<p><img src="images/login_create_module.png" alt="Create a Module"></p>
+<p>A LoginManager GWT project is created and configured. The LoginManager file is opened and you should see <b>Source</b>
+and <b>Design</b> tabs at the bottom of the LoginManager view. If you don't see the tabs, right-click on the Java class and select <b>Open With > WindowBuilder Editor</b>.</p>
+<p><img src="images/login_project_created.png" alt="Source View"></p>
+<p>To start designing your UI using GWT Designer, click the <b>Design</b> tab. Below is GWT Designer's Design view. 
+Top left corner of the <b>LoginManager</b> is the <b>Components</b> view. 
+Below the Components view is the <b>Properties</b> view. In the middle is the <b>Palette</b> and to the right is your UI.
+ </p>
+<img src="images/login_design_view.png" alt="Design View">
+<h3><a name="create_login">3. Create the Login Composite.</a></h3>
+<p>First, we need to create a Composite for the Login application. </p>
+<li>Select the <b>Designer toolbar button</b> and select <b>GWT &gt; GWT Java UI &gt; Composite</b> from the pull-down menu.</li>
+<p><img src="images/login_create_composite.png" alt="Create GWT Composite"></p>
+<li>Enter <b>Login</b> as the name of the Composite and click <b>Finish</b>.</li>
+<p><img src="images/login_composite.png" alt="New Composite"></p>
+<p>Composite created and opened in Source mode.</p>
+<p><img src="images/login_composite_source.png" alt="Login Composite Source"></p>
+
+<p>Switch to Design mode and Add a&nbsp; <a
+	href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/VerticalPanel.html"><b>VerticalPanel</b></a>
+to the Composite.</p>
+	<li>Click on the <b>VerticalPanel</b> from the Palette and drop it
+	onto the Composite (hover the mouse on the Composite and click the left-mouse button to place the component). You should now see an empty VerticalPanel.</li>
+
+<p><img src="images/login_add_verticalpanel.png"	alt="Empty Login Composite" /></p>
+<p>Add a Label widget to the VerticalPanel.</p>
+
+	<li>On the <b>Palette</b>, scroll down to the <b>Widgets</b> category and click on the <b>Label</b> widget from the Palette and drop it onto
+	the Vertical Panel.</li>
+	<p><img src="images/login_new_label.png" alt="Add New Label" /></p>
+	<li>Replace the default label text to <b>Sign in to your account</b> and press <b>Enter</b>. That sets the <b>text</b> property of the Label widget.</li>
+	<p><img src="images/login_signin_label.png" alt="Sign in Label" /></p>
+	
+<p>To easily structure the widgets,&nbsp;add a <a
+	href="http://google-web-toolkit.googlecode.com/svn/javadoc/1.6/com/google/gwt/user/client/ui/FlexTable.html"><b>FlexTable</b></a>
+panel.</p>
+
+	<li>In the Panels section on the Palette, click <b>Flextable</b> and place it into the VerticalPanel.</li>
+
+<p>Add the following widgets to the <b>FlexTable</b> and arrange it
+as follows:</p>
+	<li>Add a <b>Label</b> and change the text property to <b>Username:</b></li>
+	<li>Add a <b>TextBox</b> next to the Username and change the
+	variable property to <b>textBoxUsername.</b></li>
+	<li>Add another <b>Label</b> below the Username and change the
+	text property to <b>Password:</b></li>
+	<li>Add another <b>TextBox</b> next to the Password and change the
+	<b>Variable</b> property to <b>textBoxPassword</b>.</li>
+	<li>Add a <b>CheckBox</b> below the Password and change the <b>text</b>
+	property to <b>Remember me on this computer</b>.</li>
+	<li>Add a Button below the checkbox and set the <b>text</b> property to <b>Sign
+	In</b>.</li>
+<li><b>Save your work.</b></li>You should end up with something like this screen. </p>
+<p><img src="images/login_complete.png" alt="Complete Login Composite"></p>
+<h3><a name="create_css">4. Create and apply CSS styles </a></h3>
+<p>Let's create a CSS style for the Label widgets. </p>
+<li>Click on the <b>CSS</b> toolbar item to open the CSS Style Editor. </li>
+<p><img src="images/login_css_open_editor.png" alt="Open CSS Editor"></p>
+<p>The CSS Style Editor opens.</p>
+<p><img src="images/login_css_editor.png" alt="CSS Editor"></p>
+
+<li>Click the <b>Add...</b>button to open the <b>New rule dialog. </b></li>
+<p><img src="images/login_new_rule.png" alt="New CSS Rule"></p>
+
+<li>Change the name to <b>.gwt-Label-Login</b> and click <b>OK</b>.</li> 
+<li>With the .gwt-Label-Login selected, click the <b>Edit...</b> button.</li>
+<p><img src="images/login_css_rule_editor.png" alt="CSS Editor"></p>
+<li>Set any attributes you want and click <b>OK</b>. </li>
+<p>When you're done, you should have something similar to this:</p>
+<p><img src="images/login_css_style_editor.png" alt="CSS Editor"></p>
+<li>Click <b>OK</b> to close the <b>CSS editor</b>.</li>
+<li>Select each of the Label widgets and set the <b>styleName</b> property to <b>.gwt-Label-Login</b>.</li>
+<p><img src="images/login_css_assign_stylename.png" alt="Assign styleName"></p>
+
+<p>Following the same procedure, create a style for the checkbox and set the <b>styleName</b> property.</p>
+<p>Open the <b>Login</b> class and this is how it looks like with some css
+styling. Make sure to <b>Save</b> your work. </p>
+<p><img src="images/login_css_complete.png" alt="Login with styling"></p>
+<h3><a name="event_handlers">5. Add Event Handlers</a></h3>
+<p>First, let's convert the text boxes from local to field
+variables.</p>
+<li>Still on the Login class, switch to <b>Design</b> mode, select the <b>Username</b> text box and click the <b>Convert local to field</b> button from the properties pane. Do the
+same with the <b>Password</b> text box.</li>
+<p><img src="images/login_convert_local_tofield.png"></p>
+
+<p>Now, let's add an <b>onClick</b> event for the "Sign In" button.</p>
+<li>Right-click the <b>Sign In</b> button and select <b>Add
+event handler &gt; click &gt; onClick. </b></li>
+<p>As you can see a <b>ClickHandler</b> has been added and all you
+have to do is implement the <b>onClick</b> event.</p>
+<li>Add the following import statement:</li>
+<pre><code>import com.google.gwt.user.client.Window;</code></pre>
+<li>then add the following code into the onClick() event:</li>
+<pre><code>
+if (textBoxUsername.getText().length() == 0
+	|| textBoxPassword.getText().length() == 0) {
+	Window.alert("Username or password is empty."); 
+}</code></pre>
+<li>Save your code.</li>
+<h3><a name="add_composite">6. Add the Login Composite to the
+LoginManager module.</a></h3>
+
+<li>Open the <b>LoginManager</b> in <b>Design mode</b> and delete the
+initial <b>Click me!</b> button. You should now see an empty module with
+the default rootPanel.</li>
+<li>Add a <b>HorizontalPanel </b> within the <b>rootPanel</b>. Drag
+the&nbsp;bottom right corner of the HorizontalPanel to make it bigger.</li>
+<li>Add a <b>VerticalPanel </b> to the <b>HorizontalPanel.</b></li>
+<li>Add a <b>Label</b> to the <b>VerticalPanel</b> and set the Label's text property to <b>Welcome to my login page</b>
+and the <b>styleName</b> property to <b>.gwt-Label-Login</b>.</li>
+<li>To add the Login composite to the module, select <b>Choose Component</b> from the <b>Palette</b>.</li>
+<p><img src="images/loginmanager_choose_component.png" alt="Choose Component button"></p>
+<li>In the Open type search dialog, enter <b>Login </b> and select the <b>Login - com.gwt.tutorial.LoginManager.client</b> item and click <b>OK</b>.</li>
+<p><img src="images/loginmanager_choose.png" alt="Choose Component dialog"></p>
+<li>Place the widget in the LoginManager inside the HorizontalPanel
+as shown.</li> 
+<p><img src="images/loginmanager_with_comp.png"	alt="LoginManager with Composite"></p>
+<li>Click <b>Save</b>. </li>
+<h3><a name="run_hostedmode">7. Run your Application in Hostedmode.</a></h3>
+<li>In the Package explorer, <b>right-click the LoginManager</b> and
+select <b>Run As &gt; GWT Application.</b> </li>
+<p><img src="images/loginmanager_launch_browser.png"	alt="Launch Browser"></p>
+<li>Click the <b>Launch Default Browser</b> button.</li>
+<li>Click the <b>Sign In </b>button. A message dialog should come up.</li>
+<p>You should now see the LoginManager application similar to the screen below. <br>
+<img src="images/loginmanager_run.png" alt="Run application"></p>
+<li>Close the application.</li>
+<h3><a name="build_deploy">8. Build and Deploy.</a></h3>
+<li>Select the <b>LoginManager</b> and click <b>click on the <b>Deploy Module</b> button in the main Eclipse toolbar to open the Deployment dialog</b></li>
+<p><img src="images/loginmanager_deploy_module_command.png" alt="Deploy Module"></p>
+<p><img src="images/loginmanager_deploy.png" alt="Deployment configuration"></p>
+<li>Specify the server deployment options and click <b>OK</b>.</li>
+<p>For more information on deploying to your server, see the Google Website and forums.</p>
+<p>You can download the complete source code <a	href="LoginManager.zip">here</a>.</p>
+<p>Related topics:</p>
+<li><a href="../preferences/gwt/index.html">GWT Preferences</a></li>
+<li><a href="../wizards/gwt/project.html">GWT Java Project Wizard</a></li>
+<li><a href="../wizards/gwt/composite.html">GWT Composite Wizard</a></li>
+<li><a href="../features/gwt/css_support.html">CSS Support</a></li>
+<li><a href="../features/gwt/application_launching.html">Application Launching</a></li>
+<li><a href="../features/gwt/module_deployment.html">Build & Deployment</a></li>
+
+<p>For corrections/bug reports/questions regarding this tutorial, use the GWT Designer forum.</p>
+</body>
+</html>

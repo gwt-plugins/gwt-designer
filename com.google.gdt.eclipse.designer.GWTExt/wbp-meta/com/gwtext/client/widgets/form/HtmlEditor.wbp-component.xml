@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Provides a lightweight HTML Editor component.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.HtmlEditor("New HTML editor")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setFieldLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<method-order>
+		<method signature="setWidth(int)" order="beforeAssociation"/>
+		<method signature="setHeight(int)" order="after setWidth(int)"/>
+	</method-order>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude method="getToolbar"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-preferred names="setWidth(int) setHeight(int)"/>
+	<properties-advanced names="createLinkText fontFamilies"/>
+	<properties-hidden names="focusClass validateOnBlur validationDelay validationEvent"/>
+	<property id="setDefaultLinkValue(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'http:/ /'"/>
+	</property>
+	<property id="setEnableAlignments(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableColors(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableFont(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableFontSize(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableLinks(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableLists(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setEnableSourceEdit(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.form.TextField"/>
+	</morphTargets>
+</component>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+	<!-- ======================================================== -->
+	<!-- Wizards -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="com.google.gdt.eclipse.designer" name="GWT Designer"
+			parentCategory="org.eclipse.wb" wbp-menu-name="GWT"/>
+		<!-- ======================================================== -->
+		<!-- Wizards: UI -->
+		<!-- ======================================================== -->
+		<category id="com.google.gdt.eclipse.designer.ui" name="GWT Java UI"
+			parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.ui"
+			id="com.google.gdt.eclipse.designer.wizards.ui.EntryPointWizard"
+			class="com.google.gdt.eclipse.designer.wizards.ui.EntryPointWizard"
+			icon="icons/wizards/EntryPoint/wizard.gif" name="EntryPoint">
+			<description>Create an GWT EntryPoint</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.ui"
+			id="com.google.gdt.eclipse.designer.wizards.ui.CompositeWizard"
+			class="com.google.gdt.eclipse.designer.wizards.ui.CompositeWizard"
+			icon="icons/wizards/Composite/wizard.gif" name="Composite">
+			<description>Create an GWT Composite</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.ui"
+			id="com.google.gdt.eclipse.designer.wizards.ui.DialogBoxWizard"
+			class="com.google.gdt.eclipse.designer.wizards.ui.DialogBoxWizard"
+			icon="icons/wizards/DialogBox/wizard.png" name="DialogBox">
+			<description>Create an GWT DialogBox</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.ui"
+			id="com.google.gdt.eclipse.designer.wizards.ui.PopupPanelWizard"
+			class="com.google.gdt.eclipse.designer.wizards.ui.PopupPanelWizard"
+			icon="icons/wizards/PopupPanel/wizard.gif" name="PopupPanel">
+			<description>Create an GWT PopupPanel</description>
+		</wizard>
+		<!-- ======================================================== -->
+		<!-- Wizards: Model -->
+		<!-- ======================================================== -->
+		<category id="com.google.gdt.eclipse.designer.model" name="Model"
+			parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.model"
+			id="com.google.gdt.eclipse.designer.wizards.model.project.ProjectWizard"
+			class="com.google.gdt.eclipse.designer.wizards.model.project.ProjectWizard"
+			name="GWT Java Project" finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+			icon="icons/wizards/project/wizard.gif"
+			preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective,org.eclipse.jdt.ui.JavaBrowsingPerspective,org.eclipse.jdt.ui.JavaHierarchyPerspective"
+			project="true">
+			<description>Create a Java project with GWT support</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.model"
+			id="com.google.gdt.eclipse.designer.wizards.model.module.ModuleWizard"
+			class="com.google.gdt.eclipse.designer.wizards.model.module.ModuleWizard"
+			icon="icons/wizards/module/wizard.png" name="GWT Module"
+			preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective,org.eclipse.jdt.ui.JavaBrowsingPerspective,org.eclipse.jdt.ui.JavaHierarchyPerspective"
+			finalPerspective="org.eclipse.jdt.ui.JavaPerspective">
+			<description>Create a new GWT module</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.model"
+			id="com.google.gdt.eclipse.designer.wizards.model.library.LibraryWizard"
+			class="com.google.gdt.eclipse.designer.wizards.model.library.LibraryWizard"
+			finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+			icon="icons/wizards/library/wizard.png" name="GWT Library"
+			preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective,org.eclipse.jdt.ui.JavaBrowsingPerspective,org.eclipse.jdt.ui.JavaHierarchyPerspective">
+			<description>Create a new GWT library</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.model"
+			id="com.google.gdt.eclipse.designer.wizards.model.service.ServiceWizard"
+			class="com.google.gdt.eclipse.designer.wizards.model.service.ServiceWizard"
+			finalPerspective="org.eclipse.jdt.ui.JavaPerspective"
+			icon="icons/wizards/service/wizard.png" name="GWT RemoteService"
+			preferredPerspectives="org.eclipse.jdt.ui.JavaPerspective,org.eclipse.jdt.ui.JavaBrowsingPerspective,org.eclipse.jdt.ui.JavaHierarchyPerspective">
+			<description>Create a new GWT RemoteService</description>
+		</wizard>
+		<!-- ======================================================== -->
+		<!-- Wizards: JUnit -->
+		<!-- ======================================================== -->
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.model"
+			id="com.google.gdt.eclipse.designer.wizards.ui.JUnitWizard"
+			class="com.google.gdt.eclipse.designer.wizards.ui.JUnitWizard"
+			icon="icons/wizards/JUnit/wizard.gif" name="JUnit Test Case">
+			<description>Create an GWT JUnit Test Case</description>
+		</wizard>
+		<!-- ======================================================== -->
+		<!-- Wizards: MVP -->
+		<!-- ======================================================== -->
+		<category id="com.google.gdt.eclipse.designer.mvp" name="MVP"
+			parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.mvp"
+			id="com.google.gdt.eclipse.designer.wizards.model.mvp.ViewWizard"
+			class="com.google.gdt.eclipse.designer.wizards.model.mvp.ViewWizard"
+			icon="icons/wizards/module/wizard.png" name="MVP view">
+			<description>Create a new GWT MVP view</description>
+		</wizard>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GWT project wizard action -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.actionSets">
+		<actionSet id="com.google.gdt.eclipse.designer.actionset" label="Designer GWT Actions"
+			visible="true">
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.deploy.DeployModuleAction"
+				class="com.google.gdt.eclipse.designer.actions.deploy.DeployModuleAction"
+				icon="icons/deployment/deploy.gif" label="Deploy GWT module"
+				toolbarPath="org.eclipse.ui.workbench.file/build.ext"
+				tooltip="Deploys selected GWT module on application server"/>
+			<action
+				id="com.google.gdt.eclipse.designer.wizards.model.project.OpenProjectWizardAction"
+				class="com.google.gdt.eclipse.designer.wizards.model.project.OpenProjectWizardAction"
+				icon="icons/wizards/project/wizard.gif" label="New GWT Java Project"
+				toolbarPath="org.eclipse.ui.workbench.file/new.ext"
+				tooltip="Create a Java project with GWT support"/>
+		</actionSet>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Popup for new GWT things creation (module, entry point, service, etc) -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designer.objectContribution.all"
+			objectClass="org.eclipse.core.resources.IResource">
+			<menu id="com.google.gdt.eclipse.designer.menu" label="Google Web Toolkit"
+				path="group.new">
+				<separator name="GWT_model"/>
+				<separator name="GWT_UI"/>
+				<separator name="GWTExt"/>
+				<separator name="GXT"/>
+				<separator name="SmartGWT"/>
+				<separator name="configureFor"/>
+				<separator name="deploy"/>
+			</menu>
+		</objectContribution>
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designer.objectContribution.convert"
+			objectClass="org.eclipse.core.resources.IResource">
+			<enablement>
+				<not>
+					<test property="com.google.gdt.eclipse.designer.isGwtProjectElement"
+						forcePluginActivation="true"/>
+				</not>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.actions.ConvertIntoGWTProjectAction"
+				class="com.google.gdt.eclipse.designer.actions.ConvertIntoGwtProjectAction"
+				enablesFor="1" label="Convert project into GWT project..."
+				menubarPath="com.google.gdt.eclipse.designer.menu/content_deploy"/>
+		</objectContribution>
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designer.objectContribution.deployment"
+			objectClass="org.eclipse.core.resources.IResource">
+			<enablement>
+				<test property="com.google.gdt.eclipse.designer.isGwtModuleElement"
+					forcePluginActivation="true"/>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.actions.deploy.DeployModuleAction"
+				label="Deploy module" icon="icons/deployment/deploy.gif"
+				class="com.google.gdt.eclipse.designer.actions.deploy.DeployModuleAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/deploy"/>
+		</objectContribution>
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designer.objectContribution.model"
+			objectClass="org.eclipse.jdt.core.IJavaElement">
+			<enablement>
+				<and>
+					<test property="com.google.gdt.eclipse.designer.isResource"
+						forcePluginActivation="true"/>
+					<test property="com.google.gdt.eclipse.designer.isGwtProjectElement"
+						forcePluginActivation="true"/>
+				</and>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.model.NewServiceAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.model.NewServiceAction"
+				label="GWT remote service" icon="icons/wizards/service/wizard.png"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_model"/>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.model.NewLibraryAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.model.NewLibraryAction"
+				label="GWT library" icon="icons/wizards/library/wizard.png"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_model"/>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.model.NewModuleAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.model.NewModuleAction"
+				label="GWT module" icon="icons/wizards/module/wizard.png"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_model"/>
+		</objectContribution>
+		<objectContribution adaptable="false"
+			id="com.google.gdt.eclipse.designer.objectContribution.gui"
+			objectClass="org.eclipse.jdt.core.IJavaElement">
+			<enablement>
+				<and>
+					<test property="com.google.gdt.eclipse.designer.isResource"
+						forcePluginActivation="true"/>
+					<test property="com.google.gdt.eclipse.designer.isClientPackage"
+						forcePluginActivation="true"/>
+				</and>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.ui.ViewAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.ui.ViewAction"
+				label="MVP View" icon="icons/wizards/EntryPoint/wizard.gif"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_UI" enablesFor="1"/>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.ui.PopupPanelAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.ui.PopupPanelAction"
+				label="PopupPanel" icon="icons/wizards/PopupPanel/wizard.gif"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_UI" enablesFor="1"/>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.ui.DialogBoxAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.ui.DialogBoxAction"
+				label="DialogBox" icon="icons/wizards/DialogBox/wizard.png"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_UI" enablesFor="1"/>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.ui.CompositeAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.ui.CompositeAction"
+				label="Composite" icon="icons/wizards/Composite/wizard.gif"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_UI" enablesFor="1"/>
+			<action id="com.google.gdt.eclipse.designer.actions.wizard.ui.EntryPointAction"
+				class="com.google.gdt.eclipse.designer.actions.wizard.ui.EntryPointAction"
+				label="EntryPoint" icon="icons/wizards/EntryPoint/wizard.gif"
+				menubarPath="com.google.gdt.eclipse.designer.menu/GWT_UI" enablesFor="1"/>
+		</objectContribution>
+	</extension>
+
+</plugin>

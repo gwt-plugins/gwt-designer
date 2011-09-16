@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exceptions>
+	<exception id="4200" title="Project is not configured for using GWT-Ext" warning="true">Make sure that you
+		configured <code>{0}</code> correctly. Just adding the gwtext.jar and module is not enough. Use
+			<b>Configure for using GWT-Ext</b> action in the context menu of your module. </exception>
+</exceptions>

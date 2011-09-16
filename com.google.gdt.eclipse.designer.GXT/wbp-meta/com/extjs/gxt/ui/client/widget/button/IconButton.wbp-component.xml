@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A simple css styled button with 3 states: normal, over, and disabled.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.button.IconButton("customStyle")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="changeStyle(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="changeStyle(java.lang.String)"/>
+			<parameter type="com.extjs.gxt.ui.client.event.SelectionListener">
+				<tag name="events: add listener method"
+					value="addSelectionListener(com.extjs.gxt.ui.client.event.SelectionListener)"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<method-single-property title="changeStyle" method="changeStyle(java.lang.String)">
+		<category value="preferred"/>
+	</method-single-property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="double-click.listener">selection/componentSelected</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.button.IconButton"><![CDATA[
+			IconButtonEvent Select
+		]]></parameter>
+	</parameters>
+</component>

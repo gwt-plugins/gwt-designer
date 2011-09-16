@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A label displaying its value through a renderer.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.ValueLabel(com.google.gwt.text.shared.testing.PassthroughRenderer.instance())]]></source>
+	</creation>
+</component>

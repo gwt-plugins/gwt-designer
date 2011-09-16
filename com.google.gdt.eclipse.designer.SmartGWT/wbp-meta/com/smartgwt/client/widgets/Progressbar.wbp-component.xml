@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Progressbar widget implements image-based progress bars (graphical bars whose
+		lengths represent percentages, typically of task completion).</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.Progressbar()]]></source>
+		<invocation signature="setPercentDone(int)"><![CDATA[30]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="percentDone vertical"/>
+	<properties-normal names=""/>
+	<properties-advanced names="setHeight(int) setWidth(int)"/>
+</component>

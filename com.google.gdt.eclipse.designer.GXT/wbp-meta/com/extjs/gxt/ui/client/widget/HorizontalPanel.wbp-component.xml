@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.HorizontalPanelInfo"/>
+	<description>HorizontalPanel lays out its children in a single row using a TableRowLayout. Each child
+		widget can control its cell's properties using an associated TableData instance.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.HorizontalPanel()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="horizontalAlign verticalAlign"/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">false</parameter>
+		<!-- LayoutData -->
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.TableData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%()</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.component">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.DockLayoutPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.DockLayoutPanelInfo"/>
+	<description>A panel that lays its child widgets out "docked" at its outer edges, and allows its
+		last widget to take up the remaining space in its center. <p/><b>Note:</b> this widget will
+			<em>only</em> work in standards mode.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.DockLayoutPanel(com.google.gwt.dom.client.Style.Unit.EM)]]></source>
+		<x-attribute name="unit" value="EM"/>
+		<x-attribute name="width" value="150px"/>
+		<x-attribute name="height" value="100px"/>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="addNorth">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="double"/>
+		</method>
+		<method name="addWest">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="double"/>
+		</method>
+		<method name="addSouth">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="double"/>
+		</method>
+		<method name="addEast">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="double"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty DockLayoutPanel"));
+			}
+			]]></parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			RootLayoutPanel.get().add(widget);
+		]]></parameter>
+		<!-- properties -->
+		<parameter name="copyPropertyTop from=Constructor/unit to=Unit category=system(7)"/>
+		<parameter
+			name="copyChildPropertyTop from=Association/size to=Size(units) category=system(7)"/>
+		<parameter
+			name="modelMethodChildProperty title=Edge category=system(7)
+			getter=getEdge setter=setEdge child=com.google.gdt.eclipse.designer.model.widgets.WidgetInfo
+			editor=strings(WEST,NORTH,EAST,SOUTH,CENTER)"/>
+		<parameter
+			name="x-modelMethodChildProperty title=Edge category=system(7)
+			getter=getEdge setter=setEdge
+			child=com.google.gdt.eclipse.designer.uibinder.model.widgets.WidgetInfo
+			editor=strings(WEST,NORTH,EAST,SOUTH,CENTER)"/>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.addWest(%child%, 1.0)</parameter>
+		<parameter name="flowContainer.tree.x-association">inter {parentNS}west size='1.0'</parameter>
+	</parameters>
+</component>

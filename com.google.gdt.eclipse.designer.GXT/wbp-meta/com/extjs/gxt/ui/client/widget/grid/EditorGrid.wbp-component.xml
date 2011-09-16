@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Adds editing capabilities to Grid.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.grid.EditorGrid(new com.extjs.gxt.ui.client.store.ListStore(), new com.extjs.gxt.ui.client.widget.grid.ColumnModel(java.util.Collections.<com.extjs.gxt.ui.client.widget.grid.ColumnConfig>emptyList()))]]></source>
+		<invocation signature="setBorders(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.grid.EditorGrid"><![CDATA[
+			GridEvent BeforeEdit AfterEdit ValidateEdit
+		]]></parameter>
+	</parameters>
+</component>

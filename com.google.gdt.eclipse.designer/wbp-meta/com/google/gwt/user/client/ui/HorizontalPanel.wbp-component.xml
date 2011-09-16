@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.HorizontalPanelInfo"/>
+	<description>A panel that lays all of its widgets out in a single horizontal column.</description>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.VerticalPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.AbsolutePanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.FlowPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.StackPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DeckPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty HorizontalPanel"));
+			}
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

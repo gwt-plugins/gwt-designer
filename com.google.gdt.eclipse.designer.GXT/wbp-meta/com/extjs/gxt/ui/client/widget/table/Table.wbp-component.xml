@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>The table is used to display two-dimensional table of cells.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.table.Table(new com.extjs.gxt.ui.client.widget.table.TableColumnModel(new com.extjs.gxt.ui.client.widget.table.TableColumn("id.1", "First", 0.3f), new com.extjs.gxt.ui.client.widget.table.TableColumn("id.2", "Second", 0.7f)))]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.table.Table"><![CDATA[
+			TableEvent BeforeAdd BeforeRemove Add Remove ContextMenu
+			TableEvent SelectionChange BeforeSelect SortChange KeyPress 
+			TableEvent CellClick CellDoubleClick
+			TableEvent ColumnClick HeaderContextMenu 
+			TableEvent RowClick RowDoubleClick
+		]]></parameter>
+	</parameters>
+</component>

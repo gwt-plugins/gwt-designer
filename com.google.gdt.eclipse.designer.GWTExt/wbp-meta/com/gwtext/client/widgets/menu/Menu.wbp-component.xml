@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.MenuInfo"/>
+	<description>A menu object. This is the container to which you add all other menu items.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.menu.Menu()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="addItem">
+			<parameter type="com.gwtext.client.widgets.menu.BaseItem" child="true"/>
+		</method>
+		<method name="addText">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="addSeparator">
+			<tag name="voidFactory.creationSupport"
+				value="com.google.gdt.eclipse.designer.gwtext.model.widgets.MenuAddItemCreationSupport"/>
+			<tag name="voidFactory.componentClass" value="com.gwtext.client.widgets.menu.Separator"/>
+		</method>
+		<method name="addText">
+			<parameter type="java.lang.String"/>
+			<tag name="voidFactory.creationSupport"
+				value="com.google.gdt.eclipse.designer.gwtext.model.widgets.MenuAddItemCreationSupport"/>
+			<tag name="voidFactory.componentClass" value="com.gwtext.client.widgets.menu.TextItem"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<property id="setAllowOtherMenus(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setDefaultAlign(java.lang.String)">
+		<defaultValue value="'tl-bl?'"/>
+	</property>
+	<property id="setMinWidth(int)">
+		<defaultValue value="120"/>
+	</property>
+	<property id="setShadow(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setShadow(java.lang.String)">
+		<editor id="stringList">
+			<parameter name="ignoreCase">true</parameter>
+			<parameter-list name="strings">sides</parameter-list>
+			<parameter-list name="strings">frame</parameter-list>
+			<parameter-list name="strings">drop</parameter-list>
+		</editor>
+		<defaultValue value="'sides'"/>
+	</property>
+	<property id="setSubMenuAlign(java.lang.String)">
+		<defaultValue value="'tl-tr?'"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- flow container: BaseItem -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.gwtext.client.widgets.menu.BaseItem</parameter>
+		<parameter name="flowContainer.reference">com.gwtext.client.widgets.menu.BaseItem</parameter>
+		<parameter name="flowContainer.association">%parent%.addItem(%child%)</parameter>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			isComponentType(parent, "com.gwtext.client.widgets.Button") ||
+			isComponentType(parent, "com.gwtext.client.widgets.menu.MenuItem")
+			]]></parameter>
+	</parameters>
+</component>

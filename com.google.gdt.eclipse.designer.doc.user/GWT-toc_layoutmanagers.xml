@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc label="Panels" link_to="../org.eclipse.wb.doc.user/toc.xml#layoutmanagers">
+	<topic href="html/layoutmanagers/gwt/index.html" label="Panels"> 
+		<topic href="html/layoutmanagers/gwt/absolutepanel.html" label="AbsolutePanel"/>
+		<topic href="html/layoutmanagers/gwt/dockpanel.html" label="Dock[Layout]Panel"/>
+		<topic href="html/layoutmanagers/gwt/flextable.html" label="FlexTable"/>
+		<topic href="html/layoutmanagers/gwt/flowpanel.html" label="FlowPanel"/>
+		<topic href="html/layoutmanagers/gwt/gridpanel.html" label="Grid"/>
+		<topic href="html/layoutmanagers/gwt/layoutpanel.html" label="LayoutPanel"/>
+	</topic> 
+</toc>
+

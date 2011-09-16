@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>The RestDataSource implements the 4 core DataSource operations using a simple
+        protocol of "XML or JSON requests and responses sent over HTTP, which can be easily
+        fulfilled by any HTTP" server technology.</description>
+    <!-- PROPERTIES -->
+    <properties-preferred names="dataURL"/>
+    <properties-noDefaultValue names="dataURL"/>
+</component>

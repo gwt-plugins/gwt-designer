@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Hidden field.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.Hidden("Hidden_field", "hidden_value")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setValue(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.form.TextField"/>
+		<morphTarget class="com.gwtext.client.widgets.form.Label"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">50px</parameter>
+		<parameter name="liveComponent.forcedSize.height">20px</parameter>
+	</parameters>
+</component>

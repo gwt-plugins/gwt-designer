@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.FilterBuilderInfo"/>
+    <description>A form that allows the user to input advanced search criteria, including operators
+        on field values such as 'less than', and sub-clauses using 'AND' and 'OR' operators.</description>
+    <!-- METHODS -->
+    <methods>
+        <method name="setDataSource" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.data.DataSource"/>
+        </method>
+        <method name="setFieldDataSource" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.data.DataSource"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="dataSource"/>
+    <properties-advanced names="addButtonPrompt canDropComponents missingFieldPrompt"/>
+    <properties-advanced names="rangeSeparator removeButoonPrompt subClause*"/>
+    <property-tag name="dataSource" tag="useObjectEditor" value="true"/>
+    <property-tag name="fieldDataSource" tag="useObjectEditor" value="true"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">250px</parameter>
+        <parameter name="liveComponent.forcedSize.height">70px</parameter>
+    </parameters>
+</component>

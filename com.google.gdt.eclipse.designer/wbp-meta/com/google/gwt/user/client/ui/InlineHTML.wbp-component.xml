@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A widget that can contain arbitrary HTML. This widget uses a &lt;span&gt; element,
+		causing it to be displayed with inline layout.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.InlineHTML("New InlineHTML")]]></source>
+		<x-content>new InlineHTML</x-content>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setHTML(java.lang.String)"/>
+		</constructor>
+	</constructors>
+</component>

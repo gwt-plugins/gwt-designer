@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>Using Ext GWT (GXT)</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link href="../../../book.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+    <h1>Using Ext GWT (GXT)</h1>
+	<div align="left">
+		<table border="0" cellpadding="5" cellspacing="0" id="table1" width="775">
+			<tr>
+				<td valign="top"><b>
+				<a href="http://www.extjs.com/products/gxt/">Ext GWT (GXT)</a></b> 
+				is a Java library for building rich internet applications with 
+				the Google Web Toolkit (GWT). It includes:<ul>
+					<li>High performance, customizable UI widgets</li>
+					<li>Full theming support with standard CSS</li>
+					<li>Well designed, consistent and fully documented source 
+					code</li>
+					<li>Native GWT solution with no external JavaScript or 3rd 
+					party libraries</li>
+					<li>Full remote procedure support using GWT RPC, JSON, and 
+					XML</li>
+					<li>Support for Java 1.5 features, including generics, enums, 
+					and varargs</li>
+					<li><a href="#DataBinding">Data Binding</a> framework for 
+					binding GXT BeanModels to GXT widgets</li>
+					<li><a href="https://www.sencha.com/store/extgwt/">Commercial</a> 
+					and <a href="http://www.sencha.com/products/extjs/license/">Open 
+					Source</a> licenses available</li>
+				</ul>
+				<p>You can download the latest <b>Ext GWT (GXT)</b> update
+				<a href="http://www.extjs.com/products/gxt/download.php">here</a> 
+				and access the <b>Ext GWT (GXT)</b> docs
+				<a href="http://www.extjs.com/helpcenter/index.jsp">here</a>.</p>
+				<p>
+				To configure your project to use <b>Ext GWT (GXT)</b>, you can either 
+				follow the
+				instructions in the <b>setup.txt</b> file in the Ext GWT 
+				download, or you can select your GWT 
+				module file and right-click to select the <b>Google Web Toolkit 
+				&gt; Configure for using Ext GWT (GXT)</b> command. This will add the
+				<b>gxt.jar</b> to your classpath and module file and various GXT 
+				files to your war folder.</p>
+				<p>
+			<img border="0" src="images/gxt-configure-menu.gif" align="top"></td>
+			</tr>
+			<tr>
+				<td valign="top"><br>
+				Once <b>Ext GWT (GXT)</b> has been added 
+				to your project several new <b>Ext GWT (GXT)</b> palette categories 
+				will appear:<p>
+			<img border="0" src="images/gxt-panels.png" align="top" width="143" height="239">&nbsp;
+			<img border="0" src="images/gxt-layouts.png" align="top">&nbsp;
+			<img border="0" src="images/gxt-widgets.png" align="top" width="143" height="613">&nbsp;
+			<img border="0" src="images/gxt-forms.png" align="top" width="143" height="525">&nbsp;
+			<img border="0" src="images/gxt-menus-toolbars.png" align="top" width="143" height="390"></td>
+			</tr>
+			<tr>
+				<td valign="top">
+			<img border="0" src="images/gxt-events.gif" align="left" hspace="10">In 
+				addition to standard types events, <b>Ext GWT (GXT)</b> includes 
+				a large number of untyped events which can be configured by 
+				right-clicking on the widget and selecting the event type.
+				<p>Code like the following will be generated:</p>
+				<p><font face="Courier">button.addListener(Events.Select, <br>
+&nbsp;&nbsp;&nbsp; new Listener&lt;ButtonEvent&gt;() {<br>
+&nbsp;&nbsp;&nbsp; public void handleEvent(ButtonEvent e) {<br>
+&nbsp;&nbsp;&nbsp; }<br>
+				});</font></p>
+				<p>Hold the Ctrl key down to remove an event handler.</td>
+			</tr>
+			<tr>
+				<td valign="top"><b>Ext GWT (GXT)</b> includes a large number of widgets. See the
+				<a href="http://www.extjs.com/products/gxt/"><b>Ext GWT (GXT)</b> 
+				web site</a> for more information about the individual widgets.<p>
+				<img border="0" src="images/gxt-explorer.png" align="top"></td>
+			</tr>
+			<tr>
+				<td valign="top"><b><a name="DataBinding"></a>Ext GWT (GXT)</b> includes a Data Binding 
+				framework for binding GXT BeanModels to GXT widgets.<p>
+				<img border="0" src="images/gxt-databindings.png" align="top"></p>
+				<p>
+				<img border="0" src="images/gxt-databindings-create.png" align="top">&nbsp;
+				<img border="0" src="images/gxt-databindings-edit.png" align="top"></td>
+			</tr>
+			</table>
+		<p>&nbsp;</div>
+	<p class="pnoall">&nbsp;</p>
+	<p class="pnoall">&nbsp;</p>
+            <p class="pnoall">
+			&nbsp;&nbsp;
+			<p class="pnoall">
+			&nbsp;<p class="pnoall">
+			&nbsp;<p class="pnoall">
+			&nbsp;<p class="pnoall"><br>
+            &nbsp;</p>
+          </body>
+</html>

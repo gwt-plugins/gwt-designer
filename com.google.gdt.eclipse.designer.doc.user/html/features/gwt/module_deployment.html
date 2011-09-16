@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Build &amp; Deployment</title>
+<meta content="text/html; charset=windows-1252" http-equiv="Content-Type">
+<link href="../../../book.css" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#FFFFFF">
+    <h1>Build &amp; Deployment</h1>
+	<div align="left">
+		<table border="0" cellpadding="5" cellspacing="0" id="table1" width="800">
+			<tr>
+				<td valign="top" width="1050">Select your GWT 
+				module file and right-click to select the <b>Google Web Toolkit 
+				&gt; Deploy module</b> command or click on the <b>Deploy Module</b> button in the main 
+				Eclipse toolbar to open the <b>Deployment</b> dialog<p>
+				<img border="0" src="images/gwt-button-deploy-module.png">&nbsp;
+			<img border="0" src="images/gwt-deploy-module-menu.png" align="top"></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1050">Specify the application server 
+				deployment options<ul>
+					<li>The name of the WAR file</li>
+					<li>The server path for the WAR file</li>
+					<li>The GWT compiler style<ul>
+						<li>Obfuscated (default)</li>
+						<li>Pretty</li>
+						<li>Detailed</li>
+					</ul>
+					</li>
+					<li>Maximum memory for the GWT Compiler</li>
+				</ul>
+				<img border="0" src="images/gwt-deploy-dialog.png"></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1050">Select the path 
+				where the WAR file should be copied.<ul>
+					<li>Can be a local directory</li>
+					<li>Can be a server location</li>
+				</ul>
+				<img border="0" src="images/gwt-deploy-server-path.png" width="238" height="216"></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1050">Multiple files are 
+				created by the <b>Deployment</b> dialog.<ul>
+					<li>The <b>WAR file</b> which should be deployed to your 
+					server</li>
+					<li>A <b>build.xml</b> file for an easy, repeatable build 
+					process</li>
+				</ul>
+				<p class="pnoall">Note that the <b>build.xml</b> file will be 
+				regenerated any time that the <b>Deploy module</b> command is 
+				used.<p>
+			<img border="0" src="images/gwt-deploy-results.png" width="294" height="236"></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1050">The <b>build.xml</b> 
+				file contain all of the steps needed to recreate the WAR file 
+				and deploy it&nbsp; to your server.<ul>
+					<li>Create the JAR file</li>
+					<li>Invoke the GWT compiler</li>
+					<li>Generate <b>web.xml</b> file</li>
+					<li>Package up the WAR file</li>
+					<li>Deploy to the server</li>
+				</ul>
+				<img border="0" src="images/gwt-deploy-build-xml.png" width="608" height="590"><p>
+				Note that if the module folder has files named <b>build-1.5.xml</b> 
+				or <b>build.1.5.xml</b>, then these files will be used as the 
+				templates for deployment. This allows you to completely 
+				customize and repeat the build process. You can add/move 
+				operations and targets as long as the modified script still 
+				references the same template variables. The original files are 
+				located here:</p>
+				<blockquote>
+					<p><i>com.instantiations.designer.gwt/com/instantiations/designer/gwt/actions/deploy/build-1.5.xml</i>
+					</p>
+				</blockquote>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" width="1050">You can rebuild and 
+				redeploy your WAR file by right-clicking in the<b> build.xml </b>
+				file and selecting <b>Run As &gt; Ant Build</b> or <b>Run As &gt; Ant 
+				Build...</b> (to invoke the ANT build.xml editor).<p>
+			<img border="0" src="images/gwt-deploy-build-xml-run-as-ant-build.png" width="455" height="452"></td>
+			</tr>
+			<tr>
+				<td valign="top" width="1050">You can use the <b>
+				ANT build.xml editor</b> to select specific targets to execute.<p>
+			<img border="0" src="images/gwt-deploy-build-xml-editor.png" width="488" height="428"></td>
+			</tr>
+			</table>
+	</div>
+	<p class="pnoall">&nbsp;</p>
+	<p class="pnoall">&nbsp;</p>
+            <p class="pnoall">
+			&nbsp;&nbsp;
+			<p class="pnoall">
+			&nbsp;<p class="pnoall">
+			&nbsp;<p class="pnoall">
+			&nbsp;<p class="pnoall"><br>
+            &nbsp;</p>
+          </body>
+</html>

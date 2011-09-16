@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- PROPERTIES -->
+	<properties-preferred names="setHTML(java.lang.String) modal"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidget() == null) {
+				object.setWidget(new Label("Empty DialogBox"));
+			}
+			]]></parameter>
+		<!-- bounds -->
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			widget.show();
+		]]></parameter>
+		<!-- direct edit -->
+		<parameter name="directEdit.property">html</parameter>
+		<parameter name="directEdit.location.insets">5 5 0 0</parameter>
+		<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+		<parameter name="directEdit.location.verticalAlignment">top</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-DialogBox { the box container }
+			.gwt-DialogBox .Caption { the box caption }
+			]]></parameter>
+	</parameters>
+</component>

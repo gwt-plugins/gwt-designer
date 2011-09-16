@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Displays a small amount of alignable text with optional icon.<p/> For a general-purpose
+		container for HTML content, use HTMLFlow or HTMLPane instead.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.Label("New Label")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setContents(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="actionType selected"/>
+	<properties-preferred names="icon contents"/>
+	<properties-normal names="align border"/>
+	<properties-advanced names="actionType disabled radioGroup selected title"/>
+	<property-tag name="contents" tag="isText" value="true"/>
+</component>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Simple interactive calendar interface used to pick a date. Used by the DateItem
+		class.</description>
+	<!-- PROPERTIES -->
+	<properties-preferred names="firstDayOfWeek"/>
+	<properties-normal names=""/>
+	<properties-advanced names="alternateWeekStyles alternateStyleSuffix"/>
+	<properties-advanced names="baseButtonStyle baseWeekdayStyle baseWeekendStyle"/>
+	<properties-advanced names="baseNavButtonStyle baseBottomButtonStyle"/>
+	<properties-advanced names="headerStyle headerHeight setHeight(int)"/>
+	<properties-advanced names="monthMenuStyle"/>
+	<properties-advanced names="nextYearIcon nextYearIconWidth nextYearIconHeight"/>
+	<properties-advanced names="nextMonthIcon nextMonthIconWidth nextMonthIconHeight"/>
+	<properties-advanced names="prevYearIcon prevYearIconWidth prevYearIconHeight"/>
+	<properties-advanced names="prevMonthIcon prevMonthIconWidth prevMonthIconHeight"/>
+	<properties-advanced names="skinImgDir"/>
+	<properties-advanced names="todayButtonHeight"/>
+	<properties-advanced names="weekendHeaderStyle setWidth(int)"/>
+	<properties-advanced names="yearMenuStyle"/>
+	<property id="setBaseButtonStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setBaseBottomButtonStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setBaseNavButtonStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setBaseWeekdayStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setBaseWeekendStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setHeaderStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setMonthMenuStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setWeekendHeaderStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setYearMenuStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+</component>

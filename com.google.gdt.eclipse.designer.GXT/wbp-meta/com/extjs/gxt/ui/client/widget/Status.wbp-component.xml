@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Component to display status icon and text, usually within ToolBar.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.Status()]]></source>
+		<invocation signature="setText(java.lang.String)"><![CDATA["Saving..."]]></invocation>
+		<invocation signature="setIconStyle(java.lang.String)"><![CDATA["icon-wait"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text iconStyle"/>
+</component>

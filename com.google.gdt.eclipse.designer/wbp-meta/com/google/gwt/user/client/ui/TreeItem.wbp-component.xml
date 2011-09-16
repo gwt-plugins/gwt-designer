@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.TreeItemInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.TreeItemInfo"/>
+	<description>An item that can be contained within a Tree widget.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.TreeItem("New item")]]></source>
+		<x-attribute name="text" value="New TreeItem"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setHTML(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<!-- items -->
+		<method name="addItem">
+			<parameter type="com.google.gwt.user.client.ui.TreeItem" child="true"/>
+		</method>
+		<method name="addItem">
+			<parameter type="java.lang.String" name="itemText"
+				property="setHTML(java.lang.String)"/>
+			<tag name="implicitFactory" value="true"/>
+		</method>
+		<method name="addItem">
+			<parameter type="com.google.gwt.user.client.ui.Widget" name="widget"/>
+			<tag name="implicitFactory" value="true"/>
+		</method>
+		<!-- expanded state -->
+		<method name="setState" order="last">
+			<parameter type="boolean"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="HTML"/>
+	<property-tag name="HTML" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- flip expanded state -->
+		<parameter name="double-click.flipBooleanProperty">state</parameter>
+		<!-- flow container: TreeItem -->
+		<parameter name="flowContainer.tree.1">true</parameter>
+		<parameter name="flowContainer.tree.1.component">com.google.gwt.user.client.ui.TreeItem</parameter>
+		<parameter name="flowContainer.tree.1.association">%parent%.addItem(%child%)</parameter>
+		<!-- flow container: Widget -->
+		<parameter name="flowContainer.tree.2">true</parameter>
+		<parameter name="flowContainer.tree.2.component">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.tree.2.component"> com.google.gwt.user.client.ui.TreeItem
+			com.google.gwt.user.client.ui.Widget </parameter>
+		<parameter name="flowContainer.tree.2.association">%parent%.addItem(%child%)</parameter>
+	</parameters>
+</component>

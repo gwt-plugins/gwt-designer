@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.ContainerInfo"/>
+	<description>Base class for any BoxComponent that can contain other components.</description>
+	<!-- METHODS -->
+	<methods>
+		<!-- Layout -->
+		<method name="doLayout" order="last"/>
+		<method name="doLayout" order="last">
+			<parameter type="boolean"/>
+		</method>
+		<method name="setLayout">
+			<parameter type="com.gwtext.client.widgets.layout.ContainerLayout" child="true"/>
+		</method>
+		<!-- children -->
+		<method name="add" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Component" child="true"/>
+		</method>
+		<method name="add" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Component" child="true" parent2="true"/>
+			<parameter type="com.gwtext.client.widgets.layout.LayoutData" child2="true"/>
+		</method>
+		<method name="add" order="beforeAssociation">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="add" order="beforeAssociation">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true" parent2="true"/>
+			<parameter type="com.gwtext.client.widgets.layout.LayoutData" child2="true"/>
+		</method>
+		<method name="insert" order="beforeAssociation">
+			<parameter type="int"/>
+			<parameter type="com.gwtext.client.widgets.Component" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="activeItem activeItemID"/>
+	<properties-advanced names="bufferResize hideBorders monitorResize"/>
+	<property id="setAutoDestroy(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="shouldDrawBorder">true</parameter>
+	</parameters>
+</component>

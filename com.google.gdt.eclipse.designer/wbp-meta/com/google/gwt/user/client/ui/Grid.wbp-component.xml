@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.grid.GridInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.GridInfo"/>
+	<description>A rectangular grid that can contain text, html, or a child Widget within its cells.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.Grid(1, 1)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="int">
+				<tag name="Grid.rows" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="Grid.columns" value="true"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<!-- resize -->
+		<method name="resize">
+			<parameter type="int">
+				<tag name="Grid.rows" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="Grid.columns" value="true"/>
+			</parameter>
+		</method>
+		<method name="resizeRows">
+			<parameter type="int">
+				<tag name="Grid.rows" value="true"/>
+			</parameter>
+		</method>
+		<method name="resizeColumns">
+			<parameter type="int">
+				<tag name="Grid.columns" value="true"/>
+			</parameter>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getRowCount() == 0 || object.getColumnCount() == 0) {
+				if (object.getRowCount() == 0) {
+					object.resizeRows(1);
+				}
+				if (object.getColumnCount() == 0) {
+					object.resizeColumns(1);
+				}
+				object.setWidget(0, 0, new Label("Empty Grid"));
+			}
+			]]></parameter>
+	</parameters>
+</component>

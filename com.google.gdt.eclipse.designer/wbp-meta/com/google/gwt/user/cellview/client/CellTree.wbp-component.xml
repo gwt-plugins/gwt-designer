@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A view of a tree.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.google.gwt.user.cellview.client.CellTree(
+	new com.google.gwt.view.client.TreeViewModel() {
+		final com.google.gwt.view.client.AbstractDataProvider<String> dataProvider = new com.google.gwt.view.client.ListDataProvider<String>();
+		final com.google.gwt.view.client.SelectionModel.AbstractSelectionModel<String> selectionModel = new com.google.gwt.view.client.NoSelectionModel<String>();
+		@Override
+		public <T> com.google.gwt.view.client.TreeViewModel.NodeInfo<?> getNodeInfo(T value) {
+			return new com.google.gwt.view.client.TreeViewModel.DefaultNodeInfo<String>(dataProvider, new com.google.gwt.cell.client.TextCell(), selectionModel, null);
+		}
+		@Override
+		public boolean isLeaf(Object value) {
+			return true;
+		}
+	}, null)]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="com.google.gwt.view.client.TreeViewModel">
+                <tag name="property.no" value="true"/>
+            </parameter>
+            <parameter type="java.lang.Object">
+                <tag name="property.no" value="true"/>
+            </parameter>
+        </constructor>
+        <constructor>
+            <parameter type="com.google.gwt.view.client.TreeViewModel">
+                <tag name="property.no" value="true"/>
+            </parameter>
+            <parameter type="java.lang.Object">
+                <tag name="property.no" value="true"/>
+            </parameter>
+            <parameter type="com.google.gwt.user.cellview.client.CellTree$Resources">
+                <tag name="property.no" value="true"/>
+            </parameter>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-advanced names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">150px</parameter>
+        <parameter name="liveComponent.forcedSize.height">100px</parameter>
+    	<!-- UiBinder -->
+    	<parameter name="UiBinder.createFieldProvided">true</parameter>
+    	<parameter name="UiBinder.createInstance"><![CDATA[
+			support = wbpClassLoader.loadClass("com.google.gdt.eclipse.designer.util.TreeViewModelSupport");
+			fakeModel = support.getTreeViewModelFake(classLoader);
+    		return new com.google.gwt.user.cellview.client.CellTree(fakeModel, "(root)");
+    	]]></parameter>
+    	<!-- border -->
+        <parameter name="shouldDrawBorder">true</parameter>
+    </parameters>
+</component>

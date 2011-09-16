@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.LayoutInfo"/>
+	<order>first</order>
+	<!-- PROPERTIES -->
+	<property id="setExtraCls(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setRenderHidden(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.exclude-properties">Class Constructor</parameter>
+		<!-- flowContainer defaults -->
+		<parameter name="flowContainer.defaultComponent">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.defaultReference">com.google.gwt.user.client.ui.Widget</parameter>
+		<!-- not NVO -->
+		<parameter name="NVO.disabled">true</parameter>
+	</parameters>
+</component>

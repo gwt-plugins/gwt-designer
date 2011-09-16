@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A split button that provides a built-in dropdown arrow that can fire an event separately from
+		the default click event of the button.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.button.SplitButton("New SplitButton")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.extjs.gxt.ui.client.event.SelectionListener">
+				<tag name="events: add listener method"
+					value="addSelectionListener(com.extjs.gxt.ui.client.event.SelectionListener)"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.button.SplitButton"><![CDATA[
+			ButtonEvent ArrowClick
+		]]></parameter>
+	</parameters>
+</component>

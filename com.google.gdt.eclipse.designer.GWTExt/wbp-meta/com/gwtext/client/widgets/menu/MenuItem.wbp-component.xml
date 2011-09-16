@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>MenuItem class. This is useful for creating sumbmenu by adding a MenuItem to the
+		main Menu.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.menu.MenuItem()]]></source>
+		<invocation signature="setText(java.lang.String)"><![CDATA["New MenuItem"]]></invocation>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.menu.Menu" child="true"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setMenu">
+			<parameter type="com.gwtext.client.widgets.menu.Menu" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<property id="setIconCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.component">com.gwtext.client.widgets.menu.Menu</parameter>
+		<parameter name="simpleContainer.association">%parent%.setMenu(%child%)</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A base class for all menu items that require menu-related functionality (like
+		sub-menus) and are not static display items.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.menu.Item("New Item")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.menu.event.BaseItemListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.menu.event.BaseItemListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.menu.event.BaseItemListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.menu.event.BaseItemListener)"/>
+			</parameter>
+			<parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<property id="setIcon(java.lang.String)">
+		<category value="preferred"/>
+		<editor id="gwt.imageURL"/>
+	</property>
+	<property id="setIconCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setItemCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-menu-item'"/>
+	</property>
+	<property id="setHref(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'#'"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.menu.CheckItem"/>
+		<morphTarget class="com.gwtext.client.widgets.menu.DateItem"/>
+		<morphTarget class="com.gwtext.client.widgets.menu.ColorItem"/>
+	</morphTargets>
+</component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <!-- METHODS -->
+    <methods> 
+        <method name="setToolbarButtons">
+            <parameter type="com.smartgwt.client.widgets.Canvas[]" child="true">
+                <!--<tag name="arrayObject.hideInTree" value="true"/>-->
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-advanced names="messageStyle"/>
+    <property id="setAutoCenter(java.lang.Boolean)">
+        <defaultValue value="true"/>
+    </property>
+    <property id="setMessageStyle(java.lang.String)">
+        <editor id="gwt.style"/>
+    </property>
+</component>

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Swing Designer Palette</title>
+<link href="../../book.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tbody><tr>
+    <td><h1>GWT Designer Palette</h1>
+    <p><b>GWT Designer</b> provides the following palette for creating GWT 
+	applications. </p>
+	<p>The palette may be fully configured using the <b>
+		<a href="../../../com.instantiations.designer.doc.user/html/userinterface/palette_manager.html">Palette Manager</a></b>.</p>
+      <div align="left">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_panels.png" border="0">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>AbsolutePanel</b> - An absolute panel positions all of its 
+				children absolutely, allowing them to overlap. Note that this 
+				panel will not automatically resize itself to allow enough room 
+				for its absolutely positioned children. It must be explicitly 
+				sized in order to make room for them.</li>
+				<li><b>CaptionPanel</b> - A panel that wraps its contents in a 
+				border with a caption that appears in the upper left corner of 
+				the border. This is an implementation of the fieldset HTML 
+				element.</li>
+				<li><b>DeckPanel</b> - A panel that displays all of its child 
+				widgets in a 'deck', where only one can be visible at a time.</li>
+				<li><b>DecoratedStackPanel</b> - A panel that stacks its 
+				children vertically, displaying only one at a time, with a 
+				header for each child which the user can click to display. It 
+				wraps each item in a 2x3 grid (six box), which allows users to 
+				add rounded corners.</li>
+				<li><b>DecoratedTabPanel</b> - A panel that represents a tabbed 
+				set of pages, each of which contains another widget. Its child 
+				widgets are shown as the user selects the various tabs 
+				associated with them. The tabs can contain arbitrary HTML.</li>
+				<li><b>DecoratorPanel</b> - A panel that contains single widget 
+				wrapped in stylized boxes, which can be used to add rounded 
+				corners.</li>
+				<li><b>DisclosurePanel</b> - A widget that consists of a header 
+				and a content panel that discloses the content when a user 
+				clicks on the header.</li>
+				<li><b>DockLayoutPanel</b> - A panel that lays its child widgets out 
+				&quot;docked&quot; at its outer edges, and allows its last widget to take 
+				up the remaining space in its center. <i>Note: this widget will 
+				only work in standards mode.</i></li>
+				<li><b>DockPanel</b> - A panel that lays its child widgets out 
+				&quot;docked&quot; at its outer edges, and allows its last widget to take 
+				up the remaining space in its center.</li>
+				<li><b>FlexTable</b> - A flexible table that creates cells on 
+				demand. It can be jagged (that is, each row can contain a 
+				different number of cells) and individual cells can be set to 
+				span multiple rows or columns.</li>
+				<li><b>FlowPanel</b> - A panel that formats its child widgets 
+				using the default HTML layout behavior.</li>
+				<li><b>FocusPanel</b> - A simple panel that makes its contents 
+				focusable, and adds the ability to catch mouse and keyboard 
+				events.</li>
+				<li><b>FormPanel</b> - A panel that wraps its contents in an 
+				HTML FORM element.</li>
+				<li><b>Grid</b> - A rectangular grid that can contain text, 
+				html, or a child Widget within its cells.</li>
+				<li><b>HorizontalPanel</b> - A panel that lays all of its 
+				widgets out in a single horizontal column.</li>
+				<li><b>HorizontalSplitPanel</b> - A panel that arranges two 
+				widgets in a single horizontal row and allows the user to 
+				interactively change the proportion of the width dedicated to 
+				each of the two widgets. Widgets contained within a 
+				HorizontalSplitPanel will be automatically decorated with 
+				scrollbars when necessary.</li>
+				<li><b>HTMLPanel</b> - A panel that contains HTML, and which can 
+				attach child widgets to identified elements within that HTML.</li>
+				<li><b>LayoutPanel</b> - A panel that lays out its children 
+				using horizontal and vertical constraints. <i>Note: this widget 
+				will only work in standards mode.</i></li>
+				<li><b>ScrollPanel</b> - A simple panel that wraps its contents 
+				in a scrollable area.</li>
+				<li><b>SimplePanel</b> - A panel that contains only one widget.</li>
+				<li><b>SplitLayoutPanel</b> - A panel that adds user-positioned 
+				splitters between each of its child widgets. <i>Note: this 
+				widget will only work in standards mode.</i></li>
+				<li><b>StackLayoutPanel</b> - A panel that stacks its children 
+				vertically, displaying only one at a time, with a header for 
+				each child which the user can click to display. <i>Note: this 
+				widget will only work in standards mode.</i></li>
+				<li><b>StackPanel</b> - A panel that stacks its children 
+				vertically, displaying only one at a time, with a header for 
+				each child which the user can click to display.</li>
+				<li><b>TabLayoutPanel</b> - A panel that represents a tabbed set of 
+				pages, each of which contains another widget. Its child widgets 
+				are shown as the user selects the various tabs associated with 
+				them. The tabs can contain arbitrary HTML. <i>Note: this widget 
+				will only work in standards mode.</i></li>
+				<li><b>TabPanel</b> - A panel that represents a tabbed set of 
+				pages, each of which contains another widget. Its child widgets 
+				are shown as the user selects the various tabs associated with 
+				them. The tabs can contain arbitrary HTML.</li>
+				<li><b>VerticalPanel</b> - A panel that lays all of its widgets 
+				out in a single vertical column.</li>
+				<li><b>VerticalSplitPanel</b> - A panel that arranges two 
+				widgets in a single vertical column and allows the user to 
+				interactively change the proportion of the height dedicated to 
+				each of the two widgets. Widgets contained within a 
+				VerticalSplitPanel will be automatically decorated with 
+				scrollbars when necessary.</li>
+            </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+			<tr>
+            <td valign="top">
+      <img src="images/palette_gwt_widgets.png" border="0">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>Button</b> - A standard push-button widget.</li>
+              <li><b>CheckBox</b> - A standard check box widget.</li>
+              <li><b>Combo</b> - A widget that presents a list of choices to the 
+				user as a drop-down list.</li>
+				<li><b>DateBox</b> - A text box that shows a DatePicker when the 
+				user focuses on it.</li>
+				<li><b>DatePicker</b> - A standard GWT date picker</li>
+				<li><b>DecoratedTabBar</b> - A decorated horizontal bar of 
+				folder-style tabs.</li>
+				<li><b>FileUpload</b> - A widget that wraps the HTML &lt;input 
+				type='file'&gt; element. This widget must be used with FormPanel if 
+				it is to be submitted to a server.</li>
+              <li><b>Frame</b> - A widget that wraps an IFRAME element, which 
+				can contain an arbitrary web site.</li>
+              <li><b>Hidden</b> - Represents a hidden field in an HTML form.</li>
+              <li><b>HTML</b> - A widget that can contain arbitrary HTML.</li>
+				<li><b>Hyperlink</b> - A widget that serves as an &quot;internal&quot; 
+				hyperlink. That is, it is a link to another state of the running 
+				application. When clicked, it will create a new history frame 
+				using History#newItem, but without reloading the page.</li>
+              <li><b>HTML</b> - A widget that can contain arbitrary HTML.</li>
+              <li><b>Image</b> - A widget that displays the image at a given 
+				URL.</li>
+              <li><b>Label</b> - A widget that contains arbitrary text, not 
+				interpreted as HTML.</li>
+              <li><b>InlineHTML</b> - A widget that can contain arbitrary HTML. 
+				This widget uses a &lt;span&gt; element, causing it to be displayed 
+				with inline layout.</li>
+              <li><b>InlineHyperlink</b> - A widget that serves as an &quot;internal&quot; 
+				hyperlink. That is, it is a link to another state of the running 
+				application. It should behave exactly like Hyperlink, save that 
+				it lays out as an inline element, not block.</li>
+              <li><b>InlineLabel</b> - A widget that contains arbitrary text, 
+				not interpreted as HTML. This widget uses a &lt;span&gt; element, 
+				causing it to be displayed with inline layout.</li>
+              <li><b>ListBox</b> - A widget that presents a list of choices to 
+				the user, either as a list box or as a drop-down list.</li>
+              <li><b>NamedFrame</b> - A Frame that has a 'name' associated with 
+				it. This allows the frame to be the target of a FormPanel.</li>
+              <li><b>PasswordTextBox</b> - A text box that visually masks its 
+				input to prevent eavesdropping.</li>
+              <li><b>PushButton</b> - A normal push button with custom styling.</li>
+              <li><b>RadioButton</b> - A mutually-exclusive selection radio 
+				button widget.</li>
+              <li><b>RichTextArea</b> - A rich text editor that allows complex 
+				styling and formatting.</li>
+				<li><b>SuggestBox</b> - A text box or text area which displays a 
+				pre-configured set of selections that match the user's input.</li>
+              <li><b>TabBar</b> - A horizontal bar of folder-style tabs.</li>
+              <li><b>TextArea</b> - A text box that allows multiple lines of 
+				text to be entered.</li>
+              <li><b>TextBox</b> - A standard single-line text box.</li>
+              <li><b>ToggleButton</b> - A ToggleButton is a stylish stateful 
+				button which allows the user to toggle between UP and DOWN 
+				states.</li>
+              <li><b>Tree</b> - A standard hierarchical tree widget. The tree 
+				contains a hierarchy of TreeItem's that the user can open, 
+				close, and select.</li>
+              <li><b>TreeItem</b> - An item that can be contained within a Tree 
+				widget.</li>
+            </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_menus.png" border="0" width="136" height="107">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>MenuBar</b> - A standard menu bar widget. A menu bar can 
+				contain any number of menu items, each of which can either fire 
+				a Command or open a cascaded menu bar.</li>
+              <li><b>Sub Menu</b> - A widget that can be placed in a MenuBar. 
+				Menu items can either fire a Command when they are clicked, or 
+				open a cascading sub-menu.</li>
+              <li><b>MenuItem</b> - A widget that can be placed in a MenuBar. 
+				Menu items can either fire a Command when they are clicked, or 
+				open a cascading sub-menu.</li>
+              <li><b>Separator</b> - A separator that can be placed in a MenuBar.</li>
+            </ul>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_imagebundles.png" border="0" width="136" height="41">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>Add...</b> - Adds <b>
+				<a href="../features/gwt/image_bundles.html">ImageBundle</a></b> instance to this form.</li>
+            </ul>
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_ext.png" border="0">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>Button</b> - Simple Button class.</li>
+              <li><b>ColorPalette</b> - Simple color palette class for choosing 
+				colors.</li>
+              <li><b>CycleButton</b> - A specialized SplitButton that contains a 
+				menu of CheckItem elements. The button automatically cycles 
+				through each menu item on click, raising the button's change 
+				event.</li>
+              <li><b>DatePicker</b> - Simple date picker class.</li>
+              <li><b>FocusPanel</b> - A simple panel that makes its contents 
+				focusable, and adds the ability to catch mouse and keyboard 
+				events. Same as standard GWT FocusPanel but subclasses from the 
+				GWTExt Panel.</li>
+              <li><b>GridPanel</b> - A Grid widget.</li>
+              <li><b>PaddedPanel</b> - Helper class that wraps a Panel with 
+				shell panel adding the specified padding. Useful when laying out 
+				panels using ColumnLayouts or the other layouts which place the 
+				panels right beside each other without spacing.</li>
+              <li><b>Panel</b> - Panel is a container that has specific 
+				functionality and structural components that make it the perfect 
+				building block for application-oriented user interfaces.</li>
+              <li><b>ProgressBar</b> - An updateable progress bar component. The 
+				progress bar supports two different modes: manual and automatic.</li>
+              <li><b>SplitButton</b> - A split button that provides a built-in 
+				dropdown arrow that can fire an event separately from the 
+				default click event of the button.</li>
+              <li><b>TabPanel</b> - A lightweight tab container.</li>
+              <li><b>TreeNode</b> - TreeNode is data class for TreePanel.</li>
+              <li><b>TreePanel</b> - A Tree widget.</li>
+              <li><b>SplitButton</b> - A split button that provides a built-in 
+				dropdown arrow that can fire an event separately from the 
+				default click event of the button.</li>
+              <li><b>SplitButton</b> - A split button that provides a built-in 
+				dropdown arrow that can fire an event separately from the 
+				default click event of the button.</li>
+            </ul>
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_ext_layouts.png" border="0">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>AbsoluteLayout</b> - Inherits the anchoring of AnchorLayout 
+				and adds the ability for x/y positioning using the standard x 
+				and y component config options.</li>
+              <li><b>AccordionLayout</b> - This is a layout that contains 
+				multiple panels in an expandable accordion style such that only 
+				one panel can be open at any given time. Each panel has built-in 
+				support for expanding and collapsing. Note that child Panels 
+				added to a Panel with an AccordionLayout must have a title.</li>
+              <li><b>AnchorLayout</b> - This is a layout that enables anchoring 
+				of contained elements relative to the container's dimensions. If 
+				the container is resized, all anchored items are automatically 
+				rerendered according to their anchor rules.</li>
+              <li><b>BorderLayout</b> - This is a multi-pane, 
+				application-oriented UI layout style that supports multiple 
+				nested panels, automatic split bars between regions and built-in 
+				expanding and collapsing of regions.</li>
+              <li><b>CardLayout</b> - This layout contains multiple panels, each 
+				fit to the container, where only a single panel can be visible 
+				at any given time. This layout style is most commonly used for 
+				wizards, tab implementations, etc.</li>
+              <li><b>ColumnLayout</b> - This is the layout style of choice for 
+				creating structural layouts in a multi-column format where the 
+				width of each column can be specified as a percentage or fixed 
+				width, but the height is allowed to vary based on the content. 
+				The basic rules for specifying column widths are pretty simple. 
+				The logic makes two passes through the set of contained panels. 
+				During the first layout pass, all panels that either have a 
+				fixed width or none specified (auto) are skipped, but their 
+				widths are subtracted from the overall container width. During 
+				the second pass, all panels with columnWidths are assigned pixel 
+				widths in proportion to their percentages based on the total 
+				&lt;b&gt;remaining&lt;/b&gt; container width. In other words, percentage 
+				width panels are designed to fill the space left over by all the 
+				fixed-width or auto-width panels. Because of this, while you can 
+				specify any number of columns with different percentages, the 
+				columnWidths must always add up to 1 (or 100%) when added 
+				together, otherwise your layout may not render as expected.</li>
+              <li><b>FitLayout</b> - This is a base class for layouts that 
+				contain a single item that automatically expands to fill the 
+				layout's container.</li>
+              <li><b>FormLayout</b> - This is a layout specifically designed for 
+				creating forms. Usually you don't need to create instances of 
+				this layout directly. It will usually be preferrable to use a 
+				FormPanel (which automatically uses FormLayout as its layout 
+				class) since it also provides built-in functionality for 
+				loading, validating and submitting the form.</li>
+              <li><b>HorizontalLayout</b> - Horizontal layout which allows you 
+				to lay out components horizontally in a row with the specified 
+				spacing between components.</li>
+              <li><b>RowLayout</b> - Layout that distributes heights of elements 
+				so they take 100% of the container height.Height of the child 
+				element can be given in pixels (as an integer) or in percent. 
+				All elements with absolute height (i.e. in pixels) always will 
+				have the given height. All &quot;free&quot; space (that is not filled with 
+				elements with 'absolute' height) will be distributed among other 
+				elements in proportion of their height percentage.</li>
+              <li><b>TableLayout</b> - This layout allows you to easily render 
+				content into an HTML table. The total number of columns can be 
+				specified, and rowspan and colspan can be used to create complex 
+				layouts within the table.</li>
+              <li><b>VerticalLayout</b> - Vertical layout that allows you to add 
+				components vertically with the specified spacing between them.</li>
+            </ul>
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_ext_forms.png" border="0">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>CheckBox</b> - Single checkbox field.</li>
+              <li><b>ComboBox</b> - A combobox control with support for 
+				autocomplete, remote-loading, paging and many other features.</li>
+              <li><b>DateField</b> - Provides a date input field with DatePicker 
+				dropdown and automatic date validation.</li>
+              <li><b>FormPanel</b> - FormPanel uses a FormLayout internally, and 
+				that is required for fields and labels to work correctly within 
+				the FormPanel's layout. To nest additional layout styles within 
+				a FormPanel, you should nest additional Panels or other 
+				containers that can provide additional layout functionality. You 
+				should not override FormPanel's layout.</li>
+              <li><b>Hidden</b> - Hidden field.</li>
+              <li><b>HtmlEditor</b> - Provides a lightweight HTML Editor 
+				component.</li>
+              <li><b>Label</b> - A label class for Forms.</li>
+              <li><b>MultiFieldPanel</b> - This is a helper class that allows 
+				you to add multiple fields / widgets to a single row in a Form.</li>
+              <li><b>NumberField</b> - Numeric text field that provides 
+				automatic keystroke filtering and numeric validation.</li>
+              <li><b>Radio</b> - Single radio field. Radio grouping is handled 
+				automatically by the browser if you give each radio in a group 
+				the same name.</li>
+              <li><b>TextArea</b> - Multiline text field. Can be used as a 
+				direct replacement for traditional textarea fields, plus adds 
+				support for auto-sizing.</li>
+              <li><b>TextField</b> - Basic text field.</li>
+              <li><b>TimeField</b> - Combobox time field.</li>
+            </ul>
+            </td>
+          </tr>
+        </tbody></table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+          <tr>
+            <td colspan="2" valign="top">
+      <hr color="#c0c0c0" size="1">
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+      <img src="images/palette_gwt_ext_menus.png" border="0">
+            </td>
+            <td valign="top" width="100%">
+            <ul>
+              <li><b>Toolbar</b> - Basic Toolbar class.</li>
+              <li><b>ToolbarButton</b> - A button that renders into a toolbar.</li>
+              <li><b>ToolbarMenuButton</b> - A menu button that renders into a 
+				toolbar. Also known as ToolbarSplitButton.</li>
+              <li><b>CheckItem</b> - Adds a menu item that contains a checkbox 
+				by default, but can also be part of a radio group.</li>
+              <li><b>ColorItem</b> - A menu item that wraps the ColorPalette 
+				component.</li>
+              <li><b>DateItem</b> - A menu item that wraps the DatePicker 
+				component.</li>
+              <li><b>Item</b> - A base class for all menu items that require 
+				menu-related functionality (like sub-menus) and are not static 
+				display items.</li>
+              <li><b>MenuItem</b> - MenuItem class. This is useful for creating 
+				sumbmenu by adding a MenuItem to the main Menu.</li>
+              <li><b>Separator</b> - Adds a separator bar to a menu, used to 
+				divide logical groups of menu items.</li>
+              <li><b>TextItem</b> - Adds a static text string to a menu, usually 
+				used as either a heading or group separator.</li>
+            </ul>
+            </td>
+          </tr>
+        </tbody></table>
+      </div>
+    </td>
+  </tr>
+</tbody></table>
+
+</body></html>

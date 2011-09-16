@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.ListGridInfo"/>
+    <description>A ListGrid is a DataBoundComponent that displays a list of objects in a grid, where
+        each row represents one object and each cell in the row represents one property.</description>
+    <!-- METHODS -->
+    <methods>
+        <method name="setFields" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.grid.ListGridField[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <!-- EXPOSING RULES -->
+    <exposing-rules>
+        <!--<exclude method="getGridRenderer"/>-->
+        <exclude package="com.smartgwt.client.widgets.grid"/>
+    </exposing-rules>
+    <!-- PROPERTIES -->
+    <properties-advanced names="alternate* animate* arrowKeyAction autoFetch*"/>
+    <properties-advanced names="autoFit* baseStyle body* boolean* border"/>
+    <properties-advanced names="canAcceptDroppedRecords canAdd* canDrag* canExpand*"/>
+    <properties-advanced names="canFreezeFields cancelEditingConfirmationMessage"/>
+    <properties-advanced names="checkbox* childExpansionMode clear* confirm* configureSortText"/>
+    <properties-advanced names="date* detailField discardEditsSaveButtonTitle drag* draw*"/>
+    <properties-advanced names="edit* empty* enforceVClipping expansion*"/>
+    <properties-advanced names="fastCellUpdates fetchDelay filter* freeze*"/>
+    <properties-advanced names="fieldState fieldVisibilitySubmenuTitle frozen*"/>
+    <properties-advanced names="generate* gridSummaryRecordProperty "/>
+    <properties-advanced names="group*"/>
+    <properties-advanced names="headerB* headerMenu* headerSpanHeight headerTitleStyle"/>
+    <properties-advanced names="imageSize includeInSummaryProperty invalidSummaryValue"/>
+    <properties-advanced names="isSeparatorProperty linkTextProperty loading* longText*"/>
+    <properties-advanced names="maxExpandedRecords* neverValidate normalBaseStyle nullGroupTitle"/>
+    <properties-advanced names="print* quickDrawAheadRatio"/>
+    <properties-advanced names="record* removeFieldTitle removeIcon row* save*"/>
+    <properties-advanced names="scrollRedrawDelay selectedState singleCellValueProperty"/>
+    <properties-advanced names="sort* summaryRowStyle tallBaseStyle"/>
+    <properties-advanced names="unfreezeFieldText ungroupText validate* valueIcon*"/>
+    <properties-advanced names="viewState"/>
+    <properties-noDefaultValue names="autoFitWidthApproach baseStyle groupByText groupTitle"/>
+    <properties-noDefaultValue names="headerMenuButtonHeight titleField valueIconWidth valueIconHeight"/>
+    <property id="setAutoFetchData(java.lang.Boolean)">
+        <defaultValue value="null"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="binaryExecutionFlow.no">true</parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer.tree">true</parameter>
+        <parameter name="flowContainer.tree.horizontal">true</parameter>
+        <parameter name="flowContainer.tree.component"
+            >com.smartgwt.client.widgets.grid.ListGridField</parameter>
+        <!--<parameter name="noExposedChildren">true</parameter>-->
+    </parameters>
+</component>

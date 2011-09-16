@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.CanvasInfo"/>
+	<description>A base abstraction for cross-browser DHTML drawing. All DHTML widgets inherit from
+		the Canvas class.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="draw" order="last"/>
+		<!-- size -->
+		<method name="setWidth" order="first">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setWidth100"/>
+		<method name="setHeight" order="first">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setHeight100"/>
+		<method name="setSize" order="first">
+			<parameter type="java.lang.String"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<!-- location -->
+		<method name="setRect" order="afterAssociation">
+			<parameter type="com.smartgwt.client.core.Rectangle"/>
+		</method>
+		<method name="setRect" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="moveTo" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<method name="resizeTo" order="afterAssociation">
+			<parameter type="int"/>
+			<parameter type="int"/>
+		</method>
+		<!-- children -->
+		<method name="addChild">
+			<parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+		</method>
+		<method name="addChild">
+			<parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</method>
+		<method name="addChild">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setContextMenu">
+			<parameter type="com.smartgwt.client.widgets.menu.Menu" child="true"/>
+		</method>
+		<method name="setChildren">
+			<parameter type="com.smartgwt.client.widgets.Canvas[]" child="true">
+				<tag name="arrayObject.hideInTree" value="true"/>
+				<tag name="arrayObject.removeOnEmpty" value="true"/>
+			</parameter>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="accessKey"/>
+	<properties-advanced names="animateTime animateAcceleration animateMoveTime animateResizeTime"/>
+	<properties-advanced names="animateRectTime animateFadeTime animateScrollTime animateShowTime"/>
+	<properties-advanced names="animateHideTime animateMoveAcceleration animateResizeAcceleration"/>
+	<properties-advanced names="animateRectAcceleration animateScrollAcceleration"/>
+	<properties-advanced names="animateShowAcceleration animateHideAcceleration AnimateShowEffect"/>
+	<properties-advanced names="align appImgDir autoShowParent"/>
+	<properties-advanced names="backgroundColor backgroundImage backgroundPosition backgroundRepeat"/>
+	<properties-advanced names="bottom border"/>
+	<properties-advanced names="canAcceptDrop canDrag canDragReposition canDragResize canDragScroll"/>
+	<properties-advanced names="canDrop canDropBefore canFocus canHover canSelectText"/>
+	<properties-advanced names="childrenSnapResizeToGrid childrenSnapToGrid contents cursor"/>
+	<properties-advanced names="defaultHeight defaultWidth dataPath disabledCursor doubleClickDelay"/>
+	<properties-advanced names="disabled dragAppearance dragIntersectStyle dragOpacity"/>
+	<properties-advanced names="dragRepositionCursor dragScrollDelay dragStartDistance dragType"/>
+	<properties-advanced names="dropTypes dynamicContents"/>
+	<properties-advanced names="edgeBackgroundColor edgeCenterBackgroundColor edgeImage"/>
+	<properties-advanced names="edgeMarginSize edgeOffset edgeOpacity edgeShowCenter edgeSize"/>
+	<properties-advanced names="extraSpace"/>
+	<properties-advanced names="groupTitle"/>
+	<properties-advanced names="hoverAlign hoverDelay hoverHeight hoverMoveWithMouse hoverOpacity"/>
+	<properties-advanced names="hoverStyle hoverVAlign hoverWidth hoverWrap htmlPosition"/>
+	<properties-advanced names="isGroup"/>
+	<properties-advanced names="keepInParentRect"/>
+	<properties-advanced names="layoutAlign left locate*"/>
+	<properties-advanced names="margin matchElement maxHeight maxWidth minHeight minWidth"/>
+	<properties-advanced names="mouseStillDownDelay mouseStillDownInitialDelay"/>
+	<properties-advanced names="noDoubleClicks"/>
+	<properties-advanced names="opacity overflow"/>
+	<properties-advanced names="padding pageLeft pageTop percentBox prefix prompt"/>
+	<properties-advanced names="redrawOnResize resizeBarTarget resizeFrom right"/>
+	<properties-advanced names="scrollbarSize shadowDepth shadowImage shadowOffset shadowSoftness"/>
+	<properties-advanced names="showCustomScrollbars showDragShadow showEdges showHover"/>
+	<properties-advanced names="showResizeBar showShadow shouldPrint skinImgDir smoothFade"/>
+	<properties-advanced names="snapAxis snapEdge snapHDirection snapHGap snapOffsetLeft"/>
+	<properties-advanced names="snapOffsetTop snapOnDrop snapResizeToGrid snapTo snapToGrid"/>
+	<properties-advanced names="snapVDirection snapVGap styleName tabIndex visibility"/>
+	<properties-advanced names="top tooltip"/>
+	<properties-advanced names="ZIndex"/>
+	<properties-noDefaultValue names="pageLeft pageTop visible right bottom ZIndex"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="parser.preferredRoot">true</parameter>
+		<parameter name="bindBinary.toDepth">true</parameter>
+		<parameter name="objectReadyValidator"><![CDATA[
+			if (object.isCreated()) return object.isDrawn();
+			else return false;
+			]]></parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			widget.draw();
+			]]></parameter>
+		<parameter name="attachTopBoundsScript"><![CDATA[
+			if (!widget.isDrawn()) widget.draw();
+		]]></parameter>
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			widget.resizeTo(size.width, size.height);
+			]]></parameter>
+		<parameter name="setTopBoundsScript"><![CDATA[
+			]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">object.border == empty</parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.component">com.smartgwt.client.widgets.menu.Menu</parameter>
+		<parameter name="simpleContainer.association">%parent%.setContextMenu(%child%)</parameter>
+	</parameters>
+</component>

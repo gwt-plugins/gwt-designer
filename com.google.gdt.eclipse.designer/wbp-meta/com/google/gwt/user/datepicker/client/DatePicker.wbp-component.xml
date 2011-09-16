@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Standard GWT date picker.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.datepicker.client.DatePicker()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="setValue">
+			<parameter type="java.util.Date" property="setValue(java.util.Date)"/>
+			<parameter type="boolean"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<property id="setValue(java.util.Date)">
+		<editor id="customDate">
+			<parameter name="functions">import com.google.gwt.i18n.client.DateTimeFormat;</parameter>
+			<parameter name="toString">DateTimeFormat.getShortDateFormat().format(value)</parameter>
+			<parameter name="toDate">DateTimeFormat.getShortDateFormat().parse(value)</parameter>
+			<parameter name="source"
+				>com.google.gwt.i18n.client.DateTimeFormat.getShortDateFormat().parse("%value%")</parameter>
+		</editor>
+	</property>
+</component>

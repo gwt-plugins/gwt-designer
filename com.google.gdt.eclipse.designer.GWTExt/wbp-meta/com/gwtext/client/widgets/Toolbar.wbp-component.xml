@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.ToolbarInfo"/>
+	<description>Basic Toolbar class.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.Toolbar()]]></source>
+		<invocation signature="setAutoWidth(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="addButton">
+			<parameter type="com.gwtext.client.widgets.ToolbarButton" child="true"/>
+		</method>
+		<method name="addButton">
+			<parameter type="com.gwtext.client.widgets.ToolbarMenuButton" child="true"/>
+		</method>
+		<method name="addField">
+			<parameter type="com.gwtext.client.widgets.form.Field" child="true"/>
+		</method>
+		<method name="addItem">
+			<parameter type="com.gwtext.client.widgets.ToolbarItem" child="true"/>
+		</method>
+		<method name="addText">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="addFill"/>
+		<method name="addSeparator"/>
+		<method name="addSpacer"/>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="autoWidth autoHeight"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">20px</parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- flow container: ToolbarButton & ToolbarMenuButton -->
+		<parameter name="flowContainer.1">true</parameter>
+		<parameter name="flowContainer.1.horizontal">true</parameter>
+		<parameter name="flowContainer.1.component">com.gwtext.client.widgets.ToolbarButton
+			com.gwtext.client.widgets.ToolbarMenuButton</parameter>
+		<parameter name="flowContainer.1.reference">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.1.association">%parent%.addButton(%child%)</parameter>
+		<!-- flow container: ToolbarItem -->
+		<parameter name="flowContainer.2">true</parameter>
+		<parameter name="flowContainer.2.horizontal">true</parameter>
+		<parameter name="flowContainer.2.component">com.gwtext.client.widgets.ToolbarItem</parameter>
+		<parameter name="flowContainer.2.reference">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.2.association">%parent%.addItem(%child%)</parameter>
+		<!-- flow container: Field -->
+		<parameter name="flowContainer.3">true</parameter>
+		<parameter name="flowContainer.3.horizontal">true</parameter>
+		<parameter name="flowContainer.3.component">com.gwtext.client.widgets.form.Field</parameter>
+		<parameter name="flowContainer.3.reference">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.3.association">%parent%.addField(%child%)</parameter>
+	</parameters>
+</component>

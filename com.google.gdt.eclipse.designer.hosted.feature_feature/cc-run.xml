@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="run-cc">
+	<import file="../com.instantiations.eclipse.shared_build/cc-macros.xml" />
+	<import file="../com.instantiations.eclipse.shared_pde/build-pde-macros.xml" />
+
+	<!-- ================================================= -->
+	<target name="run-cc" depends="ccInitialize, ccSetupEclipse, ccRunEclipse"/> <!--ccSetupEclipse,-->
+	<target name="ccInitialize">
+		<cc_init />
+		<cc_setup />
+		<echo message="1 ${product.name}" />
+	</target>
+
+	<target name="ccSetupEclipse" depends="init,cleanTempDirsCond,setupCompileEclipse">
+		<echo message="2 ${product.name}" />
+	</target>
+	
+	<target name="init">
+		<property name="eclipses.base.loc"  location="${build.temp}/../eclipses" />
+		<delete dir="${eclipses.base.loc}" failonerror="false" />
+		<mkdir dir="${eclipses.base.loc}" />
+		<property name="runtime.eclipse.base" value="${eclipses.base.loc}/runtime-eclipse" />
+		<property name="target.eclipse.base" value="${eclipses.base.loc}/target-eclipse" />
+		<initialize pdeLocation="PDEBuild" />
+	</target>
+	
+	<target name="ccRunEclipse">
+		<echo message="3 ${product.name}" />
+		<clearDropins eclipsedir="eclipse" eclipsebasedir="${runtime.eclipse.base}" />
+		<get_product_info product="Shared" />
+		<createDropinsLinkFile product="Shared" eclipsedir="eclipse" eclipsetarget="3.4" eclipsebasedir="${runtime.eclipse.base}" />
+		<get_product_info product="DShared" />
+		<createDropinsLinkFile product="DShared" eclipsedir="eclipse" eclipsetarget="3.4" eclipsebasedir="${runtime.eclipse.base}" />
+		<get_product_info product="RCPInstaller"/>
+		<createDropinsLinkFile product="RCPInstaller" eclipsedir="eclipse" eclipsetarget="3.1" eclipsebasedir="${runtime.eclipse.base}" />
+
+		<cc_eclipse_ant eclipseDirName="eclipse"
+		                buildfile="build-product.xml"
+		                log="build-${product.name}.log" 
+						javapath="${java.5.path}"
+						eclipsebasedir="${runtime.eclipse.base}" /> 
+		<generateBuildDate/>
+		<delete dir="${eclipses.base.loc}" failonerror="false" />
+	</target>
+</project>

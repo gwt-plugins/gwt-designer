@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ContentPanelInfo"/>
+	<description>ContentPanel is a component container that has specific functionality and structural
+		components that make it the perfect building block for application-oriented user interfaces. The Panel
+		contains bottom and top toolbars, along with separate header, footer and body sections. It also
+		provides built-in expandable and collapsible behavior, along with a variety of pre-built tool buttons
+		that can be wired up to provide other customized behavior.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.ContentPanel()]]></source>
+		<invocation signature="setCollapsible(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setHeading(java.lang.String)"><![CDATA["New ContentPanel"]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="addButton">
+			<parameter type="com.extjs.gxt.ui.client.widget.button.Button" child="true"/>
+		</method>
+		<method name="setTopComponent">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+		<method name="setBottomComponent">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+	</methods>
+	<method-order>
+		<methods order="beforeAssociation">
+			<s>setCollapsible(boolean)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names="collapsible heading"/>
+	<properties-advanced names="animCollapse bodyBorder borders bodyStyle bodyStyleName insetBorder footer"/>
+	<properties-advanced names="iconStyle url"/>
+	<properties-advanced names="minButtonWidth"/>
+	<properties-advanced names=""/>
+	<property-tag name="heading" tag="isText" value="true"/>
+	<property id="setInsetBorder(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="directEdit.location.insets">2 2 0 0</parameter>
+		<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+		<parameter name="directEdit.location.verticalAlignment">top</parameter>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			ph = new com.extjs.gxt.ui.client.widget.ContentPanel();
+			ph.setWidth('200px');
+			ph.setHeading('Placeholder for ContentPanel');
+			ph.setLayout(new com.extjs.gxt.ui.client.widget.layout.FitLayout());
+			
+				label = new com.extjs.gxt.ui.client.widget.Text(message);
+				label.setStyleAttribute('background', 'pink');
+				ph.add(label);
+			
+			return ph;
+		]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">!object.bodyBorder</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.ContentPanel"><![CDATA[
+			ComponentEvent BeforeExpand Expand BeforeCollapse Collapse BeforeClose Close  
+		]]></parameter>
+	</parameters>
+</component>

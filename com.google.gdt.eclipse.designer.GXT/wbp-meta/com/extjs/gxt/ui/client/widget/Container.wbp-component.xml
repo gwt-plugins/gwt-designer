@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ContainerInfo"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- untyped events -->
+        <parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.Container"><![CDATA[
+			ContainerEvent BeforeAdd BeforeRemove Add Remove 
+		]]></parameter>
+    </parameters>
+</component>

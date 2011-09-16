@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Multiline text field. Can be used as a direct replacement for traditional textarea fields.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.TextArea()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New TextArea"]]></invocation>
+	</creation>
+</component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc label="Preferences" link_to="../org.eclipse.wb.doc.user/toc_preferences.xml#preferences">
+	<topic href="html/preferences/gwt/index.html" label="GWT"> 
+		<topic href="html/preferences/gwt/preferences_builder.html" label="Builder"/>
+		<topic href="html/preferences/gwt/preferences_code_generation.html" label="Code Generation">
+			<topic href="html/preferences/gwt/preferences_event_handlers.html" label="Event Handlers"/>
+			<topic href="html/preferences/gwt/preferences_nls.html" label="NLS"/>
+			<topic href="html/preferences/gwt/preferences_variables.html" label="Variables"/>
+		</topic> 
+		<topic href="html/preferences/gwt/preferences_layouts.html" label="Layouts">
+			<topic href="html/preferences/gwt/preferences_layouts_absolute.html" label="Absolute"/>
+		</topic> 
+	</topic> 
+	<topic href="html/preferences/gwt/preferences_gpe_designer.html" label="Google-Web Toolkit-Designer"> 
+		<topic href="html/preferences/gwt/preferences_gpe_designer_absolute_layout.html" label="Absolute Layout"/>
+		<topic href="html/preferences/gwt/preferences_gpe_designer_code_style.html" label="Code Style"/>
+		<topic href="html/preferences/gwt/preferences_gpe_designer_event_handlers.html" label="Event Handlers"/>
+	</topic> 
+</toc>

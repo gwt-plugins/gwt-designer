@@ -1,0 +1,348 @@
+<html>
+	<head>
+	<title>GWT</title>
+	%CSS_DECLARATIONS%
+	
+    <script type="text/javascript">
+   	var $wnd;
+	var $doc;
+
+    ////////////////////////////////////////////////////////////////////////////
+	//
+	// GWT2 stuff
+	//
+	////////////////////////////////////////////////////////////////////////////
+	var $entry;
+	var $hostedHtmlVersion="%GWT_VERSION%";
+			
+	var __gwt_javaInvokes = [];
+	function __gwt_makeJavaInvoke(argCount) {
+  		return __gwt_javaInvokes[argCount] || __gwt_doMakeJavaInvoke(argCount);
+	}
+
+	function __gwt_doMakeJavaInvoke(argCount) {
+	// IE6 won't eval() anonymous functions except as r-values
+	var argList = "";
+		for (var i = 0; i < argCount; i++) {
+	    argList += ",p" + i;
+	  }
+	var argListNoComma = argList.substring(1);
+	  return eval(
+	    "__gwt_javaInvokes[" + argCount + "] =\n" +
+	    "  function(thisObj, dispId" + argList + ") {\n" +
+	    "    var result;\n" +
+	    "    if (thisObj != null && thisObj != undefined) {\n" +
+	    "       result = thisObj[dispId](" + argListNoComma + ");\n" +
+	    "    } else {\n" +
+	    "       result = __static[dispId](" + argListNoComma + ");\n" +
+	    "    }\n" +
+	    "    return result;\n" +
+	    "  }\n"
+	  ); 
+	}
+	
+	/*
+	 * This is used to create tear-offs of Java methods.  Each function corresponds
+	 * to exactly one dispId, and also embeds the argument count.  We get the "this"
+	 * value from the context in which the function is being executed.
+	 * Function-object identity is preserved by caching in a sparse array.
+	 */
+	var __gwt_tearOffs = [];
+	var __gwt_tearOffGenerators = [];
+	function __gwt_makeTearOff(proxy, dispId, argCount) {
+	  return __gwt_tearOffs[dispId] || __gwt_doMakeTearOff(dispId, argCount);
+	}
+	
+	function __gwt_doMakeTearOff(dispId, argCount) {
+	  return __gwt_tearOffs[dispId] = 
+	      (__gwt_tearOffGenerators[argCount] || __gwt_doMakeTearOffGenerator(argCount))(dispId);
+	}
+	
+	function __gwt_doMakeTearOffGenerator(argCount) {
+	  // IE6 won't eval() anonymous functions except as r-values
+	  var argList = "";
+	  for (var i = 0; i < argCount; i++) {
+	    argList += ",p" + i;
+	  }
+	  var argListNoComma = argList.substring(1);
+	
+	  return eval(
+	    "__gwt_tearOffGenerators[" + argCount + "] =\n" +
+	    "  function(dispId) {\n" +
+	    "    return function(" + argListNoComma + ") {\n" +
+	    "      var result = __static[dispId](" + argListNoComma + ");\n" +
+	    "      return result;\n" +
+	    "    }\n" +
+	    "  }\n"
+	  ); 
+	}
+    var values = [];
+    values['locale'] = '%GWT_LOCALE%';
+    values['user.agent'] = '%USER_AGENT%';
+	/**
+	 * FIXME Currently InternetExplorer only, for WebKit we will try to use getMatchedCSSRules().
+	 * 
+	 * @returns the array of "wbp-css-rule-" properties.
+	 */    
+    function __getCSSRulesTrace(element, begin, end) {
+    	var result = [];
+    	for (i = begin; i < end; i++) {
+    		var property = "wbp-css-rule-" + i;
+    		if (element.currentStyle[property]) {
+    			result.push(property);
+    		}
+    	}
+		return result.join(" ");
+	}
+	/**
+	 * @returns The computed style of requested element.
+	 */    
+    function __getStyle(oElm, strCssRule){
+		var strValue = "";
+		if (document.defaultView && document.defaultView.getComputedStyle) {
+			// Mozilla/Safari way
+			try {
+				var compStyle = document.defaultView.getComputedStyle(oElm, "");
+				if (!compStyle) {
+					return strValue;
+				}
+				strValue = compStyle.getPropertyValue(strCssRule);
+			} catch(e) {
+				return strValue;
+			}
+		} else if (oElm.currentStyle) {
+			// IE way
+			strCssRule = strCssRule.replace(/\-(\w)/g, function (strMatch, p1) {
+				return p1.toUpperCase();
+			});
+			strValue = oElm.currentStyle[strCssRule];
+		}
+		return strValue;
+	}
+    ////////////////////////////////////////////////////////////////////////////
+	//
+	// Startup/shutdown
+	//
+	////////////////////////////////////////////////////////////////////////////
+	function __wbp_geckoGwtOnLoad() {
+        if (!window.__wbp_geckoExternal) {
+        	window.setTimeout('__wbp_geckoGwtOnLoad()', 10);
+        	return;
+		}
+		window.__wbp_geckoExternal.gwtOnLoad(window);
+	}
+	function onLoad() {
+		try {
+			window.__gwt_module_id = 0;
+			document.__wbp_traversed = false;
+			// initialize GWT globals
+			$doc = document;
+			$wnd = window;
+			$moduleName = '%MODULE_ID%';
+			$moduleBase = '%MODULE_BASE%';
+			window.__gwt_getProperty = function(name) {
+	        	return values[name];
+	        };		
+	        // mozilla
+	        if ('%USER_AGENT%'.indexOf('gecko') != -1) {
+				window.setTimeout('__wbp_geckoGwtOnLoad()', 10);
+				return;
+			}
+			// webkit
+	        if (window.__wbp_external && window.__wbp_external.gwtOnLoad) {
+				window.__wbp_external.gwtOnLoad(window);
+				return;
+			}
+			// ie
+			if (window.external && window.external.gwtOnLoad) {
+				window.external.gwtOnLoad(window);
+			}
+		} catch(ex) {
+			alert("Error initializing GWT: " + ex);
+		}
+	}
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Images support
+	//
+	////////////////////////////////////////////////////////////////////////////
+	function __wbp_traverseStyles(node) {
+		var imageValue = __getStyle(node, "background-image");
+		if (imageValue) {
+			var indexUrl = imageValue.toLowerCase().indexOf("url(");
+			if (indexUrl != -1) {
+				var imageUri = imageValue.substring(indexUrl + 4, imageValue.length - 1);
+				// GXT IconHelper() workaround
+				var checkedUri = __wbp_checkUri(imageUri);
+				if (checkedUri != imageUri) {
+					node.style["background-image"] = "url(" + checkedUri + ")";
+				}
+				__wbp_preloadImage(checkedUri);
+			}
+		}
+		var children = node.childNodes;
+		if (children) {
+			for (var i = 0; i < children.length; ++i) {
+				__wbp_traverseStyles(children[i]);
+			}
+		}
+	}
+
+	function __wbp_checkUri(srcUri) {
+		try {
+			if (srcUri && srcUri.length > 2 && srcUri.charAt(0) == "\"") {
+				// IE returns url in quotes
+				srcUri = srcUri.substr(1, srcUri.length - 2);
+			}
+			var m   = /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/.exec(srcUri),
+				uri = {},
+				i   = 14;
+			var key = ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"];
+			while (i--) {
+				uri[key[i]] = m[i] || "";
+			}
+			if (uri.path && uri.path.indexOf($moduleBase) != 0) {	
+    			return uri.protocol + "://" + uri.host + ":" + uri.port + $moduleBase.substring(0, $moduleBase.length - 1) + uri.path;
+    		} else {
+    			return srcUri;
+    		}
+    	} catch(e) {
+    		return srcUri;
+    	}
+	}
+
+	function __wbp_preloadImage(imageUri) {
+		// IE never sets 'complete' property for images with inline data. 
+		if (imageUri.indexOf("data://image:") == 0) {
+			return;
+		}
+		// do not wait fake css-load-waiting images: we don't need them to get loaded.
+		if (imageUri.indexOf("wbp__wait_stylesheet_") > 0) {
+			return;
+		}
+		if (document.__wbp_preloadImageArray == null) {
+			document.__wbp_preloadImageArray = {};
+		}
+		if (document.__wbp_preloadImageArray[imageUri] == undefined) {
+			document.__wbp_preloadImageArray[imageUri] = new Image;
+			document.__wbp_preloadImageArray[imageUri].src = imageUri;
+		}
+	}
+	function __wbp_isImageComplete(img) {
+		if (img) {
+			if (img.__pendingSrc) {
+				img.src = img.__pendingSrc;
+				img.__pendingSrc = null;
+			}
+			if (img.complete) {
+				return true;
+			}
+		}
+		return false;
+	}
+	function __wbp_waitForImages0(_images) {
+		if (_images) {
+			for (var i = 0; i < _images.length; i++) {
+				if (!__wbp_isImageComplete(_images[i])) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	function __wbp_waitForImages1(_images) {
+		if (_images) {
+			for (var img in _images) {
+				if (!__wbp_isImageComplete(_images[img])) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	/**
+	 * @return <code>true</code> if all images are loaded and <code>false</code> in other case.
+	 */
+	function __waitForImages() {
+		try {
+			__wbp_traverseStyles($doc);
+			var wait1 = __wbp_waitForImages0(document.images);
+			var wait2 = __wbp_waitForImages1(document.__wbp_preloadImageArray);
+			return wait1 && wait2;
+		} catch (__e) {
+			return true;
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// CSS reload support
+	//
+	////////////////////////////////////////////////////////////////////////////
+	function __reload_css() {
+		var i,a,s;
+		a = document.getElementsByTagName('link');
+		for (i = 0; i < a.length; i++) {
+			s = a[i];
+			if (s.rel.toLowerCase().indexOf('stylesheet') >= 0 && s.href) {
+				var h = s.href.replace(/(&|\?)forceReload=\d+\.css/, '');
+				s.href = h + (h.indexOf('?') >= 0 ? '&' : '?') + 'forceReload=' + (new Date().valueOf()) + '.css';
+			}
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////
+	//
+	// Hooks for events
+	//
+	////////////////////////////////////////////////////////////////////////////
+	function __gwt_initHandlers(resize, beforeunload, unload) {
+	   var oldOnResize = window.onresize;
+	   window.onresize = function() {
+	      resize();
+	      if (oldOnResize) {
+	         oldOnResize();
+	      }
+	   };
+
+	   var oldOnBeforeUnload = window.onbeforeunload;
+	   window.onbeforeunload = function() {
+	      var ret = beforeunload();
+	
+	      var oldRet;
+	      if (oldOnBeforeUnload) {
+	        oldRet = oldOnBeforeUnload();
+	      }
+	
+	      if (ret !== null) {
+	        return ret;
+	      }
+	      return oldRet;
+	   };
+
+	   var oldOnUnload = window.onunload;
+	   window.onunload = function() {
+	      unload();
+	      if (oldOnUnload) {
+	         oldOnUnload();
+	      }
+	   };
+	}
+
+	/**
+	 * Cleanup events to prevent events firing when the editor closed
+	 */	
+	function __wbp_cleanupEvents() {
+		$wnd.onresize = null;
+        $wnd.onscroll = null;
+        $wnd.onbeforeunload = null;
+        $wnd.onunload = null;
+	}
+
+    </script>
+   	</head>
+	<body onload="onLoad();">
+		<iframe src="javascript:''" id="__gwt_historyFrame" style="position:absolute;width:0;height:0;border:0"></iframe>
+	%CSS_WAIT_DECLARATIONS%
+	</body>
+</html>

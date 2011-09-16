@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><HTML><HEAD><TITLE>Preferences - GWT > Layouts</TITLE><LINK rel=stylesheet type=text/css href="../../../book.css">
+
+<META name=GENERATOR content="MSHTML 8.00.7600.16700"></HEAD><BODY><H1>Preferences - GWT &gt; Layouts</H1>
+<TABLE   cellSpacing=0 cellPadding=0 width=800 >
+	<TBODY><TR   >
+		<TD   ><IMG src="images/preferences_layouts.png"><P>This page is used to control various 
+		<B>GWT &gt; Layouts</B> options.</P>
+      	<H2>
+	Create variable for Layout 
+		using pattern</H2>
+      <P>This preference determines what pattern will be used to generate layout 
+		variables. The following styles are supported:<UL>
+			<LI>${layoutAcronym}_${containerName} -- gl_panel
+			<LI>${layoutAcronym}${containerName-cap} -- glPanel
+			<LI>${containerName}${layoutClassName} -- panelGridLayout
+			<LI>${dataDefaultName} -- gridLayout_1
+			</LI></UL>
+			<H2>Create variable for LayoutData 
+		using pattern</H2>
+      <P>This preference determines what pattern will be used to generate layout 
+		data variables. The following styles are supported:<UL>
+			<LI>${dataAcronym}_${controlName} -- gd_helloWorldButton
+			<LI>${dataAcronym}${controlName-cap} -- gdHelloWorldButton
+			<LI>${controlName}${dataClassName} -- helloWorldGridData
+			<LI>${dataDefaultName} -- gridData_1
+			</LI></UL>
+			</TD>
+	</TR>
+</TBODY></TABLE>
+
+</BODY></HTML>

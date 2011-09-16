@@ -1,0 +1,56 @@
+/*
+ * Copyright 2011 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.google.gdt.eclipse.designer.preferences.event;
+
+import com.google.gdt.eclipse.designer.Activator;
+
+import org.eclipse.wb.internal.core.model.property.event.EventsProperty;
+import org.eclipse.wb.internal.core.model.property.event.IPreferenceConstants;
+
+import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
+import org.eclipse.jface.preference.IPreferenceStore;
+
+/**
+ * Initializer for {@link EventsProperty} preferences.
+ * 
+ * @author scheglov_ke
+ * @coverage gwt.preferences
+ */
+public final class PreferenceInitializer extends AbstractPreferenceInitializer
+    implements
+      IPreferenceConstants {
+  ////////////////////////////////////////////////////////////////////////////
+  //
+  //	Initializing 
+  //
+  ////////////////////////////////////////////////////////////////////////////
+  @Override
+  public void initializeDefaultPreferences() {
+    IPreferenceStore preferenceStore = Activator.getDefault().getPreferenceStore();
+    // type
+    preferenceStore.setDefault(P_CODE_TYPE, V_CODE_ANONYMOUS);
+    preferenceStore.setDefault(P_INNER_POSITION, V_INNER_AFTER);
+    // stub
+    preferenceStore.setDefault(P_CREATE_STUB, false);
+    preferenceStore.setDefault(P_STUB_NAME_TEMPLATE, "do_${component_name}_${event_name}");
+    preferenceStore.setDefault(P_DELETE_STUB, true);
+    // inner
+    preferenceStore.setDefault(P_INNER_NAME_TEMPLATE, "${Component_name}${Listener_className}");
+    // other
+    preferenceStore.setDefault(P_FINAL_PARAMETERS, false);
+    preferenceStore.setDefault(P_DECORATE_ICON, true);
+  }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripCanvasInfo"/>
+    <description>Simple subclass of Img with appearance appropriate for a ToolStrip separator.</description>
+    <!-- PROPERTIES -->
+    <properties-hidden names="*"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width"/>
+        <parameter name="liveComponent.forcedSize.height"/>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

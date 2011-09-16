@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>An unselectable, updatable user interface object that is used to display progress.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.ProgressBar()]]></source>
+		<invocation signature="updateProgress(double,java.lang.String)"><![CDATA[0.2, "Saving..."]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="duration increment interval"/>
+	<method-property title="progress" method="updateProgress(double,java.lang.String)"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">auto</parameter>
+	</parameters>
+</component>

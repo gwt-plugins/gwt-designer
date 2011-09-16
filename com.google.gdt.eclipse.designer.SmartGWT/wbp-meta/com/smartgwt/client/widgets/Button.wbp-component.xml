@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Interactive, style-based button widget.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.Button("New Button")]]></source>
+	</creation>
+	<creation id="empty">
+		<source><![CDATA[new com.smartgwt.client.widgets.Button()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="actionType icon title selected"/>
+	<properties-normal names="align valign"/>
+	<properties-advanced names="border radioGroup"/>
+	<property-tag name="title" tag="isText" value="true"/>
+</component>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.data.DataSourceInfo"/>
+    <description>A DataSource is data-provider-independent description of a set of objects that will
+        be loaded, edited and saved within the user interface of your application.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.data.DataSource()]]></source>
+    </creation>
+    <!-- METHODS -->
+    <methods>
+        <method name="addField">
+            <parameter type="com.smartgwt.client.data.DataSourceField" child="true"/>
+        </method>
+        <method name="setFields">
+            <parameter type="com.smartgwt.client.data.DataSourceField[]" child="true">
+                <tag name="arrayObject.hideInTree" value="true"/>
+                <tag name="arrayObject.removeOnEmpty" value="true"/>
+            </parameter>
+        </method>
+    </methods>
+    <method-order>
+        <default order="beforeAssociation"/>
+    </method-order>
+    <!-- PROPERTIES -->
+    <properties-preferred names="dataFormat"/>
+    <properties-advanced names="addGlobalId auto* beanClassName"/>
+    <properties-advanced names="cacheMaxAge callbackParam childrenField criteriaPolicy"/>
+    <properties-advanced names="enum* json* pluralTitle record* requiredMessage resultBatchSize"/>
+    <properties-advanced names="sendExtraFields serv* strictSQLFiltering tagName title*"/>
+    <properties-hidden names="scClassName"/>
+    <properties-noDefaultValue names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="objectReadyValidator">object.isCreated()</parameter>
+        <!-- new -->
+        <parameter name="variable.validateID"><![CDATA[
+			import org.eclipse.wb.internal.core.model.variable.description.*;
+			return LazyVariableDescription.ID;
+		]]></parameter>
+        <!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">false</parameter>
+        <parameter name="flowContainer.component">com.smartgwt.client.data.DataSourceField</parameter>
+        <parameter name="flowContainer.association">%parent%.addField(%child%)</parameter>
+    </parameters>
+</component>

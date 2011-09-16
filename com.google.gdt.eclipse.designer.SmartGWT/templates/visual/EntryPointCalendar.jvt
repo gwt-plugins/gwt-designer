@@ -1,0 +1,10 @@
+import com.google.gwt.core.client.EntryPoint;
+import com.smartgwt.client.widgets.calendar.Calendar;
+
+method
+	public void onModuleLoad() {
+		Calendar calendar = new Calendar();
+		
+		calendar.draw();
+	}
+

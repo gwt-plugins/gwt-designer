@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.menu.MenuItemSeparatorInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.menu.MenuItemSeparatorInfo"/>
+	<description>A separator that can be placed in a MenuBar.</description>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="variable.name">separator</parameter>
+	</parameters>
+</component>

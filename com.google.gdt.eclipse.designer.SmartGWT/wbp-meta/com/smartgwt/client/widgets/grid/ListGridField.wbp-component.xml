@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.ListGridFieldInfo"/>
+    <description>An ordinary JavaScript object containing properties that configures the display of
+        and interaction with the columns of a ListGrid.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.grid.ListGridField("newField", "New Field")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="int" property="setWidth(int)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+            <parameter type="int" property="setWidth(int)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="align cellAlign name title width"/>
+    <properties-advanced names="autoFetchDisplayMap baseStyle cellIcon dateFormatter"/>
+    <properties-advanced names="defaultIconSrc defaultValue defaultFilterValue defaultGroupingMode"/>
+    <properties-advanced names="editorIconHeight editorIconWidth"/>
+    <properties-advanced names="editorImageURLPrefix editorImageURLSuffix"/>
+    <properties-advanced names="editorValueIconHeight editorValueIconWidth"/>
+    <properties-advanced names="groupGranularity groupPrecision groupingMode"/>
+    <properties-advanced names="headerBaseStyle headerTitleStyle"/>
+    <properties-advanced names="icon iconHeight iconWidth iconSize iconOrientation"/>
+    <properties-advanced names="iconSpacing iconVAlign"/>
+    <properties-advanced names="imgDir imageHeight imageWidth imageSize image"/>
+    <properties-advanced names="imageURLPrefix imageURLSuffix include*"/>
+    <properties-advanced names="isRemoveField linkText multiple"/>
+    <properties-advanced names="optionOperationId optionTextMatchStyle"/>
+    <properties-advanced names="partialSummary prompt recordSummaryFunction"/>
+    <properties-advanced names="showDefaultContextMenu showDisabledIcon showDownIcon showFileInline"/>
+    <properties-advanced names="showFocusedIcon showGridSummary showGroupSummary showHover"/>
+    <properties-advanced names="showRollOverIcon showSelectedIcon shouldPrint suppressValueIcon"/>
+    <properties-advanced names="summaryFunction summaryTitle target valueMap"/>
+    <properties-advanced names="valueIcon valueIconHeight valueIconWidth valueIconSize"/>
+    <properties-advanced names="valueIconOrientation valueIconRightPadding valueIconLeftPadding"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="NVO.disabled">true</parameter>
+    </parameters>
+</component>

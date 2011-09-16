@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.RowLayoutInfo"/>
+    <description>Layout that distributes heights of elements so they take 100% of the container
+        height.Height of the child element can be given in pixels (as an integer) or in percent. All
+        elements with absolute height (i.e. in pixels) always will have the given height. All "free"
+        space (that is not filled with elements with 'absolute' height) will be distributed among
+        other elements in proportion of their height percentage.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.RowLayout()]]></source>
+    </creation>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- layout -->
+        <parameter name="layout-data.has">true</parameter>
+        <parameter name="layout-data.class">com.gwtext.client.widgets.layout.RowLayoutData</parameter>
+    	<!-- flow container -->
+        <parameter name="flowContainer">true</parameter>
+        <parameter name="flowContainer.horizontal">false</parameter>
+        <parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+    	<parameter name="flowContainer.component-validator"><![CDATA[
+			if (isComponentType('com.google.gwt.user.client.ui.Widget')) {
+				if (isComponentType('com.gwtext.client.widgets.Component')) {
+					return isComponentType('com.gwtext.client.widgets.BoxComponent');
+				}
+				return true;
+			}
+			return false;
+		]]></parameter>
+    </parameters>
+</component>

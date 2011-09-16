@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.DateLabelInfo"/>
+	<description>Extends ValueLabel for convenience when dealing with dates and DateTimeFormat,
+		especially in UiBinder templates.</description>
+</component>

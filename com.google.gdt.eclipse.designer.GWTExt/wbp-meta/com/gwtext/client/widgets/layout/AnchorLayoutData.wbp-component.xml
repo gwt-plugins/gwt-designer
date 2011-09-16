@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.AnchorLayoutDataInfo"/>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.AnchorLayoutData("100% 100%")]]></source>
+    </creation>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+        <parameter name="modelMethodProperty getter=getAnchor setter=setAnchor type=java.lang.String title=anchor"/>
+    </parameters>
+</component>

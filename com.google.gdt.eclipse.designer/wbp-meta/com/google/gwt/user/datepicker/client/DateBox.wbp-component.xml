@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A text box that shows a {@link DatePicker} when the user focuses on it.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.datepicker.client.DateBox()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.google.gwt.user.datepicker.client.DatePicker"/>
+			<parameter type="java.util.Date" property="setValue(java.util.Date)"/>
+			<parameter type="com.google.gwt.user.datepicker.client.DateBox$Format"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setValue">
+			<parameter type="java.util.Date" property="setValue(java.util.Date)"/>
+			<parameter type="boolean"/>
+		</method>
+	</methods>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude method="getTextBox"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-advanced names="accessKey focus tabIndex"/>
+	<property id="setEnabled(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setFormat(com.google.gwt.user.datepicker.client.DateBox.Format)">
+		<editor id="gwt.dateTimeFormat">
+			<parameter name="extract"><![CDATA[
+			    import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
+				def getFormat(format){
+				  if(ReflectionUtils.isSuccessorOf(format,'com.google.gwt.user.datepicker.client.DateBox$DefaultFormat'))
+				    return format.getDateTimeFormat();
+				  else
+				    return format;
+				};
+				getFormat(value)]]>
+			</parameter>
+			<parameter name="source"><![CDATA[
+				new com.google.gwt.user.datepicker.client.DateBox.DefaultFormat(%value%)]]>
+			</parameter>
+		</editor>
+	</property>
+	<property id="setValue(java.util.Date)">
+		<editor id="customDate">
+			<parameter name="toString">control.getFormat().format(control, value)</parameter>
+			<parameter name="toDate">control.getFormat().parse(control, value, false)</parameter>
+		</editor>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="shouldDrawBorder">false</parameter>
+	</parameters>
+</component>

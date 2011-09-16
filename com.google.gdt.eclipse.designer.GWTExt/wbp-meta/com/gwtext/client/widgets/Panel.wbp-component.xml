@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.PanelInfo"/>
+	<description>Panel is a container that has specific functionality and structural components that make it
+		the perfect building block for application-oriented user interfaces.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.Panel("New Panel")]]></source>
+	</creation>
+	<creation id="empty">
+		<source><![CDATA[new com.gwtext.client.widgets.Panel()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setHtml(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+			<parameter type="int" property="setHeight(int)"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.google.gwt.user.client.Element"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<!-- Buttons -->
+		<method name="addButton" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Button" child="true"/>
+		</method>
+		<method name="setButtons" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Button[]" child="true"/>
+		</method>
+		<!-- Toolbars -->
+		<method name="setTopToolbar" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Toolbar" child="true"/>
+		</method>
+		<method name="setTopToolbar" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Button" child="true"/>
+		</method>
+		<method name="setTopToolbar" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Button[]" child="true">
+				<tag name="arrayObject.removeOnEmpty" value="true"/>
+				<!--<tag name="arrayObject.creationId" value="arrayObject.forPanel"/>-->
+			</parameter>
+		</method>
+		<method name="setBottomToolbar" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Toolbar" child="true"/>
+		</method>
+		<method name="setBottomToolbar" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Button" child="true"/>
+		</method>
+		<method name="setBottomToolbar" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Button[]" child="true">
+				<tag name="arrayObject.removeOnEmpty" value="true"/>
+				<!--<tag name="arrayObject.creationId" value="arrayObject.forPanel"/>-->
+			</parameter>
+		</method>
+		<method name="addTool" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Tool" child="true"/>
+		</method>
+		<method name="setTools" order="beforeAssociation">
+			<parameter type="com.gwtext.client.widgets.Tool[]" child="true"/>
+		</method>
+	</methods>
+	<method-order>
+		<!--beforeAssociation is default from super-class-->
+		<methods order="beforeAssociation">
+			<!-- re-ordrer other super-class -->
+			<s>setTitle(java.lang.String)</s>
+		</methods>
+	</method-order>
+	<!-- EXPOSING RULES -->
+	<!--<exposing-rules>
+		disabled because not persistent 
+		<include method="getBottomToolbar"/>
+		<include method="getTopToolbar"/>
+	</exposing-rules>-->
+	<!-- PROPERTIES -->
+	<properties-preferred names="collapsible title titleCollapse"/>
+	<properties-advanced names="autoLoad autoScroll cls closable"/>
+	<properties-advanced names="floating hideCollapseTool"/>
+	<property-tag name="title" tag="isText" value="true"/>
+	<method-property title="paddings" method="setPaddings(int,int,int,int)"/>
+	<method-property title="margins" method="setMargins(int,int,int,int)"/>
+	<property id="setAnimCollapse(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setBaseCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-panel'"/>
+	</property>
+	<property id="setBodyStyle(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setBodyBorder(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setBorder(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setButtonAlign(com.gwtext.client.core.Position)">
+		<category value="advanced"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.core.Position</parameter>
+			<parameter name="fields">LEFT CENTER RIGHT</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.core.Position.RIGHT"/>
+	</property>
+	<property id="setCollapsedCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-panel-collapsed'"/>
+	</property>
+	<property id="setCollapseFirst(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setDraggable(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setFooter(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHeader(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHeaderAsText(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setIconCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<property id="setMargins(int,int,int,int)">
+		<category value="advanced"/>
+	</property>
+	<property id="setMaskDisabled(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setMinButtonWidth(int)">
+		<category value="advanced"/>
+		<defaultValue value="75"/>
+	</property>
+	<property id="setPaddings(int,int,int,int)">
+		<category value="advanced"/>
+	</property>
+	<property id="setShadow(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setShadow(com.gwtext.client.widgets.Shadow.Type)">
+		<category value="advanced"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.widgets.Shadow</parameter>
+			<parameter name="fields">SIDES FRAME DROP</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.widgets.Shadow.SIDES"/>
+	</property>
+	<property id="setShadowOffset(int)">
+		<category value="advanced"/>
+		<defaultValue value="4"/>
+	</property>
+	<property id="setShim(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setTabCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.Panel"/>
+		<morphTarget class="com.gwtext.client.widgets.TabPanel"/>
+		<morphTarget class="com.gwtext.client.widgets.form.FormPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">true</parameter>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- bounds -->
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			widget.setSize(size.width + "px", size.height + "px");
+		]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">!model.getPropertyByTitle("border").getValue()</parameter>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			import com.google.gwt.user.client.DOM;
+			
+			panel = new com.gwtext.client.widgets.Panel('Error');
+			panel.setLayout(new com.gwtext.client.widgets.layout.FitLayout());
+			panel.setWidth('200px');
+			  label = new com.gwtext.client.widgets.form.Label(message);
+			  DOM.setStyleAttribute(label.getElement(), 'background', 'pink');
+			  panel.add(label);
+			return panel;
+		]]></parameter>
+	</parameters>
+</component>

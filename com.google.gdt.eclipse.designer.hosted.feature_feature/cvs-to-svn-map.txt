@@ -1,0 +1,21 @@
+com.instantiations.designer.gwtcore.feature -> com.instantiations.designer.gwtcore.feature_feature
+com.instantiations.designer.gwt.hosted
+com.instantiations.designer.gwt.hosted.1_4
+com.instantiations.designer.gwt.hosted.1_4.ie
+com.instantiations.designer.gwt.hosted.1_4.linux
+com.instantiations.designer.gwt.hosted.1_4.mac
+com.instantiations.designer.gwt.hosted.1_4.super
+com.instantiations.designer.gwt.hosted.1_5
+com.instantiations.designer.gwt.hosted.1_5.ie
+com.instantiations.designer.gwt.hosted.1_5.linux
+com.instantiations.designer.gwt.hosted.1_5.mac
+com.instantiations.designer.gwt.hosted.1_5.super
+com.instantiations.designer.gwt.hosted.1_6
+com.instantiations.designer.gwt.hosted.1_6.ie
+com.instantiations.designer.gwt.hosted.1_6.linux
+com.instantiations.designer.gwt.hosted.1_6.mac
+com.instantiations.designer.gwt.hosted.1_6.super
+com.instantiations.j2ee
+
+CVS: developer.instantiations.com:/usr/local/cvs/wbpro
+SVN: https://svn.instantiations.com:8443/repos/products/trunk/designer2

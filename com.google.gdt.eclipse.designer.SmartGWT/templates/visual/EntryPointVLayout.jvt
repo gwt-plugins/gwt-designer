@@ -1,0 +1,10 @@
+import com.google.gwt.core.client.EntryPoint;
+import com.smartgwt.client.widgets.layout.VLayout;
+
+method
+	public void onModuleLoad() {
+		VLayout layout = new VLayout();
+		
+		layout.draw();
+	}
+

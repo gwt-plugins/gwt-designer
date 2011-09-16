@@ -1,0 +1,10 @@
+import com.google.gwt.core.client.EntryPoint;
+import com.smartgwt.client.widgets.layout.FlowLayout;
+
+method
+	public void onModuleLoad() {
+		FlowLayout layout = new FlowLayout();
+		
+		layout.draw();
+	}
+

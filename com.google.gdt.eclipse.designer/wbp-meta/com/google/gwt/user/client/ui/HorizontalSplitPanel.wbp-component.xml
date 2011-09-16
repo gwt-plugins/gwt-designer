@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.HorizontalSplitPanelInfo"/>
+	<description>A panel that arranges two widgets in a single horizontal row and allows the
+		 user to interactively change the proportion of the width dedicated to each of
+		 the two widgets. Widgets contained within a HorizontalSplitPanel
+		 will be automatically decorated with scrollbars when necessary.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="setStartOfLineWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setEndOfLineWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setLeftWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setRightWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-HorizontalSplitPanel { the panel }
+			.gwt-HorizontalSplitPanel hsplitter { splitter }
+		]]></parameter>
+	</parameters>
+</component>

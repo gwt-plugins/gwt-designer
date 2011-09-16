@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="ImageViewer" default="all" basedir="##PROJECT_ROOT##">
+	<description>
+		This is build file for GWT module '##MODULE_ID##' deployment.
+		GWT Designer generates it each time when you initiate deployment.
+		
+		You can use this file later for manual deployment, but keep in mind, that
+		classpath is hardcoded in it, so after changes in classpath you should
+		regenerate build file.
+	</description>
+
+	<property name="gwt.home" value="##GWT_HOME##" />
+	<property name="gwt.module.id" value="##MODULE_ID##" />
+	<property name="war.name" value="##WAR_NAME##" />
+
+	<target name="jars" description="Package up the module project and required projects as jars">
+		<mkdir dir="war/WEB-INF/lib" />
+<!--##PROJECT_AND_REQUIRED_JARS##-->		
+	</target>
+
+	<target name="gwt-compile" description="Compile to JavaScript">
+		<java classname="com.google.gwt.dev.Compiler" fork="yes" failonerror="true" maxmemory="##COMPILER_MAX_MEMORY##">
+			<classpath>
+##CLASS_PATH_ELEMENTS##
+			</classpath>
+			<arg value="-style"/>
+			<arg value="##COMPILER_STYLE##"/>
+			<arg value="${gwt.module.id}" />
+		</java>
+	</target>
+
+	<target name="war" depends="gwt-compile, jars">
+		<delete file="${war.name}" />
+		<jar destfile="${war.name}" basedir="war" duplicate="preserve" />
+	</target>
+	
+	<target name="deploy" depends="war">
+		<move file="${war.name}" todir="##DEPLOY_DIR##" />
+	</target>
+
+	<target name="all" depends="deploy" />
+
+</project>

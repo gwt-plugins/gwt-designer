@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.FloatItem()]]></source>
+        <!--<invocation signature="setName(java.lang.String)"><![CDATA["newFloatItem_%index%"]]></invocation>-->
+        <invocation signature="setTitle(java.lang.String)"><![CDATA["New FloatItem"]]></invocation>
+    </creation>
+</component>

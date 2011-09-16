@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.CaptionPanelInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.CaptionPanelInfo"/>
+	<description>A panel that wraps its contents in a border with a caption that appears in the upper left
+		corner of the border. This is an implementation of the fieldset HTML element.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.CaptionPanel("New panel")]]></source>
+		<x-attribute name="captionText" value="New panel"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setCaptionText(java.lang.String)"
+				defaultSource="&quot;Default caption&quot;"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setContentWidget">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="captionText"/>
+	<property-tag name="captionText" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getContentWidget() == null) {
+				object.add(new Label("Empty CaptionPanel"));
+			}
+			]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- size management -->
+		<parameter name="onChildAdd.setWidth">5cm</parameter>
+		<parameter name="onChildAdd.setHeight">3cm</parameter>
+		<parameter name="onChildOut.removeSize">always</parameter>
+		<!-- direct edit -->
+		<parameter name="directEdit.location.insets">-5 5 0 0</parameter>
+		<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+		<parameter name="directEdit.location.verticalAlignment">top</parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.association">%parent%.setContentWidget(%child%)</parameter>
+		<!-- troubleshooting -->
+		<parameter name="GWT.requiresMessagesLoop"><![CDATA[
+			isWebKit
+		]]></parameter>
+	</parameters>
+</component>

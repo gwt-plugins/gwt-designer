@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.CompositeInfo"/>
+	<!-- METHODS -->
+	<methods>
+		<method name="initComponent" order="afterCreation">
+			<parameter type="com.extjs.gxt.ui.client.widget.Component" child="true"/>
+		</method>
+	</methods>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude package="com.extjs.gxt.ui.client.widget"/>
+	</exposing-rules>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="shouldDrawBorder">model.isEmpty()</parameter>
+		<!-- ensure Component -->
+		<parameter name="ensureComponentScript"><![CDATA[
+			import com.extjs.gxt.ui.client.widget.*;
+			
+			if (object.getComponent() == null) {
+			  label = new Text('Empty Composite');
+			  ReflectionUtils.invokeMethod(object,
+			  	"initComponent(com.extjs.gxt.ui.client.widget.Component)",
+			  	{label});
+			}
+		]]></parameter>
+		<!-- bounds -->
+		<parameter name="attachAfterConstructorScript"><![CDATA[
+			rootPanel.add(widget);
+		]]></parameter>
+		<parameter name="applyTopBoundsScript"><![CDATA[
+			// may be size is set for content Widget
+			content = model.getComponent();
+			if (content != null && content.getPropertyByTitle('Size').isModified()) {
+				return;
+			}
+			// apply size to Composite
+			widget.setSize(size.width + "px", size.height + "px");
+		]]></parameter>
+		<!-- simple container -->
+		<parameter name="simpleContainer">isContainerThis()</parameter>
+		<parameter name="simpleContainer.component">com.extjs.gxt.ui.client.widget.Component</parameter>
+		<parameter name="simpleContainer.association">%parent%.initComponent(%child%)</parameter>
+	</parameters>
+</component>

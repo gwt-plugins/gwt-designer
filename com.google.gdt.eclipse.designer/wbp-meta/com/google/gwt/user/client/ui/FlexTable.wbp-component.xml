@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.panels.grid.FlexTableInfo"/>
+	<description>A flexible table that creates cells on demand. It can be jagged (that is, each row can
+		contain a different number of cells) and individual cells can be set to span multiple rows or columns.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.FlexTable()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getRowCount() == 0) {
+				object.setWidget(0, 0, new Label("Empty FlexTable"));
+			}
+			]]></parameter>
+	</parameters>
+</component>

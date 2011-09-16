@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.table.TableLayoutInfo"/>
+	<description>This layout allows you to easily render content into an HTML table. The total number of
+		columns can be specified, and rowspan and colspan can be used to create complex layouts within the
+		table.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.layout.TableLayout(1)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="int" property="setColumns(int)" defaultSource="1"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- layout -->
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.gwtext.client.widgets.layout.TableLayoutData</parameter>
+	</parameters>
+</component>

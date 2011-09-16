@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Menu items separator.</description>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-normal names=""/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

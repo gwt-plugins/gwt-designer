@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.DisclosurePanelInfo"/>
+	<description>A widget that consists of a header and a content panel that discloses the content when a user
+		clicks on the header.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.DisclosurePanel("New panel", true)]]></source>
+		<x-attribute name="open" value="true"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<!-- with text -->
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.DisclosurePanelImages"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean" property="setOpen(boolean)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean" property="setOpen(boolean)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String"/>
+		</constructor>
+		<!-- with Widget -->
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="boolean" property="setOpen(boolean)"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setHeader">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="setContent">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">250px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getContent() == null) {
+				// set header
+				if (object.getHeader() == null) {
+					object.setHeader(new Label("Header"));
+				}
+				// set content
+				content = new Label("Empty DisclosurePanel");
+				content.setPixelSize(100, 50);
+				object.setContent(content);
+			}
+			]]></parameter>
+		<!-- size management -->
+		<parameter name="onChildAdd.setWidth">5cm</parameter>
+		<parameter name="onChildAdd.setHeight">4cm</parameter>
+		<parameter name="onChildOut.removeSize">always</parameter>
+		<!-- direct edit -->
+		<parameter name="directEdit.property">Constructor/headerText</parameter>
+		<parameter name="directEdit.x-property">Header</parameter>
+		<parameter name="directEdit.location.insets">5 5 0 0</parameter>
+		<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+		<parameter name="directEdit.location.verticalAlignment">top</parameter>
+		<!-- flip open -->
+		<parameter name="double-click.flipBooleanProperty">open</parameter>
+		<!-- properties -->
+		<parameter name="copyPropertyTop from=Constructor/headerText to=headerText category=preferred"/>
+		<!-- simple container -->
+		<parameter name="simpleContainer">true</parameter>
+		<parameter name="simpleContainer.association">%parent%.setContent(%child%)</parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-DisclosurePanel { primary style }
+			.gwt-DisclosurePanel-open { when open }
+			.gwt-DisclosurePanel-closed { when closed }
+			.gwt-DisclosurePanel .header { the panel header area }
+			.gwt-DisclosurePanel .content { the panel content area }
+			]]></parameter>
+	</parameters>
+</component>

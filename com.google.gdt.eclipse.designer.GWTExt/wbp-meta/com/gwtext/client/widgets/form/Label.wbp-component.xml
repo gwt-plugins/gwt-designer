@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A label class for Forms.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.Label("New Label")]]></source>
+	</creation>
+	<creation id="empty">
+		<source><![CDATA[new com.gwtext.client.widgets.form.Label()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<method-order>
+		<methods order="afterAssociation">
+			<s>setText(java.lang.String)</s>
+			<s>setHtml(java.lang.String)</s>
+		</methods>
+	</method-order>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude package="com.gwtext.client.widgets.form"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<property-tag name="text" tag="isText" value="true"/>
+</component>

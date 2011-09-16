@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A simple radio button widget, with no label.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.google.gwt.user.client.ui.SimpleRadioButton("new name")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="checked"/>
+</component>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A combo box component.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.ComboBox()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New ComboBox"]]></invocation>
+		<invocation signature="setStore(com.extjs.gxt.ui.client.store.ListStore)">
+			<![CDATA[new com.extjs.gxt.ui.client.store.ListStore()]]>
+		</invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="setStore" order="beforeAssociation">
+			<parameter type="com.extjs.gxt.ui.client.store.ListStore"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="triggerStyle"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.ComboBox"><![CDATA[
+			FieldEvent Expand Collapse BeforeSelect Select BeforeQuery
+		]]></parameter>
+	</parameters>
+</component>

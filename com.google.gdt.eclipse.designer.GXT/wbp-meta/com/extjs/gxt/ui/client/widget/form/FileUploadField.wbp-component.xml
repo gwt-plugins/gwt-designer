@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A file upload filed. When using this field, the containing form panel's encoding must be set
+		to MULTIPART, and method should be set to POST.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.FileUploadField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New FileUploadField"]]></invocation>
+	</creation>
+</component>

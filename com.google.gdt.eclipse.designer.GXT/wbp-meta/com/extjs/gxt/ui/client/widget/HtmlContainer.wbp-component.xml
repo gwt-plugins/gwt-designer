@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.HtmlContainerInfo"/>
+	<description>A specialized container whose contents can be specified as an existing element, an html
+		fragment, or a remote url. When adding children a css selector is used to identify the element the
+		child will be inserted into.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.HtmlContainer("<b>New</b><br><i>HTML<i><br><u>Container</>")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setHtml(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="java.lang.String"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="html url"/>
+	<property id="setHttpMethod(com.google.gwt.http.client.RequestBuilder.Method)">
+		<editor id="staticField">
+			<parameter name="class">com.google.gwt.http.client.RequestBuilder</parameter>
+			<parameter name="fields">GET POST</parameter>
+		</editor>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.HtmlContainer"><![CDATA[
+			HtmlContainerEvent Load LoadException
+		]]></parameter>
+	</parameters>
+</component>

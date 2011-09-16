@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- PROPERTIES -->
+	<properties-preferred names="icon"/>
+	<properties-normal names=""/>
+	<properties-advanced names="border capSize HSrc VSrc gripImgSuffix itemBaseStyle imageType"/>
+	<properties-advanced names="iconSpacing radioGroup src showGrip showTitle vertical"/>
+</component>

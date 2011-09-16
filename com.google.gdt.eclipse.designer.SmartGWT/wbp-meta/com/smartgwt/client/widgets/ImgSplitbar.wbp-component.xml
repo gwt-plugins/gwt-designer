@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-normal names=""/>
+    <properties-advanced names="VSrc HSrc skinImgDir"/>
+</component>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description> Editor with a minimalist appearance, tuned for editing large numbers of properties
+        in a constrained space.</description>
+</component>

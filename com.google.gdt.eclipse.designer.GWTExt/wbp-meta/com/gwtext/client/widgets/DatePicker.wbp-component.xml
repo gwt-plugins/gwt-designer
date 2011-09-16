@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Simple date picker class.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.DatePicker()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<method-order>
+		<methods order="afterAssociation">
+			<s>setValue(java.util.Date)</s>
+		</methods>
+	</method-order>
+	<!-- PROPERTIES -->
+	<properties-preferred names="value"/>
+	<properties-advanced names="okText startDay"/>
+	<property id="setConstrainToViewport(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="true"/>
+	</property>
+	<property id="setFormat(java.lang.String)">
+		<category value="preferred"/>
+		<defaultValue value="'m/d/y'"/>
+	</property>
+	<property id="setMaxText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'This date is after the maximum date'"/>
+	</property>
+	<property id="setMinText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'This date is before the minimum date'"/>
+	</property>
+	<property id="setMonthYearText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'Choose a month (Control+Up/Down to move years)'"/>
+	</property>
+	<property id="setNextText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'Next Month (Control+Right)'"/>
+	</property>
+	<property id="setPrevText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'Previous Month (Control+Left)'"/>
+	</property>
+	<property id="setTodayText(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'Today'"/>
+	</property>
+	<property id="setTodayTip(java.lang.String)">
+		<category value="advanced"/>
+		<defaultValue value="'{current date} (Spacebar)'"/>
+	</property>
+</component>

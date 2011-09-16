@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>The ColorPicker widget allows the user to select a color from anywhere in the color
+        spectrum.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.ColorPickerItem()]]></source>
+        <!--<invocation signature="setName(java.lang.String)"><![CDATA["newColorPickerItem_%index%"]]></invocation>-->
+        <invocation signature="setTitle(java.lang.String)"><![CDATA["New ColorPickerItem"]]></invocation>
+    </creation>
+</component>

@@ -1,0 +1,8 @@
+import com.gwtext.client.widgets.Window;
+
+method
+	public %TypeName% () {
+		super("New window");
+		setSize("350px", "200px");
+	}
+

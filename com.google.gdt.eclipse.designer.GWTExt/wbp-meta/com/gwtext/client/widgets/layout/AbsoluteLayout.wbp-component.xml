@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.AbsoluteLayoutInfo"/>
+	<description>Inherits the anchoring of {@link AnchorLayout} and adds the ability for x/y positioning using
+		the standard x and y component config options.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.layout.AbsoluteLayout()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- layout -->
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.gwtext.client.widgets.layout.AbsoluteLayoutData</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">false</parameter>
+	</parameters>
+</component>

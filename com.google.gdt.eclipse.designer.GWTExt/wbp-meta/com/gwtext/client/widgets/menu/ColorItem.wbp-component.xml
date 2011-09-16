@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A menu item that wraps the {@link ColorPalette} component.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.menu.ColorItem()]]></source>
+	</creation>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<include method="getPalette"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+	<properties-hidden names=""/>
+</component>

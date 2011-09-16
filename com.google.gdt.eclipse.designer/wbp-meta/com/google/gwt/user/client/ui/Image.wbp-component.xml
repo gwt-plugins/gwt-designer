@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.ImageInfo"/>
+	<description>A widget that displays the image at a given URL.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.Image((java.lang.String) null)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setUrl(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<property-tag name='value' tag='title' value='MyTitle'/>
+	<property id="setUrl(java.lang.String)">
+		<editor id="gwt.imageURL"/>
+		<tag name="title" value="url"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-Image { }
+		]]></parameter>
+	</parameters>
+</component>

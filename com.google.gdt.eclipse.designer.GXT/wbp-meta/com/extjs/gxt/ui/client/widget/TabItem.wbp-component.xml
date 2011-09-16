@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.TabItemInfo"/>
+	<description>TabItems are added to a TabPanel. TabItems can be closable, disabled and support icons.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.TabItem("New TabItem")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<properties-advanced names=""/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- placeholder -->
+		<parameter name="placeholderScript"><![CDATA[
+			msgWidget = new com.extjs.gxt.ui.client.widget.Text(message);
+			msgWidget.setStyleAttribute("background", "pink");
+			//
+			ph = new com.extjs.gxt.ui.client.widget.TabItem("Placeholder");
+			ph.add(msgWidget);
+			return ph;
+		]]></parameter>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<!-- GEF validators -->
+		<parameter name="GEF.requestValidator.child"><![CDATA[
+			isComponentType(parent, "com.extjs.gxt.ui.client.widget.TabPanel")
+			]]></parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.TabItem"><![CDATA[
+			TabPanelEvent BeforeClose Close Select
+		]]></parameter>
+	</parameters>
+</component>

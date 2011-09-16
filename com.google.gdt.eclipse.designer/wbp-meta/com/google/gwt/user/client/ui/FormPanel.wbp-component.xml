@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A panel that wraps its contents in an HTML FORM element.</description>
+	<!-- PROPERTIES -->
+	<property id="setEncoding(java.lang.String)">
+		<editor id="staticField">
+			<parameter name="class">com.google.gwt.user.client.ui.FormPanel</parameter>
+			<parameter name="fields">ENCODING_MULTIPART ENCODING_URLENCODED</parameter>
+		</editor>
+	</property>
+	<property id="setMethod(java.lang.String)">
+		<editor id="staticField">
+			<parameter name="class">com.google.gwt.user.client.ui.FormPanel</parameter>
+			<parameter name="fields">METHOD_GET METHOD_POST</parameter>
+		</editor>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidget() == null) {
+				object.setWidget(new Label("Empty FormPanel"));
+			}
+			]]></parameter>
+	</parameters>
+</component>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Single checkbox field.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.Checkbox("New checkbox", "check_box")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setBoxLabel(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setBoxLabel(java.lang.String)"/>
+			<parameter type="com.gwtext.client.widgets.form.event.CheckboxListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.form.event.CheckboxListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setBoxLabel(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-advanced names="inputValue value"/>
+	<property id="setChecked(boolean)">
+		<category value="preferred"/>
+		<getter name="getValue"/>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.gwtext.client.widgets.form.Checkbox"/>
+		<morphTarget class="com.gwtext.client.widgets.form.Radio"/>
+		<morphTarget class="com.gwtext.client.widgets.form.TextField"/>
+	</morphTargets>
+</component>

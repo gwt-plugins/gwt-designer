@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A simple panel that makes its contents focusable, and adds the ability to catch mouse and
+		keyboard events.</description>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidget() == null) {
+				object.setWidget(new Label("Empty FocusPanel"));
+			}
+			]]></parameter>
+	</parameters>
+</component>

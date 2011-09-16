@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>The Scrollbar widget implements cross-platform, image-based scrollbars that control
+		the scrolling of content in other widgets.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.Scrollbar()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="vertical"/>
+	<properties-normal names=""/>
+	<properties-advanced names="allowThumbDownState allowThumbOverState autoEnable"/>
+	<properties-advanced names="btnSize cornerSrc cornerSize endThumbOverlap icon"/>
+	<properties-advanced names="startThumbOverlap showTrackEnds"/>
+	<properties-advanced names="trackEndWidth trackEndHeight thumbMinSize thumbOverlap thumbInset"/>
+</component>

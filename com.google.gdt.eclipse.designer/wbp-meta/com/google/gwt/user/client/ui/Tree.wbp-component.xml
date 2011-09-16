@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.TreeInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.TreeInfo"/>
+	<description>A standard hierarchical tree widget. The tree contains a hierarchy of TreeItem's
+		that the user can open, close, and select.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.Tree()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="addItem">
+			<parameter type="com.google.gwt.user.client.ui.TreeItem" child="true"/>
+		</method>
+		<method name="addItem">
+			<parameter type="java.lang.String" name="itemText"/>
+			<tag name="implicitFactory" value="true"/>
+		</method>
+		<method name="addItem">
+			<parameter type="com.google.gwt.user.client.ui.Widget" name="widget">
+				<tag name="implicitFactory.child" value="true"/>
+			</parameter>
+			<tag name="implicitFactory" value="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-hidden names="imageBase"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getItemCount() == 0) {
+				object.addItem("Empty Tree.");
+				object.addItem("Drop items in structure view.");
+			}
+			]]></parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-Tree { the tree itself }
+			.gwt-Tree .gwt-TreeItem { a tree item }
+			.gwt-Tree .gwt-TreeItem-selected { a selected tree item }
+			]]></parameter>
+		<!-- flow container: TreeItem -->
+		<parameter name="flowContainer.tree.1">true</parameter>
+		<parameter name="flowContainer.tree.1.component">com.google.gwt.user.client.ui.TreeItem</parameter>
+		<parameter name="flowContainer.tree.1.association">%parent%.addItem(%child%)</parameter>
+		<!-- flow container: Widget -->
+		<parameter name="flowContainer.tree.2">true</parameter>
+		<parameter name="flowContainer.tree.2.component">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.tree.2.component"> com.google.gwt.user.client.ui.TreeItem
+			com.google.gwt.user.client.ui.Widget </parameter>
+		<parameter name="flowContainer.tree.2.association">%parent%.addItem(%child%)</parameter>
+	</parameters>
+</component>

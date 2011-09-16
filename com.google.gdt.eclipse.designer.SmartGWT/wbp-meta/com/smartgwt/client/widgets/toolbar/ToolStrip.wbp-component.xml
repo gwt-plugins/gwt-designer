@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripInfo"/>
+    <description>Base class for creating toolstrips like those found in browsers and office
+        applications.</description>
+    <!-- METHODS -->
+    <methods>
+        <!-- children -->
+        <method name="addFormItem" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.form.fields.FormItem" child="true"/>
+        </method>
+        <method name="addFormItem" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.form.fields.FormItem" child="true"/>
+            <parameter type="int"/>
+        </method>
+        <method name="addButton" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.toolbar.ToolStripButton" child="true"/>
+        </method>
+        <method name="addButton" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.toolbar.ToolStripButton" child="true"/>
+            <parameter type="int"/>
+        </method>
+        <method name="addMenuButton" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.toolbar.ToolStripMenuButton" child="true"/>
+        </method>
+        <method name="addMenuButton" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.toolbar.ToolStripMenuButton" child="true"/>
+            <parameter type="int"/>
+        </method>
+        <method name="addSpacer" order="beforeAssociation">
+            <parameter type="com.smartgwt.client.widgets.toolbar.ToolStripSpacer" child="true"/>
+        </method>
+        <!-- void factories -->
+        <method name="addSpacer" order="beforeAssociation">
+            <parameter type="int"/>
+            <tag name="voidFactory.creationSupport"
+                value="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripAddItemCreationSupport"/>
+            <tag name="voidFactory.componentClass"
+                value="com.smartgwt.client.widgets.toolbar.ToolStripSpacer"/>
+        </method>
+        <method name="addFill" order="beforeAssociation">
+            <tag name="voidFactory.creationSupport"
+                value="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripAddItemCreationSupport"/>
+            <!-- component substituted for avoid model life-cycle 
+            <tag name="voidFactory.componentClass"
+                value="com.smartgwt.client.widgets.layout.LayoutSpacer"/>-->
+            <tag name="voidFactory.componentClass"
+                value="com.smartgwt.client.widgets.toolbar.ToolStripSpacer"/>
+        </method>
+        <method name="addSeparator" order="beforeAssociation">
+            <tag name="voidFactory.creationSupport"
+                value="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripAddItemCreationSupport"/>
+            <tag name="voidFactory.componentClass"
+                value="com.smartgwt.client.widgets.toolbar.ToolStripSeparator"/>
+        </method>
+        <method name="addResizer" order="beforeAssociation">
+            <tag name="voidFactory.creationSupport"
+                value="com.google.gdt.eclipse.designer.smart.model.menu.ToolStripAddItemCreationSupport"/>
+            <tag name="voidFactory.componentClass"
+                value="com.smartgwt.client.widgets.toolbar.ToolStripResizer"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names="vertical"/>
+    <properties-advanced names="can* default* layout* separator* showDragPlaceHolder"/>
+    <property id="setVerticalStyleName(java.lang.String)">
+        <category value="advanced"/>
+        <editor id="gwt.style"/>
+    </property>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">200px</parameter>
+        <parameter name="liveComponent.forcedSize.height">25px</parameter>
+        <!-- flow container 1 -->
+        <parameter name="flowContainer.1">true</parameter>
+        <parameter name="flowContainer.1.horizontal">isHorizontal()</parameter>
+        <parameter name="flowContainer.1.component"
+            >com.smartgwt.client.widgets.toolbar.ToolStripButton</parameter>
+        <parameter name="flowContainer.1.reference">com.smartgwt.client.widgets.Canvas
+            com.smartgwt.client.widgets.form.fields.FormItem
+            com.smartgwt.client.widgets.toolbar.ToolStripSpacer</parameter>
+        <parameter name="flowContainer.1.association">%parent%.addButton(%child%)</parameter>
+        <!-- flow container 2 -->
+        <parameter name="flowContainer.2">true</parameter>
+        <parameter name="flowContainer.2.horizontal">isHorizontal()</parameter>
+        <parameter name="flowContainer.2.component"
+            >com.smartgwt.client.widgets.toolbar.ToolStripMenuButton</parameter>
+        <parameter name="flowContainer.2.reference">com.smartgwt.client.widgets.Canvas
+            com.smartgwt.client.widgets.form.fields.FormItem
+            com.smartgwt.client.widgets.toolbar.ToolStripSpacer</parameter>
+        <parameter name="flowContainer.2.association">%parent%.addMenuButton(%child%)</parameter>
+        <!-- flow container 3 -->
+        <parameter name="flowContainer.3">true</parameter>
+        <parameter name="flowContainer.3.horizontal">isHorizontal()</parameter>
+        <parameter name="flowContainer.3.component">com.smartgwt.client.widgets.Canvas</parameter>
+        <parameter name="flowContainer.3.reference">com.smartgwt.client.widgets.Canvas
+            com.smartgwt.client.widgets.form.fields.FormItem
+            com.smartgwt.client.widgets.toolbar.ToolStripSpacer</parameter>
+        <parameter name="flowContainer.3.association">%parent%.addMember(%child%)</parameter>
+        <!-- flow container 4 -->
+        <parameter name="flowContainer.4">true</parameter>
+        <parameter name="flowContainer.4.horizontal">isHorizontal()</parameter>
+        <parameter name="flowContainer.4.component">com.smartgwt.client.widgets.form.fields.FormItem</parameter>
+        <parameter name="flowContainer.4.reference">com.smartgwt.client.widgets.Canvas
+            com.smartgwt.client.widgets.form.fields.FormItem
+            com.smartgwt.client.widgets.toolbar.ToolStripSpacer</parameter>
+        <parameter name="flowContainer.4.association">%parent%.addFormItem(%child%)</parameter>
+        <!-- flow container 5 -->
+        <parameter name="flowContainer.5">true</parameter>
+        <parameter name="flowContainer.5.horizontal">isHorizontal()</parameter>
+        <parameter name="flowContainer.5.component"
+            >com.smartgwt.client.widgets.toolbar.ToolStripSpacer</parameter>
+        <parameter name="flowContainer.5.reference">com.smartgwt.client.widgets.Canvas
+            com.smartgwt.client.widgets.form.fields.FormItem
+            com.smartgwt.client.widgets.toolbar.ToolStripSpacer</parameter>
+        <parameter name="flowContainer.5.association">%parent%.addSpacer(%child%)</parameter>
+    </parameters>
+</component>

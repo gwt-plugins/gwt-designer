@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.form.FormPanelInfo"/>
+	<description>A panel for displaying form widgets. By default, FormPanel uses a FormLayout,
+		 but this may be overridden when using nested layouts.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.FormPanel()]]></source>
+		<invocation signature="setCollapsible(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setHeading(java.lang.String)"><![CDATA["New FormPanel"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="labelAlign"/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.FormPanel"><![CDATA[
+			FormEvent BeforeSubmit Submit 
+		]]></parameter>
+	</parameters>
+</component>

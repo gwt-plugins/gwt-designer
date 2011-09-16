@@ -1,0 +1,6 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name="com.google.gwt.user.theme.standard.Standard"/>
+	<stylesheet src="%className%.css"/>
+	<entry-point class="%packageName%.client.%className%"/>
+</module>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Provides a compact interface for editing a date range, by providing a read-only
+        display of the current selected date range with an icon to launch a DateRangeDialog to edit
+        the range.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.MiniDateRangeItem("newMiniDateRangeItem_%index%", "New MiniDateRangeItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="pickerIcon*"/>
+    <properties-noDefaultValue names=""/>
+</component>

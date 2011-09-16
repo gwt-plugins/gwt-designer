@@ -1,0 +1,64 @@
+import com.extjs.gxt.ui.client.binding.FormBinding;
+import com.extjs.gxt.ui.client.widget.form.FormPanel;
+import com.extjs.gxt.ui.client.widget.layout.FormData;
+
+field
+	private %BeanClass% %BeanField%;
+
+field
+	private FormPanel m_formPanel;
+
+field
+	private FormBinding m_formBinding;
+%WidgetFields%
+
+method
+	public %TypeName%() {
+		m_formPanel = new FormPanel();
+		m_formPanel.setHeading("Panel");
+		//
+%Widgets%
+		initComponent(m_formPanel);
+		//
+		if (%BeanFieldAccess% != null) {
+			initDataBindings();
+		}
+	}
+
+method
+	public %TypeName%(%BeanClass% new%BeanName%) {
+		this();
+		set%BeanName%(new%BeanName%);
+	}
+
+method
+	private void initDataBindings() {
+		m_formBinding = new FormBinding(m_formPanel);
+		//
+%Bindings%
+	}
+
+method
+	public %BeanClass% get%BeanName%() {
+		return %BeanFieldAccess%;
+	}
+
+method
+	public void set%BeanName%(%BeanClass% new%BeanName%) {
+		set%BeanName%(new%BeanName%, true);
+	}
+
+method
+	public void set%BeanName%(%BeanClass% new%BeanName%, boolean update) {
+		%BeanFieldAccess% = new%BeanName%;
+		if (update) {
+			if (m_formBinding != null) {
+				m_formBinding.unbind();
+				m_formBinding = null;
+			}
+			if (%BeanFieldAccess% != null) {
+				initDataBindings();
+			}
+		}
+	}
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+	<!-- ======================================================== -->
+	<!-- Preferences -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.preferencePages">
+		<page category="org.eclipse.wb.core.preferences.MainPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.MainPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.GWTPreferencePage" name="GWT">
+			<keywordReference id="com.google.gdt.eclipse.designer.kw.gwt.root"/>
+		</page>
+		<!-- Builder -->
+		<page category="com.google.gdt.eclipse.designer.preferences.GWTPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.BuilderPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.BuilderPreferencePage" name="Builder">
+			<keywordReference id="com.google.gdt.eclipse.designer.kw.gwt.builder"/>
+		</page>
+		<!-- Code generation -->
+		<page category="com.google.gdt.eclipse.designer.preferences.GWTPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage"
+			name="Code Generation">
+			<keywordReference id="com.google.gdt.eclipse.designer.kw.gwt.codeGeneration"/>
+		</page>
+		<page
+			category="com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.event.EventsPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.event.EventsPreferencePage"
+			name="Event handlers">
+			<keywordReference id="com.google.gdt.eclipse.designer.kw.gwt.eventHandlers"/>
+		</page>
+		<page
+			category="com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.code.VariablesPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.code.VariableNamesPreferencePage"
+			name="Variables"/>
+		<page
+			category="com.google.gdt.eclipse.designer.preferences.code.CodeGenerationPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.code.NlsPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.code.NlsPreferencePage" name="NLS"/>
+		<!-- Layouts -->
+		<page category="com.google.gdt.eclipse.designer.preferences.GWTPreferencePage"
+			class="com.google.gdt.eclipse.designer.preferences.LayoutsPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.layout.LayoutSupportPreferencePage"
+			name="Layouts"/>
+		<page
+			category="com.google.gdt.eclipse.designer.preferences.layout.LayoutSupportPreferencePage"
+			name="Absolute"
+			class="com.google.gdt.eclipse.designer.preferences.AbsoluteLayoutPreferencePage"
+			id="com.google.gdt.eclipse.designer.preferences.AbsoluteLayoutSupportPreferencePage"/>
+	</extension>
+
+	<extension point="org.eclipse.ui.keywords">
+		<keyword label="%preferenceKeywords.gwt.root"
+			id="com.google.gdt.eclipse.designer.kw.gwt.root"/>
+		<keyword label="%preferenceKeywords.gwt.builder"
+			id="com.google.gdt.eclipse.designer.kw.gwt.builder"/>
+		<keyword label="%preferenceKeywords.gwt.codeGeneration"
+			id="com.google.gdt.eclipse.designer.kw.gwt.codeGeneration"/>
+		<keyword label="%preferenceKeywords.gwt.eventHandlers"
+			id="com.google.gdt.eclipse.designer.kw.gwt.eventHandlers"/>
+	</extension>
+
+</plugin>

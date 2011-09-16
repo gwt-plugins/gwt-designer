@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Basic single line text field.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.TextField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New TextField"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="cursorPos"/>
+	<property-tag name="cursorPos" tag="noDefaultValue" value="true"/>
+</component>

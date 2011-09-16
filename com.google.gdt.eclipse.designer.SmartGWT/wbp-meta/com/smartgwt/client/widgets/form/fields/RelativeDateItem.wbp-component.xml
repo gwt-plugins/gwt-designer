@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A FormItem for entering a date relative to today or relative to some other date, or
+        a specific date.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.RelativeDateItem("newRelativeDateItem_%index%", "New RelativeDateItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="centuryThreshold days* hours*"/>
+    <properties-advanced names="mill* min* mon* picker* sec*"/>
+    <properties-advanced names="tooday* use* week* years*"/>
+    <properties-noDefaultValue names=""/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

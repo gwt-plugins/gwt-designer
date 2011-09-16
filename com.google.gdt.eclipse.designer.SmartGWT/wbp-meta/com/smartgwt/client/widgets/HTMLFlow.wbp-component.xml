@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Use the HTMLFlow component to display HTML content that should expand to its natural size
+		without scrolling. The size of an HTMLFlow component is determined by its HTML contents, this
+		component will draw at varying sizes if given content of varying size. When using HTMLFlow components
+		within a Layout, consider what will happen if the HTMLFlow renders at various sizes. An HTMLFlow which
+		can expand should be placed in a container where other components can render smaller, where the
+		container is allowed to scroll, or where there is padding to expand into.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.HTMLFlow("New <b>HTML</b>Flow")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setContents(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names="contents contentsURL"/>
+	<properties-normal names=""/>
+	<properties-advanced names="captureSCComponents httpMethod"/>
+	<property-tag name="contents" tag="isText" value="true"/>
+</component>

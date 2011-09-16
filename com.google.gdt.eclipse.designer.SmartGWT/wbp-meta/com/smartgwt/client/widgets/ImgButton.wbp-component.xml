@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A Img that behaves like a button, going through up/down/over state transitions in
+		response to user events. Supports an optional title, and will auto-size to accomodate the
+		title text if "overflow" is set to "visible". <p/>An examples of use is Window
+		minimize/close buttons.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.ImgButton()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-normal names="showTitle title"/>
+	<properties-advanced names="labelHPad labelVPad"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">50px</parameter>
+		<parameter name="liveComponent.forcedSize.height">30px</parameter>
+	</parameters>
+</component>

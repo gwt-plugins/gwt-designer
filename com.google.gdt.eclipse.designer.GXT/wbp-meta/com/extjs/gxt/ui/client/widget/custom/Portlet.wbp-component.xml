@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.PortletInfo"/>
+	<description>A specialized content panel contained in a Portal.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.custom.Portlet()]]></source>
+		<invocation signature="setCollapsible(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setHeading(java.lang.String)"><![CDATA["New Portlet"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names=""/>
+</component>

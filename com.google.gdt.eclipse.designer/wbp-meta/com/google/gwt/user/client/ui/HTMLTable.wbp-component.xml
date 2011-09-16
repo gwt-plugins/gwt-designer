@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="false"/>
+		</method>
+		<!-- cells -->
+		<method name="setHTML">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="HTMLTable.cell" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setText">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="HTMLTable.cell" value="true"/>
+			</parameter>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="setWidget">
+			<parameter type="int">
+				<tag name="HTMLTable.row" value="true"/>
+			</parameter>
+			<parameter type="int">
+				<tag name="HTMLTable.cell" value="true"/>
+			</parameter>
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true">
+				<tag name="HTMLTable.widget" value="true"/>
+			</parameter>
+		</method>
+	</methods>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.Grid"/>
+		<morphTarget class="com.google.gwt.user.client.ui.FlexPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.component-validator"><![CDATA[
+			component.parent == container &&
+			isComponentType("com.google.gwt.user.client.ui.Widget")
+			]]></parameter>
+		<parameter name="flowContainer.tree.association">%parent%.setWidget(0, 0, %child%)</parameter>
+	</parameters>
+</component>

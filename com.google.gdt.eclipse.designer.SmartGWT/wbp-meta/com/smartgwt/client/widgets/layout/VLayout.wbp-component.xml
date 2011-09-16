@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A subclass of Layout that applies a sizing policy along the vertical axis, interpreting
+		percent and "*" sizes as proportions of the height of the layout. VLayouts will set any members that
+		do not have explict widths to match the layout.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.layout.VLayout()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="setDefaultLayoutAlign(com.smartgwt.client.types.Alignment)"/>
+	<properties-normal names=""/>
+	<properties-advanced names=""/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!--<parameter name="variable.name">vLayout</parameter>-->
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.google.gwt.user.client.ui.Widget</parameter>
+		<parameter name="flowContainer.association">%parent%.addMember(%child%)</parameter>
+	</parameters>
+</component>

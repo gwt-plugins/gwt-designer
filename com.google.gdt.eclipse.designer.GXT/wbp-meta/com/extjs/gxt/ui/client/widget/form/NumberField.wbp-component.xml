@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Numeric text field that provides automatic keystroke filtering and numeric validation.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.NumberField()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New NumberField"]]></invocation>
+	</creation>
+</component>

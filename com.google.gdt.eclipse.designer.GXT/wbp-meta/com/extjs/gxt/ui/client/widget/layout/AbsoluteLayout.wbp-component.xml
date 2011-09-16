@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.AbsoluteLayoutInfo"/>
+	<description> This layout has ability for left/top positioning and enables also anchoring of contained
+		widgets relative to the container's dimensions. If the container is resized, all anchored items are
+		automatically re-rendered according to their anchor rules.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.AbsoluteLayout()]]></source>
+	</creation>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.AbsoluteData</parameter>
+		<parameter name="layout-data.virtual">new %LDC%()</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">false</parameter>
+		<parameter name="flowContainer.tree">true</parameter>
+	</parameters>
+</component>

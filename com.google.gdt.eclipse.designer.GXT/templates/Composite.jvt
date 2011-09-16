@@ -1,0 +1,6 @@
+import com.extjs.gxt.ui.client.widget.Composite;
+
+method
+	public %TypeName% () {
+	}
+

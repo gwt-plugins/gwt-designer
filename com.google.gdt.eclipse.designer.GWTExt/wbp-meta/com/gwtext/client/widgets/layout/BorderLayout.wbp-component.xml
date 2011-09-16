@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.BorderLayoutInfo"/>
+    <description>This is a multi-pane, application-oriented UI layout style that supports multiple
+        nested panels, automatic split bars between regions and built-in expanding and collapsing of
+        regions.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.BorderLayout()]]></source>
+    </creation>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="layout.exclude-properties">Class</parameter>
+        <!-- layout -->
+        <parameter name="layout-data.has">true</parameter>
+        <parameter name="layout-data.class">com.gwtext.client.widgets.layout.BorderLayoutData</parameter>
+    </parameters>
+</component>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Similar to a TileLayout, but by default lays out tiles in 'flow' mode instead of 'fit' mode.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.layout.FlowLayout()]]></source>
+	</creation>
+</component>

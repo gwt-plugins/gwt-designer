@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A data Node class.</description>
+	<!-- METHODS -->
+	<methods>
+		<method name="appendChild" order="beforeAssociation">
+			<parameter type="com.gwtext.client.data.Node" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- flowContainer for tree -->
+		<parameter name="flowContainer.tree">true</parameter>
+		<parameter name="flowContainer.tree.component">com.gwtext.client.data.Node</parameter>
+		<parameter name="flowContainer.tree.association">%parent%.appendChild(%child%)</parameter>
+	</parameters>
+</component>

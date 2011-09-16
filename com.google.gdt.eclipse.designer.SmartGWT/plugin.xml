@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+	<!-- ======================================================== -->
+	<!-- Auto start (for property tester) -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.startup"/>
+
+
+	<!-- ======================================================== -->
+	<!-- Designer content type-->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.designerContentPatterns">
+		<includePattern>com.smartgwt.client.widgets.</includePattern>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Exceptions -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.exceptions">
+		<file path="resources/exceptions.xml"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Parser -->
+	<!-- ======================================================== -->
+	<extension point="com.google.gdt.eclipse.designer.classLoaderValidators">
+		<validator class="com.google.gdt.eclipse.designer.smart.parser.ClassLoaderValidator"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.componentsHierarchyProviders">
+		<provider class="com.google.gdt.eclipse.designer.smart.model.support.SmartGwtHierarchyProvider"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- PropertyEditor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.standardToolkitPackages">
+		<package prefix="com.smartgwt."/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Expression evaluators -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.invocationEvaluatorInterceptors">
+		<interceptor
+			class="com.google.gdt.eclipse.designer.smart.model.support.SmartGwtInvocationEvaluatorInterceptor"
+			priority="1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Toolkit -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.toolkits">
+		<toolkit id="com.google.gdt.eclipse.designer">
+			<resourcePrefixes>
+				<resourcePrefix>com.smartgwt.</resourcePrefix>
+			</resourcePrefixes>
+			<palette condition="!(isdef isUiBinder)">
+				<category id="com.google.gdt.eclipse.designer.SmartGWT" name="SmartGWT widgets"
+					optional="true">
+					<component class="com.smartgwt.client.widgets.Button"/>
+					<component class="com.smartgwt.client.widgets.IButton"/>
+					<component class="com.smartgwt.client.widgets.Label"/>
+					<component class="com.smartgwt.client.widgets.Img"/>
+					<component class="com.smartgwt.client.widgets.ImgButton"/>
+					<component class="com.smartgwt.client.widgets.Slider"/>
+					<component class="com.smartgwt.client.widgets.HTMLFlow"/>
+					<component class="com.smartgwt.client.widgets.HTMLPane"/>
+					<component class="com.smartgwt.client.widgets.Progressbar"/>
+					<component class="com.smartgwt.client.widgets.Scrollbar"/>
+					<component class="com.smartgwt.client.widgets.RichTextEditor"/>
+					<component class="com.smartgwt.client.widgets.DateChooser"/>
+					<component class="com.smartgwt.client.widgets.calendar.Calendar"/>
+					<component class="com.smartgwt.client.widgets.ViewLoader"/>
+					<component class="com.smartgwt.client.widgets.grid.ListGrid"/>
+					<component class="com.smartgwt.client.widgets.grid.ListGridField"/>
+					<component class="com.smartgwt.client.widgets.tree.TreeGrid"/>
+					<component class="com.smartgwt.client.widgets.tree.TreeGridField"/>
+					<component class="com.smartgwt.client.widgets.grid.ColumnTree"/>
+					<component class="com.smartgwt.client.widgets.viewer.DetailViewer"/>
+					<component class="com.smartgwt.client.widgets.viewer.DetailViewerField"/>
+					<component class="com.smartgwt.client.widgets.tile.TileGrid"/>
+					<component class="com.smartgwt.client.widgets.tab.TabSet"/>
+					<component class="com.smartgwt.client.widgets.tab.Tab"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.SmartGWT.layouts"
+					name="SmartGWT layouts" optional="true">
+					<component class="com.smartgwt.client.widgets.Canvas"/>
+					<component class="com.smartgwt.client.widgets.EdgedCanvas"/>
+					<component class="com.smartgwt.client.widgets.layout.LayoutSpacer"/>
+					<component class="com.smartgwt.client.widgets.layout.HLayout"/>
+					<component class="com.smartgwt.client.widgets.layout.HStack"/>
+					<component class="com.smartgwt.client.widgets.layout.VLayout"/>
+					<component class="com.smartgwt.client.widgets.layout.VStack"/>
+					<component class="com.smartgwt.client.widgets.layout.FlowLayout"/>
+					<component class="com.smartgwt.client.widgets.layout.SectionStack"/>
+					<component class="com.smartgwt.client.widgets.layout.SectionStackSection"/>
+					<component class="com.smartgwt.client.widgets.tile.TileLayout"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.SmartGWT.menu" name="SmartGWT menu"
+					optional="true">
+					<component class="com.smartgwt.client.widgets.menu.MenuButton"/>
+					<component class="com.smartgwt.client.widgets.menu.MenuBar"/>
+					<component class="com.smartgwt.client.widgets.menu.Menu"/>
+					<component class="com.smartgwt.client.widgets.menu.MenuItem"/>
+					<component class="com.smartgwt.client.widgets.menu.MenuItemSeparator"/>
+					<component class="com.smartgwt.client.widgets.toolbar.ToolStrip"/>
+					<component class="com.smartgwt.client.widgets.toolbar.ToolStripButton"/>
+					<component class="com.smartgwt.client.widgets.toolbar.ToolStripMenuButton"/>
+					<component class="com.smartgwt.client.widgets.toolbar.ToolStripResizer"/>
+					<component class="com.smartgwt.client.widgets.toolbar.ToolStripSeparator"/>
+					<component class="com.smartgwt.client.widgets.toolbar.ToolStripSpacer"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.SmartGWT.forms" name="SmartGWT forms"
+					optional="true">
+					<component class="com.smartgwt.client.widgets.form.DynamicForm"/>
+					<component class="com.smartgwt.client.widgets.form.SearchForm"/>
+					<component class="com.smartgwt.client.widgets.form.PropertySheet"/>
+					<component class="com.smartgwt.client.widgets.form.FilterBuilder"/>
+					<!-- text -->
+					<component class="com.smartgwt.client.widgets.form.fields.TextItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.PasswordItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SpinnerItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.TimeItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.UploadItem"/>
+					<!-- single -->
+					<component class="com.smartgwt.client.widgets.form.fields.HiddenItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.BooleanItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.IntegerItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.FloatItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.DateItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.DateTimeItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.DateRangeItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.MiniDateRangeItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.RelativeDateItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.CheckboxItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.NativeCheckboxItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.ComboBoxItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.ColorPickerItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.RadioGroupItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.HeaderItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SelectItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SelectOtherItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SpacerItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.RowSpacerItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.TextAreaItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.AutoFitTextAreaItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.StaticTextItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.LinkItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.BlurbItem"/>
+					<!-- canvas -->
+					<!--<component class="com.smartgwt.client.widgets.form.fields.CanvasItem"/>-->
+					<component class="com.smartgwt.client.widgets.form.fields.ButtonItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.ResetItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SubmitItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.FileItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.PickTreeItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.IPickTreeItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.RichTextItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SectionItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.SliderItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.ToolbarItem"/>
+					<component class="com.smartgwt.client.widgets.form.fields.ViewFileItem"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.SmartGWT.data" name="SmartGWT data"
+					optional="true">
+					<component class="com.smartgwt.client.data.DataSource"/>
+					<component class="com.smartgwt.client.data.RestDataSource"/>
+					<component class="com.smartgwt.client.data.WSDataSource"/>
+					<component class="com.smartgwt.client.data.XJSONDataSource"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceBooleanField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceBinaryField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceDateField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceDateTimeField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceEnumField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceFloatField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceImageField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceImageFileField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceIntegerField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceIntEnumField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceLinkField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourcePasswordField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceSequenceField"/>
+					<component class="com.smartgwt.client.data.fields.DataSourceTextField"/>
+					<!--<component class="com.smartgwt.client.data.fields.DataSourceSimpleTypeField"/>-->
+				</category>
+			</palette>
+		</toolkit>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.paletteComponentExists">
+		<component package="com.smartgwt.client.widgets."
+			witness="com.smartgwt.client.widgets.Canvas"/>
+		<component package="com.smartgwt.client.data." witness="com.smartgwt.client.data.DataSource"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.editPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.smart.gef.EditPartFactory" priority="1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories for TreeViewer -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.treeEditPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.smart.gefTree.EditPartFactory" priority="1"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GWT Initialization -->
+	<!-- ======================================================== -->
+	<extension point="com.google.gdt.eclipse.designer.moduleInitializers">
+		<initializer class="com.google.gdt.eclipse.designer.smart.model.support.ModuleInitializer"
+			priority="-1"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Wizards -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.newWizards">
+		<!-- ======================================================== -->
+		<!-- Wizards: UI -->
+		<!-- ======================================================== -->
+		<category id="com.google.gdt.eclipse.designer.SmartGWT" name="Smart GWT"
+			parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.SmartGWT"
+			id="com.google.gdt.eclipse.designer.smart.wizards.WindowWizard"
+			class="com.google.gdt.eclipse.designer.smart.wizards.WindowWizard"
+			icon="icons/wizards/window.png" name="Smart GWT Window">
+			<description>Create a Smart GWT Window</description>
+		</wizard>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.SmartGWT"
+			id="com.google.gdt.eclipse.designer.smart.wizards.DialogWizard"
+			class="com.google.gdt.eclipse.designer.smart.wizards.DialogWizard"
+			icon="icons/wizards/dialog.png" name="Smart GWT Dialog">
+			<description>Create a Smart GWT Dialog</description>
+		</wizard>
+		<!-- ======================================================== -->
+		<!-- Wizards: UI EntryPoints -->
+		<!-- ======================================================== -->
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.SmartGWT"
+			id="com.google.gdt.eclipse.designer.smart.wizards.EntryPointWizard"
+			class="com.google.gdt.eclipse.designer.smart.wizards.EntryPointWizard"
+			icon="icons/wizards/wizard.png" name="EntryPoint with Canvas">
+			<description>Create an GWT EntryPoint with Canvas</description>
+		</wizard>
+	</extension>
+
+	<extension point="com.google.gdt.eclipse.designer.moduleConfigurators">
+		<configurator name="Smart GWT"
+			class="com.google.gdt.eclipse.designer.smart.actions.ConfigureSmartGwtAction"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Property tester -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+		<propertyTester id="com.google.gdt.eclipse.designer.smart.actions.SmartGwtPropertyTester"
+			class="com.google.gdt.eclipse.designer.smart.actions.SmartGwtPropertyTester"
+			namespace="com.google.gdt.eclipse.designer.smart" properties="isConfigured"
+			type="org.eclipse.core.runtime.IAdaptable"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Popup menu -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designer.smart.objectContribution.configure"
+			objectClass="org.eclipse.core.resources.IResource">
+			<enablement>
+				<and>
+					<test property="com.google.gdt.eclipse.designer.isGwtModuleElement"/>
+					<not>
+						<test property="com.google.gdt.eclipse.designer.smart.isConfigured"/>
+					</not>
+				</and>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.smart.actions.ConfigureSmartGwtAction"
+				label="Configure for using SmartGWT"
+				class="com.google.gdt.eclipse.designer.smart.actions.ConfigureSmartGwtAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/configureFor"/>
+		</objectContribution>
+	</extension>
+
+</plugin>

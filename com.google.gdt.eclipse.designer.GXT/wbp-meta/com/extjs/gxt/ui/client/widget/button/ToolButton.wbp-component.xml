@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A IconButton that supports a set of predefined styles.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.button.ToolButton(".x-tool-close")]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="changeStyle(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="changeStyle(java.lang.String)"/>
+			<parameter type="com.extjs.gxt.ui.client.event.SelectionListener">
+				<tag name="events: add listener method"
+					value="addSelectionListener(com.extjs.gxt.ui.client.event.SelectionListener)"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<property id="changeStyle(java.lang.String)">
+		<editor id="stringList">
+			<parameter-list name="strings">.x-tool-close</parameter-list>
+			<parameter-list name="strings">.x-tool-minimize</parameter-list>
+			<parameter-list name="strings">.x-tool-maximize</parameter-list>
+			<parameter-list name="strings">.x-tool-restore</parameter-list>
+			<parameter-list name="strings">.x-tool-gear</parameter-list>
+			<parameter-list name="strings">.x-tool-pin</parameter-list>
+			<parameter-list name="strings">.x-tool-unpin</parameter-list>
+			<parameter-list name="strings">.x-tool-right</parameter-list>
+			<parameter-list name="strings">.x-tool-left</parameter-list>
+			<parameter-list name="strings">.x-tool-up</parameter-list>
+			<parameter-list name="strings">.x-tool-down</parameter-list>
+			<parameter-list name="strings">.x-tool-refresh</parameter-list>
+			<parameter-list name="strings">.x-tool-minus</parameter-list>
+			<parameter-list name="strings">.x-tool-plus</parameter-list>
+			<parameter-list name="strings">.x-tool-search</parameter-list>
+			<parameter-list name="strings">.x-tool-save</parameter-list>
+			<parameter-list name="strings">.x-tool-help</parameter-list>
+		</editor>
+	</property>
+</component>

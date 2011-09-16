@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ColumnConfigInfo"/>
+	<description>A column config for a column in a column model.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.grid.ColumnConfig("id", "New Column", 150)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setId(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setId(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setHeader(java.lang.String)"/>
+			<parameter type="int" property="setWidth(int)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<methods-exclude signature="setHidden(boolean)"/>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names="id header width"/>
+	<properties-advanced names="dataIndex firesEvents hidden style"/>
+	<property-tag name="header" tag="isText" value="true"/>
+</component>

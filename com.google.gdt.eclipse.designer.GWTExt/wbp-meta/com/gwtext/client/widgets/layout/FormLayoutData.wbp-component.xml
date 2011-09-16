@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.gwtext.model.layout.FormLayoutDataInfo"/>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.gwtext.client.widgets.layout.FormLayoutData()]]></source>
+    </creation>
+    <!-- PROPERTIES -->
+    <property id="setHideLabel(boolean)">
+        <defaultValue value="false"/>
+    </property>
+    <property id="setClearCls(java.lang.String)">
+        <editor id="gwt.style"/>
+        <defaultValue value="'x-form-clear-left'"/>
+    </property>
+    <property id="setItemCls(java.lang.String)">
+        <editor id="gwt.style"/>
+        <defaultValue value="'x-form-item'"/>
+    </property>
+    <property id="setLabelStyle(java.lang.String)">
+        <editor id="gwt.style"/>
+    </property>
+</component>

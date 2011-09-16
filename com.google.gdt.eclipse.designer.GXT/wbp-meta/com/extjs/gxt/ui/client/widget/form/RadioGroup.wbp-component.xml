@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A group of Radio's.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.RadioGroup()]]></source>
+		<invocation signature="setFieldLabel(java.lang.String)"><![CDATA["New RadioGroup"]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="add">
+			<parameter type="com.extjs.gxt.ui.client.widget.form.Radio" child="true"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.RadioGroup"><![CDATA[
+			FieldEvent Change
+		]]></parameter>
+	</parameters>
+</component>

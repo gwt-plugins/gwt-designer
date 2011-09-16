@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>Item for manipulating Dates. Can be rendered as a text field, or as 3 selects for
+        day, month, year. Includes optional pop-up picker.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.DateItem("newDateItem_%index%", "New DateItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="centuryThreshold inputFormat invalidDateStringMessage"/>
+    <properties-advanced names="maskDateSeparator use*"/>
+    <properties-noDefaultValue names="titleAlign"/>
+    <property id="setUseMask(java.lang.Boolean)">
+        <category value="advanced"/>
+        <defaultValue value="null"/>
+    </property>
+</component>

@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.google.gdt.eclipse.designer.hosted.2_0.super;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.google.gwt.core.client,
+ com.google.gwt.dev.jjs,
+ com.google.gwt.lang,
+ com.google.gwt.safehtml.shared
+Require-Bundle: org.eclipse.core.resources
+Bundle-Localization: plugin
+Bundle-ActivationPolicy: lazy

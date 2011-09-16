@@ -1,0 +1,107 @@
+<html>
+
+<head>
+<title>JUnit Test Creation</title>
+<link href="../../../book.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h1>JUnit Test Creation</h1>
+
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+  <tr>
+    <td>
+      <img src="images/wizard_gwt_junit_testcase0.png" align="left" hspace="20" vspace="20">Create a test case using the <b>GWT 
+				&gt; JUnit Test Case</b> wizard:<ul>
+					<li>Select the <b>Class under test</b> using the <b>Browse</b> 
+					button</li>
+					<li>Specify the <b>Source folder</b></li>
+					<li>Specify the Package</li>
+					<li>Specify the test class <b>Name</b>. Defaults to name of 
+					the class under test plus &quot;Test&quot;.</li>
+					<li>Select the test superclass using the <b>Browser</b> 
+					button. Defaults to <b>GWTTestCase</b></li>
+				</ul> 
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <blockquote>
+		<p><br>
+		<img src="images/wizard_gwt_junit_testcase1.png" width="358" height="400" align="top">&nbsp; 
+			<img src="images/wizard_gwt_junit_testcase2.png" width="358" height="400"></p>
+		</blockquote>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      	<b><br>
+		JUnit GWT Application</b> launch configuration:<ul>
+					<li>The <strong>Test Tab</strong> specifies the tests to run 
+					and the level of JUnit test runner to use</li>
+					<li>The test launcher allows you to run single tests or 
+					collections of tests <em>en masse</em></li>
+					<li>If the individual test option is chosen, you have to 
+					specify the fully-qualified test class name along with the 
+					name of the plug-in project where the class is located. The 
+					launcher can give you more granularity for single tests by 
+					allowing you to choose to run a single method from within a 
+					test class</li>
+					<li>You also have the option to run all tests housed within 
+					a container (project, package or a source folder). In 
+					addition to the convenience of running an arbitrary number 
+					of test cases with a single click, this option gives you the 
+					additional flexibility of not having to update the launch 
+					configuration every time you add a test class to your suite. 
+					The list of tests is dynamically recomputed prior to every 
+					launch based on the current contents of the container</li>
+				</ul>
+				<blockquote>
+					<p>
+					<img border="0" src="images/gwt-junit-launch-configuration1.png" align="top" width="643" height="432"></p>
+		</blockquote>
+		<b>JUnit GWT Application</b> classpath 
+				requirements:<ul>
+					<li>The <strong>
+					<span class="resultofText" name="resultofMatch">Classpath</span></strong> 
+					tab defines the location of class files used when running or 
+					debugging an application. By default, the user and bootstrap 
+					class locations are derived from the associated project's 
+					build path. You may override these settings here</li>
+					<li>Make sure that the <b>gwt-user.jar</b> and <b>junit.jar</b> 
+					are included</li>
+				</ul>
+				<blockquote>
+					<p>
+					<img border="0" src="images/gwt-junit-launch-configuration2.png" align="top" width="677" height="478"></p>
+		</blockquote>
+		<b>JUnit GWT</b> test results:<ul>
+					<li>You can inspect the test results in the <b>
+					<span class="resultofText" name="resultofMatch">JUnit</span></b>
+					<span class="resultofText" name="resultofMatch">view</span>. 
+					This <span class="resultofText" name="resultofMatch">view</span> 
+					shows you the test run progress and status</li>
+					<li>The <span class="resultofText" name="resultofMatch">view</span> 
+					is shown in the current perspective whenever you start a 
+					test run. A convenient arrangement for the <b>
+					<span class="resultofText" name="resultofMatch">JUnit</span></b>
+					<span class="resultofText" name="resultofMatch">view</span> 
+					is to dock it as a fast
+					<span class="resultofText" name="resultofMatch">view</span>. 
+					The <b><span class="resultofText" name="resultofMatch">JUnit</span></b>
+					<span class="resultofText" name="resultofMatch">view</span> 
+					has two tabs: one shows you a list of failures and the other 
+					shows you the full test suite as a tree. You can navigate 
+					from a failure to the corresponding source by double 
+					clicking the corresponding line in the failure trace</li>
+				</ul>
+				<blockquote>
+					<p>
+					<img border="0" src="images/gwt-junit-test.png" align="top" width="757" height="632"></p>
+		</blockquote>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

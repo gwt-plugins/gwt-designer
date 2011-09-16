@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.google.gdt.eclipse.designer.UiBinder.wizards;singleton:=true
+Bundle-Version: 0.0.0
+Bundle-Activator: com.google.gdt.eclipse.designer.uibinder.wizards.Activator
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.wb.core,
+ com.google.gdt.eclipse.designer,
+ com.google.gdt.eclipse.designer.UiBinder,
+ com.google.gdt.eclipse.designer.wizards
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Localization: plugin
+Export-Package: com.google.gdt.eclipse.designer.uibinder.wizards;x-friends:="com.google.gdt.eclipse.designer.tests"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Use the HTMLPane component to display HTML content in a pane of specified size. If the HTML
+		content is larger than the size of the pane, the pane will provide scrollbars for viewing clipped
+		content.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.HTMLPane()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-normal names=""/>
+	<properties-advanced names=""/>
+</component>

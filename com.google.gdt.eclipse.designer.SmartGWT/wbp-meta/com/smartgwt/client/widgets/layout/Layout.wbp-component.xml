@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.LayoutInfo"/>
+	<description>A subclass of Canvas that automatically arranges other Canvases according to a
+		layout policy. <p/>Rather than using the Layout class directly, use the HLayout, VLayout,
+		HStack and VStack classes, which are subclasses of Layout preconfigured for horizontal or
+		vertical stacking, with the "fill" (VLayout) or "none" (VStack) policy already set.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.layout.Layout()]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<!-- children -->
+		<method name="addMember">
+			<parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+		</method>
+		<method name="addMember">
+			<parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+			<parameter type="int"/>
+		</method>
+		<method name="setMembers">
+			<parameter type="com.smartgwt.client.widgets.Canvas[]" child="true">
+				<tag name="arrayObject.hideInTree" value="true"/>
+				<tag name="arrayObject.removeOnEmpty" value="true"/>
+			</parameter>
+		</method>
+		<method name="addMember">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+		</method>
+		<method name="addMember">
+			<parameter type="com.google.gwt.user.client.ui.Widget" child="true"/>
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-normal names=""/>
+	<properties-advanced names="HPolicy VPolicy"/>
+	<properties-advanced names="animateMemberTime"/>
+	<properties-advanced names="defaultLayout* dropLineThickness enforcePolicy"/>
+	<properties-advanced names="setHeight(int) leaveScrollbarGap layout*"/>
+	<properties-advanced names="managePercentBreadth memberOverlap minMemberSize"/>
+	<properties-advanced names="paddingAsLayoutMargin resizeBarClass resizeBarSize"/>
+	<properties-advanced names="stackZIndex"/>
+	<properties-advanced names="vertical setWidth(int)"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+	</parameters>
+</component>

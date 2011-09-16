@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.ColumnDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.ColumnData(0.0)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="double" property="setWidth(double)"
+				defaultSource="com.extjs.gxt.ui.client.Style.DEFAULT"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+		<parameter name="isDefault"><![CDATA[
+			if (signature == "<init>(double)") {
+				return args[0] == 0;
+			}
+			return false;
+		]]></parameter>
+	</parameters>
+</component>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Implementation of "HasConstrainedValue" based on a
+		"com.google.gwt.dom.client.SelectElement".</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.ValueListBox(com.google.gwt.text.client.IntegerRenderer.instance())]]></source>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="setAcceptableValues" executable="false">
+			<parameter type="java.util.Collection"/>
+		</method>
+	</methods>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="simpleContainer">false</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.form.FieldSetInfo"/>
+	<description>A container that wraps its content in a HTML fieldset.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.form.FieldSet()]]></source>
+		<invocation signature="setCollapsible(boolean)"><![CDATA[true]]></invocation>
+		<invocation signature="setHeading(java.lang.String)"><![CDATA["New FieldSet"]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="heading collapsible"/>
+	<properties-advanced names="borders"/>
+	<property-tag name="heading" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- border -->
+		<parameter name="shouldDrawBorder">false</parameter>
+		<parameter name="GXT.AbsoluteLayout.noContainerGap">true</parameter>
+		<!-- direct edit -->
+		<parameter name="directEdit.location.insets">0 30 0 0</parameter>
+		<parameter name="directEdit.location.horizontalAlignment">left</parameter>
+		<parameter name="directEdit.location.verticalAlignment">top</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.form.FieldSet"><![CDATA[
+			FieldSetEvent BeforeExpand Expand BeforeCollapse Collapse
+		]]></parameter>
+	</parameters>
+</component>

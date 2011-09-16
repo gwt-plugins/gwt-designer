@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A mutually-exclusive selection radio button widget.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.RadioButton("new name", "New radio button")]]></source>
+		<x-attribute name="name" value="new name"/>
+		<x-attribute name="text" value="New RadioButton"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setName(java.lang.String)"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="boolean"/>
+		</constructor>
+	</constructors>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-RadioButton { }
+		]]></parameter>
+	</parameters>
+</component>

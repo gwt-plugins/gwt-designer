@@ -1,0 +1,246 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB52000E0C01D6F700EE6307 /* wbp-gwt.cp in Sources */ = {isa = PBXBuildFile; fileRef = AB52FFC10C01D15800EE6307 /* wbp-gwt.cp */; };
+		AB52001C0C01D86D00EE6307 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B23D40796148700E4BF6C /* Cocoa.framework */; };
+		AB52001D0C01D86D00EE6307 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 834B23D50796148700E4BF6C /* WebKit.framework */; };
+		AB5200500C01DE1200EE6307 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB52004F0C01DE1200EE6307 /* JavaVM.framework */; };
+		ABC4E1E80C087066002624F7 /* DispatchObjectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC4E1E60C087066002624F7 /* DispatchObjectWrapper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32DBCF6D0370B57F00C91783 /* wbp-gwt_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wbp-gwt_Prefix.pch"; sourceTree = "<group>"; };
+		834B23D40796148700E4BF6C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		834B23D50796148700E4BF6C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AB4122680C07408F006BED2E /* wbp-gwt.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = "wbp-gwt.h"; sourceTree = "<group>"; };
+		AB4122BA0C0755E4006BED2E /* JStringWrapper.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JStringWrapper.h; sourceTree = "<group>"; };
+		AB5200010C01D68C00EE6307 /* libwbp-gwt.jnilib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libwbp-gwt.jnilib"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB52004F0C01DE1200EE6307 /* JavaVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaVM.framework; path = /System/Library/Frameworks/JavaVM.framework; sourceTree = "<absolute>"; };
+		AB52FFC10C01D15800EE6307 /* wbp-gwt.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "wbp-gwt.cp"; sourceTree = "<group>"; };
+		ABC4E1E50C087066002624F7 /* DispatchObjectWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchObjectWrapper.h; sourceTree = "<group>"; };
+		ABC4E1E60C087066002624F7 /* DispatchObjectWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchObjectWrapper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB52FFFF0C01D68C00EE6307 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB52001C0C01D86D00EE6307 /* Cocoa.framework in Frameworks */,
+				AB52001D0C01D86D00EE6307 /* WebKit.framework in Frameworks */,
+				AB5200500C01DE1200EE6307 /* JavaVM.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB5200010C01D68C00EE6307 /* libwbp-gwt.jnilib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* CarbonWeb */ = {
+			isa = PBXGroup;
+			children = (
+				20286C2AFDCF999611CA2CEA /* Sources */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = CarbonWeb;
+			sourceTree = "<group>";
+		};
+		20286C2AFDCF999611CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AB4122BA0C0755E4006BED2E /* JStringWrapper.h */,
+				AB4122680C07408F006BED2E /* wbp-gwt.h */,
+				AB52FFC10C01D15800EE6307 /* wbp-gwt.cp */,
+				32DBCF6D0370B57F00C91783 /* wbp-gwt_Prefix.pch */,
+				ABC4E1E50C087066002624F7 /* DispatchObjectWrapper.h */,
+				ABC4E1E60C087066002624F7 /* DispatchObjectWrapper.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D0C4E960486CD37000505A6 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				AB52004F0C01DE1200EE6307 /* JavaVM.framework */,
+				834B23D40796148700E4BF6C /* Cocoa.framework */,
+				834B23D50796148700E4BF6C /* WebKit.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AB52FFFD0C01D68C00EE6307 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AB5200000C01D68C00EE6307 /* wbp-gwt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB5200020C01D6C400EE6307 /* Build configuration list for PBXNativeTarget "wbp-gwt" */;
+			buildPhases = (
+				AB52FFFD0C01D68C00EE6307 /* Headers */,
+				AB52FFFE0C01D68C00EE6307 /* Sources */,
+				AB52FFFF0C01D68C00EE6307 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "wbp-gwt";
+			productName = "wbp-gwt";
+			productReference = AB5200010C01D68C00EE6307 /* libwbp-gwt.jnilib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 149C294B08902C52008A9EFC /* Build configuration list for PBXProject "wbp-gwt" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 20286C29FDCF999611CA2CEA /* CarbonWeb */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB5200000C01D68C00EE6307 /* wbp-gwt */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB52FFFE0C01D68C00EE6307 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB52000E0C01D6F700EE6307 /* wbp-gwt.cp in Sources */,
+				ABC4E1E80C087066002624F7 /* DispatchObjectWrapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		149C294C08902C52008A9EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		149C294D08902C52008A9EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+		AB5200030C01D6C400EE6307 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = jnilib;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wbp-gwt_Prefix.pch";
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/JavaVM.framework/Headers;
+				INSTALL_PATH = /usr/local/lib;
+				OTHER_CFLAGS = "-xobjective-c++";
+				PRODUCT_NAME = "wbp-gwt";
+				VALID_ARCHS = "ppc i386 x86_64";
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		AB5200040C01D6C400EE6307 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = jnilib;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "wbp-gwt_Prefix.pch";
+				HEADER_SEARCH_PATHS = /System/Library/Frameworks/JavaVM.framework/Headers;
+				INSTALL_PATH = /usr/local/lib;
+				OTHER_CFLAGS = "-xobjective-c++";
+				PRODUCT_NAME = "wbp-gwt";
+				VALID_ARCHS = "ppc i386 x86_64";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		149C294B08902C52008A9EFC /* Build configuration list for PBXProject "wbp-gwt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				149C294C08902C52008A9EFC /* Debug */,
+				149C294D08902C52008A9EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB5200020C01D6C400EE6307 /* Build configuration list for PBXNativeTarget "wbp-gwt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB5200030C01D6C400EE6307 /* Debug */,
+				AB5200040C01D6C400EE6307 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

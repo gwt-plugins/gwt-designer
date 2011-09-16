@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- PROPERTIES -->
+	<properties-preferred names="text"/>
+	<properties-advanced names="cursorPos key"/>
+	<property-tag name="text" tag="isText" value="true"/>
+	<property id="setTextAlignment(com.google.gwt.user.client.ui.TextBoxBase.TextAlignConstant)">
+		<editor id="staticField">
+			<parameter name="class">com.google.gwt.user.client.ui.TextBoxBase</parameter>
+			<parameter name="fields">ALIGN_LEFT ALIGN_CENTER ALIGN_RIGHT ALIGN_JUSTIFY</parameter>
+		</editor>
+	</property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.PasswordTextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextArea"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Button"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Hyperlink"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.RichTextArea"/>
+	</morphTargets>
+</component>

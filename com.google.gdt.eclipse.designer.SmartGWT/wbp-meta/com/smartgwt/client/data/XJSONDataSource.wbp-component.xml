@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>A DataSource preconfigured to use the {@link com.smartgwt.client.types.RPCTransport
+        "scriptInclude"} transport "for cross-domain calls to JSON services, such as those provided
+        by Yahoo!".</description>
+</component>

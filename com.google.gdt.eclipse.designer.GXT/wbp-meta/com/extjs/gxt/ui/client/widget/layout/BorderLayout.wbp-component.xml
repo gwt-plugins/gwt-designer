@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.layout.BorderLayoutInfo"/>
+	<description>Layout that simply renders each child component into its container. The size and position of
+		children are not altered by this layout.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.layout.BorderLayout()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<property id="setContainerStyle(java.lang.String)">
+		<editor id="gwt.style"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout-data.has">true</parameter>
+		<parameter name="layout-data.class">com.extjs.gxt.ui.client.widget.layout.BorderLayoutData</parameter>
+		<parameter name="layout-data.virtual">null</parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer.tree">true</parameter>
+	</parameters>
+</component>

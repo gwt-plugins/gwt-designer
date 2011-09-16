@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <methods>
+        <method name="setOptionDataSource">
+            <parameter type="com.smartgwt.client.data.DataSource"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names="animat* empty* fetchDelay filterLocally"/>
+    <properties-advanced names="pickList* showOptionsInDataSource textMatchStyle"/>
+    <properties-noDefaultValue names="pickListHeight"/>
+    <property-tag name="optionDataSource" tag="useObjectEditor" value="true"/>
+</component>

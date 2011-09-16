@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A hierarchical tree widget bound directly to a TreeStore. TreePanel contains no child
+		widgets, rather, the tree is rendered based on the models contained in the tree store. Once bound, the
+		tree will remain in sync with the bound tree store.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.treepanel.TreePanel(new com.extjs.gxt.ui.client.store.TreeStore())]]></source>
+		<invocation signature="setBorders(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="checkable displayProperty"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.treepanel.TreePanel"><![CDATA[
+			TreePanelEvent BeforeExpand BeforeCollapse Expand Collapse
+			TreePanelEvent BeforeCheckChange CheckChange CheckChanged
+		]]></parameter>
+	</parameters>
+</component>

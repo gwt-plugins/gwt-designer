@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Specialized Menu that shows ColorPalette.</description>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude method="getColorPalette"/>
+	</exposing-rules>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			object.setShadow(false);
+			ReflectionUtils.invokeMethod(object, "layout()", {});
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">false</parameter>
+	</parameters>
+</component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <description>FormItem that uses a Slider component to present an interface for picking from
+        either a continuous range or a range with a small number of discrete values.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.SliderItem("newSliderItem_%index%", "New SliderItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="vertical maxValue minValue"/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names="maxValue minValue"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">false</parameter>
+    </parameters>
+</component>

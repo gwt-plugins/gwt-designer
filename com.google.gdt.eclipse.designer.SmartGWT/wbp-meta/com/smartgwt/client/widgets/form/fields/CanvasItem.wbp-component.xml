@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.smart.model.form.CanvasItemInfo"/>
+    <description>Form item which renders a Canvas inline in a DynamicForm instance.</description>
+    <creation>
+        <source><![CDATA[new com.smartgwt.client.widgets.form.fields.CanvasItem("newCanvasItem_%index%", "New CanvasItem")]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+        </constructor>
+        <constructor>
+            <parameter type="java.lang.String" property="setName(java.lang.String)"/>
+            <parameter type="java.lang.String" property="setTitle(java.lang.String)"/>
+        </constructor>
+    </constructors>
+    <!-- METHODS -->
+    <methods>
+        <method name="setCanvas" order="afterCreation">
+            <parameter type="com.smartgwt.client.widgets.Canvas" child="true"/>
+        </method>
+    </methods>
+    <!-- PROPERTIES -->
+    <properties-preferred names=""/>
+    <properties-advanced names=""/>
+    <properties-noDefaultValue names="cellHeight"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- simple container -->
+        <parameter name="simpleContainer">true</parameter>
+        <parameter name="simpleContainer.component">com.smartgwt.client.widgets.Canvas</parameter>
+        <parameter name="simpleContainer.association">%parent%.setCanvas(%child%)</parameter>
+    </parameters>
+</component>

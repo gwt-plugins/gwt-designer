@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container>
+    <descriptors name="GXT.Widgets"
+    	class="com.google.gdt.eclipse.designer.gxt.databinding.wizards.autobindings.GxtWidgetDescriptor">
+        <!-- String -->
+        <descriptor>
+            <setDefault/>
+            <addImage value="widgets/TextField.png"/>
+            <addName value="TextField"/>
+            <addImage value="types/String.png"/>
+            <addName value="text"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.TextField"/>
+            <setGeneric/>
+            <setPropertyClass value="java.lang.String"/>
+        </descriptor>
+        <descriptor>
+            <addImage value="widgets/TextArea.png"/>
+            <addName value="TextArea"/>
+            <addImage value="types/String.png"/>
+            <addName value="text"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.TextArea"/>
+            <setPropertyClass value="java.lang.String"/>
+        </descriptor>
+        <descriptor>
+            <addImage value="widgets/SimpleComboBox.png"/>
+            <addName value="SimpleComboBox"/>
+            <addImage value="types/String.png"/>
+            <addName value="text"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.SimpleComboBox"/>
+            <setBindingClass value="com.extjs.gxt.ui.client.binding.SimpleComboBoxFieldBinding"/>
+            <setGeneric/>
+            <setPropertyClass value="java.lang.String"/>
+        </descriptor>
+        <descriptor>
+            <addImage value="widgets/HtmlEditor.png"/>
+            <addName value="HtmlEditor"/>
+            <addImage value="types/String.png"/>
+            <addName value="text"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.HtmlEditor"/>
+            <setPropertyClass value="java.lang.String"/>
+        </descriptor>
+        <descriptor>
+            <addImage value="widgets/LabelField.png"/>
+            <addName value="LabelField"/>
+            <addImage value="types/String.png"/>
+            <addName value="text"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.LabelField"/>
+            <setPropertyClass value="java.lang.String"/>
+        </descriptor>
+        <!-- Boolean -->
+        <descriptor>
+            <setDefault/>
+            <addImage value="widgets/Radio.png"/>
+            <addName value="Radio"/>
+            <addImage value="types/Boolean.png"/>
+            <addName value="state"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.Radio"/>
+            <setPropertyClass value="java.lang.Boolean"/>
+        </descriptor>
+        <descriptor>
+            <addImage value="widgets/CheckBox.png"/>
+            <addName value="CheckBox"/>
+            <addImage value="types/Boolean.png"/>
+            <addName value="state"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.CheckBox"/>
+            <setPropertyClass value="java.lang.String"/>
+        </descriptor>
+        <!-- Number -->
+        <descriptor>
+            <setDefault/>
+            <addImage value="widgets/NumberField.png"/>
+            <addName value="NumberField"/>
+            <addImage value="types/Number.png"/>
+            <addName value="text"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.NumberField"/>
+            <setPropertyClass
+                value="java.lang.Number java.lang.Integer java.lang.Long java.lang.Short java.lang.Float java.lang.Double long int short float double"
+            />
+        </descriptor>
+        <!-- Date -->
+        <descriptor>
+            <setDefault/>
+            <addImage value="widgets/DateField.png"/>
+            <addName value="DateField"/>
+            <addImage value="types/Date.png"/>
+            <addName value="value"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.DateField"/>
+            <setPropertyClass value="java.util.Date"/>
+        </descriptor>
+        <!-- Time -->
+        <descriptor>
+            <addImage value="widgets/TimeField.png"/>
+            <addName value="TimeField"/>
+            <addImage value="javabean.gif"/>
+            <addName value="value"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.TimeField"/>
+            <setBindingClass value="com.extjs.gxt.ui.client.binding.TimeFieldBinding"/>
+        </descriptor>
+        <!-- Hidden -->
+        <descriptor>
+            <addImage value="widgets/HiddenField.png"/>
+            <addName value="HiddenField"/>
+            <addImage value="javabean.gif"/>
+            <addName value="value"/>
+            <setWidgetClass value="com.extjs.gxt.ui.client.widget.form.HiddenField"/>
+            <setGeneric/>
+        </descriptor>
+    </descriptors>
+</container>

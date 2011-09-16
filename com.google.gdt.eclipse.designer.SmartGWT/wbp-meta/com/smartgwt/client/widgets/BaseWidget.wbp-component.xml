@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.smart.model.BaseWidgetInfo"/>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<exclude package="com.smartgwt.client.widgets"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="configOnly nullProperty position scClassName"/>
+	<property-tag name="stylePrimaryName" tag="noDefaultValue" value="true"/>
+</component>

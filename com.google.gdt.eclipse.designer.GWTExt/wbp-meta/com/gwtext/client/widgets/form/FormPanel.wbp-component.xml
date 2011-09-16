@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.FormPanelInfo"/>
+	<description>FormPanel uses a FormLayout internally, and that is required for fields and labels to work
+		correctly within the FormPanel's layout. To nest additional layout styles within a FormPanel, you
+		should nest additional Panels or other containers that can provide additional layout functionality.
+		You should not override FormPanel's layout.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.form.FormPanel()]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.gwtext.client.core.Position"
+				property="setLabelAlign(com.gwtext.client.core.Position)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-advanced names="url waitMsgTarget"/>
+	<property id="setButtonAlign(com.gwtext.client.core.Position)">
+		<category value="advanced"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.core.Position</parameter>
+			<parameter name="fields">LEFT CENTER RIGHT</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.core.Position.CENTER"/>
+	</property>
+	<property id="setFileUpload(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setHideLabels(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setItemCls(java.lang.String)">
+		<category value="advanced"/>
+		<editor id="gwt.style"/>
+		<defaultValue value="'x-form-item'"/>
+	</property>
+	<property id="setLabelAlign(com.gwtext.client.core.Position)">
+		<category value="preferred"/>
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.core.Position</parameter>
+			<parameter name="fields">LEFT RIGHT CENTER TOP BOTTOM AUTO</parameter>
+		</editor>
+		<defaultValue value="com.gwtext.client.core.Position.LEFT"/>
+	</property>
+	<property id="setMinButtonWidth(int)">
+		<category value="advanced"/>
+		<defaultValue value="75"/>
+	</property>
+	<property id="setMonitorPoll(int)">
+		<category value="advanced"/>
+		<defaultValue value="200"/>
+	</property>
+	<property id="setMonitorValid(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setTimeout(int)">
+		<category value="advanced"/>
+		<defaultValue value="30"/>
+	</property>
+	<property id="setTrackResetOnLoad(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<property id="setWaitMsgTarget(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layout.has">true</parameter>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">250px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<!-- refresh -->
+		<parameter name="GWTExt.configureBeforeAssociation"><![CDATA[
+			import com.gwtext.client.widgets.form.*;
+			if (model.getFields().isEmpty()) {
+				fakeField = new TextField("At least one Field required", "fake_field", 100);
+				object.add(fakeField);
+			}
+			]]></parameter>
+	</parameters>
+</component>

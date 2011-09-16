@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>Add a LayoutSpacer to a Layout to take up space just like a normal member, without actually
+		drawing anything. Semantically equivalent to using an empty canvas, but higher performance for this
+		particular use case.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.smartgwt.client.widgets.layout.LayoutSpacer()]]></source>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names=""/>
+	<properties-normal names=""/>
+	<properties-advanced names=""/>
+</component>

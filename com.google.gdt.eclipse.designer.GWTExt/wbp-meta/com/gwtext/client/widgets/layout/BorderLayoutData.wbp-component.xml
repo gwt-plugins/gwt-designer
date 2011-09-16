@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.layout.BorderLayoutDataInfo"/>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.layout.BorderLayoutData(com.gwtext.client.core.RegionPosition.CENTER)]]></source>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.gwtext.client.core.RegionPosition"
+				property="setRegion(com.gwtext.client.core.RegionPosition)"/>
+		</constructor>
+		<constructor>
+			<parameter type="com.gwtext.client.core.RegionPosition"
+				property="setRegion(com.gwtext.client.core.RegionPosition)"/>
+			<parameter type="com.gwtext.client.core.Margins"
+				property="setMargins(com.gwtext.client.core.Margins)"/>
+		</constructor>
+	</constructors>
+	<!-- PROPERTIES -->
+	<method-property title="margins-c" method="setCMargins(int,int,int,int)"/>
+	<method-property title="margins" method="setMargins(int,int,int,int)"/>
+	<property id="setAnimFloat(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setAutoHide(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setCollapseModeMini(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setFloatable(boolean)">
+		<defaultValue value="true"/>
+	</property>
+	<property id="setMinHeight(int)">
+		<defaultValue value="50"/>
+	</property>
+	<property id="setMinWidth(int)">
+		<defaultValue value="50"/>
+	</property>
+	<property id="setRegion(com.gwtext.client.core.RegionPosition)">
+		<editor id="staticField">
+			<parameter name="class">com.gwtext.client.core.RegionPosition</parameter>
+			<parameter name="fields">NORTH SOUTH WEST EAST CENTER</parameter>
+		</editor>
+	</property>
+	<property id="setSplit(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<property id="setCollapsibleSplitTip(java.lang.String)">
+		<defaultValue value="'Drag to resize. Double click to hide.'"/>
+	</property>
+	<property id="setSplitTip(java.lang.String)">
+		<defaultValue value="'Drag to resize.'"/>
+	</property>
+	<property id="setUseSplitTips(boolean)">
+		<defaultValue value="false"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="layoutData.exclude-properties">Class Constructor</parameter>
+	</parameters>
+</component>

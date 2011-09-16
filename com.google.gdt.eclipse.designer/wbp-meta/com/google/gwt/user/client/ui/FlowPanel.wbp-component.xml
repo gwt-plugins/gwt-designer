@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A panel that formats its child widgets using the default HTML layout behavior.</description>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.AbsolutePanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.StackPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.DeckPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.HorizontalPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.VerticalPanel"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TabPanel"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">100px</parameter>
+		<parameter name="liveComponent.forcedSize.height">100px</parameter>
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getWidgetCount() == 0) {
+				object.add(new Label("Empty FlowPanel"));
+			}
+			]]></parameter>
+		<!-- flow container -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">true</parameter>
+		<parameter name="flowContainer.association">%parent%.add(%child%)</parameter>
+	</parameters>
+</component>

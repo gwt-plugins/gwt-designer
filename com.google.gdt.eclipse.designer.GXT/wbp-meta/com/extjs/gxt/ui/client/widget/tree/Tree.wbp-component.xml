@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.TreeInfo"/>
+	<description>A standard hierarchical tree widget. The tree contains a hierarchy of TreeItem-s, that the
+		user can open, close, and select.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.tree.Tree()]]></source>
+		<invocation signature="setBorders(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="getRootItem">
+			<tag name="exposeDisconnectedComponent" value="true"/>
+		</method>
+	</methods>
+	<!-- EXPOSING RULES -->
+	<exposing-rules>
+		<include method="getRootItem"/>
+	</exposing-rules>
+	<!-- PROPERTIES -->
+	<properties-preferred names="checkable"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">200px</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.tree.Tree"><![CDATA[
+			TreeEvent BeforeAdd BeforeRemove Add Remove ContextMenu 
+			TreeEvent BeforeExpand BeforeCollapse Expand Collapse 
+			TreeEvent BeforeSelect SelectionChange CheckChange KeyPress
+		]]></parameter>
+	</parameters>
+</component>

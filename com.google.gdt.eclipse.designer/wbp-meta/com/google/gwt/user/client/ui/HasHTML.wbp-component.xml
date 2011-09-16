@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<!-- PROPERTIES -->
+	<property-tag name="hTML" tag="title" value="html"/>
+	<property-tag name="hTML" tag="isContent" value="true"/>
+</component>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<!-- ======================================================== -->
+	<!-- Designer content type-->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.designerContentPatterns">
+		<includePattern>com.gwtext.client.widgets.</includePattern>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Exceptions -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.exceptions">
+		<file path="resources/exceptions.xml"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Description driven features -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.rootProcessors">
+		<processor
+			class="com.google.gdt.eclipse.designer.gwtext.model.widgets.ComponentRootProcessor"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- PropertyEditor -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.standardToolkitPackages">
+		<package prefix="com.gwtext."/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Parser -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.parseFactories">
+		<factory class="com.google.gdt.eclipse.designer.gwtext.parser.ParseFactory"/>
+	</extension>
+	<extension point="com.google.gdt.eclipse.designer.classLoaderValidators">
+		<validator class="com.google.gdt.eclipse.designer.gwtext.parser.ClassLoaderValidator"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Toolkit -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.toolkits">
+		<toolkit id="com.google.gdt.eclipse.designer">
+			<resourcePrefixes>
+				<resourcePrefix>com.gwtext.</resourcePrefix>
+			</resourcePrefixes>
+			<palette condition="!(isdef isUiBinder)">
+				<category id="com.google.gdt.eclipse.designer.GWTExt" name="GWT-Ext"
+					description="GWT-Ext widgets" optional="true">
+					<!-- Simple -->
+					<component class="com.gwtext.client.widgets.form.Label"/>
+					<component class="com.gwtext.client.widgets.Button"/>
+					<component class="com.gwtext.client.widgets.SplitButton"/>
+					<component class="com.gwtext.client.widgets.CycleButton"/>
+					<component class="com.gwtext.client.widgets.ColorPalette"/>
+					<component class="com.gwtext.client.widgets.DatePicker"/>
+					<component class="com.gwtext.client.widgets.ProgressBar"/>
+					<!-- Panels -->
+					<component class="com.gwtext.client.widgets.Panel"/>
+					<component class="com.gwtext.client.widgets.tree.TreePanel"/>
+					<component class="com.gwtext.client.widgets.tree.TreeNode"/>
+					<component class="com.gwtext.client.widgets.FocusPanel"/>
+					<component class="com.gwtext.client.widgets.form.FormPanel"/>
+					<component class="com.gwtext.client.widgets.grid.GridPanel"/>
+					<component class="com.gwtext.client.widgets.grid.ColumnConfig"/>
+					<component class="com.gwtext.client.widgets.HTMLPanel"/>
+					<component class="com.gwtext.client.widgets.PaddedPanel"/>
+					<component class="com.gwtext.client.widgets.TabPanel"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GWTExt.layout" name="GWT-Ext layouts"
+					optional="true" description="Only for GWT-Ext Container/Panel.">
+					<component class="com.gwtext.client.widgets.layout.RowLayout"/>
+					<component class="com.gwtext.client.widgets.layout.ColumnLayout"/>
+					<component class="com.gwtext.client.widgets.layout.BorderLayout"/>
+					<component class="com.gwtext.client.widgets.layout.AnchorLayout"/>
+					<component class="com.gwtext.client.widgets.layout.AbsoluteLayout"/>
+					<component class="com.gwtext.client.widgets.layout.FormLayout"/>
+					<component class="com.gwtext.client.widgets.layout.FitLayout"/>
+					<component class="com.gwtext.client.widgets.layout.AccordionLayout"/>
+					<component class="com.gwtext.client.widgets.layout.CardLayout"/>
+					<component class="com.gwtext.client.widgets.layout.TableLayout"/>
+					<component class="com.gwtext.client.widgets.layout.HorizontalLayout"/>
+					<component class="com.gwtext.client.widgets.layout.VerticalLayout"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GWTExt.form" name="GWT-Ext form"
+					description="GWT-Ext form" optional="true">
+					<!-- Simple -->
+					<component class="com.gwtext.client.widgets.form.FormPanel"/>
+					<component class="com.gwtext.client.widgets.form.Label"/>
+					<component class="com.gwtext.client.widgets.form.MultiFieldPanel"/>
+					<!-- Fields -->
+					<component class="com.gwtext.client.widgets.form.Checkbox"/>
+					<component class="com.gwtext.client.widgets.form.Radio"/>
+					<component class="com.gwtext.client.widgets.form.TextField"/>
+					<component class="com.gwtext.client.widgets.form.DateField"/>
+					<component class="com.gwtext.client.widgets.form.NumberField"/>
+					<component class="com.gwtext.client.widgets.form.TextArea"/>
+					<component class="com.gwtext.client.widgets.form.ComboBox"/>
+					<component class="com.gwtext.client.widgets.form.TimeField"/>
+					<component class="com.gwtext.client.widgets.form.HtmlEditor"/>
+					<component class="com.gwtext.client.widgets.form.Hidden"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GWTExt.menu" name="GWT-Ext menu"
+					description="GWT-Ext menu" optional="true">
+					<!-- Toolbar -->
+					<component class="com.gwtext.client.widgets.Toolbar"/>
+					<component class="com.gwtext.client.widgets.ToolbarButton"/>
+					<component class="com.gwtext.client.widgets.ToolbarMenuButton"/>
+					<component class="com.gwtext.client.widgets.ToolbarTextItem"/>
+					<component class="com.gwtext.client.widgets.ToolbarFill"/>
+					<component class="com.gwtext.client.widgets.ToolbarSeparator"/>
+					<component class="com.gwtext.client.widgets.ToolbarSpacer"/>
+					<component class="com.gwtext.client.widgets.PagingToolbar"/>
+					<!-- Menu -->
+					<component class="com.gwtext.client.widgets.menu.Menu"/>
+					<component class="com.gwtext.client.widgets.menu.MenuItem"/>
+					<component class="com.gwtext.client.widgets.menu.Separator"/>
+					<component class="com.gwtext.client.widgets.menu.TextItem"/>
+					<component class="com.gwtext.client.widgets.menu.Item"/>
+					<component class="com.gwtext.client.widgets.menu.CheckItem"/>
+					<component class="com.gwtext.client.widgets.menu.ColorItem"/>
+					<component class="com.gwtext.client.widgets.menu.DateItem"/>
+				</category>
+				<category id="com.google.gdt.eclipse.designer.GWTExt.map" name="GWT-Ext maps"
+					description="GWT-Ext maps" open="false" optional="true">
+					<component class="com.gwtext.client.widgets.map.GoogleMap"
+						description="Make sure you have imported the appropriate Google Map scripts. Don't try to drop GoogleMap without these scripts."
+						enabled="com.gwtext.client.widgets.map.MapFactory.isGoogleAvailable()"/>
+					<component class="com.gwtext.client.widgets.map.YahooMap"
+						enabled="com.gwtext.client.widgets.map.MapFactory.isYahooAvailable()"/>
+					<component class="com.gwtext.client.widgets.map.MicrosoftMap"
+						enabled="com.gwtext.client.widgets.map.MapFactory.isMicrosoftAvailable()"/>
+					<component class="com.gwtext.client.widgets.map.OpenLayersMap"/>
+					<component class="com.gwtext.client.widgets.map.MultiMap"
+						enabled="com.gwtext.client.widgets.map.MapFactory.isMultiMapAvailable()"/>
+					<component class="com.gwtext.client.widgets.map.Map24Map"
+						enabled="com.gwtext.client.widgets.map.MapFactory.isMap24Available()"/>
+					<component class="com.gwtext.client.widgets.map.MapQuestMap"
+						enabled="com.gwtext.client.widgets.map.MapFactory.isMapQuestAvailable()"/>
+					<component class="com.gwtext.client.widgets.map.FreeEarthMap"/>
+					<component class="com.gwtext.client.widgets.map.OpenStreetMap"
+						enabled="com.gwtext.client.widgets.map.MapFactory.isOpenStreetMapAvailable()"
+					/>
+				</category>
+			</palette>
+		</toolkit>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.paletteComponentExists">
+		<component package="com.gwtext.client.widgets."
+			witness="com.gwtext.client.widgets.Component"/>
+	</extension>
+
+
+
+	<!-- ======================================================== -->
+	<!-- Layout managers -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.layoutManagers">
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="absoluteLayout"
+			name="AbsoluteLayout" class="com.gwtext.client.widgets.layout.AbsoluteLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="rowLayout" name="RowLayout"
+			class="com.gwtext.client.widgets.layout.RowLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="columnLayout"
+			name="ColumnLayout" class="com.gwtext.client.widgets.layout.ColumnLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="borderLayout"
+			name="BorderLayout" class="com.gwtext.client.widgets.layout.BorderLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="anchorLayout"
+			name="AnchorLayout" class="com.gwtext.client.widgets.layout.AnchorLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="formLayout" name="FormLayout"
+			class="com.gwtext.client.widgets.layout.FormLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="fitLayout" name="FitLayout"
+			class="com.gwtext.client.widgets.layout.FitLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="accordionLayout"
+			name="AccordionLayout" class="com.gwtext.client.widgets.layout.AccordionLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="cardLayout" name="CardLayout"
+			class="com.gwtext.client.widgets.layout.CardLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="tableLayout" name="TableLayout"
+			class="com.gwtext.client.widgets.layout.TableLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="horizontalLayout"
+			name="HorizontalLayout" class="com.gwtext.client.widgets.layout.HorizontalLayout"/>
+		<layout toolkit="com.google.gdt.eclipse.designer.GWTExt" id="verticalLayout"
+			name="VerticalLayout" class="com.gwtext.client.widgets.layout.VerticalLayout"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.editPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.gwtext.gef.EditPartFactory" priority="1"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.editPolicyFactories">
+		<factory class="com.google.gdt.eclipse.designer.gwtext.gef.LayoutEditPolicyFactory"/>
+	</extension>
+
+	<extension point="org.eclipse.wb.core.editPartConfigurators">
+		<configurator
+			class="com.google.gdt.eclipse.designer.gwtext.gef.LayoutSelectionEditPolicyEditPartConfigurator"
+		/>
+	</extension>
+
+
+
+	<!-- ======================================================== -->
+	<!-- GEF factories for TreeViewer -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.treeEditPartFactories">
+		<factory class="com.google.gdt.eclipse.designer.gwtext.gefTree.EditPartFactory" priority="1"
+		/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Wizards -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.newWizards">
+		<!-- ======================================================== -->
+		<!-- Wizards: UI -->
+		<!-- ======================================================== -->
+		<category id="com.google.gdt.eclipse.designer.GWTExt" name="GWT-Ext"
+			parentCategory="org.eclipse.wb/com.google.gdt.eclipse.designer"/>
+		<wizard
+			category="org.eclipse.wb/com.google.gdt.eclipse.designer/com.google.gdt.eclipse.designer.GWTExt"
+			id="com.google.gdt.eclipse.designer.gwtext.wizards.window.WindowWizard"
+			class="com.google.gdt.eclipse.designer.gwtext.wizards.window.WindowWizard"
+			icon="icons/wizards/Window/window.png" name="GWT-Ext Window">
+			<description>Create an GWT-Ext Window</description>
+		</wizard>
+	</extension>
+
+	<extension point="com.google.gdt.eclipse.designer.moduleConfigurators">
+		<configurator name="GWT-Ext"
+			class="com.google.gdt.eclipse.designer.gwtext.actions.ConfigureGwtExtAction"/>
+	</extension>
+
+
+	<!-- ======================================================== -->
+	<!-- Popup menu -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution adaptable="true"
+			id="com.google.gdt.eclipse.designerExt.objectContribution.configure"
+			objectClass="org.eclipse.core.resources.IResource">
+			<enablement>
+				<test property="com.google.gdt.eclipse.designer.isGwtModuleElement"
+					forcePluginActivation="true"/>
+			</enablement>
+			<action id="com.google.gdt.eclipse.designer.gwtext.actions.ConfigureGwtExtAction"
+				label="Configure for using GWT-Ext"
+				class="com.google.gdt.eclipse.designer.gwtext.actions.ConfigureGwtExtAction"
+				enablesFor="1" menubarPath="com.google.gdt.eclipse.designer.menu/configureFor"/>
+		</objectContribution>
+	</extension>
+
+
+</plugin>

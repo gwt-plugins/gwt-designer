@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<description>A widget that presents a list of choices to the user, either as a list box or as a drop-down
+		list.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.ListBox()]]></source>
+		<invocation signature="setVisibleItemCount(int)"><![CDATA[5]]></invocation>
+		<description>A widget that presents a list of choices to the user as a list box.</description>
+		<x-attribute name="visibleItemCount" value="5"/>
+	</creation>
+	<creation id="combo" name="Combo">
+		<source><![CDATA[new com.google.gwt.user.client.ui.ListBox()]]></source>
+		<parameter name="variable.name">comboBox</parameter>
+		<description>A widget that presents a list of choices to the user as a drop-down list.</description>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="boolean" property="setMultipleSelect(boolean)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<!-- items -->
+		<method name="clear"/>
+		<method name="addItem">
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="addItem">
+			<parameter type="java.lang.String"/>
+			<parameter type="java.lang.String"/>
+		</method>
+		<method name="insertItem">
+			<parameter type="java.lang.String"/>
+			<parameter type="int"/>
+		</method>
+		<method name="insertItem">
+			<parameter type="java.lang.String"/>
+			<parameter type="java.lang.String"/>
+			<parameter type="int"/>
+		</method>
+		<!-- selection -->
+		<method name="setSelectedIndex" order="after addItem(java.lang.String)">
+			<parameter type="int"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<add-property id="stringsAdd" title="items">
+		<parameter name="addMethod">addItem</parameter>
+		<parameter name="removeMethods">clear() addItem(java.lang.String,java.lang.String)
+			insertItem(java.lang.String,int) insertItem(java.lang.String,java.lang.String,int) </parameter>
+	</add-property>
+	<!-- MORPHING -->
+	<morphTargets>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.ListBox" creationId="combo"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Button"/>
+		<morphTarget class="com.google.gwt.user.client.ui.TextBox"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Label"/>
+		<morphTarget class="com.google.gwt.user.client.ui.Hyperlink"/>
+	</morphTargets>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- setSize(int,int) tweaks -->
+		<parameter name="setSize.excludeMargin">true</parameter>
+		<parameter name="setSize.excludeBorder">false</parameter>
+		<parameter name="setSize.excludePadding">false</parameter>
+		<!-- refresh -->
+		<parameter name="refresh_afterCreate"><![CDATA[
+			import com.google.gwt.user.client.ui.*;
+			if (object.getItemCount() == 0) {
+				object.addItem("Item 1");
+				object.addItem("Item 2");
+				object.addItem("Item 3");
+				object.addItem("Item 4");
+				object.addItem("Item 5");
+			}
+			]]></parameter>
+		<!-- related styles -->
+		<parameter name="relatedStyles"><![CDATA[
+			.gwt-ListBox { }
+		]]></parameter>
+	</parameters>
+</component>

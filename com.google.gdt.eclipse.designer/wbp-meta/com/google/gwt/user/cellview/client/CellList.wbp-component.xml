@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.model.widgets.cell.CellListInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.cell.CellListInfo"/>
+    <description>A single column list of cells.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.google.gwt.user.cellview.client.CellList<%rowType%>(new com.google.gwt.cell.client.AbstractCell<%rowType%>(){
+	@Override
+	public void render(com.google.gwt.cell.client.Cell.Context context, %rowType% value, com.google.gwt.safehtml.shared.SafeHtmlBuilder sb) {
+		// TODO
+	}
+})]]>
+        </source>
+        <typeParameters>
+            <typeParameter name="rowType" type="java.lang.Object" title="Row data type &lt;T&gt;"/>
+        </typeParameters>
+    </creation>
+    <!-- PROPERTIES -->
+	<properties-advanced names="rowCount"/>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- new -->
+        <parameter name="liveComponent.forcedSize.width">150px</parameter>
+        <parameter name="liveComponent.forcedSize.height">100px</parameter>
+    	<!-- UiBinder -->
+    	<parameter name="UiBinder.createFieldProvided">true</parameter>
+    	<parameter name="UiBinder.createInstance"><![CDATA[
+    		import com.google.gwt.cell.client.TextCell;
+    		import com.google.gwt.user.cellview.client.*;
+    		list = new CellList(new TextCell());
+    		list.setRowData(0, {'1. Item', '2. Long item', '3. Even longer item', '4. Item', '5. Long item'});
+    		list.setRowCount(5);
+    		return list;
+    	]]></parameter>
+        <!-- border -->
+        <parameter name="shouldDrawBorder">true</parameter>
+    </parameters>
+</component>

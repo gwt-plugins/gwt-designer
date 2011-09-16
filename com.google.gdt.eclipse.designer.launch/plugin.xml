@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+	<!-- ======================================================== -->
+	<!-- Launch -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+		<!-- Launch -->
+		<launchConfigurationType id="com.google.gdt.eclipse.designer.gwtLaunchConfigurationType"
+			delegate="com.google.gdt.eclipse.designer.launch.GwtLaunchConfigurationDelegate"
+			modes="run, debug" name="GWT Application"/>
+		<!-- JUnit -->
+		<launchConfigurationType
+			id="com.google.gdt.eclipse.designer.junitGwtLaunchConfigurationType"
+			delegate="com.google.gdt.eclipse.designer.launch.JUnitGwtLaunchConfigurationDelegate"
+			modes="run, debug" name="GWT JUnit Test"
+			sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+			sourcePathComputerId="org.eclipse.jdt.launching.sourceLookup.javaSourcePathComputer"/>
+		<!-- Compile -->
+		<launchConfigurationType
+			id="com.google.gdt.eclipse.designer.gwtCompilerLaunchConfigurationType"
+			delegate="com.google.gdt.eclipse.designer.launch.GwtCompilerLaunchConfigurationDelegate"
+			modes="run, debug" name="Compile GWT Application"/>
+	</extension>
+
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+		<!-- Launch -->
+		<launchConfigurationTypeImage
+			id="com.google.gdt.eclipse.designer.gwtLaunchConfigurationTypeImage"
+			configTypeID="com.google.gdt.eclipse.designer.gwtLaunchConfigurationType"
+			icon="icons/launch/gwt.gif"/>
+		<!-- JUnit -->
+		<launchConfigurationTypeImage
+			id="com.google.gdt.eclipse.designer.junitGwtLaunchConfigurationTypeImage"
+			configTypeID="com.google.gdt.eclipse.designer.junitGwtLaunchConfigurationType"
+			icon="icons/launch/junit.png"/>
+		<!-- Compile -->
+		<launchConfigurationTypeImage
+			id="com.google.gdt.eclipse.designer.gwtCompilerLaunchConfigurationTypeImage"
+			configTypeID="com.google.gdt.eclipse.designer.gwtCompilerLaunchConfigurationType"
+			icon="icons/launch/compiler.png"/>
+	</extension>
+
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<!-- Launch -->
+		<launchConfigurationTabGroup
+			id="com.google.gdt.eclipse.designer.gwtLaunchConfigurationTabGroup"
+			class="com.google.gdt.eclipse.designer.launch.GwtLaunchConfigurationTabGroup"
+			type="com.google.gdt.eclipse.designer.gwtLaunchConfigurationType"
+			description="Run a GWT application"/>
+		<!-- JUnit -->
+		<launchConfigurationTabGroup
+			id="com.google.gdt.eclipse.designer.junitGwtLaunchConfigurationTabGroup"
+			class="com.google.gdt.eclipse.designer.launch.JUnitGwtLaunchConfigurationTabGroup"
+			type="com.google.gdt.eclipse.designer.junitGwtLaunchConfigurationType"
+			description="Run a GWT JUnit Test"/>
+		<!-- Compile -->
+		<launchConfigurationTabGroup
+			id="com.google.gdt.eclipse.designer.gwtCompilerLaunchConfigurationTypeTabGroup"
+			class="com.google.gdt.eclipse.designer.launch.GwtCompilerLaunchConfigurationTabGroup"
+			type="com.google.gdt.eclipse.designer.gwtCompilerLaunchConfigurationType"
+			description="Run Compile GWT Application"/>
+	</extension>
+
+	<!-- ======================================================== -->
+	<!-- "Run/Debug as..." support -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+		<!-- Launch -->
+		<shortcut id="com.google.gdt.eclipse.designer.launch.gwtLaunchShortcut"
+			class="com.google.gdt.eclipse.designer.launch.GwtLaunchShortcut"
+			icon="/icons/launch/gwt.gif" label="GWT application" modes="run, debug">
+			<contextualLaunch>
+				<enablement>
+					<with variable="selection">
+						<count value="1"/>
+						<iterate>
+							<or>
+								<test property="com.google.gdt.eclipse.designer.isGwtModuleElement"
+									forcePluginActivation="true"/>
+							</or>
+						</iterate>
+					</with>
+				</enablement>
+			</contextualLaunch>
+		</shortcut>
+		<!-- JUnit -->
+		<shortcut id="com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut"
+			class="com.google.gdt.eclipse.designer.launch.JUnitGwtLaunchShortcut"
+			icon="icons/launch/junit.png" label="GWT JUnit Test" modes="run, debug">
+			<contextualLaunch>
+				<enablement>
+					<with variable="selection">
+						<count value="1"/>
+						<iterate>
+							<adapt type="org.eclipse.jdt.core.IJavaElement">
+								<test property="org.eclipse.jdt.core.isInJavaProject"
+									forcePluginActivation="true"/>
+								<test property="org.eclipse.jdt.core.hasTypeOnClasspath"
+									value="junit.framework.Test" forcePluginActivation="true"/>
+								<test property="org.eclipse.jdt.junit.canLaunchAsJUnit"
+									forcePluginActivation="true"/>
+							</adapt>
+						</iterate>
+					</with>
+				</enablement>
+			</contextualLaunch>
+		</shortcut>
+		<!-- Compile -->
+		<shortcut id="com.google.gdt.eclipse.designer.launch.gwtCompilerLaunchShortcut"
+			class="com.google.gdt.eclipse.designer.launch.GwtCompilerLaunchShortcut"
+			icon="icons/launch/compiler.png" label="Compile GWT Application" modes="run, debug">
+			<contextualLaunch>
+				<enablement>
+					<with variable="selection">
+						<count value="1"/>
+						<iterate>
+							<or>
+								<test property="com.google.gdt.eclipse.designer.isGwtModuleElement"
+									forcePluginActivation="true"/>
+							</or>
+						</iterate>
+					</with>
+				</enablement>
+			</contextualLaunch>
+		</shortcut>
+	</extension>
+
+	<extension point="org.eclipse.ui.commands">
+		<!-- Launch -->
+		<command categoryId="org.eclipse.debug.ui.category.run"
+			id="com.google.gdt.eclipse.designer.launch.gwtLaunchShortcut.debug"
+			description="Debug GWT Application" name="Debug GWT Application"/>
+		<command categoryId="org.eclipse.debug.ui.category.run"
+			id="com.google.gdt.eclipse.designer.launch.gwtLaunchShortcut.run"
+			name="Run GWT Application" description="Run GWT Application"/>
+		<!-- JUnit -->
+		<command categoryId="org.eclipse.debug.ui.category.run"
+			id="com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut.debug"
+			name="Debug GWT JUnit Test" description="Debug GWT JUnit Test"/>
+		<command categoryId="org.eclipse.debug.ui.category.run"
+			id="com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut.run"
+			name="Run GWT JUnit Test" description="Run GWT JUnit Test"/>
+		<!-- Compile -->
+		<command categoryId="org.eclipse.debug.ui.category.run"
+			id="com.google.gdt.eclipse.designer.launch.gwtCompilerLaunchShortcut.debug"
+			name="Debug Compile GWT Application" description="Debug Compile GWT Application"/>
+		<command categoryId="org.eclipse.debug.ui.category.run"
+			id="com.google.gdt.eclipse.designer.launch.gwtCompilerLaunchShortcut.run"
+			name="Run Compile GWT Application" description="Run Compile GWT Application"/>
+	</extension>
+
+	<extension point="org.eclipse.ui.bindings">
+		<!-- Launch -->
+		<key commandId="com.google.gdt.eclipse.designer.launch.gwtLaunchShortcut.debug"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M3+M2+D G"/>
+		<key commandId="com.google.gdt.eclipse.designer.launch.gwtLaunchShortcut.run"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M3+M2+X G"/>
+		<!-- JUnit -->
+		<key commandId="com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut.debug"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M3+M2+D H"/>
+		<key commandId="com.google.gdt.eclipse.designer.launch.junitGwtLaunchShortcut.run"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M3+M2+X H"/>
+		<!-- Compile -->
+		<key commandId="com.google.gdt.eclipse.designer.launch.gwtCompilerLaunchShortcut.debug"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M3+M2+D C"/>
+		<key commandId="com.google.gdt.eclipse.designer.launch.gwtCompilerLaunchShortcut.run"
+			schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M3+M2+X C"/>
+	</extension>
+
+</plugin>

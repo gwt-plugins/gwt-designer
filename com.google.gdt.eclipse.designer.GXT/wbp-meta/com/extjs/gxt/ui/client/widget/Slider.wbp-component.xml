@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.SliderInfo"/>
+	<description>Selectable user interface object that represent a range of positive, numeric values.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.extjs.gxt.ui.client.widget.Slider()]]></source>
+		<invocation signature="setValue(int)"><![CDATA[30]]></invocation>
+	</creation>
+	<!-- PROPERTIES -->
+	<properties-preferred names="minValue maxValue value increment"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!-- new -->
+		<parameter name="liveComponent.forcedSize.width">300px</parameter>
+		<parameter name="liveComponent.forcedSize.height">auto</parameter>
+		<!-- untyped events -->
+		<parameter name="GXT.untyped.events: com.extjs.gxt.ui.client.widget.Slider"><![CDATA[
+			SliderEvent BeforeChange Change
+		]]></parameter>
+	</parameters>
+</component>

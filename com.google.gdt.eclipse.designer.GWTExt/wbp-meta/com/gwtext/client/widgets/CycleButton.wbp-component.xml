@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.gwtext.model.widgets.CycleButtonInfo"/>
+	<description>A specialized SplitButton that contains a menu of {@link CheckItem} elements. The button
+		automatically cycles through each menu item on click, raising the button's change event.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.gwtext.client.widgets.CycleButton()]]></source>
+		<invocation signature="setShowText(boolean)"><![CDATA[true]]></invocation>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<constructor>
+			<parameter type="com.gwtext.client.widgets.event.CycleButtonListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.event.CycleButtonListener)"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="com.gwtext.client.widgets.event.CycleButtonListener">
+				<tag name="events: add listener method"
+					value="addListener(com.gwtext.client.widgets.event.CycleButtonListener)"/>
+			</parameter>
+			<parameter type="java.lang.String" property="setIcon(java.lang.String)"/>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="addItem">
+			<parameter type="com.gwtext.client.widgets.menu.CheckItem" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<property id="setShowText(boolean)">
+		<category value="advanced"/>
+		<defaultValue value="false"/>
+	</property>
+	<!-- PARAMETERS -->
+	<parameters>
+		<!--<parameter name="GWT.requiresMessagesLoop">true</parameter>-->
+		<!-- flow container (canvas and tree) -->
+		<parameter name="flowContainer">true</parameter>
+		<parameter name="flowContainer.horizontal">false</parameter>
+		<parameter name="flowContainer.component">com.gwtext.client.widgets.menu.CheckItem</parameter>
+		<parameter name="flowContainer.association">%parent%.addItem(%child%)</parameter>
+	</parameters>
+</component>
