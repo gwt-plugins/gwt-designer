@@ -2,7 +2,7 @@
 <feature
       id="com.google.gdt.eclipse.designer.feature"
       label="%featureName"
-      version="2.4.0"
+      version="2.4.2"
       provider-name="%providerName"
       plugin="com.google.gdt.eclipse.designer"
       image="wb-icon.gif">
