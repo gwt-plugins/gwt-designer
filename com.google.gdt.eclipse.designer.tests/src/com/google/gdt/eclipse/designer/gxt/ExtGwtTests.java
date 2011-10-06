@@ -33,8 +33,9 @@ import junit.framework.TestSuite;
  * @author scheglov_ke
  */
 public class ExtGwtTests extends DesignerSuiteTests {
+  public static final String GXT_FILE = "gxt-2.2.5-gwt22.jar";
   public static final String GXT_LOCATION = Expectations.get(
-      "C:/Work/GWT/gxt-2.2.4",
+      "C:/Work/GWT/gxt-2.2.5",
       new StrValue[]{
           new StrValue("mitin-aa-mac", "/Users/mitin_aa/gwt/gxt-2.2.3"),
           new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gxt-2.2.3"),

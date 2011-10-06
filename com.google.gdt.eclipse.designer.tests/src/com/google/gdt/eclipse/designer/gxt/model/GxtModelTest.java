@@ -54,7 +54,6 @@ public abstract class GxtModelTest extends GwtModelTest {
 
   @Override
   protected void configureModule(ModuleDescription moduleDescription) throws Exception {
-    m_testProject.addExternalJar(ExtGwtTests.GXT_LOCATION + "/gxt.jar");
     new ConfigureExtGwtOperation(moduleDescription, ExtGwtTests.GXT_LOCATION).run(null);
     // don't use "strict" mode
     {

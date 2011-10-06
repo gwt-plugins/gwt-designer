@@ -94,7 +94,8 @@ public final class ConfigureExtGwtAction extends AbstractActionDelegate
       }
       // check for "gxt.jar" file
       {
-        File file = new File(libraryLocation + "/gxt.jar");
+        String jarPath = ConfigureExtGwtOperation.getJarPath(libraryLocation);
+        File file = new File(jarPath);
         if (!file.exists() || !file.isFile()) {
           MessageDialog.openError(null, "Invalid folder", "No gxt.jar file in choosen folder.");
           continue;

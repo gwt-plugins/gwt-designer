@@ -88,7 +88,7 @@ public final class ConfigureExtGwtOperation extends WorkspaceModifyOperation {
   private void execute0() throws Exception {
     // ensure jar
     if (!ProjectUtils.hasType(m_javaProject, "com.extjs.gxt.ui.client.widget.Component")) {
-      String jarPath = m_libraryLocation + "/gxt.jar";
+      String jarPath = getJarPath(m_libraryLocation);
       if (EnvironmentUtils.isTestingTime()) {
         ProjectUtils.addExternalJar(m_javaProject, jarPath, null);
       } else {
@@ -130,5 +130,18 @@ public final class ConfigureExtGwtOperation extends WorkspaceModifyOperation {
         }
       }
     }
+  }
+
+  static String getJarPath(String libraryLocation) {
+    File libraryFolder = new File(libraryLocation);
+    for (String jarName : libraryFolder.list()) {
+      String jarNameLower = jarName.toLowerCase();
+      if (jarNameLower.startsWith("gxt") && jarNameLower.endsWith(".jar")) {
+        if (jarNameLower.endsWith("-gwt22.jar")) {
+          return libraryLocation + "/" + jarName;
+        }
+      }
+    }
+    return libraryLocation + "/gxt.jar";
   }
 }

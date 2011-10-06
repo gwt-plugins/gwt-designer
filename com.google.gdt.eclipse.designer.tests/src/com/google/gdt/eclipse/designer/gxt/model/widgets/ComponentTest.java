@@ -396,7 +396,8 @@ public class ComponentTest extends GxtModelTest {
       IClasspathEntry[] entries = m_javaProject.getRawClasspath();
       for (int i = 0; i < entries.length; i++) {
         IClasspathEntry entry = entries[i];
-        if (entry.getPath().toString().endsWith("gxt.jar")) {
+        String path = entry.getPath().toString();
+        if (path.contains("gxt") && path.endsWith(".jar")) {
           entries = (IClasspathEntry[]) ArrayUtils.remove(entries, i);
           break;
         }
@@ -543,7 +544,7 @@ public class ComponentTest extends GxtModelTest {
       GTestUtils.createModule(m_testProject, "test.Module");
     }
     // add GXT jar, but don't import module
-    m_testProject.addExternalJar(ExtGwtTests.GXT_LOCATION + "/gxt.jar");
+    m_testProject.addExternalJar(ExtGwtTests.GXT_LOCATION + "/" + ExtGwtTests.GXT_FILE);
     // parse, no exception, even without GXT resources
     parseJavaInfo(
         "public class Test implements EntryPoint {",
