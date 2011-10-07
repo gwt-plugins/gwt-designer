@@ -334,7 +334,9 @@ public class UIObjectInfo extends AbstractComponentInfo implements IUIObjectInfo
   }
 
   protected Rectangle fetchModelBounds(Object element) {
-    return getState().getModelBounds(element);
+    Rectangle modelBounds = getState().getModelBounds(element);
+    applyRectangleLimitation(modelBounds);
+    return modelBounds;
   }
 
   protected Rectangle fetchAbsoluteBounds(Object element) {
@@ -349,7 +351,18 @@ public class UIObjectInfo extends AbstractComponentInfo implements IUIObjectInfo
         absoluteBounds.y = 0;
       }
     }
+    applyRectangleLimitation(absoluteBounds);
     return absoluteBounds;
+  }
+
+  /**
+   * Too big rectangle can cause Eclipse lock up.
+   * <p>
+   * http://code.google.com/p/google-web-toolkit/issues/detail?id=6009
+   */
+  private static void applyRectangleLimitation(Rectangle r) {
+    r.width = Math.min(r.width, 3072);
+    r.height = Math.min(r.height, 3072);
   }
 
   protected void fetchImage(Object element) throws Exception {
