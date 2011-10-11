@@ -593,6 +593,31 @@ public class UtilsTest extends AbstractJavaTest {
   }
 
   /**
+   * Test for {@link Utils#getSingleModule(IType)}.
+   */
+  public void test_getSingleModule_IType() throws Exception {
+    IType entryPointType = m_testProject.getJavaProject().findType("test.client.Module");
+    assertModuleDescriptionPath("src/test/Module.gwt.xml", Utils.getSingleModule(entryPointType));
+  }
+
+  /**
+   * Test for {@link Utils#getSingleModule(ICompilationUnit)}.
+   * <p>
+   * Uses <code>gwtd.module.use</code> marker to force using marked module.
+   */
+  @DisposeProjectAfter
+  public void test_getSingleModule_useMarker() throws Exception {
+    getTestModuleFile().delete(true, null);
+    setFileContentSrc("test/aModule.gwt.xml", "<module/>");
+    setFileContentSrc("test/bModule.gwt.xml", "<module/> <!-- gwtd.module.use -->");
+    setFileContentSrc("test/cModule.gwt.xml", "<module/>");
+    // do check
+    IFolder folder = getFolderSrc("test");
+    ModuleDescription module = Utils.getSingleModule(folder);
+    assertEquals("test.bModule", module.getId());
+  }
+
+  /**
    * Test for {@link Utils#getSingleModule(ICompilationUnit)}.
    * <p>
    * Uses {@link IModuleFilter} to keep "second" module alive.

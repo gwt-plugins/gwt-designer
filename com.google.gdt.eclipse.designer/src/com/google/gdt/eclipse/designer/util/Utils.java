@@ -384,6 +384,13 @@ public final class Utils {
    */
   public static ModuleDescription getSingleModule(IResource resource) throws Exception {
     List<ModuleDescription> modules = getModules(resource);
+    // try to find marker
+    for (ModuleDescription module : modules) {
+      String content = IOUtils2.readString(module.getContents());
+      if (content.contains("gwtd.module.use")) {
+        return module;
+      }
+    }
     // apply filters
     for (IModuleFilter filter : getModuleFilters()) {
       modules = filter.filter(modules);
@@ -610,6 +617,13 @@ public final class Utils {
       final List<IContainer> sourceFolders,
       final String resourcePath) throws Exception {
     final IFile files[] = new IFile[1];
+    // XXX
+    if (resourcePath.startsWith("/")) {
+      IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resourcePath));
+      if (file.exists()) {
+        return file;
+      }
+    }
     // check public resources
     ModuleVisitor.accept(new DefaultModuleDescription(moduleFile), new ModuleVisitor() {
       @Override
