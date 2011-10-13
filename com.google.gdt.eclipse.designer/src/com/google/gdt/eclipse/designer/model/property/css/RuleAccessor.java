@@ -203,8 +203,7 @@ public class RuleAccessor {
    */
   private RuleDesc getRule(String styleName) throws Exception {
     for (ContextDescription contextDescription : getContexts()) {
-      CssEditContext context = contextDescription.getContext();
-      for (CssRuleNode ruleNode : context.getCssDocument().getRules()) {
+      for (CssRuleNode ruleNode : contextDescription.getRules()) {
         if (StringUtils.equals(contextDescription.getStyleName(ruleNode), styleName)) {
           RuleDesc ruleDesc = new RuleDesc();
           ruleDesc.contextDescription = contextDescription;

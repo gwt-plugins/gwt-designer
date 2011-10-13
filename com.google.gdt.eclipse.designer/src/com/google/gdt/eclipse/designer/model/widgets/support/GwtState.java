@@ -796,7 +796,7 @@ public final class GwtState {
   /**
    * @return the attribute of computed style.
    */
-  private String getComputedStyle(Object element, String style) {
+  public String getComputedStyle(Object element, String style) {
     return m_hostModeSupport.invokeNativeString(
         "__getStyle",
         new Class[]{m_uiObjectUtils.getClassOfElement(), String.class},

@@ -15,12 +15,13 @@
  */
 package com.google.gdt.eclipse.designer.model.property.css;
 
-import org.eclipse.wb.internal.css.model.CssDocument;
 import org.eclipse.wb.internal.css.model.CssFactory;
 import org.eclipse.wb.internal.css.model.CssRuleNode;
 import org.eclipse.wb.internal.css.parser.CssEditContext;
 
 import org.apache.commons.lang.StringUtils;
+
+import java.util.List;
 
 /**
  * Description for {@link CssEditContext} and its style name transformation.
@@ -53,14 +54,21 @@ public abstract class ContextDescription {
   }
 
   /**
+   * Commits {@link CssEditContext} changes.
+   */
+  public abstract void commit() throws Exception;
+
+  /**
    * @return the name of style, if possible, may be <code>null</code>.
    */
   public abstract String getStyleName(CssRuleNode rule);
 
   /**
-   * Commits {@link CssEditContext} changes.
+   * @return the {@link CssRuleNode}s accessible using this context.
    */
-  public abstract void commit() throws Exception;
+  public List<CssRuleNode> getRules() {
+    return m_context.getCssDocument().getRules();
+  }
 
   /**
    * Add new {@link CssRuleNode} with given class name.
@@ -70,15 +78,14 @@ public abstract class ContextDescription {
   public String addNewStyle(String styleName) throws Exception {
     String newSelector = "." + StringUtils.removeStart(styleName, ".");
     // may be already has rule with such selection
-    CssDocument cssDocument = m_context.getCssDocument();
-    for (CssRuleNode existingRule : cssDocument.getRules()) {
+    for (CssRuleNode existingRule : getRules()) {
       if (existingRule.getSelector().getValue().equals(newSelector)) {
         return getStyleName(existingRule);
       }
     }
     // OK, add new rule
     CssRuleNode newRule = CssFactory.newRule(newSelector);
-    cssDocument.addRule(newRule);
+    m_context.getCssDocument().addRule(newRule);
     return getStyleName(newRule);
   }
 

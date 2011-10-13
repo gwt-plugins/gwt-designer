@@ -16,12 +16,14 @@
 package com.google.gdt.eclipse.designer.uibinder.model.property;
 
 import com.google.gdt.eclipse.designer.model.property.css.StylePropertyEditor;
+import com.google.gdt.eclipse.designer.model.widgets.support.GwtState;
 import com.google.gdt.eclipse.designer.uibinder.model.UiBinderModelTest;
 import com.google.gdt.eclipse.designer.uibinder.model.widgets.WidgetInfo;
 
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
+import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -109,6 +111,161 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
             "  color: pink;",
             "}"})),
         m_lastContext.getContent());
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //
+  // ClientBundle
+  //
+  ////////////////////////////////////////////////////////////////////////////
+  /**
+   * Test for using @gwtd.reload.null to reload {@link ClientBundle}.
+   */
+  @DisposeProjectAfter
+  public void test_ClientBundle_reloadNull() throws Exception {
+    setFileContentSrc(
+        "test/client/MyResources.java",
+        getSourceDQ(
+            "package test.client;",
+            "",
+            "import com.google.gwt.core.client.GWT;",
+            "import com.google.gwt.resources.client.ClientBundle;",
+            "import com.google.gwt.resources.client.CssResource;",
+            "import com.google.gwt.resources.client.CssResource.NotStrict;",
+            "",
+            "public class MyResources {",
+            "  public interface Style extends CssResource {",
+            "    String first();",
+            "    String second();",
+            "  }",
+            "  public interface Resources extends ClientBundle {",
+            "    @NotStrict",
+            "    @Source('MyResources.css')",
+            "    Style style();",
+            "  }",
+            "  /** @gwtd.reload.null */",
+            "  private static Resources resources;",
+            "  public static Style style() {",
+            "    return resources().style();",
+            "  }",
+            "  public static Resources resources() {",
+            "    if (resources == null) {",
+            "      resources = GWT.create(Resources.class);",
+            "      resources.style().ensureInjected();",
+            "    }",
+            "    return resources;",
+            "  }",
+            "}"));
+    setFileContentSrc(
+        "test/client/MyResources.css",
+        getSource(
+            "/* filler filler filler filler filler */",
+            "/* filler filler filler filler filler */",
+            ".first {",
+            "  color: red;",
+            "}",
+            ".second {}",
+            ".third {}"));
+    waitForAutoBuild();
+    // parse
+    dontUseSharedGWTState();
+    WidgetInfo panel =
+        parse(
+            "// filler filler filler filler filler",
+            "// filler filler filler filler filler",
+            "<ui:UiBinder>",
+            "  <ui:with field='resources' type='test.client.MyResources'/>",
+            "  <g:FlowPanel styleName='{resources.style.first}'/>",
+            "</ui:UiBinder>");
+    refresh();
+    //
+    Property styleProperty = panel.getPropertyByTitle("styleName");
+    Property colorProperty = PropertyUtils.getByPath(styleProperty, "color");
+    // initial state
+    assertEquals("red", getPropertyText(colorProperty));
+    assertEquals("red", getComputedStyleAttribute(panel, "color"));
+    // set new value
+    colorProperty.setValue("lime");
+    assertEquals("lime", getPropertyText(colorProperty));
+    assertEquals("lime", getComputedStyleAttribute(panel, "color"));
+    System.out.println(getFileContentSrc("test/client/MyResources.css"));
+  }
+
+  /**
+   * Test for using @gwtd.reload.create to reload {@link ClientBundle}.
+   */
+  @DisposeProjectAfter
+  public void test_ClientBundle_reloadCreate() throws Exception {
+    setFileContentSrc(
+        "test/client/MyResources.java",
+        getSourceDQ(
+            "package test.client;",
+            "",
+            "import com.google.gwt.core.client.GWT;",
+            "import com.google.gwt.resources.client.ClientBundle;",
+            "import com.google.gwt.resources.client.CssResource;",
+            "import com.google.gwt.resources.client.CssResource.NotStrict;",
+            "",
+            "public class MyResources {",
+            "  public interface Style extends CssResource {",
+            "    String first();",
+            "    String second();",
+            "  }",
+            "  public interface Resources extends ClientBundle {",
+            "    @NotStrict",
+            "    @Source('MyResources.css')",
+            "    Style style();",
+            "  }",
+            "  /** @gwtd.reload.create */",
+            "  private static Resources resources;",
+            "  static {",
+            "    resources = GWT.create(Resources.class);",
+            "    resources.style().ensureInjected();",
+            "  }",
+            "  public static Style style() {",
+            "    return resources.style();",
+            "  }",
+            "}"));
+    setFileContentSrc(
+        "test/client/MyResources.css",
+        getSource(
+            "/* filler filler filler filler filler */",
+            "/* filler filler filler filler filler */",
+            ".first {",
+            "  color: red;",
+            "}",
+            ".second {}",
+            ".third {}"));
+    waitForAutoBuild();
+    // parse
+    System.out.println(getFileContentSrc("test/client/MyResources.css"));
+    dontUseSharedGWTState();
+    WidgetInfo panel =
+        parse(
+            "// filler filler filler filler filler",
+            "// filler filler filler filler filler",
+            "<ui:UiBinder>",
+            "  <ui:with field='resources' type='test.client.MyResources'/>",
+            "  <g:FlowPanel styleName='{resources.style.first}'/>",
+            "</ui:UiBinder>");
+    refresh();
+    //
+    Property styleProperty = panel.getPropertyByTitle("styleName");
+    Property colorProperty = PropertyUtils.getByPath(styleProperty, "color");
+    // initial state
+    assertEquals("red", getPropertyText(colorProperty));
+    assertEquals("red", getComputedStyleAttribute(panel, "color"));
+    // set new value
+    colorProperty.setValue("lime");
+    assertEquals("lime", getPropertyText(colorProperty));
+    assertEquals("lime", getComputedStyleAttribute(panel, "color"));
+    System.out.println(getFileContentSrc("test/client/MyResources.css"));
+  }
+
+  private static String getComputedStyleAttribute(WidgetInfo widget, String style) throws Exception {
+    GwtState state = widget.getState();
+    Object widgetElement = widget.getDOMElement();
+    return state.getComputedStyle(widgetElement, style);
   }
 
   ////////////////////////////////////////////////////////////////////////////

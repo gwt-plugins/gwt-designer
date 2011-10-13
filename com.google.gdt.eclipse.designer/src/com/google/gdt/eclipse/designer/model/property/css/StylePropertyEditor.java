@@ -36,7 +36,6 @@ import org.eclipse.wb.internal.core.model.property.table.PropertyTable;
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
 import org.eclipse.wb.internal.core.utils.jdt.core.ProjectUtils;
 import org.eclipse.wb.internal.css.model.CssRuleNode;
-import org.eclipse.wb.internal.css.parser.CssEditContext;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -237,8 +236,7 @@ public final class StylePropertyEditor extends AbstractComboBoxPropertyEditor
     // prepare style names
     List<String> styleNames = Lists.newArrayList();
     for (ContextDescription contextDescription : accessor.getContexts()) {
-      CssEditContext context = contextDescription.getContext();
-      for (CssRuleNode ruleNode : context.getCssDocument().getRules()) {
+      for (CssRuleNode ruleNode : contextDescription.getRules()) {
         String styleName = contextDescription.getStyleName(ruleNode);
         if (styleName != null) {
           styleNames.add(styleName);

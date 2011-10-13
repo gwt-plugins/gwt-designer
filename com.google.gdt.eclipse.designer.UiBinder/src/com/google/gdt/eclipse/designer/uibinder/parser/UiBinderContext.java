@@ -175,6 +175,7 @@ public class UiBinderContext extends EditorContext {
       Beans.setDesignTime(old_designTime);
       System.clearProperty(isKey);
       System.clearProperty(resKey);
+      getBroadcastSupport().getListener(AfterRunDesignTime.class).invoke();
     }
   }
 
