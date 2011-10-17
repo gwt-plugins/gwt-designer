@@ -54,9 +54,22 @@ public abstract class ContextDescription {
   }
 
   /**
+   * @return <code>true</code> if this {@link ContextDescription} is out of sync with its resource.
+   */
+  public boolean isStale() throws Exception {
+    return false;
+  }
+
+  /**
    * Commits {@link CssEditContext} changes.
    */
   public abstract void commit() throws Exception;
+
+  /**
+   * Cleans up all resources, such as opened files, etc.
+   */
+  public void dispose() throws Exception {
+  }
 
   /**
    * @return the name of style, if possible, may be <code>null</code>.
@@ -87,43 +100,5 @@ public abstract class ContextDescription {
     CssRuleNode newRule = CssFactory.newRule(newSelector);
     m_context.getCssDocument().addRule(newRule);
     return getStyleName(newRule);
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // FileContextDescription
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  /**
-   * {@link ContextDescription} for context in standalone CSS file.
-   */
-  public static final class FileContextDescription extends ContextDescription {
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // Constructor
-    //
-    ////////////////////////////////////////////////////////////////////////////
-    public FileContextDescription(CssEditContext context) {
-      super(context);
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // Access
-    //
-    ////////////////////////////////////////////////////////////////////////////
-    @Override
-    public String getStyleName(CssRuleNode rule) {
-      String selector = rule.getSelector().getValue();
-      if (selector.startsWith(".")) {
-        return selector.substring(1);
-      }
-      return null;
-    }
-
-    @Override
-    public void commit() throws Exception {
-      getContext().commit();
-    }
   }
 }

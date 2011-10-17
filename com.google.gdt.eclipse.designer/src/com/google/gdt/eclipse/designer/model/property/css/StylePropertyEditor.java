@@ -211,9 +211,10 @@ public final class StylePropertyEditor extends AbstractComboBoxPropertyEditor
   private static ContextDescription getTargetContextDescription(List<ContextDescription> contexts,
       String newStyleName) {
     if (newStyleName.startsWith("gwt-")) {
-      ContextDescription fileContent = RuleAccessor.getFirstFileContent(contexts);
-      if (fileContent != null) {
-        return fileContent;
+      for (ContextDescription context : contexts) {
+        if (context instanceof FileContextDescription) {
+          return context;
+        }
       }
     }
     if (!contexts.isEmpty()) {

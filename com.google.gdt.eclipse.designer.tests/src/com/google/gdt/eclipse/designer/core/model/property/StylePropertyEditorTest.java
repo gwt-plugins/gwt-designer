@@ -29,6 +29,7 @@ import org.eclipse.wb.internal.core.model.property.table.PropertyTable;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.utils.ui.dialogs.color.ColorsGridComposite;
+import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
 import org.eclipse.wb.tests.gef.EventSender;
 import org.eclipse.wb.tests.gef.UIRunnable;
 import org.eclipse.wb.tests.gef.UiContext;
@@ -98,6 +99,37 @@ public class StylePropertyEditorTest extends GwtModelTest {
   // Tests
   //
   ////////////////////////////////////////////////////////////////////////////
+  @DisposeProjectAfter
+  public void test_reload() throws Exception {
+    setFileContent(
+        "war/Module.css",
+        getSource(
+            "/* filler filler filler filler filler */",
+            "/* filler filler filler filler filler */",
+            ".first {",
+            "  color: red;",
+            "}",
+            ".second {}",
+            ".third {}"));
+    // prepare properties
+    Property styleProperty = getStyleProperty("setStyleName('first')");
+    Property colorProperty = PropertyUtils.getByPath(styleProperty, "color");
+    // initial value
+    assertEquals("red", getPropertyText(colorProperty));
+    // change CSS file
+    setFileContent(
+        "war/Module.css",
+        getSource(
+            "/* filler filler filler filler filler */",
+            "/* filler filler filler filler filler */",
+            ".first {",
+            "  color: blue;",
+            "}",
+            ".second {}",
+            ".third {}"));
+    assertEquals("blue", getPropertyText(colorProperty));
+  }
+
   public void test_fillItems() throws Exception {
     Property property = getStyleProperty("setStyleName('second')");
     // add items

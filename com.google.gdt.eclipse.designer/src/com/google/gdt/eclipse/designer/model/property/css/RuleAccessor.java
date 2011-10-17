@@ -19,20 +19,15 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.MapMaker;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
-import com.google.gdt.eclipse.designer.model.property.css.ContextDescription.FileContextDescription;
 import com.google.gdt.eclipse.designer.model.widgets.support.GwtState;
 import com.google.gdt.eclipse.designer.model.widgets.support.IGwtStateProvider;
 
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.core.model.broadcast.ObjectEventListener;
-import org.eclipse.wb.internal.core.utils.IOUtils2;
 import org.eclipse.wb.internal.css.model.CssRuleNode;
 import org.eclipse.wb.internal.css.parser.CssEditContext;
 import org.eclipse.wb.internal.css.semantics.Semantics;
 
-import org.eclipse.core.resources.IFile;
-
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.List;
@@ -48,7 +43,6 @@ import java.util.Set;
 public class RuleAccessor {
   private final ObjectInfo m_object;
   private final GwtState m_gwtState;
-  private final Map<IFile, ContextDescription> m_fileContexts = Maps.newHashMap();
   private final Set<ContextDescription> m_updatedContexts = Sets.newHashSet();
   private final Map<CssRuleNode, Semantics> m_semantics = new MapMaker().weakKeys().makeMap();
   ////////////////////////////////////////////////////////////////////////////
@@ -73,24 +67,10 @@ public class RuleAccessor {
           RuleAccessor accessor = m_instances.get(rootObject);
           accessor.commit();
         }
-
-        @Override
-        public void dispose() throws Exception {
-          RuleAccessor accessor = m_instances.remove(rootObject);
-          accessor.dispose();
-        }
       });
+      new FileContextDescriptionSupport(rootObject);
     }
     return accessor;
-  }
-
-  /**
-   * Frees resources allocated for this {@link ObjectInfo} hierarchy.
-   */
-  private void dispose() throws Exception {
-    for (ContextDescription context : m_fileContexts.values()) {
-      context.getContext().disconnect();
-    }
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -120,27 +100,10 @@ public class RuleAccessor {
    */
   public List<ContextDescription> getContexts() throws Exception {
     List<ContextDescription> contexts = Lists.newArrayList();
-    // add contexts from CSS files
-    List<IFile> files = m_gwtState.getCssSupport().getFiles();
-    for (IFile file : files) {
-      ContextDescription contextDescription = getContextDescription(file);
-      contexts.add(contextDescription);
-    }
-    // add extra contexts
     m_object.getBroadcast(StylePropertyEditorListener.class).addContextDescriptions(
         m_object,
         contexts);
-    // done
     return contexts;
-  }
-
-  public static ContextDescription getFirstFileContent(List<ContextDescription> contexts) {
-    for (ContextDescription context : contexts) {
-      if (context instanceof FileContextDescription) {
-        return context;
-      }
-    }
-    return null;
   }
 
   /**
@@ -213,27 +176,6 @@ public class RuleAccessor {
       }
     }
     return null;
-  }
-
-  /**
-   * @return the existing or new {@link ContextDescription}, synchronized with current file.
-   */
-  private ContextDescription getContextDescription(IFile file) throws Exception {
-    ContextDescription contextDescription = m_fileContexts.get(file);
-    if (contextDescription != null) {
-      String fileContent = IOUtils2.readString(file);
-      String contentContent = contextDescription.getContext().getText();
-      if (!ObjectUtils.equals(fileContent, contentContent)) {
-        contextDescription.getContext().disconnect();
-        m_fileContexts.remove(file);
-      }
-    }
-    if (contextDescription == null) {
-      CssEditContext context = new CssEditContext(file);
-      contextDescription = new FileContextDescription(context);
-      m_fileContexts.put(file, contextDescription);
-    }
-    return contextDescription;
   }
 
   /**

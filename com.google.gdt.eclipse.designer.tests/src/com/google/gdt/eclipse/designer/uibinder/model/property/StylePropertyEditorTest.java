@@ -20,6 +20,8 @@ import com.google.gdt.eclipse.designer.model.widgets.support.GwtState;
 import com.google.gdt.eclipse.designer.uibinder.model.UiBinderModelTest;
 import com.google.gdt.eclipse.designer.uibinder.model.widgets.WidgetInfo;
 
+import org.eclipse.wb.core.model.broadcast.EditorActivatedListener;
+import org.eclipse.wb.core.model.broadcast.EditorActivatedRequest;
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -135,8 +137,8 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
             "",
             "public class MyResources {",
             "  public interface Style extends CssResource {",
-            "    String first();",
-            "    String second();",
+            "    String one();",
+            "    String two();",
             "  }",
             "  public interface Resources extends ClientBundle {",
             "    @NotStrict",
@@ -161,11 +163,11 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
         getSource(
             "/* filler filler filler filler filler */",
             "/* filler filler filler filler filler */",
-            ".first {",
+            "/* filler filler filler filler filler */",
+            ".one {",
             "  color: red;",
             "}",
-            ".second {}",
-            ".third {}"));
+            ".two {}"));
     waitForAutoBuild();
     // parse
     dontUseSharedGWTState();
@@ -175,7 +177,7 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
             "// filler filler filler filler filler",
             "<ui:UiBinder>",
             "  <ui:with field='resources' type='test.client.MyResources'/>",
-            "  <g:FlowPanel styleName='{resources.style.first}'/>",
+            "  <g:FlowPanel styleName='{resources.style.one}'/>",
             "</ui:UiBinder>");
     refresh();
     //
@@ -188,7 +190,6 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
     colorProperty.setValue("lime");
     assertEquals("lime", getPropertyText(colorProperty));
     assertEquals("lime", getComputedStyleAttribute(panel, "color"));
-    System.out.println(getFileContentSrc("test/client/MyResources.css"));
   }
 
   /**
@@ -196,6 +197,31 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
    */
   @DisposeProjectAfter
   public void test_ClientBundle_reloadCreate() throws Exception {
+    prepare_ClientBundle_reloadCreate();
+    // parse
+    dontUseSharedGWTState();
+    WidgetInfo panel =
+        parse(
+            "// filler filler filler filler filler",
+            "// filler filler filler filler filler",
+            "<ui:UiBinder>",
+            "  <ui:with field='resources' type='test.client.MyResources'/>",
+            "  <g:FlowPanel styleName='{resources.style.one}'/>",
+            "</ui:UiBinder>");
+    refresh();
+    //
+    Property styleProperty = panel.getPropertyByTitle("styleName");
+    Property colorProperty = PropertyUtils.getByPath(styleProperty, "color");
+    // initial state
+    assertEquals("red", getPropertyText(colorProperty));
+    assertEquals("red", getComputedStyleAttribute(panel, "color"));
+    // set new value
+    colorProperty.setValue("lime");
+    assertEquals("lime", getPropertyText(colorProperty));
+    assertEquals("lime", getComputedStyleAttribute(panel, "color"));
+  }
+
+  private static void prepare_ClientBundle_reloadCreate() throws Exception {
     setFileContentSrc(
         "test/client/MyResources.java",
         getSourceDQ(
@@ -208,8 +234,8 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
             "",
             "public class MyResources {",
             "  public interface Style extends CssResource {",
-            "    String first();",
-            "    String second();",
+            "    String one();",
+            "    String two();",
             "  }",
             "  public interface Resources extends ClientBundle {",
             "    @NotStrict",
@@ -231,14 +257,21 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
         getSource(
             "/* filler filler filler filler filler */",
             "/* filler filler filler filler filler */",
-            ".first {",
+            "/* filler filler filler filler filler */",
+            ".one {",
             "  color: red;",
             "}",
-            ".second {}",
-            ".third {}"));
+            ".two {}"));
     waitForAutoBuild();
+  }
+
+  /**
+   * When user uses other editor to change CSS file, we should refresh UI editor.
+   */
+  @DisposeProjectAfter
+  public void test_ClientBundle_changeCssFileExternally() throws Exception {
+    prepare_ClientBundle_reloadCreate();
     // parse
-    System.out.println(getFileContentSrc("test/client/MyResources.css"));
     dontUseSharedGWTState();
     WidgetInfo panel =
         parse(
@@ -246,7 +279,7 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
             "// filler filler filler filler filler",
             "<ui:UiBinder>",
             "  <ui:with field='resources' type='test.client.MyResources'/>",
-            "  <g:FlowPanel styleName='{resources.style.first}'/>",
+            "  <g:FlowPanel styleName='{resources.style.one}'/>",
             "</ui:UiBinder>");
     refresh();
     //
@@ -255,11 +288,31 @@ public class StylePropertyEditorTest extends UiBinderModelTest {
     // initial state
     assertEquals("red", getPropertyText(colorProperty));
     assertEquals("red", getComputedStyleAttribute(panel, "color"));
-    // set new value
-    colorProperty.setValue("lime");
-    assertEquals("lime", getPropertyText(colorProperty));
-    assertEquals("lime", getComputedStyleAttribute(panel, "color"));
-    System.out.println(getFileContentSrc("test/client/MyResources.css"));
+    // first change
+    {
+      // update CSS file
+      setFileContentSrc(
+          "test/client/MyResources.css",
+          getSource(
+              "/* filler filler filler filler filler */",
+              "/* filler filler filler filler filler */",
+              "/* filler filler filler filler filler */",
+              ".one {",
+              "  color: lime;",
+              "}",
+              ".two {}"));
+      // refresh requested
+      {
+        EditorActivatedRequest request = new EditorActivatedRequest();
+        panel.getBroadcast(EditorActivatedListener.class).invoke(request);
+        assertFalse(request.isReparseRequested());
+        assertTrue(request.isRefreshRequested());
+        panel.refresh();
+      }
+      // has new value
+      assertEquals("lime", getPropertyText(colorProperty));
+      assertEquals("lime", getComputedStyleAttribute(panel, "color"));
+    }
   }
 
   private static String getComputedStyleAttribute(WidgetInfo widget, String style) throws Exception {

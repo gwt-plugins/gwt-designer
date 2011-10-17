@@ -19,12 +19,16 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gdt.eclipse.designer.model.property.css.ContextDescription;
+import com.google.gdt.eclipse.designer.model.property.css.FileContextDescription;
 import com.google.gdt.eclipse.designer.model.property.css.StylePropertyEditor;
 import com.google.gdt.eclipse.designer.model.property.css.StylePropertyEditorListener;
 import com.google.gdt.eclipse.designer.uibinder.parser.AfterRunDesignTime;
 import com.google.gdt.eclipse.designer.uibinder.parser.UiBinderContext;
 
 import org.eclipse.wb.core.model.ObjectInfo;
+import org.eclipse.wb.core.model.broadcast.EditorActivatedListener;
+import org.eclipse.wb.core.model.broadcast.EditorActivatedRequest;
+import org.eclipse.wb.core.model.broadcast.ObjectEventListener;
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.core.utils.jdt.core.CodeUtils;
@@ -52,6 +56,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.text.MessageFormat;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -74,18 +79,40 @@ public final class StylePropertySupport {
     m_context = context;
     createExternalContextDescriptions();
     createLocalContextDescription();
+    // add context descriptions
     m_context.getBroadcastSupport().addListener(null, new StylePropertyEditorListener() {
       @Override
       public void addContextDescriptions(ObjectInfo object, List<ContextDescription> contexts)
           throws Exception {
+        syncExternalContextDescriptions();
         for (ContextDescription context : m_contextDescriptions) {
           contexts.add(0, context);
         }
       }
     });
+    // reload after render
     m_context.getBroadcastSupport().addListener(null, new AfterRunDesignTime() {
       public void invoke() throws Exception {
         reloadExternalClientBundles();
+      }
+    });
+    // refresh on external CSS file change
+    m_context.getBroadcastSupport().addListener(null, new EditorActivatedListener() {
+      public void invoke(EditorActivatedRequest request) throws Exception {
+        for (ContextDescription contextDescription : m_contextDescriptions) {
+          if (contextDescription.isStale()) {
+            request.requestRefresh();
+          }
+        }
+      }
+    });
+    // dispose on hierarchy dispose
+    m_context.getBroadcastSupport().addListener(null, new ObjectEventListener() {
+      @Override
+      public void dispose() throws Exception {
+        for (ContextDescription context : m_contextDescriptions) {
+          context.dispose();
+        }
       }
     });
   }
@@ -111,7 +138,7 @@ public final class StylePropertySupport {
     for (final WithObject withObject : m_withObjects) {
       ExecutionUtils.runIgnore(new RunnableEx() {
         public void run() throws Exception {
-          createExternalContextDescription(withObject);
+          createExternalContextDescriptions(withObject);
         }
       });
     }
@@ -120,7 +147,7 @@ public final class StylePropertySupport {
   /**
    * May be adds single {@link UiBinderExternalContextDescription}.
    */
-  private void createExternalContextDescription(WithObject withObject) throws Exception {
+  private void createExternalContextDescriptions(WithObject withObject) throws Exception {
     String field = withObject.field;
     IType withType = withObject.withType;
     Class<?> withClass = withObject.withClass;
@@ -137,11 +164,28 @@ public final class StylePropertySupport {
             styleSelectors.add("." + singleStyleMethod.getName());
           }
           // add ContextDescription
-          CssEditContext context = new CssEditContext(file);
           m_contextDescriptions.add(new UiBinderExternalContextDescription(field,
               styleMethod.getName(),
               styleSelectors,
-              context));
+              file));
+        }
+      }
+    }
+  }
+
+  /**
+   * Checks if {@link UiBinderExternalContextDescription} is out of sync with its {@link IFile} and
+   * then makes it sync.
+   */
+  private void syncExternalContextDescriptions() throws Exception {
+    for (ListIterator<ContextDescription> I = m_contextDescriptions.listIterator(); I.hasNext();) {
+      ContextDescription context = I.next();
+      if (context instanceof UiBinderExternalContextDescription) {
+        if (context.isStale()) {
+          ContextDescription syncCopy =
+              ((UiBinderExternalContextDescription) context).createSyncCopy();
+          context.dispose();
+          I.set(syncCopy);
         }
       }
     }
@@ -330,7 +374,7 @@ public final class StylePropertySupport {
   /**
    * {@link ContextDescription} for context from "<ui:style>" element.
    */
-  private static class UiBinderExternalContextDescription extends ContextDescription {
+  private static class UiBinderExternalContextDescription extends FileContextDescription {
     private final String m_fieldName;
     private final String m_resourceName;
     private final Set<String> m_styleSelectors;
@@ -343,11 +387,26 @@ public final class StylePropertySupport {
     public UiBinderExternalContextDescription(String fieldName,
         String resourceName,
         Set<String> styleSelectors,
-        CssEditContext cssContext) {
-      super(cssContext);
+        IFile file) throws Exception {
+      super(file);
       m_fieldName = fieldName;
       m_resourceName = resourceName;
       m_styleSelectors = styleSelectors;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Special access
+    //
+    ////////////////////////////////////////////////////////////////////////////
+    /**
+     * @return the {@link UiBinderExternalContextDescription} which is in sync with CSS file.
+     */
+    public UiBinderExternalContextDescription createSyncCopy() throws Exception {
+      return new UiBinderExternalContextDescription(m_fieldName,
+          m_resourceName,
+          m_styleSelectors,
+          getFile());
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -379,11 +438,6 @@ public final class StylePropertySupport {
         }
       }
       return rules;
-    }
-
-    @Override
-    public void commit() throws Exception {
-      getContext().commit();
     }
   }
 
