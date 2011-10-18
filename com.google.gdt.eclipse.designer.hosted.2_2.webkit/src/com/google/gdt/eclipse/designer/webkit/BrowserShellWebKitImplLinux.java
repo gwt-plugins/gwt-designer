@@ -42,8 +42,14 @@ public abstract class BrowserShellWebKitImplLinux<H extends Number> implements I
 	 */
 	private static void init() {
 		if (!m_initialized) {
+			String libname = "wbp-gwt-webkit-bs";
 			try {
-				System.loadLibrary("wbp-gwt-webkit-bs");
+		    	try {
+		    		System.loadLibrary(libname);
+		    	} catch (Throwable ex1) {
+	    			// attempt to load lib linked against older webkit shared lib name
+	    			System.loadLibrary(libname + "0");
+		    	}
 				m_available = _isAvailable();
 				if (m_available) {
 					_init(WebKitInitializer.class);

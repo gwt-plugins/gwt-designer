@@ -18,6 +18,7 @@ package com.google.gdt.eclipse.designer.webkit;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 
 import com.google.gdt.eclipse.designer.hosted.HostedModeException;
@@ -36,7 +37,16 @@ public final class BrowserShellWebKit<H extends Number> extends BrowserShell {
   static {
     String libname = "wbp-gwt-webkit";
     try {
-      System.loadLibrary(libname);
+    	try {
+    		System.loadLibrary(libname);
+    	} catch (Throwable ex1) {
+    		if (EnvironmentUtils.IS_LINUX) {
+    			// attempt to load lib linked against older webkit shared lib name
+    			System.loadLibrary(libname + "0");
+    		} else {
+    			throw ex1;
+    		}
+    	}
       LowLevelWebKit.init();
     } catch (Throwable e) {
       throw new HostedModeException(HostedModeException.NATIVE_LIBS_LOADING_ERROR,
