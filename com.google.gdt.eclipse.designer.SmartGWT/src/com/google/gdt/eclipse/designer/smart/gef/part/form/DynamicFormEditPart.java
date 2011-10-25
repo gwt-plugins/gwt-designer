@@ -104,6 +104,10 @@ public final class DynamicFormEditPart extends UIObjectEditPart {
         return false;
       }
 
+      public boolean isRtl() {
+        return false;
+      }
+
       public boolean validateReference(Object reference) {
         return m_validator.validate(m_form, reference);
       }
