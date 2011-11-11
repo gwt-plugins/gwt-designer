@@ -1028,6 +1028,17 @@ public class UtilsTest extends AbstractJavaTest {
   }
 
   /**
+   * Test for {@link Utils#getFilesForResources(IFile, Collection)}.
+   * <p>
+   * https://groups.google.com/forum/#!msg/google-web-toolkit/r0Klxfkd7qA/bJiY3p5GG88J
+   */
+  public void test_getFilesForResources_startsWithSlash_singleSegment() throws Exception {
+    IFile moduleFile = getFileSrc("test/Module.gwt.xml");
+    List<IFile> files = Utils.getFilesForResources(moduleFile, Lists.newArrayList("/index.html"));
+    assertThat(files).isEmpty();
+  }
+
+  /**
    * Test for {@link Utils#getFilesForResources(IFile, Collection)}. <br>
    * Resource from required/inherited module in different {@link IProject}.
    */

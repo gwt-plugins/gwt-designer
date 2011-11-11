@@ -616,13 +616,6 @@ public final class Utils {
       final List<IContainer> sourceFolders,
       final String resourcePath) throws Exception {
     final IFile files[] = new IFile[1];
-    // XXX
-    if (resourcePath.startsWith("/")) {
-      IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resourcePath));
-      if (file.exists()) {
-        return file;
-      }
-    }
     // check public resources
     ModuleVisitor.accept(new DefaultModuleDescription(moduleFile), new ModuleVisitor() {
       @Override
