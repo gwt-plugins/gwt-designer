@@ -293,6 +293,43 @@ public class SectionStackTest extends SmartGwtModelTest {
     tabSet.refresh();
   }
 
+  /**
+   * There was problem with <code>TabSet</code> and absolute bounds.
+   * <p>
+   * https://bugs.eclipse.org/bugs/show_bug.cgi?id=361760
+   */
+  public void _test_tabSet() throws Exception {
+    parseJavaInfo(
+        "public class Test extends Window {",
+        "  public Test() {",
+        "    setSize('400', '300');",
+        "    VStack vStack = new VStack();",
+        "    vStack.setSize('100%', '100%');",
+        "    {",
+        "      SectionStack sectionStack = new SectionStack();",
+        "      sectionStack.setSize('100%', '100%');",
+        "      {",
+        "        SectionStackSection section = new SectionStackSection('New Section');",
+        "        section.setExpanded(true);",
+        "        {",
+        "          TabSet tabSet = new TabSet();",
+        "          tabSet.setSize('100%', '100%');",
+        "          {",
+        "            Tab tab = new Tab('newTab');",
+        "            tabSet.addTab(tab);",
+        "          }",
+        "          section.addItem(tabSet);",
+        "        }",
+        "        sectionStack.addSection(section);",
+        "      }",
+        "      vStack.addMember(sectionStack);",
+        "    }",
+        "    addItem(vStack);",
+        "  }",
+        "}");
+    refresh();
+  }
+
   ////////////////////////////////////////////////////////////////////////////
   //
   // Utils
