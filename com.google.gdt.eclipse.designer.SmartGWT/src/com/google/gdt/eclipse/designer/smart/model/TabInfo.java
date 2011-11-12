@@ -14,8 +14,6 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.smart.model;
 
-import com.google.gdt.eclipse.designer.model.widgets.support.GwtState;
-
 import org.eclipse.wb.core.model.broadcast.JavaInfoChildBeforeAssociation;
 import org.eclipse.wb.draw2d.geometry.Rectangle;
 import org.eclipse.wb.internal.core.model.creation.CreationSupport;
@@ -71,7 +69,7 @@ public class TabInfo extends JsObjectInfo {
     TabSetInfo tabSet = getTabSet();
     if (tabSet.getSelectedTab() == this) {
       // calculate bounds only for selected tab 
-      Rectangle bounds = tabSet.getAbsoluteBounds().getCopy();
+      Rectangle bounds = tabSet.getModelBounds().getCopy();
       Integer barThickness = tabSet.getTabBarThickness();
       String barPosition = tabSet.getTabBarPosition();
       // cut bar area
@@ -86,15 +84,7 @@ public class TabInfo extends JsObjectInfo {
       }
       // crop insets
       bounds.crop(tabSet.getTabInsets());
-      // IE in strict mode always has border 2px
-      {
-        GwtState state = tabSet.getState();
-        if (state.isStrictMode() && state.isBrowserExplorer()) {
-          bounds.translate(2, 2);
-        }
-      }
       // ready
-      tabSet.absoluteToRelative(bounds);
       setModelBounds(bounds);
       // process children
       super.refresh_fetch();
