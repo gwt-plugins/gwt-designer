@@ -14,8 +14,6 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.gpe.branding;
 
-import com.google.gdt.eclipse.designer.Activator;
-
 import org.eclipse.wb.core.branding.AbstractBrandingDescription;
 import org.eclipse.wb.core.branding.IBrandingDescription;
 import org.eclipse.wb.core.branding.IBrandingSupportInfo;
@@ -49,6 +47,6 @@ public final class GwtBrandingDescription extends AbstractBrandingDescription {
   public static IBrandingDescription INSTANCE = new GwtBrandingDescription();
 
   private GwtBrandingDescription() {
-    super(Activator.getResourceString("%pluginName"), SUPPORT_INFO);
+    super("" /*Activator.getResourceString("%pluginName")*/, SUPPORT_INFO);
   }
 }
