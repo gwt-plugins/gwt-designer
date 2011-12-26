@@ -376,6 +376,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
     // do initialize
     try {
       File cacheDir = new File(SystemUtils.getJavaIoTmpDir(), SystemUtils.USER_NAME + "-gwtd");
+      cacheDir.mkdirs();
       ClassLoader devClassLoader = getDevClassLoader();
       Class<?> builderClass =
           devClassLoader.loadClass("com.google.gwt.dev.javac.CompilationStateBuilder");
