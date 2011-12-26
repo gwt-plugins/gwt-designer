@@ -14,25 +14,40 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.uibinder.model.widgets.cell;
 
+import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.model.EditorContext;
 import org.eclipse.wb.internal.core.xml.model.creation.CreationSupport;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 
+import java.util.List;
+
 /**
- * Model for {@link com.google.gwt.user.cellview.client.CellTable} in GWT UiBinder.
+ * Model for {@link com.google.gwt.user.cellview.client.AbstractCellTable} in GWT UiBinder.
  * 
  * @author scheglov_ke
  * @coverage GWT.UiBinder.model
  */
-public class CellTableInfo extends AbstractCellTableInfo {
+public class AbstractCellTableInfo extends AbstractHasDataInfo {
   ////////////////////////////////////////////////////////////////////////////
   //
   // Constructor
   //
   ////////////////////////////////////////////////////////////////////////////
-  public CellTableInfo(EditorContext context,
+  public AbstractCellTableInfo(EditorContext context,
       ComponentDescription description,
       CreationSupport creationSupport) throws Exception {
     super(context, description, creationSupport);
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //
+  // Access
+  //
+  ////////////////////////////////////////////////////////////////////////////
+  /**
+   * @return the number of columns.
+   */
+  public int getColumnCount() {
+    return ((List<?>) ReflectionUtils.getFieldObject(getObject(), "columns")).size();
   }
 }

@@ -36,6 +36,8 @@ public class CellWidgetTests extends DesignerSuiteTests {
     suite.addTest(createSingleSuite(ColumnGefTest.class));
     // 2.3
     suite.addTest(createSingleSuite(TextButtonTest.class));
+    // 2.4
+    suite.addTest(createSingleSuite(DataGridTest.class));
     return suite;
   }
 }

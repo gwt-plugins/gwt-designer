@@ -143,6 +143,23 @@ public final class GTestUtils {
   }
 
   /**
+   * @return the location of GWT 2.4
+   */
+  public static String getLocation_24() {
+    StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-2.4-trunk");
+    StrValue kosta_mac = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.4.0");
+    StrValue kosta_win = new StrValue("scheglov-win", "C:/Work/GWT/gwt-2.4.0");
+    StrValue kosta_linux = new StrValue("raziel Linux", "/home/scheglov/Work/GWT/gwt-2.4.0");
+    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.4.0");
+    return Expectations.get("C:/Work/GWT/gwt-2.4.0", new StrValue[]{
+        mitin,
+        kosta_mac,
+        kosta_win,
+        kosta_linux,
+        flanker_linux});
+  }
+
+  /**
    * @return the location of the GWT from trunk.
    */
   public static String getLocation_trunk() {

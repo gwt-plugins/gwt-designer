@@ -19,18 +19,18 @@ import org.eclipse.wb.internal.core.xml.model.creation.CreationSupport;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 
 /**
- * Model for {@link com.google.gwt.user.cellview.client.CellTable} in GWT UiBinder.
+ * Model for {@link com.google.gwt.user.cellview.client.DataGrid} in GWT UiBinder.
  * 
  * @author scheglov_ke
  * @coverage GWT.UiBinder.model
  */
-public class CellTableInfo extends AbstractCellTableInfo {
+public class DataGridInfo extends AbstractCellTableInfo {
   ////////////////////////////////////////////////////////////////////////////
   //
   // Constructor
   //
   ////////////////////////////////////////////////////////////////////////////
-  public CellTableInfo(EditorContext context,
+  public DataGridInfo(EditorContext context,
       ComponentDescription description,
       CreationSupport creationSupport) throws Exception {
     super(context, description, creationSupport);

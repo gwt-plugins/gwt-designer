@@ -240,6 +240,7 @@
 						condition="!(isdef isUiBinder)"/>
 					<component class="com.google.gwt.user.cellview.client.Column"
 						creationId="datepicker" condition="!(isdef isUiBinder)"/>
+					<component class="com.google.gwt.user.cellview.client.DataGrid"/>
 					<component class="com.google.gwt.user.cellview.client.CellTree"/>
 					<component class="com.google.gwt.user.cellview.client.CellBrowser"/>
 					<component class="com.google.gwt.user.cellview.client.SimplePager"/>

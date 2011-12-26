@@ -151,9 +151,9 @@ public class GwtDescriptionVersionsProviderFactoryTest extends GwtModelTest {
     }
   }
 
-  public void test_factory22() throws Exception {
+  public void test_factory24() throws Exception {
     IJavaProject javaProject = m_testProject.getJavaProject();
-    GTestUtils.configure(GTestUtils.getLocation_22(), m_testProject);
+    GTestUtils.configure(GTestUtils.getLocation_24(), m_testProject);
     GTestUtils.createModule(m_testProject, "test.Module");
     waitForAutoBuild();
     // parse
@@ -171,7 +171,7 @@ public class GwtDescriptionVersionsProviderFactoryTest extends GwtModelTest {
     {
       Class<?> componentClass = m_lastLoader.loadClass("com.google.gwt.user.client.ui.Button");
       List<String> versions = provider.getVersions(componentClass);
-      assertThat(versions).containsExactly("2.2", "2.1", "2.0");
+      assertThat(versions).containsExactly("2.4", "2.2", "2.1", "2.0");
     }
   }
 }

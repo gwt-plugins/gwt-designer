@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.cell.DataGridInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.cell.DataGridInfo"/>
+	<description>A tabular view with a fixed header and footer section and a scrollable data section
+		in the middle. This widget supports paging and columns.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.cellview.client.DataGrid<%rowType%>()]]></source>
+		<invocation signature="setWidth(java.lang.String)"><![CDATA["250px"]]></invocation>
+		<invocation signature="setHeight(java.lang.String)"><![CDATA["200px"]]></invocation>
+		<x-attribute name="width" value="250px"/>
+		<x-attribute name="height" value="200px"/>
+		<typeParameters>
+			<typeParameter name="rowType" type="java.lang.Object"
+				title="Row data type &lt;T&gt;"/>
+		</typeParameters>
+	</creation>
+	<!-- METHODS -->
+	<methods>
+		<method name="setTableWidth">
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+		<method name="setMinimumTableWidth">
+			<parameter type="double"/>
+			<parameter type="com.google.gwt.dom.client.Style$Unit"/>
+		</method>
+	</methods>
+</component>

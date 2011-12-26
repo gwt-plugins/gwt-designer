@@ -25,19 +25,19 @@ import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import java.util.List;
 
 /**
- * Model for <code>com.google.gwt.user.cellview.client.CellTable</code>.
+ * Model for <code>com.google.gwt.user.cellview.client.DataGrid</code>.
  * 
  * @author sablin_aa
  * @author scheglov_ke
  * @coverage gwt.model
  */
-public class CellTableInfo extends AbstractCellTableInfo {
+public class DataGridInfo extends AbstractCellTableInfo {
   ////////////////////////////////////////////////////////////////////////////
   //
   // Constructor
   //
   ////////////////////////////////////////////////////////////////////////////
-  public CellTableInfo(AstEditor editor,
+  public DataGridInfo(AstEditor editor,
       ComponentDescription description,
       CreationSupport creationSupport) throws Exception {
     super(editor, description, creationSupport);
@@ -48,16 +48,21 @@ public class CellTableInfo extends AbstractCellTableInfo {
   // Refresh
   //
   ////////////////////////////////////////////////////////////////////////////
+  /**
+   * Calculate columns bounds by first data row cells bounds.
+   * 
+   * @return {@link List} columns bounds, if available.
+   */
   @Override
   protected List<Rectangle> getColumnBoundsByBody() throws Exception {
     DOMUtils dom = getDOMUtils();
-    Object tbody = ReflectionUtils.getFieldObject(getObject(), "tbody");
+    Object tableHeader = ReflectionUtils.getFieldObject(getObject(), "tableData");
+    Object tbody = ReflectionUtils.getFieldObject(tableHeader, "section");
     Object tr = dom.getChild(tbody, 0);
     List<Rectangle> rects = getRowCellsRects(tr);
     // translate bounds to header area
     int headerHeight = getHeaderHeight();
     for (Rectangle rect : rects) {
-      rect.y -= headerHeight;
       rect.height = headerHeight;
     }
     // done
@@ -66,7 +71,13 @@ public class CellTableInfo extends AbstractCellTableInfo {
 
   @Override
   public int getHeaderHeight() throws Exception {
-    Object thead = ReflectionUtils.getFieldObject(getObject(), "thead");
-    return getState().getAbsoluteBounds(thead).height;
+    DOMUtils dom = getDOMUtils();
+    Object tableHeader = ReflectionUtils.getFieldObject(getObject(), "tableHeader");
+    Object tbody = ReflectionUtils.getFieldObject(tableHeader, "section");
+    Object tr = dom.getChild(tbody, 0);
+    if (tr == null) {
+      return 0;
+    }
+    return getState().getAbsoluteBounds(tr).height;
   }
 }

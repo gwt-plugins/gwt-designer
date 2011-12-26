@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.cell.CellTableInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.cell.CellTableInfo"/>
+	<description>A list view that supports paging and columns.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.google.gwt.user.cellview.client.CellTable<%rowType%>()]]></source>
+        <typeParameters>
+            <typeParameter name="rowType" type="java.lang.Object" title="Row data type &lt;T&gt;"/>
+        </typeParameters>
+    </creation>
+    <!-- METHODS -->
+    <methods>
+    	<!-- setWidth() -->
+        <method name="setWidth">
+            <parameter type="java.lang.String"/>
+            <parameter type="boolean"/>
+        </method>
+    </methods>
+</component>

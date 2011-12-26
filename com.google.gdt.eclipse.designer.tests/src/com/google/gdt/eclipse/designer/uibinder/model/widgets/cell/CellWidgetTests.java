@@ -35,7 +35,8 @@ public class CellWidgetTests extends DesignerSuiteTests {
     suite.addTest(createSingleSuite(CellBrowserTest.class));
     suite.addTest(createSingleSuite(SimplePagerTest.class));
     suite.addTest(createSingleSuite(PageSizePagerTest.class));
-    // 2.3
+    // 2.4
+    suite.addTest(createSingleSuite(DataGridTest.class));
     return suite;
   }
 }
