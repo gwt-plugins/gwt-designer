@@ -284,7 +284,7 @@ public class UiBinderContext extends EditorContext {
     // add ClassLoader to use only for loading resources
     {
       ClassLoader resourcesClassLoader = m_module.getClassLoader();
-      parentClassLoader.add(resourcesClassLoader, ImmutableList.of(), null);
+      parentClassLoader.add(resourcesClassLoader, ImmutableList.<String>of(), null);
     }
   }
 

@@ -420,7 +420,7 @@ public class ParseFactory extends AbstractParseFactory {
       // add ClassLoader to use only for loading resources
       {
         ClassLoader resourcesClassLoader = moduleDescription.getClassLoader();
-        parentClassLoader.add(resourcesClassLoader, ImmutableList.of(), null);
+        parentClassLoader.add(resourcesClassLoader, ImmutableList.<String>of(), null);
       }
     }
     // initialize GWTState

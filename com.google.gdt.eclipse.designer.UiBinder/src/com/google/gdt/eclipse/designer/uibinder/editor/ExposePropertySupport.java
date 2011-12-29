@@ -328,10 +328,10 @@ public final class ExposePropertySupport implements IPropertiesMenuContributor {
      * Generates getter/setter for exposing property.
      */
     private void expose(boolean isPublic) throws Exception {
-      AstEditor m_editor = getFormEditor();
-      TypeDeclaration m_typeDeclaration = getFormTypeDeclaration();
+      AstEditor editor = getFormEditor();
+      TypeDeclaration typeDeclaration = getFormTypeDeclaration();
       //
-      BodyDeclarationTarget methodTarget = new BodyDeclarationTarget(m_typeDeclaration, false);
+      BodyDeclarationTarget methodTarget = new BodyDeclarationTarget(typeDeclaration, false);
       String modifierSource = isPublic ? "public" : "protected";
       String name = NameSupport.ensureName(m_object);
       // getter
@@ -339,7 +339,7 @@ public final class ExposePropertySupport implements IPropertiesMenuContributor {
         String header = modifierSource + " " + m_propertyTypeName + " " + m_exposedGetter + "()";
         String body =
             MessageFormat.format("return {0}.{1}();", name, m_accessor.getGetter().getName());
-        m_editor.addMethodDeclaration(header, ImmutableList.of(body), methodTarget);
+        editor.addMethodDeclaration(header, ImmutableList.of(body), methodTarget);
       }
       // setter
       {
@@ -356,7 +356,7 @@ public final class ExposePropertySupport implements IPropertiesMenuContributor {
                 name,
                 m_accessor.getSetter().getName(),
                 m_exposedSetterParameter);
-        m_editor.addMethodDeclaration(header, ImmutableList.of(body), methodTarget);
+        editor.addMethodDeclaration(header, ImmutableList.of(body), methodTarget);
       }
     }
 

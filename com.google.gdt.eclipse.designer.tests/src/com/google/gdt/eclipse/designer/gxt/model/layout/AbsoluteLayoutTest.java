@@ -524,7 +524,7 @@ public class AbsoluteLayoutTest extends GxtModelTest {
    */
   private void alignWidgets(String actionText, WidgetInfo... buttons) throws Exception {
     // prepare selection
-    List<ObjectInfo> selectedObjects = ImmutableList.<ObjectInfo>of(buttons);
+    List<ObjectInfo> selectedObjects = ImmutableList.<ObjectInfo>copyOf(buttons);
     // prepare action
     IAction action;
     {
