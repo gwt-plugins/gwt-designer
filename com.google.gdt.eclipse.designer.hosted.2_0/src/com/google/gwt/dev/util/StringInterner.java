@@ -15,8 +15,9 @@
 
 package com.google.gwt.dev.util;
 
-import com.google.gwt.thirdparty.guava.common.collect.Interner;
-import com.google.gwt.thirdparty.guava.common.collect.Interners;
+import com.google.common.collect.Interner;
+import com.google.common.collect.Interners;
+
 
 /**
  * A utility class for reducing String memory waste. Note that this does not use
@@ -38,5 +39,4 @@ public class StringInterner {
   public String intern(String s) {
     return stringPool.intern(s);
   }
-
 }

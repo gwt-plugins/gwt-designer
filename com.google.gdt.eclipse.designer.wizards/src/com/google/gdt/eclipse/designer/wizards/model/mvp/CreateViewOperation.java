@@ -14,10 +14,10 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.wizards.model.mvp;
 
+import com.google.common.collect.Lists;
 import com.google.gdt.eclipse.designer.util.ModuleDescription;
 import com.google.gdt.eclipse.designer.util.Utils;
 import com.google.gdt.eclipse.designer.wizards.model.common.AbstractCreateOperation;
-import com.google.gwt.thirdparty.guava.common.collect.Lists;
 
 import org.eclipse.wb.internal.core.utils.ast.AstEditor;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;

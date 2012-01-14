@@ -14,6 +14,7 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.hosted.tdt;
 
+import com.google.common.collect.MapMaker;
 import com.google.gdt.eclipse.designer.hosted.HostedModeException;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShell;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShellFactory;
@@ -24,7 +25,6 @@ import com.google.gdt.eclipse.designer.hosted.tdt.log.LogSupport;
 import com.google.gwt.dev.shell.designtime.DispatchClassInfo;
 import com.google.gwt.dev.shell.designtime.DispatchIdOracle;
 import com.google.gwt.dev.shell.designtime.ModuleSpace;
-import com.google.gwt.thirdparty.guava.common.collect.Maps;
 
 import org.eclipse.wb.internal.core.EnvironmentUtils;
 import org.eclipse.wb.internal.core.utils.external.ExternalFactoriesHelper;
@@ -42,6 +42,7 @@ import org.apache.commons.lang.SystemUtils;
 import org.osgi.framework.Bundle;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.lang.reflect.Member;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -65,7 +66,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
   private final LogSupport logSupport;
   private Object impl;
   private DispatchIdOracle dispatchIdOracle;
-  private static Map<String, ClassLoader> devClassLoaders = Maps.newHashMap();
+  private static Map<String, ClassLoader> devClassLoaders = new MapMaker().softValues().makeMap();
 
   ////////////////////////////////////////////////////////////////////////////
   //
@@ -131,7 +132,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       projectClassLoader = new LocalProjectClassLoader(moduleDescription.getURLs(), devClassLoader);
     }
   }
-  
+
   private static final class LocalProjectClassLoader extends URLClassLoader {
     private LocalProjectClassLoader(URL[] urls, ClassLoader parent) {
       super(urls, parent);
@@ -148,10 +149,10 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
 
     /**
      * @return <code>true</code> if given {@link URL} represents {@link File} with non-canonical
-     *         path, such as using incorrect case on Windows. JDT compiler tried to detect if
-     *         given name "test" is name of package or not, by searching for "test.class"
-     *         resource. But on Windows file system is not case sensitive, so "Test.class"
-     *         resource returned, so it is considered not as package, but as type.
+     *         path, such as using incorrect case on Windows. JDT compiler tried to detect if given
+     *         name "test" is name of package or not, by searching for "test.class" resource. But on
+     *         Windows file system is not case sensitive, so "Test.class" resource returned, so it
+     *         is considered not as package, but as type.
      */
     private boolean isWrongURL(URL url) {
       if (EnvironmentUtils.IS_WINDOWS) {
@@ -210,6 +211,27 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         ReflectionUtils.setField(classLoader, "parent", null);
       }
     }
+    // Clear java.lang.ApplicationShutdownHooks
+    try {
+      Class<?> hooksClass =
+          ClassLoader.getSystemClassLoader().loadClass("java.lang.ApplicationShutdownHooks");
+      Field hooksField = ReflectionUtils.getFieldByName(hooksClass, "hooks");
+      Map<?, ?> hooks = (Map<?, ?>) hooksField.get(null);
+      hooks.clear();
+    } catch (Throwable e) {
+    }
+    // find embedded Guava Finalizer and clear reference of our "dev" URLClassLoader
+    try {
+      Thread[] threads = getAllThreads();
+      for (Thread thread : threads) {
+        if (thread != null
+            && thread.getClass().getName().equals(
+                "com.google.gwt.thirdparty.guava.common.base.internal.Finalizer")) {
+          thread.setContextClassLoader(null);
+        }
+      }
+    } catch (Throwable e) {
+    }
     //
     if (browserShell != null) {
       browserShell.dispose();
@@ -219,6 +241,24 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
     impl = null;
     projectClassLoader = null;
     dispatchIdOracle = null;
+  }
+
+  /**
+   * @return array of {@link Thread}s, may be with <code>null</code> on the end.
+   */
+  private static Thread[] getAllThreads() {
+    // prepare root ThreadGroup
+    ThreadGroup rootGroup = Thread.currentThread().getThreadGroup();
+    ThreadGroup parentGroup;
+    while ((parentGroup = rootGroup.getParent()) != null) {
+      rootGroup = parentGroup;
+    }
+    // fill Thread array
+    Thread[] threads = new Thread[rootGroup.activeCount()];
+    while (rootGroup.enumerate(threads, true) == threads.length) {
+      threads = new Thread[threads.length * 2];
+    }
+    return threads;
   }
 
   public IBrowserShell getBrowserShell() {
@@ -465,7 +505,6 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       throw ReflectionUtils.propagate(e);
     }
   }
-
 
   ////////////////////////////////////////////////////////////////////////////
   //
