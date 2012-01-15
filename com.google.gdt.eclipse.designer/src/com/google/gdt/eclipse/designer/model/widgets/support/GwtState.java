@@ -234,6 +234,7 @@ public final class GwtState {
     {
       // prepare user-agent
       m_html = StringUtils.replace(m_html, "%USER_AGENT%", m_shell.getUserAgentString());
+      m_html = StringUtils.replace(m_html, "%GWT_isBrowserExplorer%", "" + isBrowserExplorer());
     }
     // prepare hosted mode
     m_hostModeSupport.startup(getBrowserStartupUrl(), m_moduleId, monitor, getHostedModeTimeout());

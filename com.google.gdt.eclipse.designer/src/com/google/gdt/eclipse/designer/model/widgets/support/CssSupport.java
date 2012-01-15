@@ -14,8 +14,6 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.model.widgets.support;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.gdt.eclipse.designer.Activator;
@@ -54,8 +52,6 @@ public final class CssSupport {
   private final Map<IFile, Long> filesStampMap = Maps.newHashMap();
   private final Set<String> waitRequestSet = Sets.newHashSet();
   private final Set<String> waitApplySet = Sets.newHashSet();
-  private final int m_lastTrackedRule = 0;
-  private final Map<String, AppliedFile> m_cssQ = Maps.newHashMap();
 
   ////////////////////////////////////////////////////////////////////////////
   //
@@ -305,62 +301,5 @@ public final class CssSupport {
     }
     System.out.println(sourceDocument.get());*/
     return sourceDocument.get();
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // CSS tracking XXX
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  public class AppliedFile {
-    private final String m_path;
-    private IFile m_file;
-
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // Constructor
-    //
-    ////////////////////////////////////////////////////////////////////////////
-    public AppliedFile(String path) {
-      m_path = path;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    //
-    // Access
-    //
-    ////////////////////////////////////////////////////////////////////////////
-    public IFile getFile() {
-      if (m_file == null) {
-        for (IFile file : files) {
-          System.out.println(m_path + " vs " + file.getName());
-          if (m_path.contains(file.getName())) {
-            m_file = file;
-          }
-        }
-      }
-      return m_file;
-    }
-  }
-  public class AppliedRule {
-  }
-
-  public List<AppliedFile> getAppliedFiles(Object element) {
-    String trace = getRulesTrace(element);
-    Iterable<String> ruleIds = Splitter.on(' ').split(trace);
-    for (String ruleId : ruleIds) {
-    }
-    return ImmutableList.of();
-  }
-
-  /**
-   * @return the {@link String} with space separated "wbp-css-rule-" properties.
-   */
-  public String getRulesTrace(Object element) {
-    Class<?> classOfElement = state.getUIObjectUtils().getClassOfElement();
-    return state.getHostModeSupport().invokeNativeString(
-        "__getCSSRulesTrace",
-        new Class[]{classOfElement, Integer.TYPE, Integer.TYPE},
-        new Object[]{element, 0, m_lastTrackedRule});
   }
 }
