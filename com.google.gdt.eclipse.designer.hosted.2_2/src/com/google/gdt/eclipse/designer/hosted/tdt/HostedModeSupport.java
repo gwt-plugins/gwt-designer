@@ -299,8 +299,14 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
    *         lib.
    */
   private ClassLoader getDevClassLoader0() throws Exception {
-    // disable persistent cache
-    System.setProperty("gwt.persistentunitcache", "false");
+    // configure persistent cache
+    {
+      File userHome = SystemUtils.getUserHome();
+      if (userHome != null && userHome.exists() && userHome.isDirectory()) {
+        System.setProperty("gwt.persistentunitcache", "true");
+        System.setProperty("gwt.persistentunitcachedir", userHome.getAbsolutePath());
+      }
+    }
     // prepare gwt-dev.jar location
     String devLibLocation = Utils.getDevLibLocation(moduleDescription);
     if (devLibLocation == null) {
