@@ -101,6 +101,10 @@ public final class UiChildSupport {
     // exclude @UiChild widgets from parent
     if (parent instanceof WidgetInfo) {
       WidgetInfo widget = (WidgetInfo) parent;
+      // may be support for @UiChild is disabled
+      if (XmlObjectUtils.hasTrueParameter(widget, "UiChild.disabled")) {
+        return;
+      }
       // include Position objects
       {
         Map<String, Position> tagToPosition = getPositions(widget);
@@ -195,11 +199,6 @@ public final class UiChildSupport {
     if (method.getParameterTypes().length < 2) {
       return null;
     }
-    // prepare @UiChild complex property
-    ComplexProperty methodProperty = new ComplexProperty("UiChild", "(Properties)");
-    methodProperty.setCategory(PropertyCategory.system(3));
-    methodProperty.setModified(true);
-    methodProperty.setTooltip("Properties for @UiChild arguments.");
     // prepare sub-properties
     List<Property> subPropertiesList = Lists.newArrayList();
     String[] parameterNames = getMethodParameterNames(method);
@@ -210,6 +209,15 @@ public final class UiChildSupport {
         subPropertiesList.add(property);
       }
     }
+    // if no sub-properties, then no property
+    if (subPropertiesList.isEmpty()) {
+      return null;
+    }
+    // prepare @UiChild complex property
+    ComplexProperty methodProperty = new ComplexProperty("UiChild", "(Properties)");
+    methodProperty.setCategory(PropertyCategory.system(3));
+    methodProperty.setModified(true);
+    methodProperty.setTooltip("Properties for @UiChild arguments.");
     // set sub-properties
     methodProperty.setProperties(subPropertiesList);
     return methodProperty;
@@ -222,6 +230,9 @@ public final class UiChildSupport {
       throws Exception {
     ExpressionConverter converter = DescriptionPropertiesHelper.getConverterForType(type);
     PropertyEditor editor = DescriptionPropertiesHelper.getEditorForType(type);
+    if (converter == null || editor == null) {
+      return null;
+    }
     ExpressionAccessor accessor = new ExpressionAccessor(name) {
       @Override
       protected DocumentElement getElement(XmlObjectInfo object) {

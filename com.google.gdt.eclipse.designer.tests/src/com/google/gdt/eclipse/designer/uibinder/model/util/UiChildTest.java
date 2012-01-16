@@ -23,9 +23,11 @@ import com.google.gdt.eclipse.designer.uibinder.parser.UiBinderContext;
 import org.eclipse.wb.core.model.ObjectInfo;
 import org.eclipse.wb.internal.core.model.presentation.IObjectPresentation;
 import org.eclipse.wb.internal.core.model.property.Property;
+import org.eclipse.wb.internal.core.model.property.editor.PropertyEditor;
 import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
+import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
 
 import junit.framework.AssertionFailedError;
 
@@ -197,7 +199,7 @@ public class UiChildTest extends UiBinderModelTest {
   /**
    * Test for @UiChild annotation {@link Property}.
    */
-  public void test_positionProperties_noUiChildProperties() throws Exception {
+  public void test_positionProperties_noUiChildProperty() throws Exception {
     parse(
         "// filler filler filler filler filler",
         "<ui:UiBinder>",
@@ -268,6 +270,100 @@ public class UiChildTest extends UiBinderModelTest {
         "</ui:UiBinder>");
     assertFalse(textProperty.isModified());
     assertSame(Property.UNKNOWN_VALUE, textProperty.getValue());
+  }
+
+  /**
+   * Test for @UiChild annotation {@link Property}.
+   * <p>
+   * There is argument, but we don't have {@link PropertyEditor} for its type.
+   */
+  @DisposeProjectAfter
+  public void test_positionProperties_noUiChildProperty_badType() throws Exception {
+    dontUseSharedGWTState();
+    setFileContentSrc(
+        "test/client/MyContainer.java",
+        getSourceDQ(
+            "package test.client;",
+            "import com.google.gwt.user.client.ui.*;",
+            "import com.google.gwt.uibinder.client.UiChild;",
+            "public class MyContainer extends LayoutPanel {",
+            "  public MyContainer() {",
+            "  }",
+            "  @UiChild",
+            "  public void addTopButton(Button button, java.util.Map notUsed) {",
+            "  }",
+            "}"));
+    waitForAutoBuild();
+    // parse
+    parse(
+        "// filler filler filler filler filler",
+        "<ui:UiBinder>",
+        "  <t:MyContainer>",
+        "    <t:topbutton>",
+        "      <g:Button wbp:name='button'/>",
+        "    </t:topbutton>",
+        "  </t:MyContainer>",
+        "</ui:UiBinder>");
+    refresh();
+    WidgetInfo button = getObjectByName("button");
+    // no "UiChild" property
+    {
+      Property uiChildProperty = PropertyUtils.getByPath(button, "UiChild");
+      assertNull(uiChildProperty);
+    }
+  }
+
+  /**
+   * Sometimes we have special, better support for widget, so want to disable @UiChild to prevent
+   * clutter in the components tree.
+   */
+  @DisposeProjectAfter
+  public void test_disableUiChild() throws Exception {
+    dontUseSharedGWTState();
+    setFileContentSrc(
+        "test/client/MyContainer.java",
+        getSourceDQ(
+            "package test.client;",
+            "import com.google.gwt.user.client.ui.*;",
+            "import com.google.gwt.uibinder.client.UiChild;",
+            "public class MyContainer extends LayoutPanel {",
+            "  public MyContainer() {",
+            "  }",
+            "  @UiChild",
+            "  public void addTopButton(Button button, java.util.Map notUsed) {",
+            "  }",
+            "}"));
+    setFileContentSrc(
+        "test/client/MyContainer.wbp-component.xml",
+        getSourceDQ(
+            "<?xml version='1.0' encoding='UTF-8'?>",
+            "<component xmlns='http://www.eclipse.org/wb/WBPComponent'>",
+            "  <parameters>",
+            "    <parameter name='UiChild.disabled'>true</parameter>",
+            "  </parameters>",
+            "</component>"));
+    waitForAutoBuild();
+    // parse
+    WidgetInfo container =
+        parse(
+            "// filler filler filler filler filler",
+            "<ui:UiBinder>",
+            "  <t:MyContainer>",
+            "    <t:topbutton>",
+            "      <g:Button wbp:name='button'/>",
+            "    </t:topbutton>",
+            "  </t:MyContainer>",
+            "</ui:UiBinder>");
+    refresh();
+    WidgetInfo button = getObjectByName("button");
+    // no "UiChild" property
+    {
+      Property uiChildProperty = PropertyUtils.getByPath(button, "UiChild");
+      assertNull(uiChildProperty);
+    }
+    // "container" child is Button
+    List<ObjectInfo> containerChildren = container.getPresentation().getChildrenTree();
+    assertThat(containerChildren).containsExactly(button);
   }
 
   ////////////////////////////////////////////////////////////////////////////
