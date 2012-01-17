@@ -120,6 +120,7 @@ public class UiBinderEditorTest extends UiBinderGefTest {
               "}"));
       // close CSS editor...
       DesignerPlugin.getActivePage().closeEditor(cssEditor, true);
+      waitEventLoop(0);
     }
     // ...so UiBinder editor activated and reparse was done
     assertThat(button.getBounds().width).isEqualTo(200);
