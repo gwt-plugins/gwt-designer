@@ -16,6 +16,9 @@ package com.google.gdt.eclipse.designer.wizards.ui;
 
 import com.google.gdt.eclipse.designer.ToolkitProvider;
 import com.google.gdt.eclipse.designer.common.Constants;
+import com.google.gdt.eclipse.designer.model.module.ModuleElement;
+import com.google.gdt.eclipse.designer.util.DefaultModuleProvider;
+import com.google.gdt.eclipse.designer.util.DefaultModuleProvider.ModuleModification;
 import com.google.gdt.eclipse.designer.util.ModuleDescription;
 import com.google.gdt.eclipse.designer.util.Utils;
 import com.google.gdt.eclipse.designer.wizards.Activator;
@@ -291,18 +294,35 @@ public final class JUnitWizardPage extends TemplateDesignWizardPage {
   @Override
   protected void createTypeMembers(IType newType, ImportsManager imports, IProgressMonitor monitor)
       throws CoreException {
-    InputStream is;
-    try {
-      IProject project = getJavaProject().getProject();
-      String templatePath = WizardUtils.getTemplatePath(project) + "/TestCase.jvt";
-      is = Activator.getFile(templatePath);
-    } catch (Throwable e) {
-      throw ReflectionUtils.propagate(e);
+    //  create GWTTest
+    {
+      InputStream is;
+      try {
+        IProject project = getJavaProject().getProject();
+        String templatePath = WizardUtils.getTemplatePath(project) + "/TestCase.jvt";
+        is = Activator.getFile(templatePath);
+      } catch (Throwable e) {
+        throw ReflectionUtils.propagate(e);
+      }
+      try {
+        fillTypeFromTemplate(newType, imports, monitor, is);
+      } finally {
+        IOUtils.closeQuietly(is);
+      }
     }
+    // ensure com.google.gwt.junit.JUnit import
     try {
-      fillTypeFromTemplate(newType, imports, monitor, is);
-    } finally {
-      IOUtils.closeQuietly(is);
+      IPackageFragment newTypePackage = newType.getPackageFragment();
+      ModuleDescription module = Utils.getSingleModule(newTypePackage);
+      DefaultModuleProvider.modify(module, new ModuleModification() {
+        public void modify(ModuleElement moduleElement) throws Exception {
+          if (moduleElement.getInheritsElement("com.google.gwt.junit.JUnit") == null) {
+            moduleElement.addInheritsElement("com.google.gwt.junit.JUnit");
+          }
+        }
+      });
+    } catch (Throwable e) {
+      DesignerPlugin.log(e);
     }
   }
 
