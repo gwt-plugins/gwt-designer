@@ -14,6 +14,7 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.hosted.tdt;
 
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.MapMaker;
 import com.google.gdt.eclipse.designer.hosted.HostedModeException;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShell;
@@ -211,13 +212,22 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         ReflectionUtils.setField(classLoader, "parent", null);
       }
     }
-    // Clear java.lang.ApplicationShutdownHooks
+    // Remove GWT related java.lang.ApplicationShutdownHooks
     try {
       Class<?> hooksClass =
           ClassLoader.getSystemClassLoader().loadClass("java.lang.ApplicationShutdownHooks");
       Field hooksField = ReflectionUtils.getFieldByName(hooksClass, "hooks");
-      Map<?, ?> hooks = (Map<?, ?>) hooksField.get(null);
-      hooks.clear();
+      @SuppressWarnings("unchecked")
+      Map<Thread, ?> hooks = (Map<Thread, ?>) hooksField.get(null);
+      List<Thread> threads = ImmutableList.copyOf(hooks.keySet());
+      for (Thread thread : threads) {
+        ClassLoader contextClassLoader = thread.getContextClassLoader();
+        if (contextClassLoader != null
+            && contextClassLoader.toString().contains(
+                "com.google.gdt.eclipse.designer.hosted.tdt.HostedModeSupport$LocalProjectClassLoader")) {
+          hooks.remove(thread);
+        }
+      }
     } catch (Throwable e) {
     }
     // find embedded Guava Finalizer and clear reference of our "dev" URLClassLoader
