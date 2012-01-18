@@ -39,19 +39,19 @@ public final class UiBinderTagResolver extends NamespacesHelper {
     rootObject.addBroadcastListener(new XmlObjectResolveTag() {
       public void invoke(XmlObjectInfo object, Class<?> clazz, String[] namespace, String[] tag)
           throws Exception {
-        invoke0(object, clazz, namespace, tag);
+        resolveTag(object, clazz, namespace, tag);
       }
     });
   }
 
   ////////////////////////////////////////////////////////////////////////////
   //
-  // XMLObject_resolveTag
+  // XMLObjectResolveTag
   //
   ////////////////////////////////////////////////////////////////////////////
-  private void invoke0(XmlObjectInfo object, Class<?> clazz, String[] namespace, String[] tag)
+  private void resolveTag(XmlObjectInfo object, Class<?> clazz, String[] namespace, String[] tag)
       throws Exception {
-    if (UiBinderDescriptionProcessor.isUiBinder(object)) {
+    if (tag[0] == null && UiBinderDescriptionProcessor.isUiBinder(object)) {
       String className = clazz.getName();
       namespace[0] = getNamespace(className);
       tag[0] = StringUtils.substringAfterLast(className, ".");

@@ -152,6 +152,15 @@
 			class="com.google.gdt.eclipse.designer.uibinder.parser.UiBinderDescriptionProcessor"/>
 	</extension>
 
+	<!-- ======================================================== -->
+	<!-- Tag resolvers -->
+	<!-- ======================================================== -->
+	<extension point="org.eclipse.wb.core.xml.tagResolverProviders">
+		<provider
+			class="com.google.gdt.eclipse.designer.uibinder.model.util.UiBinderTagResolverProvider"
+		/>
+	</extension>
+
 
 	<!-- ======================================================== -->
 	<!-- PropertyEditor -->

@@ -79,7 +79,6 @@ public final class UiConstructorSupport {
     });
   }
 
-  // XXX
   private void addMissingConstructorAttributes(XmlObjectInfo object) throws Exception {
     Constructor<?> constructor = getUiConstructor(object);
     if (constructor == null) {

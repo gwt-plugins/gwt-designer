@@ -20,7 +20,6 @@ import com.google.gdt.eclipse.designer.uibinder.model.util.EventHandlersSupport;
 import com.google.gdt.eclipse.designer.uibinder.model.util.NameSupport;
 import com.google.gdt.eclipse.designer.uibinder.model.util.StylePropertySupport;
 import com.google.gdt.eclipse.designer.uibinder.model.util.UiBinderStaticFieldSupport;
-import com.google.gdt.eclipse.designer.uibinder.model.util.UiBinderTagResolver;
 import com.google.gdt.eclipse.designer.uibinder.model.util.UiChildSupport;
 import com.google.gdt.eclipse.designer.uibinder.model.util.UiConstructorSupport;
 import com.google.gdt.eclipse.designer.uibinder.model.widgets.IsWidgetInfo;
@@ -142,7 +141,7 @@ public final class UiBinderParser {
     m_context.setParsing(false);
     NameSupport.decoratePresentationWithName(m_rootModel);
     XmlObjectUtils.callRootProcessors(m_rootModel);
-    new UiBinderTagResolver(m_rootModel);
+    XmlObjectUtils.registerTagResolvers(m_rootModel);
     new UiBinderStaticFieldSupport(m_rootModel);
     NameSupport.removeName_onDelete(m_rootModel);
     NameSupport.ensureFieldProvided_onCreate(m_rootModel);
