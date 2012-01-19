@@ -139,6 +139,8 @@ public final class UiBinderParser {
     buildHierarchy();
     // done
     m_context.setParsing(false);
+    new UiConstructorSupport(m_context);
+    new UiChildSupport(m_context);
     NameSupport.decoratePresentationWithName(m_rootModel);
     XmlObjectUtils.callRootProcessors(m_rootModel);
     XmlObjectUtils.registerTagResolvers(m_rootModel);
@@ -146,8 +148,6 @@ public final class UiBinderParser {
     NameSupport.removeName_onDelete(m_rootModel);
     NameSupport.ensureFieldProvided_onCreate(m_rootModel);
     new EventHandlersSupport(m_rootModel);
-    new UiConstructorSupport(m_context);
-    new UiChildSupport(m_context);
     new StylePropertySupport(m_context);
     GlobalStateXml.activate(m_rootModel);
     m_rootModel.getBroadcast(ObjectInfoTreeComplete.class).invoke();
