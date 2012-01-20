@@ -309,6 +309,8 @@ public final class UiBinderParser {
         variables.put("wbpClassLoader", UiBinderParser.class.getClassLoader());
         variables.put("classLoader", classLoader);
         variables.put("componentClass", clazz);
+        variables.put("modelClass", description.getModelClass());
+        variables.put("modelClassLoader", description.getModelClass().getClassLoader());
         variables.put("args", args);
         return ScriptUtils.evaluate(classLoader, script, variables);
       }
