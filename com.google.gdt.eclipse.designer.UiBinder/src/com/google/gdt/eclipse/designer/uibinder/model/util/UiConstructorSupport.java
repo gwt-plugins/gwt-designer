@@ -80,6 +80,11 @@ public final class UiConstructorSupport {
   }
 
   private void addMissingConstructorAttributes(XmlObjectInfo object) throws Exception {
+    // may be we know that we will create UiField(provided)
+    if (object.getDescription().hasTrueParameter("UiBinder.createFieldProvided")) {
+      return;
+    }
+    // prepare UiConstructor
     Constructor<?> constructor = getUiConstructor(object);
     if (constructor == null) {
       return;
