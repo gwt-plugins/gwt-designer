@@ -213,7 +213,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       }
     }
     // Remove GWT related java.lang.ApplicationShutdownHooks
-    try {
+    /*try {
       Class<?> hooksClass =
           ClassLoader.getSystemClassLoader().loadClass("java.lang.ApplicationShutdownHooks");
       Field hooksField = ReflectionUtils.getFieldByName(hooksClass, "hooks");
@@ -230,7 +230,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         }
       }
     } catch (Throwable e) {
-    }
+    }*/
     // find embedded Guava Finalizer and clear reference of our "dev" URLClassLoader
     try {
       Thread[] threads = getAllThreads();
