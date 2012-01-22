@@ -226,6 +226,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
             && contextClassLoader.toString().contains(
                 "com.google.gdt.eclipse.designer.hosted.tdt.HostedModeSupport$LocalProjectClassLoader")) {
           hooks.remove(thread);
+          thread.run();
         }
       }
     } catch (Throwable e) {
