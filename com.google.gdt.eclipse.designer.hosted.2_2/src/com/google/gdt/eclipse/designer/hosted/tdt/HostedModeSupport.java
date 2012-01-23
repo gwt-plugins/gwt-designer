@@ -213,7 +213,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       }
     }
     // Remove GWT related java.lang.ApplicationShutdownHooks
-    /*try {
+    try {
       Class<?> hooksClass =
           ClassLoader.getSystemClassLoader().loadClass("java.lang.ApplicationShutdownHooks");
       Field hooksField = ReflectionUtils.getFieldByName(hooksClass, "hooks");
@@ -225,12 +225,11 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         if (contextClassLoader != null
             && contextClassLoader.toString().contains(
                 "com.google.gdt.eclipse.designer.hosted.tdt.HostedModeSupport$LocalProjectClassLoader")) {
-          hooks.remove(thread);
-          thread.run();
+          thread.setContextClassLoader(ClassLoader.getSystemClassLoader());
         }
       }
     } catch (Throwable e) {
-    }*/
+    }
     // find embedded Guava Finalizer and clear reference of our "dev" URLClassLoader
     try {
       Thread[] threads = getAllThreads();
