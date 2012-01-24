@@ -49,8 +49,8 @@ import org.eclipse.wb.internal.core.utils.state.EditorState;
 import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.broadcast.XmlObjectAdd;
+import org.eclipse.wb.internal.core.xml.model.creation.IImplicitCreationSupport;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
-import org.eclipse.wb.internal.core.xml.model.utils.NamespacesHelper;
 import org.eclipse.wb.internal.core.xml.model.utils.XmlObjectUtils;
 
 import org.eclipse.core.runtime.IStatus;
@@ -592,9 +592,8 @@ public final class NameSupport {
    * @return the full name (including namespace) for "field" attribute.
    */
   private String getNameAttribute() {
-    DocumentElement element = m_object.getElement();
-    String ns = NamespacesHelper.ensureName(element, "urn:ui:com.google.gwt.uibinder", "ui");
-    return ns + ":field";
+    DocumentElement rootElement = m_object.getElement().getRoot();
+    return rootElement.getTagNS() + "field";
   }
 
   /**
@@ -623,9 +622,11 @@ public final class NameSupport {
       public void endVisit(ObjectInfo object) throws Exception {
         if (object instanceof XmlObjectInfo) {
           XmlObjectInfo xmlObject = (XmlObjectInfo) object;
-          String name = getName(xmlObject);
-          if (name != null) {
-            resultSet.add(name);
+          if (!(xmlObject.getCreationSupport() instanceof IImplicitCreationSupport)) {
+            String name = getName(xmlObject);
+            if (name != null) {
+              resultSet.add(name);
+            }
           }
         }
       }
