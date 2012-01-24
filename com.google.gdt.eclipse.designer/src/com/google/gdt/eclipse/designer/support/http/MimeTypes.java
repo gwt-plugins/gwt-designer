@@ -29,7 +29,7 @@ public class MimeTypes {
     m_mimeTypes.put(".txt", "text/plain");
     m_mimeTypes.put(".html", "text/html");
     m_mimeTypes.put(".htm", "text/html");
-    m_mimeTypes.put(".css", "text/css");
+    m_mimeTypes.put(".css", "text/css;charset=UTF-8");
     m_mimeTypes.put(".gif", "image/gif");
     m_mimeTypes.put(".jpg", "image/jpeg");
     m_mimeTypes.put(".jpeg", "image/jpeg");

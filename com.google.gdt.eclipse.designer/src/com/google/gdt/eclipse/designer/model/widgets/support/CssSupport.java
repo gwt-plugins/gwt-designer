@@ -268,7 +268,7 @@ public final class CssSupport {
         String waitRequestName = getWaitRequestName(publicResourcePath);
         String waitApplyName = waitRequestName + "_" + nextRequestId++ + ".png";
         // prepare content
-        String cssContent = new String(result);
+        String cssContent = new String(result, "UTF-8");
         cssContent = addRulesMarkers(publicResourcePath, cssContent);
         // add "wait apply" class to the end of CSS content
         {
@@ -277,7 +277,7 @@ public final class CssSupport {
           cssContent += "background-image: url('";
           cssContent += state.m_moduleBaseURL + waitApplyName;
           cssContent += "'); }\n";
-          result = cssContent.getBytes();
+          result = cssContent.getBytes("UTF-8");
         }
         // update request/apply sets
         synchronized (waitApplySet) {

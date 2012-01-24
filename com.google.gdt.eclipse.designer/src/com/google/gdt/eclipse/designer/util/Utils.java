@@ -79,6 +79,7 @@ import org.htmlparser.nodes.TagNode;
 import org.htmlparser.util.DefaultParserFeedback;
 import org.htmlparser.visitors.TagFindingVisitor;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -706,7 +707,13 @@ public final class Utils {
     if (webFolder != null) {
       IFile file = webFolder.getFile(new Path(path));
       if (file.exists()) {
-        return file.getContents(true);
+        InputStream result = file.getContents(true);
+        // If CSS, then return UTF-8 bytes.
+        if (result != null && path.toUpperCase().endsWith(".CSS")) {
+          String stringContent = new String(IOUtils2.readBytes(result), file.getCharset());
+          result = new ByteArrayInputStream(stringContent.getBytes("UTF-8"));
+        }
+        return result;
       }
     }
     // no resource
@@ -716,7 +723,7 @@ public final class Utils {
   /**
    * If given path has module name as prefix, then resource may be in "public" folder.
    */
-  public static InputStream getResource_modulePublic(ModuleDescription moduleDescription,
+  private static InputStream getResource_modulePublic(ModuleDescription moduleDescription,
       String path) throws Exception {
     // prepare "public" path
     final String publicResourcePath;
