@@ -148,6 +148,9 @@ public final class NameSupport {
    * @return the existing name of the widget, or <code>null</code>.
    */
   public static String getName(XmlObjectInfo object) {
+    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+      return null;
+    }
     return new NameSupport(object).getName();
   }
 
@@ -155,6 +158,9 @@ public final class NameSupport {
    * @return the existing or new name of the widget, can not be <code>null</code>.
    */
   public static String ensureName(XmlObjectInfo object) throws Exception {
+    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+      throw new IllegalArgumentException();
+    }
     final NameSupport nameSupport = new NameSupport(object);
     return ExecutionUtils.runObject(object, new RunnableObjectEx<String>() {
       public String runObject() throws Exception {
@@ -167,6 +173,9 @@ public final class NameSupport {
    * Removes "@UiField" of the widget.
    */
   public static void removeName(XmlObjectInfo object) throws Exception {
+    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+      return;
+    }
     final NameSupport nameSupport = new NameSupport(object);
     ExecutionUtils.run(object, new RunnableEx() {
       public void run() throws Exception {
@@ -179,6 +188,9 @@ public final class NameSupport {
    * Sets new name for "@UiField" of the widget.
    */
   public static void setName(XmlObjectInfo object, final String name) throws Exception {
+    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+      throw new IllegalArgumentException();
+    }
     m_renaming = true;
     try {
       final NameSupport nameSupport = new NameSupport(object);
