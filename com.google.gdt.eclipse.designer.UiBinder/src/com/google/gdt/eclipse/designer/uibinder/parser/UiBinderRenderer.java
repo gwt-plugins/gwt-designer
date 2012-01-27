@@ -25,8 +25,8 @@ import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
 import org.eclipse.wb.internal.core.xml.model.EditorContext;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.creation.CreationSupport;
-import org.eclipse.wb.internal.core.xml.model.creation.IImplicitCreationSupport;
 import org.eclipse.wb.internal.core.xml.model.utils.GlobalStateXml;
+import org.eclipse.wb.internal.core.xml.model.utils.XmlObjectUtils;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -107,7 +107,7 @@ public final class UiBinderRenderer {
         if (objectInfo instanceof XmlObjectInfo) {
           XmlObjectInfo xmlObjectInfo = (XmlObjectInfo) objectInfo;
           CreationSupport creationSupport = xmlObjectInfo.getCreationSupport();
-          if (!(creationSupport instanceof IImplicitCreationSupport)) {
+          if (!XmlObjectUtils.isImplicit(xmlObjectInfo)) {
             DocumentElement element = creationSupport.getElement();
             String path = UiBinderParser.getPath(element);
             if (xmlObjectInfo instanceof IsWidgetWrappedInfo) {

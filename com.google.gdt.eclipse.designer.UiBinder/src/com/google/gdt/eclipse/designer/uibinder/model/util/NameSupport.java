@@ -49,7 +49,6 @@ import org.eclipse.wb.internal.core.utils.state.EditorState;
 import org.eclipse.wb.internal.core.utils.xml.DocumentElement;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
 import org.eclipse.wb.internal.core.xml.model.broadcast.XmlObjectAdd;
-import org.eclipse.wb.internal.core.xml.model.creation.IImplicitCreationSupport;
 import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.xml.model.utils.XmlObjectUtils;
 
@@ -148,7 +147,7 @@ public final class NameSupport {
    * @return the existing name of the widget, or <code>null</code>.
    */
   public static String getName(XmlObjectInfo object) {
-    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+    if (XmlObjectUtils.isImplicit(object)) {
       return null;
     }
     return new NameSupport(object).getName();
@@ -158,7 +157,7 @@ public final class NameSupport {
    * @return the existing or new name of the widget, can not be <code>null</code>.
    */
   public static String ensureName(XmlObjectInfo object) throws Exception {
-    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+    if (XmlObjectUtils.isImplicit(object)) {
       throw new IllegalArgumentException();
     }
     final NameSupport nameSupport = new NameSupport(object);
@@ -173,7 +172,7 @@ public final class NameSupport {
    * Removes "@UiField" of the widget.
    */
   public static void removeName(XmlObjectInfo object) throws Exception {
-    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+    if (XmlObjectUtils.isImplicit(object)) {
       return;
     }
     final NameSupport nameSupport = new NameSupport(object);
@@ -188,7 +187,7 @@ public final class NameSupport {
    * Sets new name for "@UiField" of the widget.
    */
   public static void setName(XmlObjectInfo object, final String name) throws Exception {
-    if (object.getCreationSupport() instanceof IImplicitCreationSupport) {
+    if (XmlObjectUtils.isImplicit(object)) {
       throw new IllegalArgumentException();
     }
     m_renaming = true;
@@ -634,7 +633,7 @@ public final class NameSupport {
       public void endVisit(ObjectInfo object) throws Exception {
         if (object instanceof XmlObjectInfo) {
           XmlObjectInfo xmlObject = (XmlObjectInfo) object;
-          if (!(xmlObject.getCreationSupport() instanceof IImplicitCreationSupport)) {
+          if (!XmlObjectUtils.isImplicit(xmlObject)) {
             String name = getName(xmlObject);
             if (name != null) {
               resultSet.add(name);
