@@ -80,6 +80,38 @@ public class UiConstructorTest extends UiBinderModelTest {
     }
   }
 
+  /**
+   * Has constructor marked with @UiConstructor, but it has no parameters, so no properties.
+   */
+  public void test_hasUiConstructor_noParameters() throws Exception {
+    dontUseSharedGWTState();
+    setFileContentSrc(
+        "test/client/MyButton.java",
+        getJavaSource(
+            "import com.google.gwt.uibinder.client.UiConstructor;",
+            "// filler filler filler filler filler",
+            "// filler filler filler filler filler",
+            "public class MyButton extends Button {",
+            "  @UiConstructor",
+            "  public MyButton() {",
+            "  }",
+            "}"));
+    waitForAutoBuild();
+    // parse
+    parse(
+        "// filler filler filler filler filler",
+        "// filler filler filler filler filler",
+        "<ui:UiBinder>",
+        "  <g:FlowPanel>",
+        "    <t:MyButton wbp:name='button'/>",
+        "  </g:FlowPanel>",
+        "</ui:UiBinder>");
+    refresh();
+    WidgetInfo button = getObjectByName("button");
+    // no UiConstructor property
+    assertNull(button.getPropertyByTitle("UiConstructor"));
+  }
+
   public void test_hasUiConstructor() throws Exception {
     dontUseSharedGWTState();
     setFileContentSrc(

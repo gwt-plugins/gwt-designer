@@ -169,8 +169,11 @@ public final class UiConstructorSupport {
       }
     }
     // set sub-properties
-    constructorProperty.setProperties(subPropertiesList);
-    return constructorProperty;
+    if (!subPropertiesList.isEmpty()) {
+      constructorProperty.setProperties(subPropertiesList);
+      return constructorProperty;
+    }
+    return null;
   }
 
   /**
