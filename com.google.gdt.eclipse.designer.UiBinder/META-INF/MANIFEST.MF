@@ -20,6 +20,7 @@ Bundle-Localization: plugin
 Export-Package: com.google.gdt.eclipse.designer.uibinder;x-friends:="com.google.gdt.eclipse.designer.tests",
  com.google.gdt.eclipse.designer.uibinder.editor;x-friends:="com.google.gdt.eclipse.designer.tests,com.google.gdt.eclipse.designer.UiBinder.wizards",
  com.google.gdt.eclipse.designer.uibinder.gef.part,
+ com.google.gdt.eclipse.designer.uibinder.gefTree.part,
  com.google.gdt.eclipse.designer.uibinder.model.util;x-friends:="com.google.gdt.eclipse.designer.tests",
  com.google.gdt.eclipse.designer.uibinder.model.widgets,
  com.google.gdt.eclipse.designer.uibinder.model.widgets.cell;x-friends:="com.google.gdt.eclipse.designer.tests",
