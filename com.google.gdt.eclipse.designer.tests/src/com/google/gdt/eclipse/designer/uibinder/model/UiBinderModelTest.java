@@ -276,10 +276,11 @@ public abstract class UiBinderModelTest extends AbstractXmlModelTest {
     List<FlowContainer> flowContainers = factory.get();
     // check each factory
     WidgetInfo button = createButton();
+    boolean valid = false;
     for (FlowContainer flowContainer : flowContainers) {
-      boolean valid = flowContainer.validateComponent(button);
-      assertThat(valid).isEqualTo(expected);
+      valid |= flowContainer.validateComponent(button);
     }
+    assertThat(valid).isEqualTo(expected);
   }
 
   /**
