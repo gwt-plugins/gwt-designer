@@ -60,6 +60,7 @@ import org.apache.commons.lang.StringUtils;
 import java.beans.Beans;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -224,6 +225,20 @@ public class UiBinderContext extends EditorContext {
   public void setAttributeValue(DocumentElement element, String name, Object value) {
     String key = UiBinderParser.getPath(element) + " " + name;
     m_attributeValues.put(key, value);
+  }
+
+  /**
+   * @return all attributes of the element with the given path.
+   */
+  public Map<String, Object> getAttributeValues(String path) {
+    Map<String, Object> attribute = Maps.newHashMap();
+    String pathPrefix = path + " ";
+    for (Entry<String, Object> entry : m_attributeValues.entrySet()) {
+      if (entry.getKey().startsWith(pathPrefix)) {
+        attribute.put(StringUtils.substringAfter(entry.getKey(), pathPrefix), entry.getValue());
+      }
+    }
+    return attribute;
   }
 
   /**
