@@ -65,13 +65,11 @@ public final class UiBinderRenderer {
    * Renders current content of {@link EditorContext} and fill objects for {@link XmlObjectInfo}s.
    */
   public void render() throws Exception {
-    long start = System.nanoTime();
     m_context.runDesignTime(new RunnableEx() {
       public void run() throws Exception {
         render0();
       }
     });
-    System.out.println("render: " + (System.nanoTime() - start) / 1000000.0);
   }
 
   /**
