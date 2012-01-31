@@ -45,7 +45,7 @@
             <parameter type="double"/>
             <parameter type="com.google.gwt.dom.client.Style$Unit"/>
         </method>
-        <method name="setColumnWidth">
+        <!--<method name="setColumnWidth">
             <parameter type="int"/>
             <parameter type="java.lang.String"/>
         </method>
@@ -53,7 +53,7 @@
             <parameter type="int"/>
             <parameter type="double"/>
             <parameter type="com.google.gwt.dom.client.Style$Unit"/>
-        </method>
+        </method>-->
     </methods>
     <!-- PROPERTIES -->
     <properties-advanced names="rowCount"/>
