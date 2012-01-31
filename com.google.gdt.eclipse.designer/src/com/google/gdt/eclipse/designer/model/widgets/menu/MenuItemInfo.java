@@ -41,6 +41,7 @@ import org.eclipse.wb.internal.core.model.util.TemplateUtils;
 import org.eclipse.wb.internal.core.model.variable.LocalUniqueVariableSupport;
 import org.eclipse.wb.internal.core.utils.GenericsUtils;
 import org.eclipse.wb.internal.core.utils.IAdaptable;
+import org.eclipse.wb.internal.core.utils.ast.AnonymousTypeDeclaration;
 import org.eclipse.wb.internal.core.utils.ast.AstEditor;
 import org.eclipse.wb.internal.core.utils.ast.AstNodeUtils;
 import org.eclipse.wb.internal.core.utils.ast.DomGenerics;
@@ -50,7 +51,6 @@ import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.AnonymousClassDeclaration;
-import org.eclipse.jdt.core.dom.AnonymousTypeDeclaration2;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.MethodInvocation;
@@ -242,7 +242,7 @@ public final class MenuItemInfo extends UIObjectInfo implements IAdaptable {
       AnonymousClassDeclaration classDeclaration =
           newCommandExpression.getAnonymousClassDeclaration();
       if (classDeclaration != null) {
-        TypeDeclaration typeDeclaration = new AnonymousTypeDeclaration2(classDeclaration);
+        TypeDeclaration typeDeclaration = AnonymousTypeDeclaration.create(classDeclaration);
         return typeDeclaration.getMethods()[0];
       }
     }
