@@ -112,6 +112,44 @@ public class UiConstructorTest extends UiBinderModelTest {
     assertNull(button.getPropertyByTitle("UiConstructor"));
   }
 
+  public void test_hasUiConstructor_disabled() throws Exception {
+    dontUseSharedGWTState();
+    setFileContentSrc(
+        "test/client/MyButton.java",
+        getJavaSource(
+            "import com.google.gwt.uibinder.client.UiConstructor;",
+            "// filler filler filler filler filler",
+            "// filler filler filler filler filler",
+            "public class MyButton extends Button {",
+            "  @UiConstructor",
+            "  public MyButton(int foo, String bar) {",
+            "  }",
+            "}"));
+    setFileContentSrc(
+        "test/client/MyButton.wbp-component.xml",
+        getSourceDQ(
+            "<?xml version='1.0' encoding='UTF-8'?>",
+            "<component xmlns='http://www.eclipse.org/wb/WBPComponent'>",
+            "  <parameters>",
+            "    <parameter name='UiConstructor.disabled'>true</parameter>",
+            "  </parameters>",
+            "</component>"));
+    waitForAutoBuild();
+    // parse
+    parse(
+        "// filler filler filler filler filler",
+        "// filler filler filler filler filler",
+        "<ui:UiBinder>",
+        "  <g:FlowPanel>",
+        "    <t:MyButton wbp:name='button' foo='1' bar='abc'/>",
+        "  </g:FlowPanel>",
+        "</ui:UiBinder>");
+    refresh();
+    WidgetInfo button = getObjectByName("button");
+    // no UiConstructor property
+    assertSame(null, button.getPropertyByTitle("UiConstructor"));
+  }
+
   public void test_hasUiConstructor() throws Exception {
     dontUseSharedGWTState();
     setFileContentSrc(

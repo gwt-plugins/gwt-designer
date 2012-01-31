@@ -33,6 +33,7 @@ import org.eclipse.wb.internal.core.xml.model.description.GenericPropertyDescrip
 import org.eclipse.wb.internal.core.xml.model.property.GenericPropertyImpl;
 import org.eclipse.wb.internal.core.xml.model.property.accessor.ExpressionAccessor;
 import org.eclipse.wb.internal.core.xml.model.property.converter.ExpressionConverter;
+import org.eclipse.wb.internal.core.xml.model.utils.XmlObjectUtils;
 
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IMethod;
@@ -127,6 +128,10 @@ public final class UiConstructorSupport {
    *         <code>null</code> if no such constructor.
    */
   private Property getProperty(XmlObjectInfo object) throws Exception {
+    // may be we don't want to have @UiConstructor property
+    if (XmlObjectUtils.hasTrueParameter(object, "UiConstructor.disabled")) {
+      return null;
+    }
     // may be we already know that there are no @UiConstructor property
     if (m_propertyNo.containsKey(object)) {
       return null;
