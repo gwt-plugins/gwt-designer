@@ -17,6 +17,7 @@ package com.google.gdt.eclipse.designer.uibinder.model.util;
 import com.google.common.collect.Lists;
 import com.google.common.collect.MapMaker;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import com.google.gdt.eclipse.designer.uibinder.Activator;
 import com.google.gdt.eclipse.designer.uibinder.model.widgets.WidgetInfo;
 import com.google.gdt.eclipse.designer.uibinder.parser.UiBinderContext;
@@ -53,8 +54,10 @@ import org.apache.commons.lang.StringUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Support for @UiChild positions.
@@ -150,14 +153,25 @@ public final class UiChildSupport {
   private Map<String, Position> getPositions(WidgetInfo widget) throws Exception {
     Map<String, Position> tagToPosition = m_positions.get(widget);
     if (tagToPosition == null) {
+      // prepare hidden tags
+      Set<String> hiddenTags = Sets.newHashSet();
+      {
+        String hiddenString = XmlObjectUtils.getParameter(widget, "UiChild.hidden");
+        if (hiddenString != null) {
+          String[] hiddenSplit = StringUtils.split(hiddenString);
+          Collections.addAll(hiddenTags, hiddenSplit);
+        }
+      }
       // remember positions for Widget
       tagToPosition = Maps.newTreeMap();
       m_positions.put(widget, tagToPosition);
       // fill positions
       for (Description description : getDescriptions(widget)) {
         String tag = description.getTag();
-        Position position = new Position(widget, description);
-        tagToPosition.put(tag, position);
+        if (!hiddenTags.contains(tag)) {
+          Position position = new Position(widget, description);
+          tagToPosition.put(tag, position);
+        }
       }
     }
     return tagToPosition;
