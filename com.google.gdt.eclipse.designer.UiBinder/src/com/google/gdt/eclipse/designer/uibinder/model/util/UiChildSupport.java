@@ -14,6 +14,8 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.uibinder.model.util;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.MapMaker;
 import com.google.common.collect.Maps;
@@ -55,6 +57,7 @@ import org.apache.commons.lang.StringUtils;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -153,22 +156,22 @@ public final class UiChildSupport {
   private Map<String, Position> getPositions(WidgetInfo widget) throws Exception {
     Map<String, Position> tagToPosition = m_positions.get(widget);
     if (tagToPosition == null) {
-      // prepare hidden tags
-      Set<String> hiddenTags = Sets.newHashSet();
+      // prepare tags to hide
+      Set<String> hideTags = Sets.newHashSet();
       {
-        String hiddenString = XmlObjectUtils.getParameter(widget, "UiChild.hidden");
-        if (hiddenString != null) {
-          String[] hiddenSplit = StringUtils.split(hiddenString);
-          Collections.addAll(hiddenTags, hiddenSplit);
+        String hideString = XmlObjectUtils.getParameter(widget, "UiChild.hide");
+        if (hideString != null) {
+          String[] hideSplit = StringUtils.split(hideString);
+          hideTags = ImmutableSet.copyOf(hideSplit);
         }
       }
       // remember positions for Widget
-      tagToPosition = Maps.newTreeMap();
+      tagToPosition = Maps.newLinkedHashMap();
       m_positions.put(widget, tagToPosition);
       // fill positions
-      for (Description description : getDescriptions(widget)) {
+      for (Description description : getSortedDescriptions(widget)) {
         String tag = description.getTag();
-        if (!hiddenTags.contains(tag)) {
+        if (!hideTags.contains(tag)) {
           Position position = new Position(widget, description);
           tagToPosition.put(tag, position);
         }
@@ -284,6 +287,44 @@ public final class UiChildSupport {
   // Description
   //
   ////////////////////////////////////////////////////////////////////////////
+  /**
+   * @return the sorted {@link Description}s for methods of given {@link WidgetInfo}.
+   */
+  private List<Description> getSortedDescriptions(WidgetInfo widget) throws Exception {
+    // prepare order of tags
+    final List<String> tagOrder;
+    {
+      String hideString = XmlObjectUtils.getParameter(widget, "UiChild.order");
+      if (hideString != null) {
+        String[] hideSplit = StringUtils.split(hideString);
+        tagOrder = ImmutableList.copyOf(hideSplit);
+      } else {
+        tagOrder = ImmutableList.of();
+      }
+    }
+    // sort descriptions
+    List<Description> descriptions = getDescriptions(widget);
+    Collections.sort(descriptions, new Comparator<Description>() {
+      public int compare(Description o1, Description o2) {
+        String tag1 = o1.getTag();
+        String tag2 = o2.getTag();
+        int index1 = tagOrder.indexOf(tag1);
+        int index2 = tagOrder.indexOf(tag2);
+        if (index1 != -1 && index2 != -1) {
+          return index1 - index2;
+        }
+        if (index1 != -1) {
+          return 0;
+        }
+        if (index2 != -1) {
+          return 1;
+        }
+        return tag1.compareTo(tag2);
+      }
+    });
+    return descriptions;
+  }
+
   /**
    * @return the {@link Description}s for methods of given {@link WidgetInfo}.
    */
