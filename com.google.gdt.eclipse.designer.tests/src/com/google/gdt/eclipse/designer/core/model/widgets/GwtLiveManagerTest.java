@@ -229,8 +229,10 @@ public class GwtLiveManagerTest extends GwtModelTest {
 
   /**
    * If exception happens, we still should return some image.
+   * <p>
+   * TODO(scheglov) 20120130 Disabled because of memory leaks.
    */
-  public void test_whenException_getElement() throws Exception {
+  public void _test_whenException_getElement() throws Exception {
     dontUseSharedGWTState();
     setFileContentSrc(
         "test/client/MyButton.java",

@@ -93,11 +93,61 @@ public abstract class GwtModelTest extends AbstractJavaInfoTest {
         ParseFactory.disposeSharedGWTState();
       }
     }
+    // print memory XXX
+    /*{
+      System.out.println(getClass().getName());
+      System.out.println(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+    }*/
+    // print memory XXX
+    {
+      /*ParseFactory.disposeSharedGWTState();
+      for (int i = 0; i < 5; i++) {
+        try {
+          Object[] ignored = new Object[(int) Runtime.getRuntime().maxMemory()];
+          ignored[0] = null;
+        } catch (Throwable e) {
+          // Ignore OME
+        }
+        System.gc();
+        waitEventLoop(1000);
+      }*/
+      /*try {
+        Object[] ignored = new Object[(int) Runtime.getRuntime().maxMemory()];
+        ignored[0] = null;
+      } catch (Throwable e) {
+      }
+      System.out.println(getClass().getName());
+      System.out.println(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());*/
+      // wait
+      /*System.out.print("For memory profiler.............");
+      waitEventLoop(500);
+      System.out.println("done");*/
+    }
+    // print memory XXX
+    /*{
+      //int count = 15;
+      int count = 2;
+      for (int i = 0; i < count; i++) {
+        System.gc();
+        Thread.sleep(10);
+      }
+      System.out.println(getClass().getName()
+          + "\n\t\t\t"
+          + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
+    }*/
     // XXX temporary, for memory profiling
     /*System.out.print("For memory profiler.............");
-    System.gc();
-    Thread.sleep(2000);
-    System.out.println("done");*/
+    while (true) {
+      try {
+        Object[] ignored = new Object[(int) Runtime.getRuntime().maxMemory()];
+        ignored[0] = null;
+      } catch (Throwable e) {
+        // Ignore OME
+      }
+      System.gc();
+      System.out.println(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+      waitEventLoop(1000);
+    }*/
   }
 
   /**
