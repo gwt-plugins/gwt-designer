@@ -314,7 +314,7 @@ public final class UiChildSupport {
           return index1 - index2;
         }
         if (index1 != -1) {
-          return 0;
+          return -1;
         }
         if (index2 != -1) {
           return 1;
@@ -381,7 +381,11 @@ public final class UiChildSupport {
     }
 
     private static Integer getLimit(Annotation annotation) throws Exception {
-      return (Integer) ReflectionUtils.invokeMethod(annotation, "limit()");
+      int limit = (Integer) ReflectionUtils.invokeMethod(annotation, "limit()");
+      if (limit == -1) {
+        limit = Integer.MAX_VALUE;
+      }
+      return limit;
     }
 
     ////////////////////////////////////////////////////////////////////////////
