@@ -62,6 +62,11 @@ public class RuleAccessor {
       m_instances.put(rootObject, accessor);
       rootObject.addBroadcastListener(new ObjectEventListener() {
         @Override
+        public void dispose() throws Exception {
+          m_instances.remove(rootObject);
+        }
+
+        @Override
         public void endEdit_aboutToRefresh() throws Exception {
           RuleAccessor accessor = m_instances.get(rootObject);
           accessor.commit();
