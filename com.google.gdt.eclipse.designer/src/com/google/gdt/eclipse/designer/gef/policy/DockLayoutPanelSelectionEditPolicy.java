@@ -24,7 +24,6 @@ import org.eclipse.wb.core.gef.policy.helpers.SelectionEditPolicyRefreshHelper;
 import org.eclipse.wb.draw2d.IColorConstants;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.graphical.handles.Handle;
-import org.eclipse.wb.gef.graphical.handles.MoveHandle;
 
 import java.util.List;
 
@@ -65,7 +64,7 @@ public final class DockLayoutPanelSelectionEditPolicy<T extends IWidgetInfo>
   @Override
   protected List<Handle> createSelectionHandles() {
     List<Handle> handles = Lists.newArrayList();
-    handles.add(new MoveHandle(getHost()));
+    handles.add(createMoveHandle());
     // add resize handle
     String edge = m_panel.getEdge(m_widget);
     if ("WEST".equals(edge)) {

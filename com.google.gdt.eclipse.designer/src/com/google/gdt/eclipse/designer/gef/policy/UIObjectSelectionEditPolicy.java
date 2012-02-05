@@ -22,7 +22,6 @@ import org.eclipse.wb.core.gef.command.EditCommand;
 import org.eclipse.wb.core.gef.policy.PolicyUtils;
 import org.eclipse.wb.draw2d.IPositionConstants;
 import org.eclipse.wb.gef.graphical.handles.Handle;
-import org.eclipse.wb.gef.graphical.handles.MoveHandle;
 
 import java.util.List;
 
@@ -55,7 +54,7 @@ public final class UIObjectSelectionEditPolicy extends AbstractResizeSelectionEd
   @Override
   protected List<Handle> createSelectionHandles() {
     List<Handle> handles = Lists.newArrayList();
-    handles.add(new MoveHandle(getHost()));
+    handles.add(createMoveHandle());
     handles.add(createResizeHandle(IPositionConstants.SOUTH));
     handles.add(createResizeHandle(IPositionConstants.EAST));
     handles.add(createResizeHandle(IPositionConstants.SOUTH_EAST));

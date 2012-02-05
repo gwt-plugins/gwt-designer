@@ -29,6 +29,7 @@ import org.eclipse.wb.gef.core.requests.ChangeBoundsRequest;
 import org.eclipse.wb.gef.core.requests.KeyRequest;
 import org.eclipse.wb.gef.core.requests.Request;
 import org.eclipse.wb.gef.graphical.handles.Handle;
+import org.eclipse.wb.gef.graphical.handles.MoveHandle;
 import org.eclipse.wb.gef.graphical.handles.ResizeHandle;
 import org.eclipse.wb.gef.graphical.policies.SelectionEditPolicy;
 import org.eclipse.wb.gef.graphical.tools.ResizeTracker;
@@ -57,6 +58,10 @@ public abstract class AbstractResizeSelectionEditPolicy extends SelectionEditPol
   // Handles
   //
   ////////////////////////////////////////////////////////////////////////////
+  protected final Handle createMoveHandle() {
+    return new MoveHandle(getHost());
+  }
+
   protected final Handle createResizeHandle(int direction) {
     ResizeHandle handle = new ResizeHandle(getHost(), direction);
     handle.setDragTrackerTool(new ResizeTracker(direction, REQ_RESIZE));
