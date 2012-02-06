@@ -28,16 +28,16 @@ import java.util.List;
  * @coverage ExtGWT.gef.part
  */
 public class TabPanelEditPart extends ComponentEditPart {
-  protected final TabPanelInfo m_portal;
+  private final TabPanelInfo m_panel;
 
   ////////////////////////////////////////////////////////////////////////////
   //
   // Constructor
   //
   ////////////////////////////////////////////////////////////////////////////
-  public TabPanelEditPart(TabPanelInfo portal) {
-    super(portal);
-    m_portal = portal;
+  public TabPanelEditPart(TabPanelInfo panel) {
+    super(panel);
+    m_panel = panel;
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -49,12 +49,7 @@ public class TabPanelEditPart extends ComponentEditPart {
   protected List<?> getModelChildren() {
     List<Object> children = Lists.newArrayList();
     children.addAll(super.getModelChildren());
-    children.addAll(m_portal.getHeaders());
+    children.addAll(m_panel.getHeaders());
     return children;
-  }
-
-  @Override
-  protected EditPart createEditPart(Object model) {
-    return super.createEditPart(model);
   }
 }
