@@ -27,6 +27,7 @@ import org.eclipse.wb.gef.core.requests.KeyRequest;
 import org.eclipse.wb.gef.core.requests.Request;
 import org.eclipse.wb.gef.graphical.policies.DirectTextEditPolicy;
 import org.eclipse.wb.internal.core.model.property.Property;
+import org.eclipse.wb.internal.core.model.util.PropertyUtils;
 import org.eclipse.wb.internal.core.utils.execution.ExecutionUtils;
 import org.eclipse.wb.internal.core.utils.execution.RunnableEx;
 import org.eclipse.wb.internal.core.utils.execution.RunnableObjectEx;
@@ -50,12 +51,12 @@ public final class AbstractWidgetHandleDirectTextEditPolicy extends DirectTextEd
    * If {@link WidgetInfo} of given {@link AbstractWidgetHandle} has {@link Property} with given
    * title, installs {@link AbstractWidgetHandleDirectTextEditPolicy}.
    */
-  public static void install(final AbstractWidgetHandleEditPart editPart, final String propertyTitle) {
+  public static void install(final AbstractWidgetHandleEditPart editPart, final String propertyPath) {
     ExecutionUtils.runLog(new RunnableEx() {
       public void run() throws Exception {
         AbstractWidgetHandle<?> handle = (AbstractWidgetHandle<?>) editPart.getModel();
         IWidgetInfo widget = handle.getWidget();
-        Property property = widget.getPropertyByTitle(propertyTitle);
+        Property property = PropertyUtils.getByPath(widget.getUnderlyingModel(), propertyPath);
         if (property != null) {
           editPart.installEditPolicy(new AbstractWidgetHandleDirectTextEditPolicy(property));
         }
