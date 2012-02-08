@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component xmlns="http://www.eclipse.org/wb/WBPComponent">
-	<model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ToolBarInfo"/>
-	<description>A specialized toolbar that is bound to a ListLoader and provides automatic paging controls.</description>
-	<!-- CREATION -->
-	<creation>
-		<source><![CDATA[new com.extjs.gxt.ui.client.widget.toolbar.PagingToolBar(10)]]></source>
-	</creation>
-	<!-- CONSTRUCTORS -->
-	<constructors>
-		<constructor>
-			<parameter type="int" property="setPageSize(int)"/>
-		</constructor>
-	</constructors>
-	<!-- PROPERTIES -->
-	<properties-preferred names="pageSize"/>
+    <model class="com.google.gdt.eclipse.designer.gxt.model.widgets.ToolBarInfo"/>
+    <description>A specialized toolbar that is bound to a ListLoader and provides automatic paging
+        controls.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.extjs.gxt.ui.client.widget.toolbar.PagingToolBar(10)]]></source>
+    </creation>
+    <!-- CONSTRUCTORS -->
+    <constructors>
+        <constructor>
+            <parameter type="int" property="setPageSize(int)"/>
+        </constructor>
+    </constructors>
+    <!-- PROPERTIES -->
+    <properties-preferred names="pageSize"/>
 </component>
