@@ -34,21 +34,21 @@ public abstract class ModuleSpace {
    * Logger is thread local.
    */
   private static ThreadLocal<Object> threadLocalLogger = new ThreadLocal<Object>();
-  private static Class<?> delegatingModuleSpaceClass;
+  /*private static Class<?> delegatingModuleSpaceClass;
 
   public static void setDelegatingModuleSpaceClass(Class<?> moduleSpaceClass) {
     delegatingModuleSpaceClass = moduleSpaceClass;
-  }
+  }*/
 
   public static void setThrownJavaException(Throwable t) {
-    try {
+    /*try {
       ReflectionUtils.invokeMethod(
         delegatingModuleSpaceClass,
         "setThrownJavaException(java.lang.Throwable)",
         t);
     } catch (Throwable e) {
       ReflectionUtils.propagate(e);
-    }
+    }*/
   }
 
   protected Object msHost;

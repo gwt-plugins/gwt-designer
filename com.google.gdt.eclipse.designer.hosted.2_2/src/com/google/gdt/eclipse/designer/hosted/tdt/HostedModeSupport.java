@@ -15,7 +15,6 @@
 package com.google.gdt.eclipse.designer.hosted.tdt;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.MapMaker;
 import com.google.gdt.eclipse.designer.hosted.HostedModeException;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShell;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShellFactory;
@@ -37,7 +36,6 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.swt.widgets.Display;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.osgi.framework.Bundle;
@@ -45,6 +43,7 @@ import org.osgi.framework.Bundle;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Member;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.List;
@@ -67,7 +66,6 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
   private final LogSupport logSupport;
   private Object impl;
   private DispatchIdOracle dispatchIdOracle;
-  private static Map<String, ClassLoader> devClassLoaders = new MapMaker().softValues().makeMap();
 
   ////////////////////////////////////////////////////////////////////////////
   //
@@ -112,9 +110,9 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         getDevClassLoader().loadClass("com.google.gwt.dev.shell.designtime.HostedModeSupportImpl");
     impl = implClass.newInstance();
     //
-    Class<?> moduleSpaceClass =
+    /*Class<?> moduleSpaceClass =
         getDevClassLoader().loadClass("com.google.gwt.dev.shell.designtime.DelegatingModuleSpace");
-    ModuleSpace.setDelegatingModuleSpaceClass(moduleSpaceClass);
+    ModuleSpace.setDelegatingModuleSpaceClass(moduleSpaceClass);*/
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -211,37 +209,115 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         ClassLoader classLoader = getClassLoader();
         ReflectionUtils.setField(classLoader, "parent", null);
       }
-    }
-    // Remove GWT related java.lang.ApplicationShutdownHooks
-    try {
-      Class<?> hooksClass =
-          ClassLoader.getSystemClassLoader().loadClass("java.lang.ApplicationShutdownHooks");
-      Field hooksField = ReflectionUtils.getFieldByName(hooksClass, "hooks");
-      @SuppressWarnings("unchecked")
-      Map<Thread, ?> hooks = (Map<Thread, ?>) hooksField.get(null);
-      List<Thread> threads = ImmutableList.copyOf(hooks.keySet());
-      for (Thread thread : threads) {
-        ClassLoader contextClassLoader = thread.getContextClassLoader();
-        if (contextClassLoader != null
-            && contextClassLoader.toString().contains(
-                "com.google.gdt.eclipse.designer.hosted.tdt.HostedModeSupport$LocalProjectClassLoader")) {
-          thread.setContextClassLoader(ClassLoader.getSystemClassLoader());
-        }
+      // clear "threadLocalLogger" in com.google.gwt.dev.shell.ModuleSpace
+      try {
+        Class<?> classModuleSpace =
+            devClassLoader.loadClass("com.google.gwt.dev.shell.ModuleSpace");
+        ThreadLocal<?> threadLocalLogger =
+            (ThreadLocal<?>) ReflectionUtils.getFieldObject(classModuleSpace, "threadLocalLogger");
+        threadLocalLogger.set(null);
+      } catch (Throwable e) {
       }
+      // shutdown com.google.gwt.dev.javac.PersistentUnitCache
+      try {
+        Class<?> classUnitCacheFactory =
+            devClassLoader.loadClass("com.google.gwt.dev.javac.UnitCacheFactory");
+        Object cacheInstance = ReflectionUtils.getFieldObject(classUnitCacheFactory, "instance");
+        if (cacheInstance != null) {
+          Method shutdownMethod =
+              ReflectionUtils.getMethodBySignature(cacheInstance.getClass(), "shutdown()");
+          if (shutdownMethod != null) {
+            shutdownMethod.invoke(cacheInstance);
+          }
+        }
+        ReflectionUtils.setField(classUnitCacheFactory, "instance", null);
+      } catch (Throwable e) {
+      }
+      // Call and remove GWT related java.lang.ApplicationShutdownHooks
+      try {
+        Class<?> hooksClass =
+            ClassLoader.getSystemClassLoader().loadClass("java.lang.ApplicationShutdownHooks");
+        Field hooksField = ReflectionUtils.getFieldByName(hooksClass, "hooks");
+        @SuppressWarnings("unchecked")
+        Map<Thread, ?> hooks = (Map<Thread, ?>) hooksField.get(null);
+        List<Thread> threads = ImmutableList.copyOf(hooks.keySet());
+        for (Thread thread : threads) {
+          ClassLoader contextClassLoader = thread.getContextClassLoader();
+          if (contextClassLoader == devClassLoader) {
+            thread.setContextClassLoader(ClassLoader.getSystemClassLoader());
+            thread.run();
+            hooks.remove(thread);
+          }
+        }
+      } catch (Throwable e) {
+        e.printStackTrace();
+      }
+      // close com.google.gwt.dev.util.DiskCache
+      try {
+        Class<?> classDiskCache = devClassLoader.loadClass("com.google.gwt.dev.util.DiskCache");
+        Object cacheInstance = ReflectionUtils.getFieldObject(classDiskCache, "INSTANCE");
+        ReflectionUtils.invokeMethod(cacheInstance, "close()");
+      } catch (Throwable e) {
+      }
+      // find embedded Guava Finalizer and clear reference of our "dev" URLClassLoader
+      try {
+        Thread[] threads = getAllThreads();
+        for (Thread thread : threads) {
+          if (thread != null && thread.getContextClassLoader() == devClassLoader) {
+            thread.setContextClassLoader(null);
+          }
+        }
+      } catch (Throwable e) {
+      }
+    }
+    // XXX
+    /*try {
+      Class<?> classCaches =
+          ClassLoader.getSystemClassLoader().loadClass("java.io.ObjectStreamClass$Caches");
+      ((Map<?, ?>) ReflectionUtils.getFieldObject(classCaches, "localDescs")).clear();
+      ((Map<?, ?>) ReflectionUtils.getFieldObject(classCaches, "reflectors")).clear();
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
+    // XXX
+    try {
+      Object cache = ReflectionUtils.getFieldObject(Introspector.class, "declaredMethodCache");
+      ReflectionUtils.invokeMethod(cache, "clear()");
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
+    // XXX
+    try {
+      ((Map<?, ?>) ReflectionUtils.getFieldObject(Proxy.class, "loaderToCache")).clear();
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
+    // XXX
+    try {
+      ((Map<?, ?>) ReflectionUtils.getFieldObject(Proxy.class, "proxyClasses")).clear();
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }
+    // XXX
+    try {
+      Object cache = ReflectionUtils.getFieldObject(Thread.class, "subclassAudits");
+      ReflectionUtils.invokeMethod(cache, "clear()");
     } catch (Throwable e) {
     }
-    // find embedded Guava Finalizer and clear reference of our "dev" URLClassLoader
     try {
-      Thread[] threads = getAllThreads();
-      for (Thread thread : threads) {
-        if (thread != null
-            && thread.getClass().getName().equals(
-                "com.google.gwt.thirdparty.guava.common.base.internal.Finalizer")) {
-          thread.setContextClassLoader(null);
-        }
-      }
+      Class<?> classCaches =
+          ClassLoader.getSystemClassLoader().loadClass("java.lang.Thread$Caches");
+      Object cache = ReflectionUtils.getFieldObject(classCaches, "subclassAudits");
+      ReflectionUtils.invokeMethod(cache, "clear()");
     } catch (Throwable e) {
     }
+    // XXX
+    try {
+      Object noBundle = ReflectionUtils.getFieldObject(ResourceBundle.class, "NONEXISTENT_BUNDLE");
+      ReflectionUtils.setField(noBundle, "cacheKey", null);
+    } catch (Throwable e) {
+      e.printStackTrace();
+    }*/
     //
     if (browserShell != null) {
       browserShell.dispose();
@@ -314,17 +390,11 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
     if (devLibLocation == null) {
       throw new HostedModeException(HostedModeException.NO_DEV_LIB);
     }
-    String gwtLocation = FilenameUtils.getFullPath(devLibLocation);
     // add 'dev' & 'dev-designtime'
-    ClassLoader devClassLoader = devClassLoaders.get(gwtLocation);
-    if (devClassLoader == null) {
-      URL resolvedDevLibUrl = new File(devLibLocation).toURI().toURL();
-      Bundle bundle = Activator.getDefault().getBundle();
-      URL devDesignUrl = FileLocator.resolve(bundle.getEntry("/gwt-dev-designtime.jar"));
-      devClassLoader = new URLClassLoader(new URL[]{devDesignUrl, resolvedDevLibUrl}, null);
-      devClassLoaders.put(gwtLocation, devClassLoader);
-    }
-    return devClassLoader;
+    URL resolvedDevLibUrl = new File(devLibLocation).toURI().toURL();
+    Bundle bundle = Activator.getDefault().getBundle();
+    URL devDesignUrl = FileLocator.resolve(bundle.getEntry("/gwt-dev-designtime.jar"));
+    return new URLClassLoader(new URL[]{devDesignUrl, resolvedDevLibUrl}, null);
   }
 
   public void activate() throws Exception {
