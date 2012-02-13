@@ -270,54 +270,6 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       } catch (Throwable e) {
       }
     }
-    // XXX
-    /*try {
-      Class<?> classCaches =
-          ClassLoader.getSystemClassLoader().loadClass("java.io.ObjectStreamClass$Caches");
-      ((Map<?, ?>) ReflectionUtils.getFieldObject(classCaches, "localDescs")).clear();
-      ((Map<?, ?>) ReflectionUtils.getFieldObject(classCaches, "reflectors")).clear();
-    } catch (Throwable e) {
-      e.printStackTrace();
-    }
-    // XXX
-    try {
-      Object cache = ReflectionUtils.getFieldObject(Introspector.class, "declaredMethodCache");
-      ReflectionUtils.invokeMethod(cache, "clear()");
-    } catch (Throwable e) {
-      e.printStackTrace();
-    }
-    // XXX
-    try {
-      ((Map<?, ?>) ReflectionUtils.getFieldObject(Proxy.class, "loaderToCache")).clear();
-    } catch (Throwable e) {
-      e.printStackTrace();
-    }
-    // XXX
-    try {
-      ((Map<?, ?>) ReflectionUtils.getFieldObject(Proxy.class, "proxyClasses")).clear();
-    } catch (Throwable e) {
-      e.printStackTrace();
-    }
-    // XXX
-    try {
-      Object cache = ReflectionUtils.getFieldObject(Thread.class, "subclassAudits");
-      ReflectionUtils.invokeMethod(cache, "clear()");
-    } catch (Throwable e) {
-    }
-    try {
-      Class<?> classCaches =
-          ClassLoader.getSystemClassLoader().loadClass("java.lang.Thread$Caches");
-      Object cache = ReflectionUtils.getFieldObject(classCaches, "subclassAudits");
-      ReflectionUtils.invokeMethod(cache, "clear()");
-    } catch (Throwable e) {
-    }
-    // XXX
-    try {
-      Object noBundle = ReflectionUtils.getFieldObject(ResourceBundle.class, "NONEXISTENT_BUNDLE");
-      ReflectionUtils.setField(noBundle, "cacheKey", null);
-    } catch (Throwable e) {
-      e.printStackTrace();
-    }*/
     //
     if (browserShell != null) {
       browserShell.dispose();
