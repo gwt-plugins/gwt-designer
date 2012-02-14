@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component xmlns="http://www.eclipse.org/wb/WBPComponent">
-	<!-- PARAMETERS -->
-	<parameters>
-		<!-- size management -->
-		<parameter name="onChildAdd.setWidth">100%</parameter>
-		<parameter name="onChildAdd.setHeight">100%</parameter>
-		<parameter name="onChildOut.removeSize">always</parameter>
-	</parameters>
+    <!-- PARAMETERS -->
+    <parameters>
+        <!-- size management -->
+        <parameter name="onChildAdd.setWidth">100%</parameter>
+        <parameter name="onChildAdd.setHeight">100%</parameter>
+        <parameter name="onChildOut.removeSize">always</parameter>
+        <!-- troubleshooting -->
+        <parameter name="GWT.requiresMessagesLoop">true</parameter>
+    </parameters>
 </component>
