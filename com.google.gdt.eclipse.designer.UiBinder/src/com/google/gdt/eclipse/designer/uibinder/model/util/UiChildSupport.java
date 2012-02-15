@@ -252,8 +252,13 @@ public final class UiChildSupport {
     }
     ExpressionAccessor accessor = new ExpressionAccessor(name) {
       @Override
-      protected DocumentElement getElement(XmlObjectInfo object) {
+      protected DocumentElement getExistingElement(XmlObjectInfo object) {
         return object.getElement().getParent();
+      }
+
+      @Override
+      protected DocumentElement getElement(XmlObjectInfo object) {
+        return getExistingElement(object);
       }
 
       @Override
