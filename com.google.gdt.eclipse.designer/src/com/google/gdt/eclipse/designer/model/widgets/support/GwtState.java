@@ -21,6 +21,8 @@ import com.google.gdt.eclipse.designer.common.Constants;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShell;
 import com.google.gdt.eclipse.designer.hosted.IHostedModeSupport;
 import com.google.gdt.eclipse.designer.hosted.IHostedModeSupportFactory;
+import com.google.gdt.eclipse.designer.model.module.ModuleElement;
+import com.google.gdt.eclipse.designer.model.module.PropertyProviderElement;
 import com.google.gdt.eclipse.designer.support.http.HttpServer;
 import com.google.gdt.eclipse.designer.support.http.IModuleInitializer;
 import com.google.gdt.eclipse.designer.support.http.IResourceProvider;
@@ -234,6 +236,11 @@ public final class GwtState {
     {
       // prepare user-agent
       m_html = StringUtils.replace(m_html, "%USER_AGENT%", m_shell.getUserAgentString());
+      m_html =
+          StringUtils.replace(
+              m_html,
+              "%PROPERTY_PROVIDER_SCRIPTS%",
+              getPropertyProviderValuesScript());
       m_html = StringUtils.replace(m_html, "%GWT_isBrowserExplorer%", "" + isBrowserExplorer());
     }
     // prepare hosted mode
@@ -245,6 +252,25 @@ public final class GwtState {
         m_uiObjectUtils.getClassOfWindow(),
         "enableScrolling(boolean)",
         false);
+  }
+
+  /**
+   * @return the script for assigning property values into "values" map, declared in "__start.html".
+   */
+  private String getPropertyProviderValuesScript() throws Exception {
+    final StringBuilder sb = new StringBuilder();
+    ModuleVisitor.accept(m_moduleDescription, new ModuleVisitor() {
+      @Override
+      public void endVisitModule(ModuleElement module) {
+        for (PropertyProviderElement provider : module.getPropertyProviderElements()) {
+          String script = provider.getScript();
+          if (script != null) {
+            sb.append("values['" + provider.getName() + "'] = function()" + script + "();\n");
+          }
+        }
+      }
+    });
+    return sb.toString();
   }
 
   /**

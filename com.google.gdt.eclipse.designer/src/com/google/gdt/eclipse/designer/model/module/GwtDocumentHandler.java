@@ -71,6 +71,8 @@ public class GwtDocumentHandler extends AbstractDocumentHandler {
       return new ExtendPropertyElement();
     } else if ("set-property-fallback".equals(name)) {
       return new SetPropertyFallbackElement();
+    } else if ("property-provider".equals(name)) {
+      return new PropertyProviderElement();
     }
     return new DocumentElement();
   }

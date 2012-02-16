@@ -119,6 +119,10 @@ public class ModuleElement extends AbstractModuleElement {
     return getChildren(SetPropertyFallbackElement.class);
   }
 
+  public List<PropertyProviderElement> getPropertyProviderElements() {
+    return getChildren(PropertyProviderElement.class);
+  }
+
   public List<SuperSourceElement> getSuperSourceElements() {
     return getChildren(SuperSourceElement.class);
   }
