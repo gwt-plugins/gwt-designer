@@ -642,9 +642,11 @@ public class ColumnTest extends GwtModelTest {
   ////////////////////////////////////////////////////////////////////////////
   /**
    * No "width" property for GWT before 2.2.
+   * <p>
+   * TODO(scheglov) 20120215 Disabled because of memory leaks.
    */
   @DisposeProjectAfter
-  public void test_widthProperty_oldVersion() throws Exception {
+  public void _test_widthProperty_oldVersion() throws Exception {
     do_projectDispose();
     do_projectCreate();
     configureNewProject(GTestUtils.getLocation_21());

@@ -15,6 +15,7 @@
 package com.google.gdt.eclipse.designer.hosted.tdt;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.MapMaker;
 import com.google.gdt.eclipse.designer.hosted.HostedModeException;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShell;
 import com.google.gdt.eclipse.designer.hosted.IBrowserShellFactory;
@@ -36,6 +37,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.swt.widgets.Display;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.osgi.framework.Bundle;
@@ -57,6 +59,7 @@ import java.util.Map;
  * @coverage gwtHosted
  */
 public final class HostedModeSupport implements IHostedModeSupport, IBrowserShellHost {
+  private static Map<String, ClassLoader> devClassLoaders = new MapMaker().softValues().makeMap();
   private final ClassLoader parentClassLoader;
   private final IModuleDescription moduleDescription;
   private final BrowserShell browserShell;
@@ -209,7 +212,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         ClassLoader classLoader = getClassLoader();
         ReflectionUtils.setField(classLoader, "parent", null);
       }
-      // clear "threadLocalLogger" in com.google.gwt.dev.shell.ModuleSpace
+      /*// clear "threadLocalLogger" in com.google.gwt.dev.shell.ModuleSpace
       try {
         Class<?> classModuleSpace =
             devClassLoader.loadClass("com.google.gwt.dev.shell.ModuleSpace");
@@ -268,7 +271,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
           }
         }
       } catch (Throwable e) {
-      }
+      }*/
     }
     //
     if (browserShell != null) {
@@ -342,11 +345,17 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
     if (devLibLocation == null) {
       throw new HostedModeException(HostedModeException.NO_DEV_LIB);
     }
+    String gwtLocation = FilenameUtils.getFullPath(devLibLocation);
     // add 'dev' & 'dev-designtime'
-    URL resolvedDevLibUrl = new File(devLibLocation).toURI().toURL();
-    Bundle bundle = Activator.getDefault().getBundle();
-    URL devDesignUrl = FileLocator.resolve(bundle.getEntry("/gwt-dev-designtime.jar"));
-    return new URLClassLoader(new URL[]{devDesignUrl, resolvedDevLibUrl}, null);
+    ClassLoader devClassLoader = devClassLoaders.get(gwtLocation);
+    if (devClassLoader == null) {
+      URL resolvedDevLibUrl = new File(devLibLocation).toURI().toURL();
+      Bundle bundle = Activator.getDefault().getBundle();
+      URL devDesignUrl = FileLocator.resolve(bundle.getEntry("/gwt-dev-designtime.jar"));
+      devClassLoader = new URLClassLoader(new URL[]{devDesignUrl, resolvedDevLibUrl}, null);
+      devClassLoaders.put(gwtLocation, devClassLoader);
+    }
+    return devClassLoader;
   }
 
   public void activate() throws Exception {
