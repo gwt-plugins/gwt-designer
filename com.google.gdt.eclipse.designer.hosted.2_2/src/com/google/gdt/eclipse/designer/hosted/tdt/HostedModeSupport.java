@@ -212,6 +212,15 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
         ClassLoader classLoader = getClassLoader();
         ReflectionUtils.setField(classLoader, "parent", null);
       }
+      // clear "loadedModulesCaches" in com.google.gwt.dev.cfg.ModuleDefLoader
+      try {
+        Class<?> moduleDefLoader =
+            devClassLoader.loadClass("com.google.gwt.dev.cfg.ModuleDefLoader");
+        Map<?, ?> loadedModulesCaches =
+            (Map<?, ?>) ReflectionUtils.getFieldObject(moduleDefLoader, "loadedModulesCaches");
+        loadedModulesCaches.clear();
+      } catch (Throwable e) {
+      }
       /*// clear "threadLocalLogger" in com.google.gwt.dev.shell.ModuleSpace
       try {
         Class<?> classModuleSpace =
