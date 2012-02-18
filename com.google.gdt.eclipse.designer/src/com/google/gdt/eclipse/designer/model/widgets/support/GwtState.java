@@ -265,7 +265,7 @@ public final class GwtState {
         for (PropertyProviderElement provider : module.getPropertyProviderElements()) {
           String script = provider.getScript();
           if (script != null) {
-            sb.append("values['" + provider.getName() + "'] = function()" + script + "();\n");
+            sb.append("values['" + provider.getName() + "'] = function() {" + script + "} ();\n");
           }
         }
       }
