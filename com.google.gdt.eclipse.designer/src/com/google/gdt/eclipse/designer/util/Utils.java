@@ -70,6 +70,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.input.XmlStreamReader;
 import org.apache.commons.lang.StringUtils;
 import org.htmlparser.Node;
 import org.htmlparser.Parser;
@@ -82,6 +83,7 @@ import org.htmlparser.visitors.TagFindingVisitor;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.io.Reader;
 import java.io.StringReader;
 import java.util.Collection;
 import java.util.Iterator;
@@ -545,7 +547,12 @@ public final class Utils {
    * Reads module definition from given stream.
    */
   public static ModuleElement readModule(String id, InputStream inputStream) throws Exception {
-    String contents = IOUtils2.readString(inputStream);
+    // read content, with correct encoding
+    String contents;
+    {
+      Reader reader = new XmlStreamReader(inputStream);
+      contents = IOUtils2.readString(reader);
+    }
     // check cache
     String key = id + "|" + contents;
     {
