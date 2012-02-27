@@ -84,6 +84,8 @@ public class TabInfo extends JsObjectInfo {
       }
       // crop insets
       bounds.crop(tabSet.getTabInsets());
+      // translate to TabSet
+      bounds.translate(tabSet.getModelBounds().getLocation().getNegated());
       // ready
       setModelBounds(bounds);
       // process children
