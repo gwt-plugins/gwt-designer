@@ -111,7 +111,8 @@ public abstract class GwtModelTest extends AbstractJavaInfoTest {
         System.gc();
         waitEventLoop(1000);
       }*/
-      /*try {
+      /*ParseFactory.disposeSharedGWTState();
+      try {
         Object[] ignored = new Object[(int) Runtime.getRuntime().maxMemory()];
         ignored[0] = null;
       } catch (Throwable e) {

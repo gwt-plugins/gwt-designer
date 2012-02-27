@@ -462,7 +462,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       return;
     }*/
     // do initialize
-    try {
+    /*try {
       File cacheDir = new File(SystemUtils.getJavaIoTmpDir(), SystemUtils.USER_NAME + "-gwtd");
       cacheDir.mkdirs();
       ClassLoader devClassLoader = getDevClassLoader();
@@ -474,7 +474,7 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
           logSupport.getLogger(),
           cacheDir);
     } catch (Throwable e) {
-    }
+    }*/
   }
 
   /**

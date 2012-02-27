@@ -314,8 +314,8 @@ public class GwtSourceTest extends GwtModelTest {
         LocaleInfo[] locales = editableSource.getLocales();
         assertEquals(3, locales.length);
         assertEquals("(default)", locales[0].getTitle());
-        assertEquals("it", locales[1].getTitle());
-        assertEquals("fr", locales[2].getTitle());
+        assertEquals("fr", locales[1].getTitle());
+        assertEquals("it", locales[2].getTitle());
       }
       // apply commands
       support.applyEditable(editableSupport);
@@ -326,15 +326,15 @@ public class GwtSourceTest extends GwtModelTest {
           String newProperties = getFileContentSrc("test/client/MyConstants.properties");
           assertTrue(newProperties.contains("rootPanel_title=My title"));
         }
-        // *.properties: it
-        {
-          String newProperties = getFileContentSrc("test/client/MyConstants_it.properties");
-          assertTrue(newProperties.contains("rootPanel_title=My title"));
-        }
         // *.properties: fr
         {
           String newProperties = getFileContentSrc("test/client/MyConstants_fr.properties");
           assertFalse(newProperties.contains("rootPanel_title=My title"));
+        }
+        // *.properties: it
+        {
+          String newProperties = getFileContentSrc("test/client/MyConstants_it.properties");
+          assertTrue(newProperties.contains("rootPanel_title=My title"));
         }
         // module
         {

@@ -58,7 +58,7 @@ public class WebModelTest extends AbstractJavaTest {
     super.setUp();
     if (m_testProject == null) {
       do_projectCreate();
-      GTestUtils.configure(GTestUtils.getLocation_20(), m_testProject);
+      GTestUtils.configure(GTestUtils.getLocation(), m_testProject);
     }
     // create module
     {
@@ -85,6 +85,15 @@ public class WebModelTest extends AbstractJavaTest {
   @Override
   public void test_tearDown() throws Exception {
     do_projectDispose();
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //
+  // Exit zone :-) XXX
+  //
+  ////////////////////////////////////////////////////////////////////////////
+  public void _test_exit() throws Exception {
+    System.exit(0);
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -135,15 +144,6 @@ public class WebModelTest extends AbstractJavaTest {
             "  </welcome-file-list>",
             "</web-app>"),
         m_webElement.toString());
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // Exit zone :-) XXX
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  public void _test_exit() throws Exception {
-    System.exit(0);
   }
 
   ////////////////////////////////////////////////////////////////////////////

@@ -31,8 +31,8 @@ import junit.framework.TestSuite;
 public class WidgetTests extends DesignerSuiteTests {
   public static Test suite() {
     TestSuite suite = new TestSuite("gwt.model.widgets");
-    suite.addTest(createSingleSuite(ClassLoaderTest.class));
     // TODO(scheglov) 20120130 Disabled because of memory leaks.
+    //suite.addTest(createSingleSuite(ClassLoaderTest.class));
     //suite.addTest(createSingleSuite(VersionsTest.class));
     //
     suite.addTest(createSingleSuite(WidgetTest.class));
