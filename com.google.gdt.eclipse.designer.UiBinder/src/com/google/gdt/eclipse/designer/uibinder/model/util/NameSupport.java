@@ -71,6 +71,7 @@ import org.eclipse.jdt.core.dom.VariableDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.ui.refactoring.RenameSupport;
 
+import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import java.lang.reflect.Constructor;
@@ -209,6 +210,25 @@ public final class NameSupport {
    */
   public static String validateName(XmlObjectInfo object, String name) throws Exception {
     return new NameSupport(object).validateName(name);
+  }
+
+  /**
+   * @return the {@link XmlObjectInfo} with the given name, may be <code>null</code>.
+   */
+  public static XmlObjectInfo getObject(XmlObjectInfo root, final String name) {
+    final XmlObjectInfo result[] = {null};
+    root.accept(new ObjectInfoVisitor() {
+      @Override
+      public void endVisit(ObjectInfo object) throws Exception {
+        if (object instanceof XmlObjectInfo) {
+          XmlObjectInfo xmlObject = (XmlObjectInfo) object;
+          if (ObjectUtils.equals(getName(xmlObject), name)) {
+            result[0] = xmlObject;
+          }
+        }
+      }
+    });
+    return result[0];
   }
 
   ////////////////////////////////////////////////////////////////////////////

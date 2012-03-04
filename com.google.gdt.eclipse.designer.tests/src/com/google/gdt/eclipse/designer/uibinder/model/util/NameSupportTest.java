@@ -1256,4 +1256,31 @@ public class NameSupportTest extends UiBinderModelTest {
         "  }",
         "}");
   }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //
+  // getObject()
+  //
+  ////////////////////////////////////////////////////////////////////////////
+  public void test_getObject() throws Exception {
+    ComplexPanelInfo panel =
+        parse(
+            "// filler filler filler filler filler",
+            "// filler filler filler filler filler",
+            "<ui:UiBinder>",
+            "  <g:FlowPanel>",
+            "    <g:Button/>",
+            "    <g:Button ui:field='myButton'/>",
+            "  </g:FlowPanel>",
+            "</ui:UiBinder>");
+    refresh();
+    WidgetInfo button_1 = panel.getChildrenWidgets().get(0);
+    WidgetInfo button_2 = panel.getChildrenWidgets().get(1);
+    // check names
+    assertEquals(null, NameSupport.getName(button_1));
+    assertEquals("myButton", NameSupport.getName(button_2));
+    // use getObject()
+    assertSame(null, NameSupport.getObject(panel, "noSuchName"));
+    assertSame(button_2, NameSupport.getObject(panel, "myButton"));
+  }
 }

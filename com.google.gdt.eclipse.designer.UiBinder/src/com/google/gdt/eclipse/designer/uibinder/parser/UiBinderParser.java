@@ -270,7 +270,7 @@ public final class UiBinderParser {
       String methodName,
       Object[] args) throws Exception {
     try {
-      return createObjectInstance(context, factoryType, args);
+      return createObjectInstance(context, methodName, factoryType, args);
     } catch (Throwable e) {
       throw new DesignerException(IExceptionConstants.UI_FACTORY_EXCEPTION,
           e,
@@ -285,7 +285,7 @@ public final class UiBinderParser {
   static Object createProvidedField(UiBinderContext context, Class<?> fieldType, String fieldName)
       throws Exception {
     try {
-      return createObjectInstance(context, fieldType, ArrayUtils.EMPTY_OBJECT_ARRAY);
+      return createObjectInstance(context, fieldName, fieldType, ArrayUtils.EMPTY_OBJECT_ARRAY);
     } catch (Throwable e) {
       throw new DesignerException(IExceptionConstants.UI_FIELD_EXCEPTION,
           e,
@@ -297,22 +297,40 @@ public final class UiBinderParser {
   /**
    * @return the instance of given {@link Class}, created using the most specific method.
    */
-  private static Object createObjectInstance(UiBinderContext context, Class<?> clazz, Object[] args)
-      throws Exception {
+  private static Object createObjectInstance(UiBinderContext context,
+      String objectName,
+      Class<?> clazz,
+      Object[] args) throws Exception {
     // try "UiBinder.createInstance" script
     {
       ComponentDescription description = ComponentDescriptionHelper.getDescription(context, clazz);
-      String script = description.getParameter("UiBinder.createInstance");
+      // prepare script
+      String script;
+      {
+        String scriptObject[] = {null};
+        context.getBroadcastSupport().getListener(CreateObjectScript.class).invoke(
+            objectName,
+            clazz,
+            args,
+            scriptObject);
+        script = scriptObject[0];
+      }
+      if (script == null) {
+        script = description.getParameter("UiBinder.createInstance");
+      }
+      // try to use script
       if (script != null) {
         ClassLoader classLoader = context.getClassLoader();
         Map<String, Object> variables = Maps.newTreeMap();
         variables.put("wbpClassLoader", UiBinderParser.class.getClassLoader());
         variables.put("classLoader", classLoader);
         variables.put("componentClass", clazz);
+        variables.put("objectName", objectName);
         variables.put("modelClass", description.getModelClass());
         variables.put("modelClassLoader", description.getModelClass().getClassLoader());
         variables.put("args", args);
-        return ScriptUtils.evaluate(classLoader, script, variables);
+        Object result = ScriptUtils.evaluate(classLoader, script, variables);
+        return result;
       }
     }
     // default constructor
