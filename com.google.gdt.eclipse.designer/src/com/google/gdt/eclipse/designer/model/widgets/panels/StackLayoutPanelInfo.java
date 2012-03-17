@@ -183,6 +183,12 @@ public final class StackLayoutPanelInfo extends ComplexPanelInfo
     m_stackContainer.setActive(widget);
   }
 
+  public static boolean isVisible(WidgetInfo widget) throws Exception {
+    GwtState state = widget.getState();
+    Object parentElement = state.getDomUtils().getParent(widget.getElement());
+    return state.getAbsoluteBounds(parentElement).height != 0;
+  }
+
   ////////////////////////////////////////////////////////////////////////////
   //
   // Refresh

@@ -355,9 +355,15 @@ public class UIObjectInfo extends AbstractComponentInfo implements IUIObjectInfo
   }
 
   protected void fetchImage(Object element) throws Exception {
-    Image browserScreenshot = getState().createBrowserScreenshot();
-    Image objectImage =
-        UiUtils.getCroppedImage(browserScreenshot, m_absoluteBounds.getSwtRectangle());
+    GwtState state = getState();
+    Image browserScreenshot = state.createBrowserScreenshot();
+    // prepare bounds of image
+    Rectangle imageBounds = m_absoluteBounds;
+    if (state.isStrictMode() && state.isBrowserExplorer()) {
+      imageBounds = imageBounds.getTranslated(2, 2);
+    }
+    // set image
+    Image objectImage = UiUtils.getCroppedImage(browserScreenshot, imageBounds.getSwtRectangle());
     setImage(objectImage);
   }
 

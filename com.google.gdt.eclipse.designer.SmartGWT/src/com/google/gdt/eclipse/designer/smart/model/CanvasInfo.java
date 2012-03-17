@@ -17,7 +17,6 @@ package com.google.gdt.eclipse.designer.smart.model;
 import com.google.common.collect.Lists;
 import com.google.gdt.eclipse.designer.model.widgets.UIObjectSizeSupport;
 import com.google.gdt.eclipse.designer.model.widgets.WidgetInfo;
-import com.google.gdt.eclipse.designer.model.widgets.support.GwtState;
 import com.google.gdt.eclipse.designer.smart.model.live.SmartGwtLiveManager;
 import com.google.gdt.eclipse.designer.smart.model.support.SmartClientUtils;
 
@@ -239,16 +238,7 @@ public class CanvasInfo extends BaseWidgetInfo {
   @Override
   protected Rectangle fetchAbsoluteBounds(Object element) {
     Object object = getObject();
-    Rectangle bounds = SmartClientUtils.getAbsoluteBounds(object);
-    // IE in strict mode always has border 2px
-    {
-      GwtState state = getState();
-      if (state.isStrictMode() && state.isBrowserExplorer()) {
-        bounds.translate(2, 2);
-      }
-    }
-    // done
-    return bounds;
+    return SmartClientUtils.getAbsoluteBounds(object);
   }
 
   ////////////////////////////////////////////////////////////////////////////

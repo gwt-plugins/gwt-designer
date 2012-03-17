@@ -171,7 +171,8 @@ public final class GwtState {
         } else {
           m_strictMode =
               docType.equalsIgnoreCase("<!doctype html>")
-                  || docType.equalsIgnoreCase("<!doctype html PUBLIC \"-//W3C//DTD HTML 4.01//EN\">");
+                  || docType.equalsIgnoreCase("<!doctype html PUBLIC \"-//W3C//DTD HTML 4.01//EN\">")
+                  || docType.equalsIgnoreCase("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
           if (!StringUtils.isEmpty(docType)) {
             m_html = docType + "\n" + m_html;
           }
@@ -424,7 +425,7 @@ public final class GwtState {
    */
   public boolean isBrowserExplorer() {
     String agent = m_shell.getUserAgentString();
-    return "ie6".equals(agent) || "ie7".equals(agent) || "ie8".equals(agent);
+    return "ie6".equals(agent) || "ie7".equals(agent) || "ie8".equals(agent) || "ie9".equals(agent);
   }
 
   /**
