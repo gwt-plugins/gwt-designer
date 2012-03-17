@@ -14,6 +14,8 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.uibinder.parser;
 
+import com.google.common.collect.Sets;
+
 import org.eclipse.wb.internal.core.model.property.Property;
 import org.eclipse.wb.internal.core.xml.model.EditorContext;
 import org.eclipse.wb.internal.core.xml.model.XmlObjectInfo;
@@ -21,7 +23,10 @@ import org.eclipse.wb.internal.core.xml.model.description.ComponentDescription;
 import org.eclipse.wb.internal.core.xml.model.description.GenericPropertyDescription;
 import org.eclipse.wb.internal.core.xml.model.description.IDescriptionProcessor;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.util.List;
+import java.util.Set;
 
 /**
  * {@link IDescriptionProcessor} for UiBinder.
@@ -76,9 +81,23 @@ public class UiBinderDescriptionProcessor implements IDescriptionProcessor {
    */
   private void removeAmbiguousProperties(ComponentDescription componentDescription) {
     List<GenericPropertyDescription> properties = componentDescription.getProperties();
+    // prepare duplicate names of properties
+    Set<String> propertyNames = Sets.newHashSet();
+    Set<String> duplicateNames = Sets.newHashSet();
     for (GenericPropertyDescription propertyDescription : properties) {
-      if (propertyDescription.getTitle().contains("(")
-          && propertyDescription.getType() != String.class) {
+      String title = propertyDescription.getTitle();
+      String name = StringUtils.substringBefore(title, "(");
+      if (propertyNames.contains(name)) {
+        duplicateNames.add(name);
+      } else {
+        propertyNames.add(name);
+      }
+    }
+    // if name of property is duplicate, remove it
+    for (GenericPropertyDescription propertyDescription : properties) {
+      String title = propertyDescription.getTitle();
+      String name = StringUtils.substringBefore(title, "(");
+      if (duplicateNames.contains(name) && propertyDescription.getType() != String.class) {
         propertyDescription.setEditor(null);
       }
     }
