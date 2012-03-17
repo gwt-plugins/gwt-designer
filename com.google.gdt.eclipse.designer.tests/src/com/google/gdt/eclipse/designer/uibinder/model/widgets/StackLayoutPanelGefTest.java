@@ -14,6 +14,8 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.uibinder.model.widgets;
 
+import static com.google.gdt.eclipse.designer.uibinder.model.widgets.StackLayoutPanelInfo.isVisible;
+
 import com.google.gdt.eclipse.designer.uibinder.gef.UiBinderGefTest;
 
 import org.eclipse.wb.draw2d.geometry.Point;
@@ -421,17 +423,5 @@ public class StackLayoutPanelGefTest extends UiBinderGefTest {
         "    </g:StackLayoutPanel>",
         "  </g:FlowPanel>",
         "</ui:UiBinder>");
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // Utils
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  /**
-   * @return <code>true</code> if object of given {@link WidgetInfo} is visible.
-   */
-  private static boolean isVisible(WidgetInfo widget) throws Exception {
-    return widget.getBounds().height != 0;
   }
 }

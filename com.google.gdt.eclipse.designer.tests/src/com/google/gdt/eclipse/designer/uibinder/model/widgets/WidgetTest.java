@@ -33,7 +33,10 @@ import org.eclipse.wb.tests.designer.Expectations.RectValue;
 import org.eclipse.wb.tests.designer.core.annotations.DisposeProjectAfter;
 
 import org.eclipse.jdt.core.IType;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -144,7 +147,7 @@ public class WidgetTest extends UiBinderModelTest {
     {
       Rectangle expected =
           Expectations.get(
-              new Rectangle(0, 0, 33, 24),
+              new Rectangle(0, 0, 49, 24),
               new RectValue[]{new RectValue("scheglov-macpro", new Rectangle(0, 0, 49, 26))});
       assertEquals(expected, button.getBounds());
     }
@@ -1326,6 +1329,12 @@ public class WidgetTest extends UiBinderModelTest {
     // assert that screen shot is correct and border is fully included
     {
       Image image = panel.getImage();
+      System.out.println(image.getBounds());
+      {
+        ImageLoader imageLoader = new ImageLoader();
+        imageLoader.data = new ImageData[]{image.getImageData()};
+        imageLoader.save("c:/temp/1.png", SWT.IMAGE_PNG);
+      }
       int width = image.getBounds().width;
       int height = image.getBounds().height;
       assertRGB(getPixelRGB(image, 0, 0), 0xFF, 0, 0);

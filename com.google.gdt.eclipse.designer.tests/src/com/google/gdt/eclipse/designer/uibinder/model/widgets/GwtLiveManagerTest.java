@@ -102,7 +102,7 @@ public class GwtLiveManagerTest extends UiBinderModelTest {
       // bounds
       Rectangle imageBounds = image.getBounds();
       assertThat(imageBounds.width).isEqualTo(100);
-      assertThat(imageBounds.height).isGreaterThan(20).isLessThan(50);
+      assertThat(imageBounds.height).isGreaterThan(5).isLessThan(50);
     }
     // Button has forced size
     assertTrue(button.shouldSetReasonableSize());
@@ -134,7 +134,7 @@ public class GwtLiveManagerTest extends UiBinderModelTest {
       // bounds
       Rectangle imageBounds = image.getBounds();
       assertThat(imageBounds.width).isEqualTo(100);
-      assertThat(imageBounds.height).isGreaterThan(20).isLessThan(50);
+      assertThat(imageBounds.height).isGreaterThan(5).isLessThan(50);
     }
     // Button has forced size
     assertTrue(button.shouldSetReasonableSize());
@@ -168,7 +168,7 @@ public class GwtLiveManagerTest extends UiBinderModelTest {
       Image image = button.getImage();
       assertNotNull(image);
       assertThat(image.getBounds().width).isGreaterThan(50).isLessThan(200);
-      assertThat(image.getBounds().height).isGreaterThan(20).isLessThan(50);
+      assertThat(image.getBounds().height).isGreaterThan(5).isLessThan(50);
     }
     // "flowPanel" still should be attached
     assertEquals(Boolean.TRUE, ReflectionUtils.invokeMethod(flowPanel.getObject(), "isAttached()"));
@@ -200,7 +200,7 @@ public class GwtLiveManagerTest extends UiBinderModelTest {
       // bounds
       Rectangle imageBounds = image.getBounds();
       assertThat(imageBounds.width).isEqualTo(100);
-      assertThat(imageBounds.height).isGreaterThan(20).isLessThan(50);
+      assertThat(imageBounds.height).isGreaterThan(5).isLessThan(50);
     }
   }
 

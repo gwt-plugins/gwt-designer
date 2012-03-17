@@ -143,7 +143,7 @@ public class DialogBoxTest extends GwtModelTest {
         "    {",
         "      Button button = new Button();",
         "      setWidget(button);",
-        "      button.setSize('300px', '178px');",
+        "      button.setSize('300px', '175px');",
         "    }",
         "  }",
         "}");

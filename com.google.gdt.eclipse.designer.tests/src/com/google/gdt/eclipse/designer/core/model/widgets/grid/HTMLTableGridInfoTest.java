@@ -63,7 +63,7 @@ public class HTMLTableGridInfoTest extends GwtModelTest {
    */
   private static final int CA = Expectations.get(17, new IntValue[]{
       new IntValue("kosta-home", 21),
-      new IntValue("scheglov-win", 17),
+      new IntValue("scheglov-win", 31),
       new IntValue("flanker-windows", 17)});
   /**
    * Height of empty row.
@@ -646,7 +646,7 @@ public class HTMLTableGridInfoTest extends GwtModelTest {
       int spanHeight = RA / 2;
       assertEquals(new Interval(RS, spanHeight), intervals[0]);
       assertEquals(new Interval(RS + spanHeight, spanHeight), intervals[1]);
-      assertEquals(new Interval(RS + spanHeight + spanHeight + RS, RA), intervals[2]);
+      assertEquals(new Interval(RS + spanHeight + spanHeight, RA), intervals[2]);
     }
     {
       Interval[] intervals = gridInfo.getColumnIntervals();

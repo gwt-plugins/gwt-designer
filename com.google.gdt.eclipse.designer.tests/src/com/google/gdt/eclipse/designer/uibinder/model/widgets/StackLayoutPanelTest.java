@@ -14,6 +14,8 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.uibinder.model.widgets;
 
+import static com.google.gdt.eclipse.designer.uibinder.model.widgets.StackLayoutPanelInfo.isVisible;
+
 import com.google.gdt.eclipse.designer.model.widgets.panels.AbstractWidgetHandle;
 import com.google.gdt.eclipse.designer.uibinder.model.UiBinderModelTest;
 import com.google.gdt.eclipse.designer.uibinder.model.widgets.StackLayoutPanelInfo.WidgetHandle;
@@ -911,17 +913,5 @@ public class StackLayoutPanelTest extends UiBinderModelTest {
     panel.getWidgetHandles().get(1).show();
     assertFalse(isVisible(button_1));
     assertTrue(isVisible(button_2));
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // Utils
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  /**
-   * @return <code>true</code> if object of given {@link WidgetInfo} is visible.
-   */
-  private static boolean isVisible(WidgetInfo widget) throws Exception {
-    return widget.getBounds().height != 0;
   }
 }

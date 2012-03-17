@@ -14,6 +14,8 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.core.model.widgets;
 
+import static com.google.gdt.eclipse.designer.model.widgets.panels.StackLayoutPanelInfo.isVisible;
+
 import com.google.gdt.eclipse.designer.core.model.widgets.generic.GwtGefTest;
 import com.google.gdt.eclipse.designer.model.widgets.WidgetInfo;
 import com.google.gdt.eclipse.designer.model.widgets.panels.StackLayoutPanelInfo;
@@ -393,17 +395,5 @@ public class StackLayoutPanelGefTest extends GwtGefTest {
         "    }",
         "  }",
         "}");
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // Utils
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  /**
-   * @return <code>true</code> if object of given {@link WidgetInfo} is visible.
-   */
-  private static boolean isVisible(WidgetInfo widget) throws Exception {
-    return widget.getBounds().height != 0;
   }
 }

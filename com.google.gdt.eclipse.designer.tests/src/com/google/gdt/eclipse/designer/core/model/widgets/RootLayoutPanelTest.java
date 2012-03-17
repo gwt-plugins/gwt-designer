@@ -61,8 +61,8 @@ public class RootLayoutPanelTest extends GwtModelTest {
       new StrValue("flanker-windows", "2.6"),
       new StrValue("sablin-aa", "2.6")});
   private static final String EX_100 = Expectations.get("11.1", new StrValue[]{
-      new StrValue("scheglov-win", "11.1"),
-      new StrValue("flanker-windows", "11."),
+      new StrValue("scheglov-win", "10.8"),
+      new StrValue("flanker-windows", "11.1"),
       new StrValue("sablin-aa", "11.1")});
   private static final String W_MM_after_50MM_150PX = Expectations.get("29.4", new StrValue[]{
       new StrValue("scheglov-win", "29.4"),

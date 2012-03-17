@@ -58,7 +58,7 @@ public class DisclosurePanelTest extends UiBinderModelTest {
     assertNull(panel.getWidget());
     {
       Rectangle bounds = panel.getBounds();
-      assertThat(bounds.width).isGreaterThan(100);
+      assertThat(bounds.width).isGreaterThan(90);
       assertThat(bounds.height).isGreaterThan(50);
     }
   }

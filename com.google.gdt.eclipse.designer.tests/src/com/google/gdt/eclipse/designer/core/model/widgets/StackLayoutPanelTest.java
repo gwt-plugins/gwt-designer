@@ -14,6 +14,8 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.core.model.widgets;
 
+import static com.google.gdt.eclipse.designer.model.widgets.panels.StackLayoutPanelInfo.isVisible;
+
 import com.google.gdt.eclipse.designer.core.model.GwtModelTest;
 import com.google.gdt.eclipse.designer.model.widgets.WidgetInfo;
 import com.google.gdt.eclipse.designer.model.widgets.panels.AbstractWidgetHandle;
@@ -514,17 +516,5 @@ public class StackLayoutPanelTest extends GwtModelTest {
         "      {new: com.google.gwt.user.client.ui.HTML} {empty} {/stackLayoutPanel.add(button, new HTML('Header A'), 1.0)/}",
         "    {new: com.google.gwt.user.client.ui.Button} {local-unique: button} {/new Button('B')/ /stackLayoutPanel.add(button, new HTML('Header B'), 3.5)/}",
         "      {new: com.google.gwt.user.client.ui.HTML} {empty} {/stackLayoutPanel.add(button, new HTML('Header B'), 3.5)/}");
-  }
-
-  ////////////////////////////////////////////////////////////////////////////
-  //
-  // Utils
-  //
-  ////////////////////////////////////////////////////////////////////////////
-  /**
-   * @return <code>true</code> if given {@link WidgetInfo} is visible.
-   */
-  private boolean isVisible(WidgetInfo widget) throws Exception {
-    return widget.getBounds().height != 0;
   }
 }

@@ -31,8 +31,18 @@ import org.apache.commons.lang.StringUtils;
  */
 public class CoordinatesTest extends GwtModelTest {
   protected boolean strict = true;
-  protected int BBL = 2;
-  protected int BBT = 2;
+  /**
+   * Default BODY border left.
+   */
+  private static final int BBL = 0;
+  /**
+   * Default BODY border top.
+   */
+  private static final int BBT = 0;
+  /**
+   * Default BODY margin.
+   */
+  private static final int BM = 8;
 
   ////////////////////////////////////////////////////////////////////////////
   //
@@ -331,8 +341,8 @@ public class CoordinatesTest extends GwtModelTest {
   }
 
   public void test_defaultLocation___R_e_10p20p_0p___B_0p_0p() throws Exception {
-    Rectangle buttonModelBounds = new Rectangle(BBL + 20, BBT + 35, 100, 50);
-    Rectangle buttonParentBounds = new Rectangle(BBL + 20, BBT + 35, 100, 50);
+    Rectangle buttonModelBounds = new Rectangle(BBL + 10 + BM, BBT + 20 + BM, 100, 50);
+    Rectangle buttonParentBounds = new Rectangle(BBL + 10 + BM, BBT + 20 + BM, 100, 50);
     check_Button_on_RootPanel(
         new StyleSet("", "left 10px solid, top 20px solid", "left 0px, top 0px"),
         new StyleSet("left 0px, top 0px", "left 0px solid, top 0px solid"),

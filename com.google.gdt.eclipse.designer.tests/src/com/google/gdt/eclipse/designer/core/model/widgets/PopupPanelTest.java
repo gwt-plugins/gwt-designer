@@ -69,13 +69,13 @@ public class PopupPanelTest extends GwtModelTest {
       assertThat(bounds.x).isEqualTo(0);
       assertThat(bounds.y).isEqualTo(0);
       assertThat(bounds.width).isEqualTo(450);
-      assertThat(bounds.height).isEqualTo(300);
+      assertThat(bounds.height).isEqualTo(304);
     }
     {
       Image image = panel.getImage();
       assertNotNull(image);
       assertThat(image.getBounds().width).isEqualTo(450);
-      assertThat(image.getBounds().height).isEqualTo(300);
+      assertThat(image.getBounds().height).isEqualTo(304);
     }
     // check Button bounds
     {
@@ -132,7 +132,7 @@ public class PopupPanelTest extends GwtModelTest {
         "    {",
         "      Button button = new Button();",
         "      setWidget(button);",
-        "      button.setSize('300px', '200px');",
+        "      button.setSize('300px', '196px');",
         "    }",
         "  }",
         "}");

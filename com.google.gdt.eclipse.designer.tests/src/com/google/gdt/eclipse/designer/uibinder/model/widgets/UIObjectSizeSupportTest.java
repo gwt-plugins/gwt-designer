@@ -728,8 +728,8 @@ public class UIObjectSizeSupportTest extends UiBinderModelTest {
     WidgetInfo widget = getObjectByName("widget");
     // decorations
     assertEquals(new Insets(0), widget.getMargins());
-    assertEquals(new Insets(2), widget.getBorders());
-    assertEquals(new Insets(0), widget.getPaddings());
+    assertEquals(new Insets(3), widget.getBorders());
+    assertEquals(new Insets(1, 8, 1, 8), widget.getPaddings());
     // set new size, tweak to take decorations into account
     widget.getSizeSupport().setSize(100, 50);
     assertEquals(new Dimension(100, 50), widget.getBounds().getSize());

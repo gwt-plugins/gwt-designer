@@ -62,12 +62,12 @@ public class TabPanelGefTest extends GwtGefTest {
     WidgetInfo button_2 = getJavaInfoByName("button_2");
     // "button_1" is active, so it should be selected on click
     assertSame(button_1, panel.getActiveWidget());
-    canvas.click(panel, 100, 100);
+    canvas.moveTo(button_1, 0.5, 0.5).click();
     canvas.assertPrimarySelected(button_1);
     // select "button_2"
     panel.getWidgetHandles().get(1).show();
     canvas.deselectAll();
-    canvas.click(panel, 100, 100);
+    canvas.moveTo(button_2, 0.5, 0.5).click();
     canvas.assertPrimarySelected(button_2);
   }
 
