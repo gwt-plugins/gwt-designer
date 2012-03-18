@@ -70,6 +70,9 @@ final class IEInitializer {
   public void dispose() {
     SwtOleGlue.ejectBrowserScriptExternalObject(m_browser);
     m_external.Release();
+    if(m_window != null) {
+      m_window.Release();
+    }
   }
 
   ////////////////////////////////////////////////////////////////////////////
@@ -89,6 +92,7 @@ final class IEInitializer {
      */
     public boolean gwtOnLoad(IDispatch frameWnd) {
       m_window = frameWnd;
+      m_window.AddRef();
       return true;
     }
 
