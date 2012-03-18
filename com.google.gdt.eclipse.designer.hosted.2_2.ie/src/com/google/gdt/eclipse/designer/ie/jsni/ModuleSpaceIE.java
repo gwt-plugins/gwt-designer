@@ -90,7 +90,7 @@ public class ModuleSpaceIE extends ModuleSpace {
       m_nativeFunctions.put(name, functionInfo);
     }
     // invoke function
-    return functionInfo.m_function.invoke(functionInfo.m_callId, args);
+    return OleAutomationFix.invoke(functionInfo.m_function, functionInfo.m_callId, args);
   }
 
   /**
