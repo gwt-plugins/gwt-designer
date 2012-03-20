@@ -3,588 +3,588 @@
 <plugin>
 
 
-	<!-- ======================================================== -->
-	<!-- Extension points -->
-	<!-- ======================================================== -->
-	<extension-point id="classLoaderValidators" name="Validator for GWT class loader."
-		schema="schema/classLoaderValidators.exsd"/>
-	<extension-point id="moduleConfigurators"
-		name="Configurators for support extended GWT-based toolkits"
-		schema="schema/moduleConfigurators.exsd"/>
-	<extension-point id="moduleInitializers" name="Design-time initializers for GWT-based toolkits"
-		schema="schema/moduleInitializers.exsd"/>
-	<extension-point id="moduleProviders" name="com.google.gdt.eclipse.designer"
-		schema="schema/moduleProviders.exsd"/>
+    <!-- ======================================================== -->
+    <!-- Extension points -->
+    <!-- ======================================================== -->
+    <extension-point id="classLoaderValidators" name="Validator for GWT class loader."
+        schema="schema/classLoaderValidators.exsd"/>
+    <extension-point id="moduleConfigurators"
+        name="Configurators for support extended GWT-based toolkits"
+        schema="schema/moduleConfigurators.exsd"/>
+    <extension-point id="moduleInitializers" name="Design-time initializers for GWT-based toolkits"
+        schema="schema/moduleInitializers.exsd"/>
+    <extension-point id="moduleProviders" name="com.google.gdt.eclipse.designer"
+        schema="schema/moduleProviders.exsd"/>
 
 
-	<!-- ======================================================== -->
-	<!-- Auto start (for property tester) -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.ui.startup"/>
+    <!-- ======================================================== -->
+    <!-- Auto start (for property tester) -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.ui.startup"/>
 
 
-	<!-- ======================================================== -->
-	<!-- Designer content type-->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.designerContentPatterns">
-		<includePattern>com.google.gwt.user.client.ui.</includePattern>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Designer content type-->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.designerContentPatterns">
+        <includePattern>com.google.gwt.user.client.ui.</includePattern>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Exceptions -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.exceptions">
-		<file path="resources/exceptions.xml"/>
-		<rewriter class="com.google.gdt.eclipse.designer.GwtExceptionRewriter"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Exceptions -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.exceptions">
+        <file path="resources/exceptions.xml"/>
+        <rewriter class="com.google.gdt.eclipse.designer.GwtExceptionRewriter"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Module provider -->
-	<!-- ======================================================== -->
-	<extension point="com.google.gdt.eclipse.designer.moduleProviders">
-		<provider class="com.google.gdt.eclipse.designer.util.DefaultModuleProvider"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Module provider -->
+    <!-- ======================================================== -->
+    <extension point="com.google.gdt.eclipse.designer.moduleProviders">
+        <provider class="com.google.gdt.eclipse.designer.util.DefaultModuleProvider"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Bundle class loading -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.classLoadingContributor">
-		<contributor namespace="com.google.gdt.eclipse.designer."/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Bundle class loading -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.classLoadingContributor">
+        <contributor namespace="com.google.gdt.eclipse.designer."/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Parser -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.parseFactories">
-		<factory class="com.google.gdt.eclipse.designer.parser.ParseFactory"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Parser -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.parseFactories">
+        <factory class="com.google.gdt.eclipse.designer.parser.ParseFactory"/>
+    </extension>
 
-	<extension point="org.eclipse.wb.core.descriptionVersionsProviderFactories">
-		<factory class="com.google.gdt.eclipse.designer.GwtDescriptionVersionsProviderFactory"/>
-	</extension>
+    <extension point="org.eclipse.wb.core.descriptionVersionsProviderFactories">
+        <factory class="com.google.gdt.eclipse.designer.GwtDescriptionVersionsProviderFactory"/>
+    </extension>
 
-	<extension point="org.eclipse.wb.core.componentsHierarchyProviders">
-		<provider class="com.google.gdt.eclipse.designer.model.widgets.GwtHierarchyProvider"/>
-	</extension>
-
-
-	<!-- ======================================================== -->
-	<!-- Expression evaluators -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.invocationEvaluatorInterceptors">
-		<interceptor class="com.google.gdt.eclipse.designer.util.GwtInvocationEvaluatorInterceptor"
-		/>
-	</extension>
+    <extension point="org.eclipse.wb.core.componentsHierarchyProviders">
+        <provider class="com.google.gdt.eclipse.designer.model.widgets.GwtHierarchyProvider"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Parsing -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.rootProcessors">
-		<processor class="com.google.gdt.eclipse.designer.model.widgets.UIObjectRootProcessor"/>
-		<processor class="com.google.gdt.eclipse.designer.model.widgets.ImageBundleRootProcessor"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Expression evaluators -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.invocationEvaluatorInterceptors">
+        <interceptor class="com.google.gdt.eclipse.designer.util.GwtInvocationEvaluatorInterceptor"
+        />
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Editor life cycle listener -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.editorLifeCycleListeners">
-		<listener class="com.google.gdt.eclipse.designer.parser.GwtEditorLifeCycleListener"/>
-	</extension>
-	
+    <!-- ======================================================== -->
+    <!-- Parsing -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.rootProcessors">
+        <processor class="com.google.gdt.eclipse.designer.model.widgets.UIObjectRootProcessor"/>
+        <processor class="com.google.gdt.eclipse.designer.model.widgets.ImageBundleRootProcessor"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Description driven features -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.javaInfoInitializationParticipators">
-		<participator
-			class="com.google.gdt.eclipse.designer.model.widgets.generic.GenericWidgetConfigurator"
-		/>
-	</extension>
-
-
-	<!-- ======================================================== -->
-	<!-- Toolkit -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.toolkits">
-		<toolkit id="com.google.gdt.eclipse.designer">
-			<provider class="com.google.gdt.eclipse.designer.ToolkitProvider"/>
-			<resourcePrefixes>
-				<resourcePrefix>com.google.gwt.canvas.</resourcePrefix>
-				<resourcePrefix>com.google.gwt.i18n.</resourcePrefix>
-				<resourcePrefix>com.google.gwt.maps.</resourcePrefix>
-				<resourcePrefix>com.google.gwt.user.</resourcePrefix>
-				<resourcePrefix>com.google.gwt.widget.</resourcePrefix>
-			</resourcePrefixes>
-			<palette>
-				<category id="com.google.gdt.eclipse.designer.system" name="System"
-					description="System tools">
-					<entry id="system.selection"
-						class="org.eclipse.wb.core.editor.palette.model.entry.SelectionToolEntryInfo"/>
-					<entry id="system.marquee"
-						class="org.eclipse.wb.core.editor.palette.model.entry.MarqueeSelectionToolEntryInfo"/>
-					<entry id="system.chooseComponent"
-						class="org.eclipse.wb.core.editor.palette.model.entry.ChooseComponentEntryInfo"
-					/>
-				</category>
-				<category id="com.google.gdt.eclipse.designer.panels" name="Panels"
-					description="Standard GWT panels">
-					<component class="com.google.gwt.user.client.ui.AbsolutePanel"/>
-					<component class="com.google.gwt.user.client.ui.FlowPanel"/>
-					<component class="com.google.gwt.user.client.ui.DockPanel"/>
-					<component class="com.google.gwt.user.client.ui.DockLayoutPanel"
-						condition="gwt_isStrictMode"/>
-					<component class="com.google.gwt.user.client.ui.HorizontalPanel"/>
-					<component class="com.google.gwt.user.client.ui.VerticalPanel"/>
-					<component class="com.google.gwt.user.client.ui.HTMLPanel"/>
-					<component class="com.google.gwt.user.client.ui.DeckPanel"/>
-					<component class="com.google.gwt.user.client.ui.StackPanel"/>
-					<component class="com.google.gwt.user.client.ui.DecoratedStackPanel"/>
-					<component class="com.google.gwt.user.client.ui.StackLayoutPanel"
-						condition="gwt_isStrictMode"/>
-					<component class="com.google.gwt.user.client.ui.Grid"/>
-					<component class="com.google.gwt.user.client.ui.FlexTable"/>
-					<component class="com.google.gwt.user.client.ui.SimplePanel"/>
-					<component class="com.google.gwt.user.client.ui.DecoratorPanel"/>
-					<component class="com.google.gwt.user.client.ui.FocusPanel"/>
-					<component class="com.google.gwt.user.client.ui.FormPanel"/>
-					<component class="com.google.gwt.user.client.ui.ScrollPanel"/>
-					<component class="com.google.gwt.user.client.ui.SplitLayoutPanel"
-						condition="gwt_isStrictMode"/>
-					<component class="com.google.gwt.user.client.ui.HorizontalSplitPanel"/>
-					<component class="com.google.gwt.user.client.ui.VerticalSplitPanel"/>
-					<!-- Composite's -->
-					<component class="com.google.gwt.user.client.ui.CaptionPanel"/>
-					<component class="com.google.gwt.user.client.ui.DisclosurePanel"/>
-					<component class="com.google.gwt.user.client.ui.TabPanel"/>
-					<component class="com.google.gwt.user.client.ui.DecoratedTabPanel"/>
-					<component class="com.google.gwt.user.client.ui.TabLayoutPanel"
-						condition="gwt_isStrictMode"/>
-					<component class="com.google.gwt.user.client.ui.LayoutPanel"
-						condition="gwt_isStrictMode"/>
-				</category>
-				<category id="com.google.gdt.eclipse.designer.widgets" name="Widgets"
-					description="Standard GWT widgets">
-					<component class="com.google.gwt.user.client.ui.Button"/>
-					<component class="com.google.gwt.user.client.ui.Label"/>
-					<component class="com.google.gwt.user.client.ui.InlineLabel"/>
-					<component class="com.google.gwt.user.client.ui.DateLabel"/>
-					<component class="com.google.gwt.user.client.ui.NumberLabel"
-						condition="(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.client.ui.NumberLabel"
-						creationId="Integer" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.client.ui.NumberLabel" creationId="Long"
-						condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.client.ui.NumberLabel" creationId="Double"
-						condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.client.ui.TextBox"/>
-					<component class="com.google.gwt.user.client.ui.IntegerBox"/>
-					<component class="com.google.gwt.user.client.ui.LongBox"/>
-					<component class="com.google.gwt.user.client.ui.DoubleBox"/>
-					<component class="com.google.gwt.user.client.ui.CheckBox"/>
-					<component class="com.google.gwt.user.client.ui.SimpleCheckBox"/>
-					<component class="com.google.gwt.user.client.ui.RadioButton"/>
-					<component class="com.google.gwt.user.client.ui.SimpleRadioButton"/>
-					<component class="com.google.gwt.user.client.ui.ListBox" creationId="combo"/>
-					<component class="com.google.gwt.user.client.ui.ListBox"/>
-					<component class="com.google.gwt.user.client.ui.PushButton"/>
-					<component class="com.google.gwt.user.client.ui.ToggleButton"/>
-					<component class="com.google.gwt.user.client.ui.PasswordTextBox"/>
-					<component class="com.google.gwt.user.client.ui.TextArea"/>
-					<component class="com.google.gwt.user.client.ui.RichTextArea"/>
-					<component class="com.google.gwt.user.client.ui.Hyperlink"/>
-					<component class="com.google.gwt.user.client.ui.InlineHyperlink"/>
-					<component class="com.google.gwt.user.client.ui.Image"/>
-					<component class="com.google.gwt.user.datepicker.client.DatePicker"/>
-					<component class="com.google.gwt.user.datepicker.client.DateBox"/>
-					<component class="com.google.gwt.user.client.ui.Tree"/>
-					<component class="com.google.gwt.user.client.ui.TreeItem"/>
-					<component class="com.google.gwt.user.client.ui.HTML"/>
-					<component class="com.google.gwt.user.client.ui.InlineHTML"/>
-					<component class="com.google.gwt.user.client.ui.Frame"/>
-					<component class="com.google.gwt.user.client.ui.NamedFrame"/>
-					<component class="com.google.gwt.user.client.ui.SuggestBox"/>
-					<component class="com.google.gwt.user.client.ui.Hidden"/>
-					<component class="com.google.gwt.user.client.ui.TabBar"/>
-					<component class="com.google.gwt.user.client.ui.DecoratedTabBar"/>
-					<component class="com.google.gwt.user.client.ui.FileUpload"/>
-					<component class="com.google.gwt.user.client.ui.ValueListBox"
-						condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.client.ui.ValuePicker"
-						condition="!(isdef isUiBinder)"/>
-				</category>
-				<category id="com.google.gdt.eclipse.designer.cellwidgets" name="Cell Widgets"
-					description="Standard GWT cell widgets">
-					<component class="com.google.gwt.widget.client.TextButton"/>
-					<component class="com.google.gwt.user.cellview.client.CellList"/>
-					<component class="com.google.gwt.user.cellview.client.CellTable"/>
-					<component class="com.google.gwt.user.cellview.client.TextColumn"
-						condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column"
-						creationId="edittext" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column"
-						creationId="number" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column"
-						creationId="button" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column"
-						creationId="checkbox" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column"
-						creationId="selection" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column" creationId="date"
-						condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.Column"
-						creationId="datepicker" condition="!(isdef isUiBinder)"/>
-					<component class="com.google.gwt.user.cellview.client.DataGrid"/>
-					<component class="com.google.gwt.user.cellview.client.CellTree"/>
-					<component class="com.google.gwt.user.cellview.client.CellBrowser"/>
-					<component class="com.google.gwt.user.cellview.client.SimplePager"/>
-					<component class="com.google.gwt.user.cellview.client.PageSizePager"/>
-				</category>
-				<category id="com.google.gdt.eclipse.designer.menu" name="Menu"
-					description="Menu objects" open="true">
-					<component class="com.google.gwt.user.client.ui.MenuBar"/>
-					<component class="com.google.gwt.user.client.ui.MenuItem"
-						creationId="withSubMenu"/>
-					<component class="com.google.gwt.user.client.ui.MenuItem"/>
-					<component class="com.google.gwt.user.client.ui.MenuItemSeparator"
-						name="Separator"/>
-				</category>
-				<category id="com.google.gdt.eclipse.designer.ImageBundle" name="ImageBundle"
-					description="ImageBundle entries" open="false" condition="!(isdef isUiBinder)">
-					<entry id="imageBundle.add"
-						class="com.google.gdt.eclipse.designer.palette.ImageBundleAddEntryInfo"/>
-				</category>
-			</palette>
-		</toolkit>
-	</extension>
-
-	<extension point="org.eclipse.wb.core.paletteComponentExists">
-		<component package="com.google.gwt.user.client.ui."
-			witness="com.google.gwt.user.client.ui.UIObject"/>
-		<component package="com.google.gwt.app.client."
-			witness="com.google.gwt.user.client.ui.ValueBox"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Editor life cycle listener -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.editorLifeCycleListeners">
+        <listener class="com.google.gdt.eclipse.designer.parser.GwtEditorLifeCycleListener"/>
+    </extension>
 
 
 
-	<!-- ======================================================== -->
-	<!-- PropertyEditor -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.propertyEditors">
-		<configurableEditor id="gwt.style"
-			class="com.google.gdt.eclipse.designer.model.property.css.StylePropertyEditor"/>
-		<configurableEditor id="gwt.imageURL"
-			class="com.google.gdt.eclipse.designer.model.property.ImageUrlPropertyEditor"/>
-		<configurableEditor id="gwt.alignString"
-			class="com.google.gdt.eclipse.designer.model.property.AlignStringPropertyEditor"/>
-		<configurableEditor id="gwt.dateTimeFormat"
-			class="com.google.gdt.eclipse.designer.model.property.DateTimeFormatPropertyEditor"/>
-		<editor type="com.google.gwt.user.client.ui.Image"
-			class="com.google.gdt.eclipse.designer.model.property.ImagePropertyEditor"/>
-	</extension>
-
-	<extension point="org.eclipse.wb.core.standardToolkitPackages">
-		<package prefix="com.google.gwt."/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Description driven features -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.javaInfoInitializationParticipators">
+        <participator
+            class="com.google.gdt.eclipse.designer.model.widgets.generic.GenericWidgetConfigurator"
+        />
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- NLS -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.nlsSources">
-		<description id="com.google.gdt.eclipse.designer.model.nls.GWTSource"
-			source="com.google.gdt.eclipse.designer.nls.GwtSource"
-			composite="com.google.gdt.eclipse.designer.nls.GwtSourceNewComposite"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Toolkit -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.toolkits">
+        <toolkit id="com.google.gdt.eclipse.designer">
+            <provider class="com.google.gdt.eclipse.designer.ToolkitProvider"/>
+            <resourcePrefixes>
+                <resourcePrefix>com.google.gwt.canvas.</resourcePrefix>
+                <resourcePrefix>com.google.gwt.i18n.</resourcePrefix>
+                <resourcePrefix>com.google.gwt.maps.</resourcePrefix>
+                <resourcePrefix>com.google.gwt.user.</resourcePrefix>
+                <resourcePrefix>com.google.gwt.widget.</resourcePrefix>
+            </resourcePrefixes>
+            <palette>
+                <category id="com.google.gdt.eclipse.designer.system" name="System"
+                    description="System tools">
+                    <entry id="system.selection"
+                        class="org.eclipse.wb.core.editor.palette.model.entry.SelectionToolEntryInfo"/>
+                    <entry id="system.marquee"
+                        class="org.eclipse.wb.core.editor.palette.model.entry.MarqueeSelectionToolEntryInfo"/>
+                    <entry id="system.chooseComponent"
+                        class="org.eclipse.wb.core.editor.palette.model.entry.ChooseComponentEntryInfo"
+                    />
+                </category>
+                <category id="com.google.gdt.eclipse.designer.panels" name="Panels"
+                    description="Standard GWT panels">
+                    <component class="com.google.gwt.user.client.ui.AbsolutePanel"/>
+                    <component class="com.google.gwt.user.client.ui.FlowPanel"/>
+                    <component class="com.google.gwt.user.client.ui.DockPanel"/>
+                    <component class="com.google.gwt.user.client.ui.DockLayoutPanel"
+                        condition="gwt_isStrictMode"/>
+                    <component class="com.google.gwt.user.client.ui.HorizontalPanel"/>
+                    <component class="com.google.gwt.user.client.ui.VerticalPanel"/>
+                    <component class="com.google.gwt.user.client.ui.HTMLPanel"/>
+                    <component class="com.google.gwt.user.client.ui.DeckPanel"/>
+                    <component class="com.google.gwt.user.client.ui.StackPanel"/>
+                    <component class="com.google.gwt.user.client.ui.DecoratedStackPanel"/>
+                    <component class="com.google.gwt.user.client.ui.StackLayoutPanel"
+                        condition="gwt_isStrictMode"/>
+                    <component class="com.google.gwt.user.client.ui.Grid"/>
+                    <component class="com.google.gwt.user.client.ui.FlexTable"/>
+                    <component class="com.google.gwt.user.client.ui.SimplePanel"/>
+                    <component class="com.google.gwt.user.client.ui.DecoratorPanel"/>
+                    <component class="com.google.gwt.user.client.ui.FocusPanel"/>
+                    <component class="com.google.gwt.user.client.ui.FormPanel"/>
+                    <component class="com.google.gwt.user.client.ui.ScrollPanel"/>
+                    <component class="com.google.gwt.user.client.ui.SplitLayoutPanel"
+                        condition="gwt_isStrictMode"/>
+                    <component class="com.google.gwt.user.client.ui.HorizontalSplitPanel"/>
+                    <component class="com.google.gwt.user.client.ui.VerticalSplitPanel"/>
+                    <!-- Composite's -->
+                    <component class="com.google.gwt.user.client.ui.CaptionPanel"/>
+                    <component class="com.google.gwt.user.client.ui.DisclosurePanel"/>
+                    <component class="com.google.gwt.user.client.ui.TabPanel"/>
+                    <component class="com.google.gwt.user.client.ui.DecoratedTabPanel"/>
+                    <component class="com.google.gwt.user.client.ui.TabLayoutPanel"
+                        condition="gwt_isStrictMode"/>
+                    <component class="com.google.gwt.user.client.ui.LayoutPanel"
+                        condition="gwt_isStrictMode"/>
+                </category>
+                <category id="com.google.gdt.eclipse.designer.widgets" name="Widgets"
+                    description="Standard GWT widgets">
+                    <component class="com.google.gwt.user.client.ui.Button"/>
+                    <component class="com.google.gwt.user.client.ui.Label"/>
+                    <component class="com.google.gwt.user.client.ui.InlineLabel"/>
+                    <component class="com.google.gwt.user.client.ui.DateLabel"/>
+                    <component class="com.google.gwt.user.client.ui.NumberLabel"
+                        condition="(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.client.ui.NumberLabel"
+                        creationId="Integer" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.client.ui.NumberLabel" creationId="Long"
+                        condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.client.ui.NumberLabel" creationId="Double"
+                        condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.client.ui.TextBox"/>
+                    <component class="com.google.gwt.user.client.ui.IntegerBox"/>
+                    <component class="com.google.gwt.user.client.ui.LongBox"/>
+                    <component class="com.google.gwt.user.client.ui.DoubleBox"/>
+                    <component class="com.google.gwt.user.client.ui.CheckBox"/>
+                    <component class="com.google.gwt.user.client.ui.SimpleCheckBox"/>
+                    <component class="com.google.gwt.user.client.ui.RadioButton"/>
+                    <component class="com.google.gwt.user.client.ui.SimpleRadioButton"/>
+                    <component class="com.google.gwt.user.client.ui.ListBox" creationId="combo"/>
+                    <component class="com.google.gwt.user.client.ui.ListBox"/>
+                    <component class="com.google.gwt.user.client.ui.PushButton"/>
+                    <component class="com.google.gwt.user.client.ui.ToggleButton"/>
+                    <component class="com.google.gwt.user.client.ui.PasswordTextBox"/>
+                    <component class="com.google.gwt.user.client.ui.TextArea"/>
+                    <component class="com.google.gwt.user.client.ui.RichTextArea"/>
+                    <component class="com.google.gwt.user.client.ui.Hyperlink"/>
+                    <component class="com.google.gwt.user.client.ui.InlineHyperlink"/>
+                    <component class="com.google.gwt.user.client.ui.Image"/>
+                    <component class="com.google.gwt.user.datepicker.client.DatePicker"/>
+                    <component class="com.google.gwt.user.datepicker.client.DateBox"/>
+                    <component class="com.google.gwt.user.client.ui.Tree"/>
+                    <component class="com.google.gwt.user.client.ui.TreeItem"/>
+                    <component class="com.google.gwt.user.client.ui.HTML"/>
+                    <component class="com.google.gwt.user.client.ui.InlineHTML"/>
+                    <component class="com.google.gwt.user.client.ui.Frame"/>
+                    <component class="com.google.gwt.user.client.ui.NamedFrame"/>
+                    <component class="com.google.gwt.user.client.ui.SuggestBox"/>
+                    <component class="com.google.gwt.user.client.ui.Hidden"/>
+                    <component class="com.google.gwt.user.client.ui.TabBar"/>
+                    <component class="com.google.gwt.user.client.ui.DecoratedTabBar"/>
+                    <component class="com.google.gwt.user.client.ui.FileUpload"/>
+                    <component class="com.google.gwt.user.client.ui.ValueListBox"
+                        condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.client.ui.ValuePicker"
+                        condition="!(isdef isUiBinder)"/>
+                </category>
+                <category id="com.google.gdt.eclipse.designer.cellwidgets" name="Cell Widgets"
+                    description="Standard GWT cell widgets">
+                    <component class="com.google.gwt.widget.client.TextButton"/>
+                    <component class="com.google.gwt.user.cellview.client.CellList"/>
+                    <component class="com.google.gwt.user.cellview.client.CellTable"/>
+                    <component class="com.google.gwt.user.cellview.client.TextColumn"
+                        condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column"
+                        creationId="edittext" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column"
+                        creationId="number" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column"
+                        creationId="button" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column"
+                        creationId="checkbox" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column"
+                        creationId="selection" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column" creationId="date"
+                        condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.Column"
+                        creationId="datepicker" condition="!(isdef isUiBinder)"/>
+                    <component class="com.google.gwt.user.cellview.client.DataGrid"/>
+                    <component class="com.google.gwt.user.cellview.client.CellTree"/>
+                    <component class="com.google.gwt.user.cellview.client.CellBrowser"/>
+                    <component class="com.google.gwt.user.cellview.client.SimplePager"/>
+                    <component class="com.google.gwt.user.cellview.client.PageSizePager"/>
+                </category>
+                <category id="com.google.gdt.eclipse.designer.menu" name="Menu"
+                    description="Menu objects" open="true">
+                    <component class="com.google.gwt.user.client.ui.MenuBar"/>
+                    <component class="com.google.gwt.user.client.ui.MenuItem"
+                        creationId="withSubMenu"/>
+                    <component class="com.google.gwt.user.client.ui.MenuItem"/>
+                    <component class="com.google.gwt.user.client.ui.MenuItemSeparator"
+                        name="Separator"/>
+                </category>
+                <category id="com.google.gdt.eclipse.designer.ImageBundle" name="ImageBundle"
+                    description="ImageBundle entries" open="false" condition="!(isdef isUiBinder)">
+                    <entry id="imageBundle.add"
+                        class="com.google.gdt.eclipse.designer.palette.ImageBundleAddEntryInfo"/>
+                </category>
+            </palette>
+        </toolkit>
+    </extension>
 
-	<extension point="org.eclipse.wb.core.nlsSources">
-		<binding toolkit="com.google.gdt.eclipse.designer"
-			description="com.google.gdt.eclipse.designer.model.nls.GWTSource"/>
-	</extension>
+    <extension point="org.eclipse.wb.core.paletteComponentExists">
+        <component package="com.google.gwt.user.client.ui."
+            witness="com.google.gwt.user.client.ui.UIObject"/>
+        <component package="com.google.gwt.app.client."
+            witness="com.google.gwt.user.client.ui.ValueBox"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Preferences -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.ui.preferenceTransfer">
-		<transfer id="com.google.gdt.eclipse.designer.preferencesTransfer"
-			icon="icons/preference_transfer.png" name="Designer GWT Preferences">
-			<mapping scope="instance">
-				<entry node="com.google.gdt.eclipse.designer"/>
-			</mapping>
-		</transfer>
-	</extension>
 
-	<extension point="org.eclipse.core.runtime.preferences">
-		<initializer class="com.google.gdt.eclipse.designer.preferences.PreferenceInitializer"/>
-		<initializer class="com.google.gdt.eclipse.designer.preferences.event.PreferenceInitializer"/>
-		<initializer
-			class="com.google.gdt.eclipse.designer.model.widgets.panels.AbsoluteLayoutPreferenceInitializer"
-		/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- PropertyEditor -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.propertyEditors">
+        <configurableEditor id="gwt.style"
+            class="com.google.gdt.eclipse.designer.model.property.css.StylePropertyEditor"/>
+        <configurableEditor id="gwt.imageURL"
+            class="com.google.gdt.eclipse.designer.model.property.ImageUrlPropertyEditor"/>
+        <configurableEditor id="gwt.alignString"
+            class="com.google.gdt.eclipse.designer.model.property.AlignStringPropertyEditor"/>
+        <configurableEditor id="gwt.dateTimeFormat"
+            class="com.google.gdt.eclipse.designer.model.property.DateTimeFormatPropertyEditor"/>
+        <editor type="com.google.gwt.user.client.ui.Image"
+            class="com.google.gdt.eclipse.designer.model.property.ImagePropertyEditor"/>
+    </extension>
 
-
-	<!-- ======================================================== -->
-	<!-- GEF factories -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.editPartFactories">
-		<factory class="com.google.gdt.eclipse.designer.gef.EditPartFactory"/>
-	</extension>
-
-	<extension point="org.eclipse.wb.core.editPartConfigurators">
-		<configurator class="com.google.gdt.eclipse.designer.gef.GwtEditPartConfigurator"/>
-	</extension>
+    <extension point="org.eclipse.wb.core.standardToolkitPackages">
+        <package prefix="com.google.gwt."/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- GEF factories for TreeViewer -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.treeEditPartFactories">
-		<factory class="com.google.gdt.eclipse.designer.gefTree.EditPartFactory"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- NLS -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.nlsSources">
+        <description id="com.google.gdt.eclipse.designer.model.nls.GWTSource"
+            source="com.google.gdt.eclipse.designer.nls.GwtSource"
+            composite="com.google.gdt.eclipse.designer.nls.GwtSourceNewComposite"/>
+    </extension>
 
-	<extension point="org.eclipse.wb.core.treeEditPartConfigurators">
-		<configurator class="com.google.gdt.eclipse.designer.gefTree.GwtEditPartConfigurator"/>
-	</extension>
-
-
-	<!-- ======================================================== -->
-	<!-- GWT Initialization -->
-	<!-- ======================================================== -->
-	<extension point="com.google.gdt.eclipse.designer.moduleInitializers">
-		<initializer class="com.google.gdt.eclipse.designer.support.http.ScriptModuleInitializer"/>
-	</extension>
+    <extension point="org.eclipse.wb.core.nlsSources">
+        <binding toolkit="com.google.gdt.eclipse.designer"
+            description="com.google.gdt.eclipse.designer.model.nls.GWTSource"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Property tester -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.core.expressions.propertyTesters">
-		<propertyTester id="com.google.gdt.eclipse.designer.common.GWTPropertyTester"
-			class="com.google.gdt.eclipse.designer.common.GwtPropertyTester"
-			namespace="com.google.gdt.eclipse.designer"
-			properties="isEntryPoint, isRemoteService, isRemoteServiceImpl, 
+    <!-- ======================================================== -->
+    <!-- Preferences -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.ui.preferenceTransfer">
+        <transfer id="com.google.gdt.eclipse.designer.preferencesTransfer"
+            icon="icons/preference_transfer.png" name="Designer GWT Preferences">
+            <mapping scope="instance">
+                <entry node="com.google.gdt.eclipse.designer"/>
+            </mapping>
+        </transfer>
+    </extension>
+
+    <extension point="org.eclipse.core.runtime.preferences">
+        <initializer class="com.google.gdt.eclipse.designer.preferences.PreferenceInitializer"/>
+        <initializer class="com.google.gdt.eclipse.designer.preferences.event.PreferenceInitializer"/>
+        <initializer
+            class="com.google.gdt.eclipse.designer.model.widgets.panels.AbsoluteLayoutPreferenceInitializer"
+        />
+    </extension>
+
+
+    <!-- ======================================================== -->
+    <!-- GEF factories -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.editPartFactories">
+        <factory class="com.google.gdt.eclipse.designer.gef.EditPartFactory"/>
+    </extension>
+
+    <extension point="org.eclipse.wb.core.editPartConfigurators">
+        <configurator class="com.google.gdt.eclipse.designer.gef.GwtEditPartConfigurator"/>
+    </extension>
+
+
+    <!-- ======================================================== -->
+    <!-- GEF factories for TreeViewer -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.treeEditPartFactories">
+        <factory class="com.google.gdt.eclipse.designer.gefTree.EditPartFactory"/>
+    </extension>
+
+    <extension point="org.eclipse.wb.core.treeEditPartConfigurators">
+        <configurator class="com.google.gdt.eclipse.designer.gefTree.GwtEditPartConfigurator"/>
+    </extension>
+
+
+    <!-- ======================================================== -->
+    <!-- GWT Initialization -->
+    <!-- ======================================================== -->
+    <extension point="com.google.gdt.eclipse.designer.moduleInitializers">
+        <initializer class="com.google.gdt.eclipse.designer.support.http.ScriptModuleInitializer"/>
+    </extension>
+
+
+    <!-- ======================================================== -->
+    <!-- Property tester -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.core.expressions.propertyTesters">
+        <propertyTester id="com.google.gdt.eclipse.designer.common.GWTPropertyTester"
+            class="com.google.gdt.eclipse.designer.common.GwtPropertyTester"
+            namespace="com.google.gdt.eclipse.designer"
+            properties="isEntryPoint, isRemoteService, isRemoteServiceImpl, 
         isClientPackage, isGwtProjectElement, isGwtModuleElement, isResource"
-			type="org.eclipse.core.runtime.IAdaptable"/>
-	</extension>
+            type="org.eclipse.core.runtime.IAdaptable"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Rename refactoring participants -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.ltk.core.refactoring.renameParticipants">
-		<!-- EntryPoint -->
-		<renameParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.EntryPointRenameParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.EntryPointRenameParticipant"
-			name="GWT rename participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isEntryPoint"/>
-				</with>
-			</enablement>
-		</renameParticipant>
-		<!-- RemoteService -->
-		<renameParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceRenameParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceRenameParticipant"
-			name="GWT rename participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isRemoteService"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</renameParticipant>
-		<!-- RemoteService Impl -->
-		<renameParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplRenameParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplRenameParticipant"
-			name="GWT rename participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isRemoteServiceImpl"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</renameParticipant>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Rename refactoring participants -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.ltk.core.refactoring.renameParticipants">
+        <!-- EntryPoint -->
+        <renameParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.EntryPointRenameParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.EntryPointRenameParticipant"
+            name="GWT rename participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isEntryPoint"/>
+                </with>
+            </enablement>
+        </renameParticipant>
+        <!-- RemoteService -->
+        <renameParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceRenameParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceRenameParticipant"
+            name="GWT rename participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isRemoteService"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </renameParticipant>
+        <!-- RemoteService Impl -->
+        <renameParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplRenameParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplRenameParticipant"
+            name="GWT rename participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isRemoteServiceImpl"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </renameParticipant>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Move refactoring participants -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.ltk.core.refactoring.moveParticipants">
-		<!-- EntryPoint -->
-		<moveParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.EntryPointMoveParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.EntryPointMoveParticipant"
-			name="GWT move participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isEntryPoint"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</moveParticipant>
-		<!-- RemoteService -->
-		<moveParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceMoveParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceMoveParticipant"
-			name="GWT move participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isRemoteService"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</moveParticipant>
-		<!-- RemoteService Impl -->
-		<moveParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplMoveParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplMoveParticipant"
-			name="GWT move participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isRemoteServiceImpl"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</moveParticipant>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Move refactoring participants -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.ltk.core.refactoring.moveParticipants">
+        <!-- EntryPoint -->
+        <moveParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.EntryPointMoveParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.EntryPointMoveParticipant"
+            name="GWT move participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isEntryPoint"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </moveParticipant>
+        <!-- RemoteService -->
+        <moveParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceMoveParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceMoveParticipant"
+            name="GWT move participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isRemoteService"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </moveParticipant>
+        <!-- RemoteService Impl -->
+        <moveParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplMoveParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceImplMoveParticipant"
+            name="GWT move participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isRemoteServiceImpl"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </moveParticipant>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Delete refactoring participants -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.ltk.core.refactoring.deleteParticipants">
-		<!-- EntryPoint -->
-		<deleteParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.EntryPointDeleteParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.EntryPointDeleteParticipant"
-			name="GWT EntryPoint delete participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isEntryPoint"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</deleteParticipant>
-		<!-- RemoteService -->
-		<deleteParticipant
-			class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceDeleteParticipant"
-			id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceDeleteParticipant"
-			name="GWT delete participant">
-			<enablement>
-				<with variable="affectedNatures">
-					<iterate operator="or">
-						<equals value="org.eclipse.jdt.core.javanature"/>
-					</iterate>
-				</with>
-				<with variable="element">
-					<instanceof value="org.eclipse.jdt.core.IType"/>
-					<test property="com.google.gdt.eclipse.designer.isRemoteService"
-						forcePluginActivation="true"/>
-				</with>
-			</enablement>
-		</deleteParticipant>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Delete refactoring participants -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.ltk.core.refactoring.deleteParticipants">
+        <!-- EntryPoint -->
+        <deleteParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.EntryPointDeleteParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.EntryPointDeleteParticipant"
+            name="GWT EntryPoint delete participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isEntryPoint"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </deleteParticipant>
+        <!-- RemoteService -->
+        <deleteParticipant
+            class="com.google.gdt.eclipse.designer.refactoring.RemoteServiceDeleteParticipant"
+            id="com.google.gdt.eclipse.designer.refactoring.RemoteServiceDeleteParticipant"
+            name="GWT delete participant">
+            <enablement>
+                <with variable="affectedNatures">
+                    <iterate operator="or">
+                        <equals value="org.eclipse.jdt.core.javanature"/>
+                    </iterate>
+                </with>
+                <with variable="element">
+                    <instanceof value="org.eclipse.jdt.core.IType"/>
+                    <test property="com.google.gdt.eclipse.designer.isRemoteService"
+                        forcePluginActivation="true"/>
+                </with>
+            </enablement>
+        </deleteParticipant>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Builders and natures -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.core.resources.builders" id="GWTBuilder" name="GWT Builder">
-		<builder hasNature="true" isConfigurable="false">
-			<run class="com.google.gdt.eclipse.designer.builders.GwtBuilder"/>
-		</builder>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Builders and natures -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.core.resources.builders" id="GWTBuilder" name="GWT Builder">
+        <builder hasNature="true" isConfigurable="false">
+            <run class="com.google.gdt.eclipse.designer.builders.GwtBuilder"/>
+        </builder>
+    </extension>
 
-	<extension id="GWTNature" name="GWT Nature" point="org.eclipse.core.resources.natures">
-		<builder id="com.google.gdt.eclipse.designer.GWTBuilder"/>
-		<runtime>
-			<run class="com.google.gdt.eclipse.designer.natures.GwtNature"/>
-		</runtime>
-		<requires-nature id="org.eclipse.jdt.core.javanature"/>
-	</extension>
+    <extension id="GWTNature" name="GWT Nature" point="org.eclipse.core.resources.natures">
+        <builder id="com.google.gdt.eclipse.designer.GWTBuilder"/>
+        <runtime>
+            <run class="com.google.gdt.eclipse.designer.natures.GwtNature"/>
+        </runtime>
+        <requires-nature id="org.eclipse.jdt.core.javanature"/>
+    </extension>
 
 
-	<!-- ======================================================== -->
-	<!-- Compilation/fixes support -->
-	<!-- ======================================================== -->
-	<extension id="problem" name="GWT problems marker" point="org.eclipse.core.resources.markers">
-		<super type="org.eclipse.core.resources.problemmarker"/>
-		<super type="org.eclipse.core.resources.textmarker"/>
-		<persistent value="true"/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Compilation/fixes support -->
+    <!-- ======================================================== -->
+    <extension id="problem" name="GWT problems marker" point="org.eclipse.core.resources.markers">
+        <super type="org.eclipse.core.resources.problemmarker"/>
+        <super type="org.eclipse.core.resources.textmarker"/>
+        <persistent value="true"/>
+    </extension>
 
-	<extension point="org.eclipse.jdt.core.compilationParticipant">
-		<compilationParticipant id="com.google.gdt.eclipse.designer.test.MyCompilationParticipant"
-			class="com.google.gdt.eclipse.designer.builders.participant.MyCompilationParticipant"
-			createsProblems="true">
-			<managedMarker markerType="com.google.gdt.eclipse.designer.problem"/>
-		</compilationParticipant>
-	</extension>
+    <extension point="org.eclipse.jdt.core.compilationParticipant">
+        <compilationParticipant id="com.google.gdt.eclipse.designer.test.MyCompilationParticipant"
+            class="com.google.gdt.eclipse.designer.builders.participant.MyCompilationParticipant"
+            createsProblems="true">
+            <managedMarker markerType="com.google.gdt.eclipse.designer.problem"/>
+        </compilationParticipant>
+    </extension>
 
-	<extension point="org.eclipse.ui.ide.markerResolution">
-		<markerResolutionGenerator markerType="com.google.gdt.eclipse.designer.problem"
-			class="com.google.gdt.eclipse.designer.builders.participant.QuickFixer"/>
-	</extension>
+    <extension point="org.eclipse.ui.ide.markerResolution">
+        <markerResolutionGenerator markerType="com.google.gdt.eclipse.designer.problem"
+            class="com.google.gdt.eclipse.designer.builders.participant.QuickFixer"/>
+    </extension>
 
-	<!-- ======================================================== -->
-	<!-- Error report -->
-	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.errorReportEntriesProviders">
-		<provider class="com.google.gdt.eclipse.designer.errors.logs.GwtErrorReportEntriesProvider"
-		/>
-	</extension>
+    <!-- ======================================================== -->
+    <!-- Error report -->
+    <!-- ======================================================== -->
+    <extension point="org.eclipse.wb.core.errorReportEntriesProviders">
+        <provider class="com.google.gdt.eclipse.designer.errors.logs.GwtErrorReportEntriesProvider"
+        />
+    </extension>
 
 </plugin>
