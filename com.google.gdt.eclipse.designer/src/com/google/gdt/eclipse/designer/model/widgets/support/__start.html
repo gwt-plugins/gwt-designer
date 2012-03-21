@@ -174,11 +174,7 @@
 			var indexUrl = imageValue.toLowerCase().indexOf("url(");
 			if (indexUrl != -1) {
 				var imageUri = imageValue.substring(indexUrl + 4, imageValue.length - 1);
-				// GXT IconHelper() workaround
 				var checkedUri = __wbp_checkUri(imageUri);
-				if (checkedUri != imageUri) {
-					node.style["background-image"] = "url(" + checkedUri + ")";
-				}
 				__wbp_preloadImage(checkedUri);
 			}
 		}
