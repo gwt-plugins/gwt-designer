@@ -97,7 +97,10 @@ public final class UiConstructorSupport {
       String name = parameterNames[i];
       Class<?> type = parameterTypes[i];
       if (object.getAttribute(name) == null) {
-        object.setAttribute(name, getDefaultAttributeValue(type));
+        String defaultAttributeValue = getDefaultAttributeValue(type);
+        if (defaultAttributeValue != null) {
+          object.setAttribute(name, defaultAttributeValue);
+        }
       }
     }
   }
@@ -115,7 +118,7 @@ public final class UiConstructorSupport {
     if (type == int.class || type == double.class) {
       return "0";
     }
-    throw new IllegalArgumentException("Unsupported @UiConstructor attribute type: " + type);
+    return null;
   }
 
   ////////////////////////////////////////////////////////////////////////////
