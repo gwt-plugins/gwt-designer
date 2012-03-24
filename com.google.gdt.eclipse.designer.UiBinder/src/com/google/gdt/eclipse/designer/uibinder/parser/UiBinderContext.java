@@ -148,6 +148,25 @@ public class UiBinderContext extends EditorContext {
 
   ////////////////////////////////////////////////////////////////////////////
   //
+  // Notification
+  //
+  ////////////////////////////////////////////////////////////////////////////
+  /**
+   * Notifies {@link AboutToParseProcessor} that this {@link UiBinderContext} is about to parse.
+   */
+  public void notifyAboutToParse() throws Exception {
+    List<AboutToParseProcessor> processors =
+        ExternalFactoriesHelper.getElementsInstances(
+            AboutToParseProcessor.class,
+            "com.google.gdt.eclipse.designer.UiBinder.aboutToParse",
+            "processor");
+    for (AboutToParseProcessor processor : processors) {
+      processor.process(this);
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////
+  //
   // Utils
   //
   ////////////////////////////////////////////////////////////////////////////

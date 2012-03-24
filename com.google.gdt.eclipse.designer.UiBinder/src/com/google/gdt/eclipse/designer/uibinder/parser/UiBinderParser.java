@@ -122,6 +122,7 @@ public final class UiBinderParser {
    */
   private void parse0() throws Exception {
     m_context.setParsing(true);
+    m_context.notifyAboutToParse();
     fillMap_pathToElement();
     // load Binder
     Object createdBinder;
@@ -301,6 +302,18 @@ public final class UiBinderParser {
       String objectName,
       Class<?> clazz,
       Object[] args) throws Exception {
+    // try CreateObjectInstance broadcast
+    {
+      Object result[] = {null};
+      context.getBroadcastSupport().getListener(CreateObjectInstance.class).invoke(
+          objectName,
+          clazz,
+          args,
+          result);
+      if (result[0] != null) {
+        return result[0];
+      }
+    }
     // try "UiBinder.createInstance" script
     {
       ComponentDescription description = ComponentDescriptionHelper.getDescription(context, clazz);
