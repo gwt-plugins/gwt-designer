@@ -21,6 +21,7 @@ import com.google.common.collect.Sets;
 import com.google.gdt.eclipse.designer.GwtToolkitDescription;
 import com.google.gdt.eclipse.designer.model.widgets.support.IDevModeBridge;
 import com.google.gdt.eclipse.designer.uibinder.IExceptionConstants;
+import com.google.gdt.eclipse.designer.uibinder.model.widgets.UIObjectInfo;
 import com.google.gdt.eclipse.designer.uibinder.parser.UiBinderContext;
 import com.google.gdt.eclipse.designer.uibinder.parser.UiBinderParser;
 import com.google.gdt.eclipse.designer.util.Utils;
@@ -374,7 +375,6 @@ public final class NameSupport {
     }
     // prepare AST
     AstEditor editor = getEditor();
-    TypeDeclaration typeDeclaration = editor.getPrimaryType();
     // configure EditorState
     EditorState.get(editor).initialize(
         GwtToolkitDescription.INSTANCE.getId(),
@@ -415,19 +415,31 @@ public final class NameSupport {
         fieldTypeName += ">";
       }
     }
+    addUiFieldJava(componentClass, fieldTypeName, name, creationSource);
+  }
+
+  /**
+   * Adds @UiField with given type, name and initializer.
+   */
+  public void addUiFieldJava(Class<?> fieldClass,
+      String fieldTypeName,
+      String name,
+      String initializer) throws Exception {
+    AstEditor editor = getEditor();
+    TypeDeclaration typeDeclaration = editor.getPrimaryType();
     // prepare source lines
     List<String> lines;
     {
       lines = Lists.newArrayList();
       String source = "@com.google.gwt.uibinder.client.UiField(provided=true) ";
-      source += fieldTypeName + " " + name + " = " + creationSource + ";";
+      source += fieldTypeName + " " + name + " = " + initializer + ";";
       Collections.addAll(lines, StringUtils.split(source, '\n'));
     }
     // add field
     BodyDeclarationTarget target = getNewFieldTarget(typeDeclaration);
     editor.addFieldDeclaration(lines, target);
     // add new JField into "form" JType
-    addFormJField(componentClass, name);
+    addFormJField(fieldClass, name);
   }
 
   /**
@@ -537,6 +549,36 @@ public final class NameSupport {
   }
 
   /**
+   * @return the {@link VariableDeclaration}s of with "@UiField(provided)".
+   */
+  public static List<FieldDeclaration> getUiFields(TypeDeclaration typeDeclaration) {
+    final List<FieldDeclaration> fields = Lists.newArrayList();
+    typeDeclaration.accept(new ASTVisitor() {
+      @Override
+      public void endVisit(FieldDeclaration node) {
+        if (isBinderField(node)) {
+          fields.add(node);
+        }
+      }
+    });
+    return fields;
+  }
+
+  /**
+   * Adds @UiField with given type, name and initializer.
+   */
+  public static String addUiFieldJava(UIObjectInfo contextObject,
+      Class<?> fieldClass,
+      String fieldTypeName,
+      String baseName,
+      String initializer) throws Exception {
+    NameSupport nameSupport = new NameSupport(contextObject);
+    String name = nameSupport.generateName(baseName);
+    nameSupport.addUiFieldJava(fieldClass, fieldTypeName, name, initializer);
+    return name;
+  }
+
+  /**
    * @return the {@link BodyDeclarationTarget} to add new "@UiField".
    */
   private static BodyDeclarationTarget getNewFieldTarget(TypeDeclaration typeDeclaration) {
@@ -628,11 +670,18 @@ public final class NameSupport {
   }
 
   /**
-   * Generates and returns unique name basing on settings and info in *.wbp-component.xml
-   * description.
+   * @return the generated unique name basing on settings and info in *.wbp-component.xml
+   *         description.
    */
   private String generateName() throws Exception {
     String baseName = getBaseName();
+    return generateName(baseName);
+  }
+
+  /**
+   * @return the generated unique name based on the given.
+   */
+  private String generateName(String baseName) throws Exception {
     final Set<String> identifiers = getExistingNames();
     String uniqueName = CodeUtils.generateUniqueName(baseName, new Predicate<String>() {
       public boolean apply(String name) {
