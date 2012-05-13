@@ -1,5 +1,5 @@
 # Makefile for creating WBP library for Linux GTK
-JAVA_HOME = /usr/lib/jvm/java-6-sun
+JAVA_HOME = /usr/lib/jvm/java-7-openjdk-i386
 # determine arch bits
 ARCH_BITS = $(shell getconf LONG_BIT)
 

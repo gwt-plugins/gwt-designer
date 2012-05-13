@@ -177,18 +177,43 @@ JNIEXPORT void JNICALL OS_NATIVE(_1release)
 	gtk_widget_destroy(GTK_WIDGET(window));
 }
 
-static void offscreen_window_set_size(GtkWindow* window, gint width, gint height) {
-	// size as vbox child size
-	GQuark q3 = g_quark_from_string("__wbp_vbox_key");
-	GtkWidget* vbox = g_object_get_qdata(G_OBJECT(window), q3);
+static void redraw_offscreen_window(GtkOffscreenWindow* window) {
 	// setup waiting for window to redraw.
 	gint flag = FALSE;
-    g_signal_connect (window, "damage-event", G_CALLBACK (damage_event_cb), &flag);
-	gtk_widget_set_size_request(vbox, width, height);
+    g_signal_connect (window, "damage-event", G_CALLBACK(damage_event_cb), &flag);
+	// ensure underlying GdkWindow	
+	GtkWidget* widget = GTK_WIDGET(window);
+	if (!gtk_widget_get_realized(widget)) {
+		gtk_widget_realize(widget);
+	}
+	// create region to update
+	GdkWindow* gdk_window = widget->window;
+	gint width, height;
+	gdk_window_get_geometry(gdk_window, NULL, NULL, &width, &height, NULL);
+	// begin paint
+	GdkRectangle rect;
+	rect.x = 0;	rect.y = 0;	rect.width = width;	rect.height = height;
+	GdkRegion *region = gdk_region_rectangle(&rect);
+	gdk_window_begin_paint_region(gdk_window, region);
+	// invalidate
+	region = gdk_region_rectangle(&rect);
+	gdk_window_invalidate_region(gdk_window, region, TRUE);
+	// wait for GdkEvents to get passed
+	gdk_window_process_updates(gdk_window, TRUE);
+	// end paint
+	gdk_window_end_paint(gdk_window);
 	// wait for window to redraw.
     while (!flag) {
 		gtk_main_iteration();
 	}
+}
+
+static void offscreen_window_set_size(GtkWindow* window, gint width, gint height) {
+	// size as vbox child size
+	GQuark q3 = g_quark_from_string("__wbp_vbox_key");
+	GtkWidget* vbox = g_object_get_qdata(G_OBJECT(window), q3);
+	gtk_widget_set_size_request(vbox, width, height);
+	redraw_offscreen_window(window);
 }
 
 JNIEXPORT void JNICALL OS_NATIVE(_1setBounds)
@@ -255,37 +280,6 @@ JNIEXPORT void JNICALL OS_NATIVE(_1setUrl)
 	const char* location = (*env)->GetStringUTFChars(env, jlocation, NULL);
 	webkit_web_view_open(web_view, location);
 	(*env)->ReleaseStringUTFChars(env, jlocation, location);
-}
-
-static void redraw_offscreen_window(GtkOffscreenWindow* window) {
-	// setup waiting for window to redraw.
-	gint flag = FALSE;
-    g_signal_connect (window, "damage-event", G_CALLBACK(damage_event_cb), &flag);
-	// ensure underlying GdkWindow	
-	GtkWidget* widget = GTK_WIDGET(window);
-	if (!gtk_widget_get_realized(widget)) {
-		gtk_widget_realize(widget);
-	}
-	// create region to update
-	GdkWindow* gdk_window = widget->window;
-	gint width, height;
-	gdk_window_get_geometry(gdk_window, NULL, NULL, &width, &height, NULL);
-	// begin paint
-	GdkRectangle rect;
-	rect.x = 0;	rect.y = 0;	rect.width = width;	rect.height = height;
-	GdkRegion *region = gdk_region_rectangle(&rect);
-	gdk_window_begin_paint_region(gdk_window, region);
-	// invalidate
-	region = gdk_region_rectangle(&rect);
-	gdk_window_invalidate_region(gdk_window, region, TRUE);
-	// wait for GdkEvents to get passed
-	gdk_window_process_updates(gdk_window, TRUE);
-	// end paint
-	gdk_window_end_paint(gdk_window);
-	// wait for window to redraw.
-    while (!flag) {
-		gtk_main_iteration();
-	}
 }
 
 JNIEXPORT jobject JNICALL OS_NATIVE(_1makeShot)
