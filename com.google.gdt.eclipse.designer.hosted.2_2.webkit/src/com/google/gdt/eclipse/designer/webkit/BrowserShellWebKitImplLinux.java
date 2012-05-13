@@ -21,6 +21,7 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.wb.internal.core.DesignerPlugin;
 
 /**
  * Abstract Linux implementation of the WebKit-driven BrowserShell.
@@ -136,6 +137,15 @@ public abstract class BrowserShellWebKitImplLinux<H extends Number> implements I
 		return new Rectangle(bounds[0], bounds[1], bounds[2], bounds[3]);
 	}
 	public void prepare() {
+		/**
+		 * WebKit/GTK 1.8.0 draws itself from backing store and does not do layout on expose events.
+		 * I wasn't able to find a way to get notified when new layout is done.
+		 * So, just wait in event loop.
+		 * See http://code.google.com/p/google-web-toolkit/issues/detail?id=7232  
+		 */
+		for (int i = 0; i < 10; i++) {
+			DesignerPlugin.getStandardDisplay().readAndDispatch();
+		}
 	}
 	////////////////////////////////////////////////////////////////////////////
 	//
