@@ -157,6 +157,14 @@ public class JdtCompiler {
     public String toString() {
       return builder.toString();
     }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.jdt.internal.compiler.env.ICompilationUnit#ignoreOptionalProblems()
+     */
+    public boolean ignoreOptionalProblems() {
+      // TODO(mrrussell): Auto-generated method stub
+      return false;
+    }
   }
 
   private class CompilerImpl extends Compiler {
