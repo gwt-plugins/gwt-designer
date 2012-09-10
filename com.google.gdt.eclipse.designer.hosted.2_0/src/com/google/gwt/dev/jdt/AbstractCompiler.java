@@ -91,6 +91,14 @@ public abstract class AbstractCompiler {
     public String toString() {
       return unit.toString();
     }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.jdt.internal.compiler.env.ICompilationUnit#ignoreOptionalProblems()
+     */
+    public boolean ignoreOptionalProblems() {
+      // TODO(mrrussell): Auto-generated method stub
+      return false;
+    }
   }
 
   /**
