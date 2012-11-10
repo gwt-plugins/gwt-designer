@@ -59,7 +59,7 @@
     <!-- ======================================================== -->
     <!-- Parser -->
     <!-- ======================================================== -->
-    <extension point="org.eclipse.wb.core.parseFactories">
+    <extension point="org.eclipse.wb.core.java.parseFactories">
         <factory class="com.google.gdt.eclipse.designer.parser.ParseFactory"/>
     </extension>
 
@@ -84,7 +84,7 @@
     <!-- ======================================================== -->
     <!-- Parsing -->
     <!-- ======================================================== -->
-    <extension point="org.eclipse.wb.core.rootProcessors">
+    <extension point="org.eclipse.wb.core.java.rootProcessors">
         <processor class="com.google.gdt.eclipse.designer.model.widgets.UIObjectRootProcessor"/>
         <processor class="com.google.gdt.eclipse.designer.model.widgets.ImageBundleRootProcessor"/>
     </extension>
@@ -102,7 +102,7 @@
     <!-- ======================================================== -->
     <!-- Description driven features -->
     <!-- ======================================================== -->
-    <extension point="org.eclipse.wb.core.javaInfoInitializationParticipators">
+    <extension point="org.eclipse.wb.core.java.javaInfoInitializationParticipators">
         <participator
             class="com.google.gdt.eclipse.designer.model.widgets.generic.GenericWidgetConfigurator"
         />

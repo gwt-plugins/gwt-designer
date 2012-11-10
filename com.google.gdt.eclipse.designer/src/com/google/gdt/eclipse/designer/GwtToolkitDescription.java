@@ -26,6 +26,7 @@ import com.google.gdt.eclipse.designer.preferences.IPreferenceConstants;
 
 import org.eclipse.wb.core.branding.BrandingUtils;
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
+import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 import org.eclipse.wb.internal.core.model.generation.GenerationSettings;
 import org.eclipse.wb.internal.core.model.generation.preview.GenerationPreview;
 import org.eclipse.wb.internal.core.model.generation.statement.StatementGeneratorDescription;
@@ -51,8 +52,8 @@ import java.util.List;
  * @author scheglov_ke
  * @coverage gwt
  */
-public final class GwtToolkitDescription extends ToolkitDescription {
-  public static final ToolkitDescription INSTANCE = new GwtToolkitDescription();
+public final class GwtToolkitDescription extends ToolkitDescriptionJava {
+  public static final ToolkitDescriptionJava INSTANCE = new GwtToolkitDescription();
   ////////////////////////////////////////////////////////////////////////////
   //
   // Instance fields

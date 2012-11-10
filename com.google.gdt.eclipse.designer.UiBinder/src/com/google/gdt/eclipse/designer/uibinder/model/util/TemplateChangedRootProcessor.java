@@ -101,7 +101,7 @@ public final class TemplateChangedRootProcessor
   }
 
   private static Map<IFile, Long> getReferencedTemplates(final ObjectInfo rootObject) {
-    final IJavaProject javaProject = GlobalState.getOtherHelper().getJavaProject();
+    final IJavaProject javaProject = (IJavaProject) GlobalState.getOtherHelper().getJavaProject();
     final Map<IFile, Long> templateStamps = Maps.newHashMap();
     final Set<Object> visitedWidgets = Sets.newHashSet();
     final Set<Class<?>> checkedTypes = Sets.newHashSet();

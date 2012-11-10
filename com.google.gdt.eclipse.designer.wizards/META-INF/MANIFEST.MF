@@ -10,6 +10,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui,
  org.eclipse.jdt.core,
+ org.eclipse.jdt.launching,
  org.eclipse.wb.core,
  com.google.gdt.eclipse.designer,
  com.google.gdt.eclipse.designer.hosted

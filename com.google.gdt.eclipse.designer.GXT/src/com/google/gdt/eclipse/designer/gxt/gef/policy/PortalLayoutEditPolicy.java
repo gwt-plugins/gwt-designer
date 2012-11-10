@@ -19,8 +19,8 @@ import com.google.gdt.eclipse.designer.gxt.model.widgets.PortalInfo.ColumnInfo;
 import com.google.gdt.eclipse.designer.gxt.model.widgets.PortletInfo;
 
 import org.eclipse.wb.core.gef.command.EditCommand;
-import org.eclipse.wb.core.gef.policy.layout.LayoutPolicyUtils;
-import org.eclipse.wb.core.gef.policy.layout.LayoutPolicyUtils.IPasteProcessor;
+import org.eclipse.wb.core.gef.policy.layout.LayoutPolicyUtils2;
+import org.eclipse.wb.core.gef.policy.layout.LayoutPolicyUtils2.IPasteProcessor;
 import org.eclipse.wb.core.gef.policy.layout.flow.AbstractFlowLayoutEditPolicy;
 import org.eclipse.wb.core.gef.policy.validator.LayoutRequestValidators;
 import org.eclipse.wb.core.model.JavaInfo;
@@ -111,7 +111,7 @@ public final class PortalLayoutEditPolicy extends AbstractFlowLayoutEditPolicy {
 
   @Override
   protected Command getPasteCommand(final PasteRequest request, final Object referenceObject) {
-    return LayoutPolicyUtils.getPasteCommand(
+    return LayoutPolicyUtils2.getPasteCommand(
         m_portal,
         request,
         JavaInfo.class,

@@ -388,7 +388,7 @@
 	<!-- ======================================================== -->
 	<!-- Root processor -->
 	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.rootProcessors">
+	<extension point="org.eclipse.wb.core.java.rootProcessors">
 		<processor
 			class="com.google.gdt.eclipse.designer.gxt.model.widgets.GxtCleanupRootProcessor"/>
 		<processor

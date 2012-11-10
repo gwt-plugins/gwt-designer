@@ -60,7 +60,8 @@ public final class GTestUtils {
    * @return the location of default GWT.
    */
   public static String getLocation() {
-    return getLocation_trunk();
+    return getLocation_25();
+//    return getLocation_trunk();
   }
 
   /**
@@ -157,6 +158,16 @@ public final class GTestUtils {
         kosta_win,
         kosta_linux,
         flanker_linux});
+  }
+
+  /**
+   * @return the location of GWT 2.5
+   */
+  public static String getLocation_25() {
+    StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-2.5");
+    StrValue kosta_mac = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.5.0");
+    StrValue kosta_win = new StrValue("scheglov-win", "C:/Work/GWT/gwt-2.5.0");
+    return Expectations.get("C:/Work/GWT/gwt-2.5.0", new StrValue[]{mitin, kosta_mac, kosta_win});
   }
 
   /**

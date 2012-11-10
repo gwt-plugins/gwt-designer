@@ -19,7 +19,7 @@ import com.google.gdt.eclipse.designer.util.Utils;
 import com.google.gdt.eclipse.designer.wizards.Activator;
 import com.google.gdt.eclipse.designer.wizards.WizardUtils;
 
-import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
+import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 import org.eclipse.wb.internal.core.utils.dialogfields.StatusUtils;
 import org.eclipse.wb.internal.core.utils.reflect.ReflectionUtils;
 import org.eclipse.wb.internal.core.wizards.TemplateDesignWizardPage;
@@ -62,7 +62,7 @@ public abstract class GwtWizardPage extends TemplateDesignWizardPage {
   //
   ////////////////////////////////////////////////////////////////////////////
   @Override
-  protected final ToolkitDescription getToolkitDescription() {
+  protected final ToolkitDescriptionJava getToolkitDescription() {
     return ToolkitProvider.DESCRIPTION;
   }
 

@@ -14,7 +14,7 @@
 	<!-- ======================================================== -->
 	<!-- Parsing -->
 	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.rootProcessors">
+	<extension point="org.eclipse.wb.core.java.rootProcessors">
 		<processor class="com.google.gdt.eclipse.designer.mobile.device.DeviceSelectionSupport"/>
 	</extension>
 

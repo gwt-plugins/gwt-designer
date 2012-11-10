@@ -16,6 +16,7 @@ package com.google.gdt.eclipse.designer;
 
 import org.eclipse.wb.internal.core.model.description.IToolkitProvider;
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
+import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 
 /**
  * Implementation of {@link IToolkitProvider} for RCP.
@@ -24,7 +25,7 @@ import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
  * @coverage gwt
  */
 public final class ToolkitProvider implements IToolkitProvider {
-  public static final ToolkitDescription DESCRIPTION = GwtToolkitDescription.INSTANCE;
+  public static final ToolkitDescriptionJava DESCRIPTION = GwtToolkitDescription.INSTANCE;
   static {
     ((GwtToolkitDescription) DESCRIPTION).initialize();
   }

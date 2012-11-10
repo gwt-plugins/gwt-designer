@@ -60,7 +60,7 @@ public class UiBinderTagResolverTest extends UiBinderModelTest {
    * New Cell based widgets should have good namespace.
    */
   public void test_standardWidget_widget_client() throws Exception {
-    configureForGWT_version(GTestUtils.getLocation_trunk());
+    configureForGWT_version(GTestUtils.getLocation_25());
     dontUseSharedGWTState();
     parse(
         "// filler filler filler filler filler",

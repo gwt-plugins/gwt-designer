@@ -25,7 +25,7 @@ import com.google.gdt.eclipse.designer.wizards.Activator;
 import com.google.gdt.eclipse.designer.wizards.WizardUtils;
 
 import org.eclipse.wb.internal.core.DesignerPlugin;
-import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
+import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 import org.eclipse.wb.internal.core.utils.dialogfields.DialogField;
 import org.eclipse.wb.internal.core.utils.dialogfields.IStringButtonAdapter;
 import org.eclipse.wb.internal.core.utils.dialogfields.StringButtonDialogField;
@@ -332,7 +332,7 @@ public final class JUnitWizardPage extends TemplateDesignWizardPage {
   //
   ////////////////////////////////////////////////////////////////////////////
   @Override
-  protected final ToolkitDescription getToolkitDescription() {
+  protected final ToolkitDescriptionJava getToolkitDescription() {
     return ToolkitProvider.DESCRIPTION;
   }
 

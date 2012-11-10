@@ -18,7 +18,7 @@ import com.google.gdt.eclipse.designer.ToolkitProvider;
 import com.google.gdt.eclipse.designer.util.Utils;
 
 import org.eclipse.wb.internal.core.databinding.wizards.autobindings.IAutomaticDatabindingProvider;
-import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
+import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 import org.eclipse.wb.internal.core.utils.dialogfields.StatusUtils;
 
 import org.eclipse.core.runtime.IStatus;
@@ -67,7 +67,7 @@ public final class AutomaticDatabindingFirstPage
   //
   ////////////////////////////////////////////////////////////////////////////
   @Override
-  protected ToolkitDescription getToolkitDescription() {
+  protected ToolkitDescriptionJava getToolkitDescription() {
     return ToolkitProvider.DESCRIPTION;
   }
 }

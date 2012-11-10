@@ -29,7 +29,7 @@
 	<!-- ======================================================== -->
 	<!-- Java parser validator -->
 	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.parseFactories">
+	<extension point="org.eclipse.wb.core.java.parseFactories">
 		<validator
 			class="com.google.gdt.eclipse.designer.uibinder.parser.UiBinderJavaParseValidator"/>
 	</extension>
@@ -98,7 +98,7 @@
 	<!-- ======================================================== -->
 	<!-- Description driven features -->
 	<!-- ======================================================== -->
-	<extension point="org.eclipse.wb.core.rootProcessors">
+	<extension point="org.eclipse.wb.core.java.rootProcessors">
 		<processor
 			class="com.google.gdt.eclipse.designer.uibinder.model.util.TemplateChangedRootProcessor"
 		/>

@@ -18,6 +18,7 @@ import com.google.gdt.eclipse.designer.GwtToolkitDescription;
 
 import org.eclipse.wb.core.branding.BrandingUtils;
 import org.eclipse.wb.internal.core.model.description.ToolkitDescription;
+import org.eclipse.wb.internal.core.model.description.ToolkitDescriptionJava;
 import org.eclipse.wb.internal.core.model.generation.GenerationSettings;
 
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -30,7 +31,7 @@ import org.osgi.framework.Bundle;
  * @author sablin_aa
  * @coverage ExtGWT
  */
-public final class ExtGwtToolkitDescription extends ToolkitDescription {
+public final class ExtGwtToolkitDescription extends ToolkitDescriptionJava {
   public static final ToolkitDescription INSTANCE = new ExtGwtToolkitDescription();
 
   ////////////////////////////////////////////////////////////////////////////

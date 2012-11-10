@@ -115,7 +115,7 @@ public final class UiConstructorSupport {
     if (type == boolean.class) {
       return "false";
     }
-    if (type == int.class || type == double.class) {
+    if (type == int.class || type == long.class || type == double.class) {
       return "0";
     }
     return null;
