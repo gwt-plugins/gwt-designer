@@ -47,14 +47,13 @@ public final class LogSupport implements ILogSupport {
   //
   ////////////////////////////////////////////////////////////////////////////
   public LogSupport(int type, Object hmsImpl, IJavaProject javaProject) throws Exception {
-    if (false && "true".equalsIgnoreCase(System.getProperty(WBP_TESTING_TIME))) {
+    if ("true".equalsIgnoreCase(System.getProperty(WBP_TESTING_TIME))) {
       this.logger =
           ReflectionUtils.invokeMethod(hmsImpl, "createLogger(java.io.PrintWriter,int)", null, type);
       this.writer = null;
     } else {
       // prepare directory to write log files to
       String logDir = HostedModeSupport.getTemporaryDirectoryName(javaProject);
-      logDir = "c:/temp/";
       // prepare logger
       Writer rotatingWriter =
           RotatingFileWriter.getInstance(logDir + File.separator + ".gwt-log", 10, 3);
