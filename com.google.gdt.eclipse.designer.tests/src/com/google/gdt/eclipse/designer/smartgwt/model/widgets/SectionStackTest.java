@@ -157,21 +157,22 @@ public class SectionStackTest extends SmartGwtModelTest {
     // check section 1
     {
       Integer sectionTop =
-          Expectations.get(200, new IntValue[]{new IntValue("flanker-linux", 201)});
+          Expectations.get(200, new IntValue[]{new IntValue("flanker-desktop", 201)});
       Integer sectionHeight =
-          Expectations.get(40, new IntValue[]{new IntValue("flanker-linux", 39)});
+          Expectations.get(40, new IntValue[]{new IntValue("flanker-desktop", 39)});
       assertThat(section_1.getModelBounds()).isEqualTo(
           new Rectangle(0, sectionTop, width, sectionHeight));
       List<CanvasInfo> canvases = section_1.getCanvases();
       assertThat(canvases.size()).isEqualTo(1);
       Integer canvasHeight =
-          Expectations.get(14, new IntValue[]{new IntValue("flanker-linux", 13)});
+          Expectations.get(14, new IntValue[]{new IntValue("flanker-desktop", 13)});
       assertThat(canvases.get(0).getModelBounds()).isEqualTo(
           new Rectangle(1, -1, width - 2, canvasHeight));
     }
     // check section 2
     {
-      Integer sectionTop = Expectations.get(30, new IntValue[]{new IntValue("flanker-linux", 31)});
+      Integer sectionTop =
+          Expectations.get(30, new IntValue[]{new IntValue("flanker-desktop", 31)});
       assertThat(section_2.getCanvases().size()).isEqualTo(3);
       assertThat(section_2.getModelBounds()).isEqualTo(new Rectangle(0, sectionTop, width, 170));
       List<CanvasInfo> canvases = section_2.getCanvases();
@@ -298,7 +299,7 @@ public class SectionStackTest extends SmartGwtModelTest {
    * <p>
    * https://bugs.eclipse.org/bugs/show_bug.cgi?id=361760
    */
-  public void _test_tabSet() throws Exception {
+  public void test_tabSet() throws Exception {
     parseJavaInfo(
         "public class Test extends Window {",
         "  public Test() {",
@@ -343,13 +344,13 @@ public class SectionStackTest extends SmartGwtModelTest {
     SectionStackSectionInfo sectionInfo_1 = sections.get(0);
     {
       Integer sectionHeight =
-          Expectations.get(40, new IntValue[]{new IntValue("flanker-linux", 39)});
+          Expectations.get(40, new IntValue[]{new IntValue("flanker-desktop", 39)});
       assertThat(sectionInfo_1.getModelBounds()).isEqualTo(
           new Rectangle(0, 0, width, sectionHeight));
       List<CanvasInfo> canvases = sectionInfo_1.getCanvases();
       assertThat(canvases.size()).isEqualTo(1);
       Integer canvasHeight =
-          Expectations.get(14, new IntValue[]{new IntValue("flanker-linux", 13)});
+          Expectations.get(14, new IntValue[]{new IntValue("flanker-desktop", 13)});
       assertThat(canvases.get(0).getModelBounds()).isEqualTo(
           new Rectangle(1, 26, width - 2, canvasHeight));
     }
@@ -357,7 +358,7 @@ public class SectionStackTest extends SmartGwtModelTest {
     SectionStackSectionInfo sectionInfo_2 = sections.get(1);
     {
       Integer sectionHeight =
-          Expectations.get(40, new IntValue[]{new IntValue("flanker-linux", 39)});
+          Expectations.get(40, new IntValue[]{new IntValue("flanker-desktop", 39)});
       assertThat(sectionInfo_2.getModelBounds()).isEqualTo(
           new Rectangle(0, sectionHeight, width, 170));
       List<CanvasInfo> canvases = sectionInfo_2.getCanvases();

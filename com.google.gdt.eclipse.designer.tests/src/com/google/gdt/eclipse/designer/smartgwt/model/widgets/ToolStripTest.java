@@ -84,15 +84,15 @@ public class ToolStripTest extends SmartGwtModelTest {
       // label
       AbstractComponentInfo label = children.get(0);
       assertThat(label).isInstanceOf(CanvasInfo.class);
-      Integer x = Expectations.get(13, new IntValue[]{new IntValue("flanker-linux", 12)});
-      Integer y = Expectations.get(0, new IntValue[]{new IntValue("flanker-linux", 1)});
+      Integer x = Expectations.get(13, new IntValue[]{new IntValue("flanker-desktop", 12)});
+      Integer y = Expectations.get(0, new IntValue[]{new IntValue("flanker-desktop", 1)});
       assertThat(label.getModelBounds()).isEqualTo(new Rectangle(x, y, 198, 100));
     }
     {
       // resizer
       AbstractComponentInfo resizer = children.get(1);
       assertThat(resizer).isInstanceOf(ToolStripResizerInfo.class);
-      Integer y = Expectations.get(100, new IntValue[]{new IntValue("flanker-linux", 101)});
+      Integer y = Expectations.get(100, new IntValue[]{new IntValue("flanker-desktop", 101)});
       assertThat(resizer.getModelBounds()).isEqualTo(
           new Rectangle(0, y, toolStrip.getModelBounds().width, ToolStripResizerInfo.DEFAULT_SIZE));
     }
@@ -100,16 +100,16 @@ public class ToolStripTest extends SmartGwtModelTest {
       // text item
       AbstractComponentInfo text = children.get(2);
       assertThat(text).isInstanceOf(FormItemInfo.class);
-      Integer width = Expectations.get(225, new IntValue[]{new IntValue("flanker-linux", 221)});
+      Integer width = Expectations.get(225, new IntValue[]{new IntValue("flanker-desktop", 221)});
       assertThat(text.getModelBounds()).isEqualTo(new Rectangle(-3, 111, width, 22));
     }
     {
       // button
       AbstractComponentInfo button = children.get(3);
       assertThat(button).isInstanceOf(CanvasInfo.class);
-      Integer x = Expectations.get(77, new IntValue[]{new IntValue("flanker-linux", 76)});
-      Integer y = Expectations.get(136, new IntValue[]{new IntValue("flanker-linux", 137)});
-      Integer width = Expectations.get(71, new IntValue[]{new IntValue("flanker-linux", 70)});
+      Integer x = Expectations.get(77, new IntValue[]{new IntValue("flanker-desktop", 76)});
+      Integer y = Expectations.get(136, new IntValue[]{new IntValue("flanker-desktop", 137)});
+      Integer width = Expectations.get(71, new IntValue[]{new IntValue("flanker-desktop", 70)});
       assertThat(button.getModelBounds()).isEqualTo(
           new Rectangle(x, y, width, CanvasTest.BUTTON_HEIGHT));
     }
@@ -117,7 +117,7 @@ public class ToolStripTest extends SmartGwtModelTest {
       // fill
       AbstractComponentInfo fill = children.get(4);
       assertThat(fill).isInstanceOf(ToolStripCanvasInfo.class);
-      Integer x = Expectations.get(14, new IntValue[]{new IntValue("flanker-linux", 12)});
+      Integer x = Expectations.get(14, new IntValue[]{new IntValue("flanker-desktop", 12)});
       assertThat(fill.getModelBounds()).isEqualTo(new Rectangle(x, 159, 198, 40));
     }
   }
@@ -149,14 +149,14 @@ public class ToolStripTest extends SmartGwtModelTest {
       // label
       AbstractComponentInfo label = children.get(0);
       assertThat(label).isInstanceOf(CanvasInfo.class);
-      Integer expected = Expectations.get(0, new IntValue[]{new IntValue("flanker-linux", 1)});
+      Integer expected = Expectations.get(0, new IntValue[]{new IntValue("flanker-desktop", 1)});
       assertThat(label.getModelBounds()).isEqualTo(new Rectangle(expected, expected, 100, 198));
     }
     {
       // resizer
       AbstractComponentInfo resizer = children.get(1);
       assertThat(resizer).isInstanceOf(ToolStripResizerInfo.class);
-      Integer expected = Expectations.get(100, new IntValue[]{new IntValue("flanker-linux", 101)});
+      Integer expected = Expectations.get(100, new IntValue[]{new IntValue("flanker-desktop", 101)});
       assertThat(resizer.getModelBounds()).isEqualTo(
           new Rectangle(expected,
               0,
@@ -167,9 +167,9 @@ public class ToolStripTest extends SmartGwtModelTest {
       // button
       AbstractComponentInfo button = children.get(2);
       assertThat(button).isInstanceOf(CanvasInfo.class);
-      Integer x = Expectations.get(114, new IntValue[]{new IntValue("flanker-linux", 115)});
-      Integer y = Expectations.get(88, new IntValue[]{new IntValue("flanker-linux", 89)});
-      Integer width = Expectations.get(71, new IntValue[]{new IntValue("flanker-linux", 70)});
+      Integer x = Expectations.get(114, new IntValue[]{new IntValue("flanker-desktop", 115)});
+      Integer y = Expectations.get(88, new IntValue[]{new IntValue("flanker-desktop", 89)});
+      Integer width = Expectations.get(71, new IntValue[]{new IntValue("flanker-desktop", 70)});
       assertThat(button.getModelBounds()).isEqualTo(
           new Rectangle(x, y, width, CanvasTest.BUTTON_HEIGHT));
     }
@@ -177,8 +177,8 @@ public class ToolStripTest extends SmartGwtModelTest {
       // fill
       AbstractComponentInfo fill = children.get(3);
       assertThat(fill).isInstanceOf(ToolStripCanvasInfo.class);
-      Integer x = Expectations.get(186, new IntValue[]{new IntValue("flanker-linux", 185)});
-      Integer width = Expectations.get(13, new IntValue[]{new IntValue("flanker-linux", 14)});
+      Integer x = Expectations.get(186, new IntValue[]{new IntValue("flanker-desktop", 185)});
+      Integer width = Expectations.get(13, new IntValue[]{new IntValue("flanker-desktop", 14)});
       assertThat(fill.getModelBounds()).isEqualTo(new Rectangle(x, 1, width, 198));
     }
   }

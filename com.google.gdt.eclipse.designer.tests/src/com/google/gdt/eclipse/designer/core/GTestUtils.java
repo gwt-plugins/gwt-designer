@@ -71,7 +71,7 @@ public final class GTestUtils {
     StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-2.0.4");
     StrValue kosta = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.0.4");
     StrValue kosta_linux = new StrValue("scheglov Linux", "/home/scheglov/Work/GWT/gwt-2.0.4");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.0.4");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.0.4");
     return Expectations.get("C:/Work/GWT/gwt-2.0.4", new StrValue[]{
         kosta,
         kosta_linux,
@@ -86,7 +86,7 @@ public final class GTestUtils {
     StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-2.1.0");
     StrValue kosta = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.1.0");
     StrValue kosta_linux = new StrValue("scheglov Linux", "/home/scheglov/Work/GWT/gwt-2.1.0");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.1.0");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.1.0");
     return Expectations.get("C:/Work/GWT/gwt-2.1.0", new StrValue[]{
         mitin,
         kosta,
@@ -101,7 +101,7 @@ public final class GTestUtils {
     StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-2.1.1");
     StrValue kosta = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.1.1");
     StrValue kosta_linux = new StrValue("scheglov Linux", "/home/scheglov/Work/GWT/gwt-2.1.1");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.1.1");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.1.1");
     return Expectations.get("C:/Work/GWT/gwt-2.1.1", new StrValue[]{
         mitin,
         kosta,
@@ -117,7 +117,7 @@ public final class GTestUtils {
     StrValue kosta_mac = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.2.0");
     StrValue kosta_win = new StrValue("scheglov-win", "C:/Work/GWT/gwt-2.2.0");
     StrValue kosta_linux = new StrValue("scheglov Linux", "/home/scheglov/Dropbox/Work/gwt-0.0.0");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.2.0");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.2.0");
     return Expectations.get("C:/Work/GWT/gwt-2.2.0", new StrValue[]{
         mitin,
         kosta_mac,
@@ -134,7 +134,7 @@ public final class GTestUtils {
     StrValue kosta_mac = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.3.0");
     StrValue kosta_win = new StrValue("scheglov-win", "C:/Work/GWT/gwt-2.3.0");
     StrValue kosta_linux = new StrValue("raziel Linux", "/home/scheglov/Work/GWT/gwt-2.3.0");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.3.0");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.3.0");
     return Expectations.get("C:/Work/GWT/gwt-2.3.0", new StrValue[]{
         mitin,
         kosta_mac,
@@ -151,7 +151,7 @@ public final class GTestUtils {
     StrValue kosta_mac = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.4.0");
     StrValue kosta_win = new StrValue("scheglov-win", "C:/Work/GWT/gwt-2.4.0");
     StrValue kosta_linux = new StrValue("raziel Linux", "/home/scheglov/Work/GWT/gwt-2.4.0");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-2.4.0");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.4.0");
     return Expectations.get("C:/Work/GWT/gwt-2.4.0", new StrValue[]{
         mitin,
         kosta_mac,
@@ -167,7 +167,12 @@ public final class GTestUtils {
     StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-2.5");
     StrValue kosta_mac = new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gwt-2.5.0");
     StrValue kosta_win = new StrValue("scheglov-win", "C:/Work/GWT/gwt-2.5.0");
-    return Expectations.get("C:/Work/GWT/gwt-2.5.0", new StrValue[]{mitin, kosta_mac, kosta_win});
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-2.5.0");
+    return Expectations.get("C:/Work/GWT/gwt-2.5.0", new StrValue[]{
+        mitin,
+        kosta_mac,
+        kosta_win,
+        flanker_linux});
   }
 
   /**
@@ -177,7 +182,7 @@ public final class GTestUtils {
     StrValue mitin = new StrValue("mitin-aa", "/Users/mitin_aa/gwt/gwt-trunk");
     StrValue kosta =
         new StrValue("scheglov-win", "C:/eclipseGWT/workspace/trunk/build/staging/gwt-0.0.0");
-    StrValue flanker_linux = new StrValue("flanker-linux", "/home/flanker/Work/GWT/gwt-trunk");
+    StrValue flanker_linux = new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gwt-trunk");
     return Expectations.get("C:/Work/GWT/gwt-trunk", new StrValue[]{mitin, kosta, flanker_linux});
   }
 

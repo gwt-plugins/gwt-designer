@@ -38,7 +38,7 @@ public class ExtGwtTests extends DesignerSuiteTests {
       new StrValue[]{
           new StrValue("mitin-aa-mac", "/Users/mitin_aa/gwt/gxt-2.2.3"),
           new StrValue("scheglov-macpro", "/Users/scheglov/GWT/gxt-2.2.3"),
-          new StrValue("flanker-linux", "/home/flanker/Work/GWT/gxt-2.2.3")});
+          new StrValue("flanker-desktop", "/home/flanker/Work/GWT/gxt-2.2.3")});
   public static final String GXT_LOCATION_OLD = Expectations.get(
       "C:/Work/GWT/gxt-1.2.5",
       new StrValue[]{new StrValue("mitin-aa-mac", "/Users/mitin_aa/gwt/gxt-1.2.4")});

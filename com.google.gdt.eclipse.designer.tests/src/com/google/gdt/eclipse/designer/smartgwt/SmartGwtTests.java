@@ -31,11 +31,11 @@ import junit.framework.TestSuite;
 public class SmartGwtTests extends DesignerSuiteTests {
   public static final String LOCATION = Expectations.get(
       "C:/Work/GWT/smartgwt-2.4/",
-      new StrValue("flanker-linux", "/home/flanker/Work/GWT/smartgwt-2.5/"),
+      new StrValue("flanker-desktop", "/home/flanker/Work/GWT/smartgwt-2.5/"),
       new StrValue("mitin-aa", "/Users/mitin_aa/gwt/smartgwt-2.4/"));
   public static final String LOCATION_OLD = Expectations.get(
       "C:/Work/GWT/smartgwt-2.1/",
-      new StrValue("flanker-linux", "/home/flanker/Work/GWT/smartgwt-2.1/"),
+      new StrValue("flanker-desktop", "/home/flanker/Work/GWT/smartgwt-2.1/"),
       new StrValue("mitin-aa", "/Users/mitin_aa/gwt/smartgwt-2.1/"));
 
   public static Test suite() {

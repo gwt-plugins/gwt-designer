@@ -68,7 +68,7 @@ public class FormItemTest extends SmartGwtModelTest {
     form.refresh();
     //
     FormItemInfo formItem = form.getItems().get(0);
-    Integer width = Expectations.get(150, new IntValue[]{new IntValue("flanker-linux", 146)});
+    Integer width = Expectations.get(150, new IntValue[]{new IntValue("flanker-desktop", 146)});
     assertThat(formItem.getModelBounds()).isEqualTo(new Rectangle(28, 0, width, 22));
   }
 
@@ -84,8 +84,8 @@ public class FormItemTest extends SmartGwtModelTest {
     form.refresh();
     //
     FormItemInfo formItem = form.getItems().get(0);
-    Integer left = Expectations.get(28, new IntValue[]{new IntValue("flanker-linux", 100)});
-    Integer width = Expectations.get(150, new IntValue[]{new IntValue("flanker-linux", 146)});
+    Integer left = Expectations.get(28, new IntValue[]{new IntValue("flanker-desktop", 100)});
+    Integer width = Expectations.get(150, new IntValue[]{new IntValue("flanker-desktop", 146)});
     assertThat(formItem.getModelBounds()).isEqualTo(new Rectangle(left, 0, width, 22));
   }
 

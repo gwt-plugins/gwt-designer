@@ -540,7 +540,7 @@ public class CellTableTest extends GwtModelTest {
     }
     {
       ColumnInfo column_3 = columns.get(2);
-      int width = Expectations.get(210, new IntValue[]{new IntValue("flanker-linux", 210)});
+      int width = Expectations.get(210, new IntValue[]{new IntValue("flanker-desktop", 210)});
       assertThat(column_3.getModelBounds()).isEqualTo(new Rectangle(2 * MCW, 0, width, height));
     }
   }
