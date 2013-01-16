@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+    <model class="com.google.gdt.eclipse.designer.model.widgets.menu.MenuBarInfo"/>
+    <x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.menu.MenuBarInfo"/>
+    <description>A standard menu bar widget. A menu bar can contain any number of menu items, each
+        of which can either fire a Command or open a cascaded menu bar.</description>
+    <!-- CREATION -->
+    <creation>
+        <source><![CDATA[new com.google.gwt.user.client.ui.MenuBar(false)]]></source>
+    </creation>
+    <creation id="vertical">
+        <source><![CDATA[new com.google.gwt.user.client.ui.MenuBar(true)]]></source>
+        <x-attribute name="vertical" value="true"/>
+    </creation>
+    <!-- METHODS -->
+    <methods>
+        <!-- item -->
+        <method name="addItem">
+            <parameter type="com.google.gwt.user.client.ui.MenuItem" child="true"/>
+        </method>
+        <method name="addItem">
+            <parameter type="java.lang.String" property="setText(java.lang.String)"/>
+            <parameter type="boolean"/>
+            <parameter type="com.google.gwt.core.client.Scheduler$ScheduledCommand">
+                <tag name="MenuBar.command" value="true"/>
+            </parameter>
+            <tag name="implicitFactory" value="true"/>
+        </method>
+        <method name="addItem">
+            <parameter type="java.lang.String" property="setText(java.lang.String)"/>
+            <parameter type="com.google.gwt.core.client.Scheduler$ScheduledCommand">
+                <tag name="MenuBar.command" value="true"/>
+            </parameter>
+            <tag name="implicitFactory" value="true"/>
+        </method>
+        <!-- sub menu -->
+        <method name="addItem">
+            <parameter type="java.lang.String" property="setText(java.lang.String)"/>
+            <parameter type="boolean"/>
+            <parameter type="com.google.gwt.user.client.ui.MenuBar">
+                <tag name="implicitFactory.child" value="true"/>
+                <tag name="MenuBar.subMenu" value="true"/>
+            </parameter>
+            <tag name="implicitFactory" value="true"/>
+        </method>
+        <method name="addItem">
+            <parameter type="java.lang.String" property="setText(java.lang.String)"/>
+            <parameter type="com.google.gwt.user.client.ui.MenuBar">
+                <tag name="implicitFactory.child" value="true"/>
+                <tag name="MenuBar.subMenu" value="true"/>
+            </parameter>
+            <tag name="implicitFactory" value="true"/>
+        </method>
+        <!-- separator -->
+        <method name="addSeparator">
+            <tag name="implicitFactory" value="true"/>
+        </method>
+        <method name="addSeparator">
+            <parameter type="com.google.gwt.user.client.ui.MenuItemSeparator" child="true"/>
+        </method>
+    </methods>
+    <!-- PARAMETERS -->
+    <parameters>
+        <parameter name="refresh_afterCreate"><![CDATA[
+			object.setAnimationEnabled(false);
+			if (ReflectionUtils.getFieldObject(object, "allItems").isEmpty()) {
+				object.addItem("(Add items)", (com.google.gwt.user.client.Command) null);
+			}
+			]]></parameter>
+        <!-- related styles -->
+        <parameter name="relatedStyles"><![CDATA[
+			.gwt-MenuBar { the menu bar itself }
+			.gwt-MenuBar .gwt-MenuItem { menu items }
+			.gwt-MenuBar .gwt-MenuItem-selected { selected menu items }
+		]]></parameter>
+    </parameters>
+</component>

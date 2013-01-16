@@ -308,6 +308,7 @@ public class UtilsTest extends AbstractJavaTest {
     check_getDefaultVersion(GTestUtils.getLocation_21(), Utils.GWT_2_1_1);
     check_getDefaultVersion(GTestUtils.getLocation_22(), Utils.GWT_2_2);
     check_getDefaultVersion(GTestUtils.getLocation_24(), Utils.GWT_2_4);
+    check_getDefaultVersion(GTestUtils.getLocation_25(), Utils.GWT_2_5);
     // no version
     check_getDefaultVersion("", Utils.GWT_2_4);
   }
@@ -337,6 +338,7 @@ public class UtilsTest extends AbstractJavaTest {
     check_getVersion(GTestUtils.getLocation_21(), Utils.GWT_2_1_1);
     check_getVersion(GTestUtils.getLocation_22(), Utils.GWT_2_2);
     check_getVersion(GTestUtils.getLocation_24(), Utils.GWT_2_4);
+    check_getVersion(GTestUtils.getLocation_25(), Utils.GWT_2_5);
     // no version
     check_getVersion("", Utils.GWT_2_4);
   }

@@ -243,6 +243,7 @@ public final class Utils {
   public static final Version GWT_2_1_1 = new Version(2, 1, 1);
   public static final Version GWT_2_2 = new Version(2, 2);
   public static final Version GWT_2_4 = new Version(2, 4);
+  public static final Version GWT_2_5 = new Version(2, 5);
 
   /**
    * @return the default version of GWT, configured in preferences.
@@ -254,6 +255,9 @@ public final class Utils {
       try {
         JarFile jarFile = new JarFile(userFile);
         try {
+          if (hasClassEntry(jarFile, "com.google.gwt.user.cellview.client.RowHoverEvent")) {
+            return GWT_2_5;
+          }
           if (hasClassEntry(jarFile, "com.google.gwt.user.cellview.client.DataGrid")) {
             return GWT_2_4;
           }
@@ -302,6 +306,9 @@ public final class Utils {
    *          the GWT {@link IJavaProject}.
    */
   public static Version getVersion(IJavaProject javaProject) {
+    if (ProjectUtils.hasType(javaProject, "com.google.gwt.user.cellview.client.RowHoverEvent")) {
+      return GWT_2_5;
+    }
     if (ProjectUtils.hasType(javaProject, "com.google.gwt.user.cellview.client.DataGrid")) {
       return GWT_2_4;
     }

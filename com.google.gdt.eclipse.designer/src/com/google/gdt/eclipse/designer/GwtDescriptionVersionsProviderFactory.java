@@ -62,7 +62,7 @@ public final class GwtDescriptionVersionsProviderFactory
     }
     // OK, GWT project
     String version = Utils.getVersion(javaProject).getStringMajorMinor();
-    List<String> allVersions = ImmutableList.of("2.0", "2.1", "2.2", "2.4");
+    List<String> allVersions = ImmutableList.of("2.0", "2.1", "2.2", "2.4", "2.5");
     return new FromListDescriptionVersionsProvider(allVersions, version) {
       @Override
       protected boolean validate(Class<?> componentClass) throws Exception {

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns="http://www.eclipse.org/wb/WBPComponent">
+	<model class="com.google.gdt.eclipse.designer.model.widgets.menu.MenuItemInfo"/>
+	<x-model class="com.google.gdt.eclipse.designer.uibinder.model.widgets.menu.MenuItemInfo"/>
+	<description>A widget that can be placed in a MenuBar. Menu items can either fire a Command when they are
+		clicked, or open a cascading sub-menu.</description>
+	<!-- CREATION -->
+	<creation>
+		<source><![CDATA[new com.google.gwt.user.client.ui.MenuItem("New item", false, (com.google.gwt.user.client.Command) null)]]></source>
+		<x-attribute name="text" value="New item"/>
+	</creation>
+	<creation id="withSubMenu" name="Sub Menu">
+		<source><![CDATA[new com.google.gwt.user.client.ui.MenuItem("New menu", false, (com.google.gwt.user.client.ui.MenuBar) null)]]></source>
+		<parameter name="MenuItem.withSubMenu">true</parameter>
+		<description>MenuItem with submenu child.</description>
+		<x-attribute name="text" value="New menu"/>
+	</creation>
+	<!-- CONSTRUCTORS -->
+	<constructors>
+		<!-- item with Command -->
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+		    <parameter type="com.google.gwt.core.client.Scheduler$ScheduledCommand">
+				<tag name="MenuBar.command" value="true"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="boolean"/>
+		    <parameter type="com.google.gwt.core.client.Scheduler$ScheduledCommand">
+				<tag name="MenuBar.command" value="true"/>
+			</parameter>
+		</constructor>
+		<!-- item with MenuBar -->
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="com.google.gwt.user.client.ui.MenuBar" child="true">
+				<tag name="MenuBar.subMenu" value="true"/>
+			</parameter>
+		</constructor>
+		<constructor>
+			<parameter type="java.lang.String" property="setText(java.lang.String)"/>
+			<parameter type="boolean"/>
+			<parameter type="com.google.gwt.user.client.ui.MenuBar" child="true">
+				<tag name="MenuBar.subMenu" value="true"/>
+			</parameter>
+		</constructor>
+	</constructors>
+	<!-- METHODS -->
+	<methods>
+		<method name="setSubMenu">
+			<parameter type="com.google.gwt.user.client.ui.MenuBar" child="true"/>
+		</method>
+	</methods>
+	<!-- PROPERTIES -->
+	<property-tag name="text" tag="isText" value="true"/>
+	<!-- PARAMETERS -->
+	<parameters>
+		<parameter name="variable.validateID"><![CDATA[
+			import org.eclipse.wb.internal.core.model.variable.description.*;
+			if (id == FieldInitializerVariableDescription.ID) {
+			  id = FieldUniqueVariableDescription.ID;
+			}
+			return id;
+		]]></parameter>
+	</parameters>
+</component>

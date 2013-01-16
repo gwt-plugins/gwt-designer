@@ -28,7 +28,7 @@ public class HostedModeSupportFactory implements IHostedModeSupportFactory {
   public IHostedModeSupport create(String version,
       ClassLoader parentClassLoader,
       IModuleDescription moduleDescription) throws Exception {
-    if ("2.2".equals(version) || "2.4".equals(version)) {
+    if ("2.2".equals(version) || "2.4".equals(version) || "2.5".equals(version)) {
       return new HostedModeSupport(parentClassLoader, moduleDescription);
     }
     return null;
