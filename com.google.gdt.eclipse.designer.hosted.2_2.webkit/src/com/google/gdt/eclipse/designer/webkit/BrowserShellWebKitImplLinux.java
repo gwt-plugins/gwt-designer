@@ -14,8 +14,10 @@
  *******************************************************************************/
 package com.google.gdt.eclipse.designer.webkit;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
@@ -183,15 +185,13 @@ public abstract class BrowserShellWebKitImplLinux<H extends Number> implements I
 		return new BrowserShellWebKitImplLinux<Integer>() {
 			@Override
 			public Image createImageFromHandle(Integer handle) throws Exception {
-				Image image = new Image(null, 1, 1);
 				if (handle != null) {
 					// use reflection
-					Field pixmapField = Image.class.getField("pixmap");
-					Integer oldPixmap = pixmapField.getInt(image);
-					_g_object_unref(oldPixmap);
-					pixmapField.set(image, handle.intValue());
+					Method gtk_new = Image.class.getDeclaredMethod("gtk_new", new Class[] { Device.class, int.class, int.class, int.class });
+					return (Image) gtk_new.invoke(null, new Object[] { null, SWT.BITMAP, handle, 0 });
 				}
-				return image;
+				// fallback
+				return new Image(null, 1, 1);
 			}
 		};
 	}
@@ -202,15 +202,13 @@ public abstract class BrowserShellWebKitImplLinux<H extends Number> implements I
 		return new BrowserShellWebKitImplLinux<Long>() {
 			@Override
 			public Image createImageFromHandle(Long handle) throws Exception {
-				Image image = new Image(null, 1, 1);
 				if (handle != null) {
 					// use reflection
-					Field pixmapField = Image.class.getField("pixmap");
-					Long oldPixmap = pixmapField.getLong(image);
-					_g_object_unref(oldPixmap);
-					pixmapField.set(image, handle.longValue());
+					Method gtk_new = Image.class.getDeclaredMethod("gtk_new", new Class[] { Device.class, int.class, long.class, long.class });
+					return (Image) gtk_new.invoke(null, new Object[] { null, SWT.BITMAP, handle, 0 });
 				}
-				return image;
+				// fallback
+				return new Image(null, 1, 1);
 			}
 		};
 	}
