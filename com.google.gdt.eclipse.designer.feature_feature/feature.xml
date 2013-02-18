@@ -22,6 +22,7 @@
    <requires>
       <import feature="com.google.gdt.eclipse.designer.hosted.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.wb.core.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.wb.core.java.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.wb.core.ui.feature" version="0.0.0" match="greaterOrEqual"/>
       <!-- $if eclipse.version >= 3.5$ -->
       <import feature="org.eclipse.wb.core.xml.feature" version="0.0.0" match="greaterOrEqual"/>
