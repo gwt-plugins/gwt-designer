@@ -23,6 +23,7 @@
       <import feature="com.google.gdt.eclipse.designer.editor.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.wb.core.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.wb.core.java.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.wb.core.ui" version="0.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
