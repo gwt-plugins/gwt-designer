@@ -330,11 +330,14 @@ JNIEXPORT jobject JNICALL OS_NATIVE(_1showAsPreview)
 	GtkWidget* old_parent = gtk_widget_get_parent(web_view);
 	gint window_width = GTK_WIDGET_WIDTH(old_parent);
 	gint window_height = GTK_WIDGET_HEIGHT(old_parent);
+	gint web_view_width = GTK_WIDGET_WIDTH(web_view);
+	gint web_view_height = GTK_WIDGET_HEIGHT(web_view);
 	gtk_container_remove(GTK_CONTAINER(old_parent), web_view);
 	// create vbox, add web view to it and then put it onto top-level window
 	GtkWidget* vbox = gtk_vbox_new(FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(web_view), TRUE, TRUE, 0);
 	gtk_container_add(GTK_CONTAINER(window), vbox);
+	gtk_widget_set_size_request(web_view, web_view_width, web_view_height);
 	// unref our ref
 	g_object_unref(web_view);
 	// center on the screen
