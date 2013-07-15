@@ -26,9 +26,10 @@ CFLAGS = -O2 \
 	-I. \
 	-I$(CORE_DIR) \
 	-I$(JAVA_HOME)/include \
-	-I$(JAVA_HOME)/include/linux
+	-I$(JAVA_HOME)/include/linux \
+	-Wl,--as-needed
 	
-LIBS = -shared -Wl,--as-needed
+LIBS = -shared
 	
 WBP_OBJECTS = java-dispatch.o gwt-webkit.o trace.o utils.o
 BS_OBJECTS = bs-webkit.o utils.o

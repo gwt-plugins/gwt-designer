@@ -137,6 +137,8 @@ JNIEXPORT jobject JNICALL OS_NATIVE(_1create)
 	webkit_web_view_set_settings(web_view, settings);
 	WebKitWebInspector* inspector = webkit_web_view_get_inspector(web_view);
 	g_signal_connect(G_OBJECT(inspector), "inspect-web-view", G_CALLBACK(web_inspector_create_win_cb), NULL);
+	// give it an initial size, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=392967
+	gtk_widget_set_size_request(GTK_WIDGET(web_view), 2, 2);
 	// vbox
 	GtkWidget* vbox = gtk_vbox_new(FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(vbox), GTK_WIDGET(web_view), TRUE, TRUE, 0);
@@ -208,7 +210,7 @@ static void redraw_offscreen_window(GtkOffscreenWindow* window) {
 	}
 }
 
-static void offscreen_window_set_size(GtkWindow* window, gint width, gint height) {
+static void offscreen_window_set_size(GtkOffscreenWindow* window, gint width, gint height) {
 	// size as vbox child size
 	GQuark q3 = g_quark_from_string("__wbp_vbox_key");
 	GtkWidget* vbox = g_object_get_qdata(G_OBJECT(window), q3);
@@ -219,7 +221,7 @@ static void offscreen_window_set_size(GtkWindow* window, gint width, gint height
 JNIEXPORT void JNICALL OS_NATIVE(_1setBounds)
 	(JNIEnv *env, jclass that, jobject jwnd, jint x, jint y, jint width, jint height)
 {
-	GtkWindow* window = GTK_WINDOW(unwrap_pointer(env, jwnd));
+	GtkOffscreenWindow* window = GTK_OFFSCREEN_WINDOW(unwrap_pointer(env, jwnd));
 	offscreen_window_set_size(window, width, height);
 }
 
