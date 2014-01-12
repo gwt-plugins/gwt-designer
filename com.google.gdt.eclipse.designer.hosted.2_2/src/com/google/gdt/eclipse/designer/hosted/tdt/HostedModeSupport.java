@@ -361,6 +361,10 @@ public final class HostedModeSupport implements IHostedModeSupport, IBrowserShel
       URL resolvedDevLibUrl = new File(devLibLocation).toURI().toURL();
       Bundle bundle = Activator.getDefault().getBundle();
       URL devDesignUrl = FileLocator.resolve(bundle.getEntry("/gwt-dev-designtime.jar"));
+      if (devDesignUrl != null) {
+        // workaround for Issue 258 (https://code.google.com/p/google-plugin-for-eclipse/issues/detail?id=258)
+        devDesignUrl = new URL(StringUtils.replace(devDesignUrl.toString(), " ", "%20"));
+      }
       devClassLoader = new URLClassLoader(new URL[]{devDesignUrl, resolvedDevLibUrl}, null);
       devClassLoaders.put(gwtLocation, devClassLoader);
     }
