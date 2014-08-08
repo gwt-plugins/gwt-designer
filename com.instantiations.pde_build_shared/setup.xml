@@ -1,0 +1,13 @@
+<project name="setup jdk" default="setup">
+    <description>
+            Build the groovy and java code for the pde build system
+            This is typically run as the BuildCommon hudson build job
+    </description>
+    <property environment="env" />
+    <property name="tag.file.loc" value="setup.txt" />
+    <target name="setup">
+        <touch file="${tag.file.loc}" />
+        <echo message="touched file ${tag.file.loc}" />
+    </target>
+    
+</project>

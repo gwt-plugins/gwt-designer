@@ -1,0 +1,16 @@
+*
+*********************************************************************
+	The "product.name" property is undefined.
+	This property defines the name of the product as used in the output file 
+	and is typically the same as the name of the Hudson build.
+	This property should NOT contain any spaces.
+	For example
+	
+		product.name = WTServerCore
+		
+	It is recommended that you define this property in:
+	
+		${product.build.project}/build-settings/product.properties
+
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************

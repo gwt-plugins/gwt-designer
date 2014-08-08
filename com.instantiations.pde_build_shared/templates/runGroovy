@@ -1,0 +1,70 @@
+#!/bin/bash
+script=""
+cmdline=""
+while [ -n "$1" ] 
+do
+	if [ "-s" == $1 ] 
+	then
+		echo The -s optionis no longer needed.  Ignoring it.
+	else
+		cmdline="$cmdline $1"
+	fi
+	shift
+done
+
+echo Build Information
+echo JAVA_HOME=\|$JAVA_HOME\|
+echo ANT_HOME=\|$ANT_HOME\|
+echo GROOVY_HOME=\|$GROOVY_HOME\|
+GROOVY_HOME_ORIG=$GROOVY_HOME
+echo USERNAME=\|$USERNAME\|
+echo SUDO_USER=\|$SUDO_USER\|
+echo PATH
+echo $PATH
+echo id
+id
+echo 
+
+echo running groovy  with $cmdline 
+if [ -z "$GROOVY_HOME" ]
+then
+	GROOVY_HOME="/opt/groovy"
+fi
+
+if [ ! -d "$GROOVY_HOME" ]
+then
+	GROOVY_HOME="/usr/bin"
+fi
+
+if [ ! -d "$GROOVY_HOME" ]
+then
+	echo "Tried $GROOVY_HOME_ORIG, /opt/groovy, and /usr/bin to find groovy but could not find it." >&2
+	echo "  please set GROOVY home to the directory where groovy lives."
+fi
+
+if [ -e $GROOVY_HOME/bin/groovy ]
+then
+	GROOVY_EXEC=$GROOVY_HOME/bin/groovy
+fi
+if [ -e $GROOVY_HOME/groovy ]
+then
+	GROOVY_EXEC=$GROOVY_HOME/groovy
+fi
+
+export CLASSPATH=@extra.ant.libs@:@BuildCommonHome@/lib/svnkit.jar:./src:$CLASSPATH
+
+echo
+echo "groovy executable is $GROOVY_EXEC"
+echo
+echo "Classpath"
+echo $CLASSPATH
+echo 
+pwd
+
+
+echo nice $GROOVY_EXEC --debug -DBuildCommonHome=@BuildCommonHome@ -DBuildCommonData=@BuildCommonData@ -Dbuilder.name=$BUILDER_NAME $cmdline
+nice $GROOVY_EXEC --debug -DBuildCommonHome=@BuildCommonHome@  -DBuildCommonData=@BuildCommonData@ -Dbuilder.name=$BUILDER_NAME $cmdline
+ret=$?
+echo "groovy exited with $ret"
+echo "this script was built from Hudson build number @HudsonBuildNum@ with build ID of @HudsonBuildId@"
+exit $ret

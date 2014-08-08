@@ -1,0 +1,14 @@
+*
+*********************************************************************
+	The "product.id" property is undefined.
+	This property defines the identifier of the main feature for this product.
+	For example
+	
+		product.id = com.windowtester.server.core
+		
+	It is recommended that you define this property in:
+	
+		${product.build.project}/build-settings/product.properties
+
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************

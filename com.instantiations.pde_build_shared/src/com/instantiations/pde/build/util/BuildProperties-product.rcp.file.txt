@@ -1,0 +1,22 @@
+*
+*********************************************************************
+	The "product.rcp.file" property is undefined.
+	This property defines the name of the RCP product file without the .product extension.
+	(e.g. if the RCP product file is Foo.product and it is loacated in plugin com.foo.plugin 
+	then the value of this property will be 
+		plugins/com.foo.plugin/Foo)
+	This property should NOT contain the .product extension.
+	For example if the product file is Foo.product and it is loacated in plugin com.foo.plugin then 
+		product.rcp.file = plugins/com.foo.plugin/Foo
+	
+	Second Example if the product file (Foo.product) and it is in sub directory products in the 
+	feature com.foo.feature_feature then the value would be
+	
+		product.rcp.file = features/com.foo.feature_feature/products/Foo
+		
+	It is recommended that you define this property in:
+	
+		${product.build.project}/build-settings/product.properties
+
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************

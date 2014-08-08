@@ -1,0 +1,20 @@
+*
+*********************************************************************
+	The "build.root" property is undefined.
+	This property must define a location under which all build files will be located.
+	Your workspace should *not* reside in the build.root directory hierarchy.
+	For example 
+	
+		build.root = D:/build
+	
+	It is recommended that you define this property in:
+	
+		com.instantiations.pde_build_data_instantiations/build-settings-global/${user.name}.properties
+	
+	or if you passed -Dbuilder.name=<some-name> in on the command line,
+	then define this property in:
+	
+		com.instantiations.pde_build_data_instantiations/build-settings-global/${builder.name}.properties
+	
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************

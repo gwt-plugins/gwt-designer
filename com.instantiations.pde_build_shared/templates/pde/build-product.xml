@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="instantiations">
+	<record loglevel="verbose" name="build.log" />
+	
+	<!--
+		This file is generated from the file
+		
+			com.instantiations.pde_build_shared/pde-templates/build-product.xml
+		
+		in this template, the PDEBuild groovy method replaces the following variables:
+		
+			$pdePlugin = the PDE Plugin directory
+		
+		Also, the <record...> statement *must* be on line 3 because 
+		the com.instantiations.pde_build_debug EarlyStartup method sets the breakpoint on line 3.
+		See "Debugging the PDE Build Process" in the docs and set
+		
+			debug.pde = true
+			
+		in your <username>.properties file
+	-->
+	
+	<import file="$pdePlugin/scripts/productBuild/productBuild.xml"/>
+
+	<target name="instantiations">
+		<echoproperties/>
+
+		<!--
+		====== BEGIN pre build tasks ====== 
+		$preBuildTasks
+		====== END pre build tasks ======
+		-->
+		
+		<antcall target="main"/>
+
+		<!--
+		====== BEGIN post build tasks ====== 
+		$postBuildTasks
+		====== END post build tasks ======
+		-->
+		
+	</target>
+
+</project>

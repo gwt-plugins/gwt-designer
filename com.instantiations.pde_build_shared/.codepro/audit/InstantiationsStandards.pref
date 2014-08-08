@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings id="workspace" codepro_version="5.0.0" platform_id="org.eclipse.ui">
+	<!--
+		Exported using CodePro version 5.0.0 compiled on 2007.02.24 for Eclipse 3.2
+		Fri Mar 02 20:19:41 EST 2007
+	-->
+	<plugin id="com.instantiations.assist.eclipse.analysis" version="5.0.0">
+		<category id="codepro.code.audit">
+			<xmlfile id="audit.xml">
+				<auditRuleSets>
+					<auditRuleSet name="Instantiations Standards" locked="false" active="true" ignoreDisableDirectives="false" autoResolutionEnabled="false" maximumViolationCount="20000" maximumViolationCountByType="2000" maximumViolationCountInResource="200" maximumViolationCountByTypeInResource="200" resourceFilterEnabled="false" default="true">
+						<resourceFilter>
+							<modificationTime earliestTime="-68400000"/>
+						</resourceFilter>
+					
+						#Fri Mar 02 20:19:41 EST 2007
+						com.instantiations.assist.eclipse.audit.undefinedProperty.enabled=true
+						com.instantiations.assist.eclipse.audit.efficientExpression.enabled=true
+						com.instantiations.assist.eclipse.audit.unnecessaryInstanceof.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyFinallyClause.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyTryStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.avoidOctalLiterals.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyDoStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyInitializer.enabled=true
+						com.instantiations.assist.eclipse.audit.integerDivisionInFloatingPointExpression.enabled=true
+						com.instantiations.assist.eclipse.audit.extraSemicolon.enabled=true
+						com.instantiations.assist.eclipse.audit.explicitInvocationOfFinalize.enabled=true
+						com.instantiations.assist.eclipse.analysis.audit.rule.codingStyle.returnBooleanExpressionValue.enabled=true
+						com.instantiations.assist.eclipse.audit.useOfInstanceOfWithThis.enabled=true
+						com.instantiations.assist.eclipse.audit.appendString.enabled=true
+						com.instantiations.assist.eclipse.audit.unnecessaryCast.enabled=true
+						com.instantiations.assist.eclipse.audit.disallowNativeMethods.enabled=true
+						com.instantiations.assist.eclipse.audit.emptySynchronizedStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.redundantAssignment.enabled=true
+						com.instantiations.assist.eclipse.analysis.audit.rule.dereferencingNullPointer.enabled=true
+						com.instantiations.assist.eclipse.audit.unusedLabel.enabled=true
+						com.instantiations.assist.eclipse.audit.useArraycopyRatherThanALoop.enabled=true
+						com.instantiations.assist.eclipse.audit.useCharAtRatherThanStartsWith.enabled=true
+						com.instantiations.assist.eclipse.audit.uiSpecific.applyDialogFont.enabled=true
+						com.instantiations.assist.eclipse.audit.throwInFinally.enabled=true
+						com.instantiations.assist.eclipse.audit.comparisonOfShortAndChar.enabled=true
+						com.instantiations.assist.eclipse.audit.unnecessaryOverride.enabled=true
+						com.instantiations.assist.eclipse.audit.stringCreatedFromLiteral.enabled=true
+						com.instantiations.assist.eclipse.audit.overridingEqualsAndHashCode.enabled=true
+						com.instantiations.assist.eclipse.audit.duplicateImport.enabled=true
+						com.instantiations.assist.eclipse.audit.duplicatePropertyName.enabled=true
+						com.instantiations.assist.eclipse.audit.accidentalConcatenation.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyCatchClause.enabled=true
+						com.instantiations.assist.eclipse.audit.unnecessaryImport.enabled=true
+						com.instantiations.assist.eclipse.audit.disallowAWTPeerUsage.enabled=true
+						com.instantiations.assist.eclipse.analysis.misspelledMethodName.enabled=false
+						com.instantiations.assist.eclipse.audit.emptyWhileStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.returnInFinally.enabled=true
+						com.instantiations.assist.eclipse.audit.nonCaseLabelInSwitch.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyForStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.equalityTestWithBooleanLiteral.enabled=true
+						com.instantiations.assist.eclipse.audit.unnecessaryReturn.enabled=true
+						com.instantiations.assist.eclipse.audit.importOfImplicitPackage.enabled=true
+						com.instantiations.assist.eclipse.audit.emptySwitchStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.temporaryObjectCreation.enabled=true
+						com.instantiations.assist.eclipse.audit.commandExecution.enabled=true
+						com.instantiations.assist.eclipse.audit.emptyStatement.enabled=true
+						com.instantiations.assist.eclipse.audit.environmentVariableAccess.enabled=true
+					</auditRuleSet>
+				</auditRuleSets>
+			</xmlfile>
+		</category>
+	</plugin>
+</settings>

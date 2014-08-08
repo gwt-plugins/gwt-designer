@@ -1,0 +1,17 @@
+*
+*********************************************************************
+	The "product.version" property is undefined.
+	This property defines the version number of this product
+	that is used to replace "0.0.0" and "0.0.0.qualifier" in all
+	feature and plugin manifests. This property should contain
+	three digits and NOT include a qualifier.
+	For example
+	
+		product.version = 1.2.3
+		
+	It is recommended that you define this property in:
+	
+		${product.build.project}/build-settings/product.properties
+
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Dec 22, 2008 1:01:33 PM                                                        
+
+     build-pde-shared-build    
+     Build the groovy and java code for the pde build system
+                   
+     markr                                                                
+     ====================================================================== -->
+<project name="build-pde-shared-build" default="build-all">
+    <description>
+            Build the groovy and java code for the pde build system
+    		This is typically run as the BuildCommon hudson build job
+    </description>
+	<property environment="env" />
+	<fail message="Environment Variable GROOVY_LIB is not set">
+		<condition>
+			<not>
+				<isset property="env.GROOVY_LIB" />
+			</not>
+		</condition>
+	</fail>
+	
+	<property name="build.groovy.libs" location="${env.GROOVY_LIB}" />
+	<echo message="searching for groovy jars in ${build.groovy.libs}" /> 
+	<path id="groovy.jar.classpath.path">
+		<fileset dir="${build.groovy.libs}" includes="groovy-all-*.jar" />
+	</path>
+	<property name="groovy.classpath.tmp" refid="groovy.jar.classpath.path" />
+	<echo message="Using classpath ${groovy.classpath.tmp}" /> 
+	<taskdef name="groovyc"
+	         classname="org.codehaus.groovy.ant.Groovyc"
+	         classpathref="groovy.jar.classpath.path"/>
+	<!-- ================================= 
+          target: build-all              
+         ================================= -->
+    <target name="build-all" depends="init, setup-dirs, compile-java, compile-groovy, jar-code, gererate-classpath-script, write-touch-file" 
+    		description="Build the groovy and java code for the pde build system">
+    </target>
+
+	<target name="write-touch-file" depends="test-touch-file, write-file-yes, write-file-no" />
+	
+	<target name="test-touch-file">
+    	<property name="tag.file.loc" location="${build.cache}/${product.name}-built" />
+		<available file="${tag.file.loc}" type="file" property="touch.file.exists" />
+		<!-- ensure the old touch file is deleted -->
+		<delete file="${build.temp}/../common-build-populated"/>
+	</target>
+	
+	<target name="write-file-yes" unless="touch.file.exists">
+    	<touch file="${tag.file.loc}" />
+    	<echo message="touched file ${tag.file.loc}" />
+	</target>
+
+	<target name="write-file-no" if="touch.file.exists">
+    	<echo message="file ${tag.file.loc} is up to date.  Not modified" />
+	</target>
+
+	<target name="build-clean" depends="init, clean, build-all" 
+    		description="Build the groovy and java code for the pde build system, cleaning the temp directories first">
+    </target>
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="init">
+    	<echoproperties>
+    		<propertyset>
+    			<propertyref prefix="env."/>
+    		</propertyset>
+    	</echoproperties>
+		<condition property="builder.name" value="${env.BUILDER_NAME}">
+			<isset property="env.BUILDER_NAME"/>
+		</condition>
+    	<property name="builder.name" value="${user.name}"/>
+    	<echoProperty property="builder.name"/>
+    	
+    	<tstamp />
+    	<tstamp>
+    		<format pattern="yyyyMMddhhmm" property="build.num" />
+    	</tstamp>
+    	<echo message="build.data.area = ${build.data.area}" />
+    	<fail message="Ant property build.data.area needs to be set to the directory containing the build-settings-global directory">
+    		<condition>
+    			<not>
+    				<isset property="build.data.area" />
+    			</not>
+    		</condition>
+    	</fail>
+    	<fail message="Ant property build.data.area does not point to a directory containing the build-settings-global directory">
+    		<condition>
+    			<not>
+    				<available file="${build.data.area}/build-settings-global" type="dir" />
+    			</not>
+    		</condition>
+    	</fail>
+    	<property name="product.name" value="BuildCommon" />
+    	<property name="product.version" value="1.0.2" />
+    	<property name="build.user.property.file" location="build-settings/${builder.name}.properties" />
+    	<property name="build.user.global.property.file" location="${build.data.area}/build-settings-global/${builder.name}.properties" />
+    	<property name="build.default-user.property.file" location="${build.data.area}/build-settings-global/default-user.properties" />
+    	<property file="${build.user.property.file}" />
+    	<property file="${build.user.global.property.file}" />
+    	<property file="${build.default-user.property.file}" />
+		<property name="build.javac.debug" value="yes" />
+		<property name="build.javac.debuglevel" value="lines,source" />
+    	<property name="product.out" location="${build.cache}/${product.name}"/>
+    	<property name="product.data" location="${build.cache}/${product.name}-data"/>
+    	<property name="product.temp" location="${build.temp}/${product.name}"/>
+    	
+    	<echo message="*************************************" />
+    	<echo message="*  Build Values                     *" />
+    	<echo message="*************************************" />
+    	<echoProperty property="product.name" />
+    	<echoProperty property="product.version" />
+    	<echoProperty property="build.num" />
+		<echoProperty property="build.user.property.file" />
+		<echoProperty property="build.default-user.property.file" />
+		<echoProperty property="build.root" />
+		<echoProperty property="build.out" />
+		<echoProperty property="product.out" />
+		<echoProperty property="product.data" />
+		<echoProperty property="build.temp" />
+		<echoProperty property="product.temp" />
+		<echoProperty property="build.artifacts" />
+		<echoProperty property="build.downloads" />
+		<echoProperty property="build.cache" />
+    	<echoProperty property="build.javac.debug" />
+    	<echoProperty property="build.javac.debuglevel" />
+    	<echo message="*************************************" />
+    	<echoProperty property="java.home" />
+       	<echoProperty property="ant.home" />
+    	
+    	<!-- Delete code from its new home before building -->
+    	<delete includeemptydirs="true" failonerror="false">
+    		<fileset dir="${build.cache}" >
+    			<include name="${product.name}/**"/>
+    		</fileset>
+    	</delete>
+    	
+    	<fail message="build.root is not set">
+    		<condition>
+    			<not>
+    				<isset property="build.root" />
+    			</not>
+    		</condition>
+    	</fail>
+    	<!-- if this is a local build then default the Hudson build values to unknown -->
+    	<property name="env.BUILD_NUMBER" value="LocalBuild" />
+    	<property name="env.BUILD_ID" value="unknown" />
+    </target>
+	
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: clean
+         - - - - - - - - - - - - - - - - - -->
+    <target name="clean">
+    	<delete includeemptydirs="true" failonerror="false">
+    		<fileset dir="${build.temp}" />
+    	</delete>
+    </target>
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: setup-dirs
+         - - - - - - - - - - - - - - - - - -->
+    <target name="setup-dirs">
+    	<mkdir dir="${product.out}" />
+    	<mkdir dir="${product.data}" />
+		<mkdir dir="${product.temp}" />
+    	<mkdir dir="${build.artifacts}" />
+    </target>
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: compile-java
+         - - - - - - - - - - - - - - - - - -->
+    <target name="compile-java">
+    	<property name="build.java.out" value="${product.temp}/java-bin" />
+    	<mkdir dir="${build.java.out}" />
+    	<path id="java.compile.path">
+    		<fileset dir="${java.home}/lib">
+    			<include name="rt.jar" />
+    		</fileset>
+    		<fileset dir="${ant.library.dir}">
+    			<include name="ant.jar" />
+    			<include name="ant-launcher.jar" />
+    		</fileset>
+    	</path>
+    	<path id="extra.lib.path">
+    		<fileset dir="lib">
+    			<include name="svnkit.jar" />
+    		</fileset>
+    	</path>
+    	<pathconvert property="java.compile.path.tmp" refid="java.compile.path" />
+    	<echo message="using classpath: ${java.compile.path.tmp}" />
+    	<javac destdir="${build.java.out}"
+    			includeantruntime="false"
+    			debug="${build.javac.debug}"
+    			debuglevel="${build.javac.debuglevel}"
+    			target="1.6"
+    			source="1.6">
+    		<classpath>	
+    			<path refid="java.compile.path" />
+    			<path refid="extra.lib.path" />
+    		</classpath>
+    		<src path="src" />
+    		<include name="**/*.java" />
+    		<include name="**/*.properties" />
+    	</javac>
+    </target>	
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: compile-groovy
+         - - - - - - - - - - - - - - - - - -->
+    <target name="compile-groovy">
+		<groovyc destdir="${build.java.out}">
+    		<classpath>
+    	    	<pathelement path="${build.java.out}"/>
+    			<path refid="extra.lib.path" />
+			</classpath>
+    		<src path="src" />
+    		<include name="**/*.groovy" />
+    		<include name="**/*.properties" />
+    	  	<javac source="1.6" 
+    	  			target="1.6" 
+    	  			debug="${build.javac.debug}"
+    				debuglevel="${build.javac.debuglevel}" />
+    	</groovyc>
+
+	</target>	
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: jar-code
+         - - - - - - - - - - - - - - - - - -->
+    <target name="jar-code">
+    	<property name="jar.file" value="${product.name}_${product.version}.jar" />
+    	<property name="jar.file.wo.version" value="${product.name}.jar" />
+    	<property name="src.jar.file" value="${product.name}-src_${product.version}.jar" />
+    	<property name="src.jar.file.wo.version" value="${product.name}-src.jar" />
+    	
+    	<jar destfile="${product.out}/${jar.file.wo.version}" index="true">
+    		<fileset dir="${build.java.out}" />
+    		<fileset dir="src" includes="**/*.txt" />
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${builder.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Vendor" value="Instantiations, Inc"/>
+				<attribute name="Implementation-Title" value="${product.name}"/>
+				<attribute name="Implementation-Version" value="${product.version} - ${env.BUILD_ID} - ${env.BUILD_NUMBER}"/>
+			</manifest>
+    	</jar>
+    	<jar destfile="${product.out}/${src.jar.file.wo.version}">
+    		<fileset dir="src" />
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${builder.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Vendor" value="Instantiations, Inc"/>
+				<attribute name="Implementation-Title" value="${product.name} source jar"/>
+				<attribute name="Implementation-Version" value="${product.version} - ${env.BUILD_ID} - ${env.BUILD_NUMBER}"/>
+			</manifest>
+    	</jar>
+    	<!-- Copy additional files used during PDE Build -->
+    	<copy todir="${product.out}">
+    		<fileset dir=".">
+    			<include name="build-settings-global/**"/>
+    			<include name="analysis/**"/>
+    			<include name="license/**"/>
+    			<include name="templates/**"/>
+    		</fileset>
+    	</copy>
+    	<copy todir="${product.data}">
+    		<fileset dir="${build.data.area}">
+    			<include name="build-settings-global/**"/>
+    			<include name="analysis/**"/>
+    			<include name="license/**"/>
+    		</fileset>
+    	</copy>
+    	<replace dir="${product.data}" summary="true">
+   			<include name="**/default-user.properties" />
+   			<replacefilter token="@HUDSON_BUILD@" value="${env.BUILD_ID}"/>
+   			<replacefilter token="@HUDSON_BUILDNUM@" value="${env.BUILD_NUMBER}"/>
+    	</replace>
+    	<!-- Copy files used when constructing an installer -->
+    	<copy todir="${product.out}/installer">
+    		<fileset dir="../com.instantiations.pde_installer_template">
+    			<exclude name="**/.svn"/>
+    		</fileset>
+    	</copy>
+    	<!-- Copy files used when constructing an update site -->
+    	<copy todir="${product.out}/update-site">
+    		<fileset dir="../com.instantiations.pde_site_template">
+    			<exclude name="**/.svn"/>
+    		</fileset>
+    	</copy>
+    	<!-- Copy jars needed by other builds (this may be removed at a later date) -->
+    	<copy todir="${product.out}/lib">
+    		<fileset dir="lib">
+    			<include name="*.jar"/>
+    			<exclude name="ant*.jar" />
+    		</fileset>
+    	</copy>
+	</target>	
+	
+	<target name="gererate-classpath-script">
+		<property name="workspace.bin" location="../bin" />
+		<mkdir dir="${workspace.bin}"/>
+		<echo message="creating workspace bin directory ${workspace.bin}" />
+		<property name="script.name" value="runGroovy.bash" />
+    	<path  id="extra.ant.libs.fs">
+	        <fileset dir="${ant.library.dir}">
+	        	<include name="*.jar" />
+	        	<exclude name="ant-1.7.0.jar"/>
+	        	<exclude name="ant-junit-1.7.0.jar"/>
+	        	<exclude name="ant-launcher-1.7.0.jar"/>
+	        </fileset>
+    		<fileset dir="${product.out}">
+    			<include name="${jar.file.wo.version}" />
+    		</fileset>
+    	</path>
+        <pathconvert property="extra.ant.libs" refid="extra.ant.libs.fs" />
+		<copy file="templates/runGroovy" tofile="${workspace.bin}/${script.name}"
+				overwrite="true">
+			<filterset>
+			    <filter token="extra.ant.libs" value="${extra.ant.libs}" />
+			    <filter token="BuildCommonHome" value="${product.out}" />
+			    <filter token="BuildCommonData" value="${product.data}" />
+				<filter token="HudsonBuildNum" value="${env.BUILD_NUMBER}" />
+				<filter token="HudsonBuildId" value="${env.BUILD_ID}" />
+			</filterset>
+		</copy>
+		<chmod perm="a+x" file="${workspace.bin}/${script.name}" />
+	</target>
+	
+	<!--
+	********************************************************************************
+		Macro: echoProperty
+		
+		echo a property to the screen
+		
+		required attributes:
+		property - the name of the property to echo
+		
+		optional attributes:
+		indent - the the value to but infornt of the property display (default = "")
+		
+		ant properties required
+		none
+		
+		ant properties set
+		none
+		
+	********************************************************************************
+	-->
+	<macrodef name="echoProperty">
+		<attribute name="property"/>
+		<attribute name="indent" default=""/>
+		<sequential>
+			<echo>@{indent}@{property} = ${@{property}}</echo>
+		</sequential>
+	</macrodef>
+
+
+</project>

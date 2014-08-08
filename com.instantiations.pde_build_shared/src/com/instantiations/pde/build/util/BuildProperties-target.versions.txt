@@ -1,0 +1,16 @@
+*
+*********************************************************************
+	The "target.versions" (plural) property is undefined.
+	This property defines a comma separated list of versions of Eclipse 
+	against which the product is built (but not necessarily developed).
+	This may include OEM versions as well in the format <oemName>/<version>.
+	For example 
+	
+		target.versions = 3.4, 3.3, 3.2, OEM-NAME/3.3, OEM-NAME/3.2
+
+	It is recommended that you define this property in:
+	
+		${product.build.project}/build-settings/product.properties
+
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************

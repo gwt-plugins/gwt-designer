@@ -1,0 +1,23 @@
+*
+*********************************************************************
+	The "jobs.workspace" property is undefined.
+	This property defines the relative path from the job directory
+	to the workspace directory. For example
+		
+		On the build server
+			jobs.workspace = workspace
+			
+		On your local machine
+			jobs.workspace = .
+		
+	It is recommended that you define this property in:
+	
+		com.instantiations.pde_build_data_instantiations/build-settings/${user.name}.properties
+	
+	or if you passed -Dbuilder.name=<some-name> in on the command line,
+	then define this property in:
+	
+		com.instantiations.pde_build_shared/build-settings-global/${builder.name}.properties
+
+	A list of property files that were read should appear earlier in the log.
+*********************************************************************
