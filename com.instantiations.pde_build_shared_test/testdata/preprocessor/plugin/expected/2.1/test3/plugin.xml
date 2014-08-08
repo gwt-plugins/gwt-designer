@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="com.instantiations.tools"
+   name="%pluginName"
+   version="2.6.7.abc"
+   provider-name="%providerName"
+   class="com.instantiations.tools.ToolsPlugin">
+
+   <runtime>
+      <library name="tools.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="com.instantiations.eclipse.jobs"/>
+      <import plugin="org.apache.ant"/>
+      <import plugin="com.instantiations.common.core"/>
+      <import plugin="org.apache.xerces"/>
+   </requires>
+
+			<extension point="org.eclipse.ant.core.antTasks">
+		<antTask
+			name="eclipsetools.getclasspath"
+			class="com.instantiations.tools.ant.GetClasspathTask"
+			library="toolsAnt.jar"/>
+		<antTask
+			name="eclipsetools.getClasspath"
+			class="com.instantiations.tools.ant.GetClasspathTask"
+			library="toolsAnt.jar"/>
+		<antTask
+			name="eclipsetools.importProject"
+			class="com.instantiations.tools.ant.ImportExistingProjectTask"
+			library="toolsAnt.jar"/>
+		<antTask
+			name="eclipsetools.setClasspathVariable"
+			class="com.instantiations.tools.ant.SetClasspathVariableTask"
+			library="toolsAnt.jar"/>
+		<antTask
+			name="eclipsetools.preprocessor"
+			class="com.instantiations.tools.ant.PreProcessorAntTask"
+			library="toolsAnt.jar"/>
+		<antTask
+			name="eclipsetools.saveWorkspace"
+			class="com.instantiations.tools.ant.SaveWorkSpaceTask"
+			library="toolsAnt.jar"/>
+		<antTask
+			name="eclipsetools.generateBuildJars"
+			class="com.instantiations.tools.ant.GenerateBuildJarsTask"
+			library="toolsAnt.jar"/>
+  <antTask
+        class="com.instantiations.tools.ant.GenerateBuildElementsTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.generateBuildElements"/>
+  <antTask
+        class="com.instantiations.tools.ant.CopyDirectories"
+        library="toolsAnt.jar"
+        name="eclipsetools.copyDirectories"/>
+  <antTask
+        class="com.instantiations.tools.ant.GetClasspathVariable"
+        library="toolsAnt.jar"
+        name="eclipsetools.getClasspathVariable"/>
+  <antTask
+        class="com.instantiations.tools.ant.GenerateFeatureXMLTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.generateFeatureXML"/>
+  <antTask
+        class="com.instantiations.tools.ant.GenerateBuildConfigurationScriptTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.generateBuildConfiguration"/>
+  <antTask
+        class="com.instantiations.eclipse.doc.ant.BuildEclipseDocumentationTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.generateDocumentation"/>
+  <antTask
+        class="com.instantiations.tools.ant.DeleteOldestTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.deleteOldest"/>
+  <antTask
+        class="com.instantiations.tools.ant.EchoListTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.echoList"/>
+  <antTask
+        class="com.instantiations.tools.ant.VariableMath"
+        library="toolsAnt.jar"
+        name="eclipsetools.math"/>
+  <antTask
+        class="com.instantiations.tools.ant.VariableTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.variable"/>
+  <antTask
+        class="com.instantiations.tools.ant.DeleteOldestTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.deleteOldest"/>
+  <antTask
+        class="com.instantiations.tools.ant.ScanJarAntTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.scanJar"/>
+  <antTask
+        class="com.instantiations.tools.ant.RemoveNonTaggedDirectoryTask"
+        library="toolsAnt.jar"
+        name="eclipsetools.removeNontaggedDirectories"/>
+  <antTask
+        class="com.instantiations.tools.ant.ClassPathModifier"
+        library="toolsAnt.jar"
+        name="eclipsetools.modifyClasspath">
+  </antTask>
+	</extension>
+	
+	<extension point="org.eclipse.ant.core.extraClasspathEntries">
+		<extraClasspathEntry library="toolsAnt.jar"/>
+	</extension>
+
+	<extension point="org.eclipse.ant.core.antTypes">
+    <antType
+          class="com.instantiations.tools.ant.ClassPathOperationAdd"
+          library="toolsAnt.jar"
+          name="add">
+    </antType>
+    <antType
+          class="com.instantiations.tools.ant.ClassPathOperationRemove"
+          library="toolsAnt.jar"
+          name="remove">
+    </antType>
+		
+	</extension>
+
+</plugin>

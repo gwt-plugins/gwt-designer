@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.windowtester.server.core"
+      label="WindowTester Server Core"
+      version="0.0.0.qualifier"
+      provider-name="Instantiations"
+      plugin="com.windowtester.server.core">
+
+   <description url="http://www.example.com/description">
+      Built for Eclipse ${eclipse_version} and ${eclipse.version}
+      but not $ { eclipse@version }
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      Copyright ${build_year}
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.pde.p2" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.pde.p2" version="5.0.0" match="greaterOrEqual"/>
+      <import feature="com.instantiations.eclipse.shared" version="5.5.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.windowtester.server.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0.qualifier"
+         unpack="false"/>
+
+</feature>

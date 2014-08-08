@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description>
+      Samples and tools for the Eclipse plug-ins book authored by Eric Clayberg and Dan Rubel
+   </description>
+   <feature url="features/com.qualityeclipse.book_x.y.z.aaa.jar" id="com.qualityeclipse.book" version="x.y.z.aaa">
+      <category name="book.samples"/>
+   </feature>
+   <category-def name="book.samples" label="Book Samples"/>
+</site>

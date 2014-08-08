@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: WindowTester Server Core
+Bundle-SymbolicName: com.windowtester.server.core; singleton:=true
+Bundle-Version: x.y.z.aaa
+Bundle-Activator: com.windowtester.server.core.Activator
+Bundle-Vendor: Instantiations
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.text,
+ org.eclipse.ui
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Eclipse-LazyStart: true

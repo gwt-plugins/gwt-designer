@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %fragmentName
+Bundle-SymbolicName: com.instantiations.assist.eclipse.fragment.ui.ide;singleton:=true
+Bundle-Version: 2.6.7.abc
+Bundle-Vendor: %providerName
+Fragment-Host: org.eclipse.ui.ide;bundle-version="3.0.0"
+Bundle-Localization: plugin
+Export-Package: org.eclipse.ui.actions,
+ org.eclipse.ui.internal,
+ org.eclipse.ui.views.markers,
+ org.eclipse.ui.views.markers.internal,
+ org.eclipse.ui.views.tasklist,
+ org.eclipse.ui.wizards.datatransfer
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

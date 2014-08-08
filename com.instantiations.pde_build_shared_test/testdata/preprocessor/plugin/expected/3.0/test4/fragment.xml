@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<fragment
+   id="com.instantiations.assist.eclipse.fragment.ui.ide"
+   name="%fragmentName"
+   version="2.6.7.abc"
+   provider-name="%providerName"
+   plugin-id="org.eclipse.ui.ide"
+   plugin-version="3.0.0"
+   match="greaterOrEqual">
+
+   <runtime>
+      <library name="bin.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+</fragment>

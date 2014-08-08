@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="test2"
+      label="%featureName"
+      version="1.0.0"
+      provider-name="%providerName"
+      plugin="test2">
+
+   <description url="http://www.example.com/description">
+      This is the &quot;test2&quot; feature.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="${product_title} Update Site" url="http://download.instantiations.com/out/${product_name}/continuous/latest/update/${eclipse_version}/"/>
+   </url>
+
+   <requires>
+      <import feature="com.instantiations.eclipse.shared" version="5.4.0"/>
+      <import feature="test7" version="1.0.0"/>
+      <import plugin="com.instantiations.assist.eclipse.analysis.ant"/>
+   </requires>
+
+   <plugin
+         id="test2"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

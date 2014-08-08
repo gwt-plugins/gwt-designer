@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry sourcepath="/RCP_INSTALLER_LIB/swt-installer/src/swt-installer/src.zip" kind="var" path="RCP_INSTALLER_LIB/swt-installer/swt-installer.jar"/>
+	<classpathentry sourcepath="/RCP_INSTALLER_LIB/swt-installer/src/org.eclipse.osgi_3.1.2/src.zip" kind="var" path="RCP_INSTALLER_LIB/swt-installer/org.eclipse.osgi_3.1.2.jar"/>
+	<classpathentry sourcepath="/RCP_INSTALLER_LIB/swt-installer/src/org.eclipse.jface_3.1.1/src.zip" kind="var" path="RCP_INSTALLER_LIB/swt-installer/org.eclipse.jface_3.1.1.jar"/>
+	<classpathentry sourcepath="/RCP_INSTALLER_LIB/swt-installer/src/org.eclipse.core.runtime_3.1.2/src.zip" kind="var" path="RCP_INSTALLER_LIB/swt-installer/org.eclipse.core.runtime_3.1.2.jar"/>
+	<classpathentry kind="var" path="RCP_INSTALLER_LIB/win32-x86/swt.jar"/>
+	<classpathentry kind="var" path="RCP_INSTALLER_LIB/win32/registry.jar"/>
+	<classpathentry sourcepath="/RCP_INSTALLER_LIB/win32/src/win32/src.zip" kind="var" path="RCP_INSTALLER_LIB/win32/win32.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

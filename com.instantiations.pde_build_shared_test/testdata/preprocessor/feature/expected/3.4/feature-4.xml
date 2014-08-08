@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.windowtester.server.core"
+      label="WindowTester Server Core"
+      version="x.y.z.aaa"
+      provider-name="Instantiations"
+      plugin="com.windowtester.server.core">
+
+   <description url="http://www.example.com/description">
+      Built for Eclipse 3.4 and 3.4
+      but not $ { eclipse@version }
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      Copyright 2009
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="com.hostbridge.eclipse.hbx.base"
+         version="x.y.z.aaa"/>
+
+   <includes
+         id="com.hostbridge.eclipse.hbx.ui.aptana"
+         version="x.y.z.aaa"/>
+
+   <includes
+         id="com.hostbridge.eclipse.hbx.ui.wtp"
+         version="x.y.z.aaa"/>
+
+   <plugin
+         id="com.windowtester.server.core"
+         download-size="0"
+         install-size="0"
+         version="x.y.z.aaa"
+         unpack="false"/>
+
+</feature>
